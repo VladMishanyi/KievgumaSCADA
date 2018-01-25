@@ -106,12 +106,31 @@ public class RootConfig {
 //        return master;
 //    }
 
-    @Bean
+    @Bean(name = "modbusMasterSerial")
     public ModbusMaster modbusMasterSerial(){
         ModbusFactory factory = new ModbusFactory();
 
         SerialParameters params = new SerialParameters();
         params.setCommPortId("COM3");
+        //for windows use COM0
+        //for ubuntu use /dev/ttyUSB0
+        params.setBaudRate(115200);
+        params.setDataBits(8);
+        params.setStopBits(1);
+        params.setParity(0);
+
+        ModbusMaster master = factory.createRtuMaster(params);
+        master.setTimeout(1000);//1000ms timeout
+        master.setRetries(3);//3 repeats
+        return master;
+    }
+
+    @Bean(name = "modbusMasterSerialSecond")
+    public ModbusMaster modbusMasterSerialSecond(){
+        ModbusFactory factory = new ModbusFactory();
+
+        SerialParameters params = new SerialParameters();
+        params.setCommPortId("COM4");
         //for windows use COM0
         //for ubuntu use /dev/ttyUSB0
         params.setBaudRate(115200);

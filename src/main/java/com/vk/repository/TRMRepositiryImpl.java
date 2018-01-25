@@ -40,6 +40,9 @@ public class TRMRepositiryImpl implements TRMRepository {
     @Autowired
     private ModbusMaster modbusMasterSerial;
 
+    @Autowired
+    private ModbusMaster modbusMasterSerialSecond;
+
     private final Logger LOGGER = Logger.getLogger(TRMRepositiryImpl.class);
 
     @Override
@@ -303,6 +306,70 @@ public class TRMRepositiryImpl implements TRMRepository {
 
         return (List<FirstCehBuzuluk>) query.getResultList();
     }
+
+    @Override
+    public SevenCehAutoclav getSevenCehAutoclavSPK(int slaveAdrr){
+        SevenCehAutoclav sevenCehAutoclav = new SevenCehAutoclav();
+        try {
+            modbusMasterSerialSecond.init();
+//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+        }
+        catch (ModbusInitException e){
+            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+        }
+        try {
+            BatchRead batchRead = new BatchRead();
+            batchRead.addLocator(2, slaveAdrr, RegisterRange.INPUT_REGISTER, 0, DataType.FOUR_BYTE_FLOAT);
+            batchRead.addLocator(3, slaveAdrr, RegisterRange.INPUT_REGISTER, 2, DataType.FOUR_BYTE_FLOAT);
+            batchRead.addLocator(4, slaveAdrr, RegisterRange.INPUT_REGISTER, 4, DataType.FOUR_BYTE_FLOAT);
+            BatchResults batchResults = modbusMasterSerialSecond.send(batchRead);
+            float channel1 = (float) batchResults.getValue(2);
+            float channel2 = (float) batchResults.getValue(3);
+            float channel3 = (float) batchResults.getValue(4);
+            channel1 = Math.round(channel1*100);
+            channel2 = Math.round(channel2*100);
+            channel3 = Math.round(channel3*100);
+            sevenCehAutoclav.setDate(new Date());
+            sevenCehAutoclav.setChannel1(channel1/100);
+            sevenCehAutoclav.setChannel2(channel2/100);
+            sevenCehAutoclav.setChannel3(channel3/100);
+        }catch (Exception e){
+            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+            sevenCehAutoclav.setDate(new Date());
+            sevenCehAutoclav.setChannel1(0);
+            sevenCehAutoclav.setChannel2(0);
+            sevenCehAutoclav.setChannel3(0);
+            return sevenCehAutoclav;
+        }
+        finally {
+            modbusMasterSerialSecond.destroy();
+            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+        }
+        return sevenCehAutoclav;
+    }
+
+    @Override
+    public void addSevenCehAutoclavSPK(SevenCehAutoclav sevenCehAutoclav) {
+        entityManager.merge(sevenCehAutoclav);
+    }
+
+    @Override
+    public List<SevenCehAutoclav> rangeTimestampSevenCehAutoclav(Date startTimestamp, Date endTimestamp) {
+
+        Query query = entityManager.createQuery("SELECT t FROM SevenCehAutoclav t WHERE t.date >= :start AND t.date <= :end", SevenCehAutoclav.class);
+        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+
+        return (List<SevenCehAutoclav>) query.getResultList();
+    }
+
+
+
+
+
+
+
+
 
     @Override
     public BigInteger getSizeTableFirstChehBuzulukTRM200(){

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: KIP
-  Date: 14.12.2017
-  Time: 16:35
+  User: User
+  Date: 2018-01-24
+  Time: 14:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8"/>
     <%--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
-    <title>FirstCehKameraDozrevanya</title>
+    <title>SevenCehAutoclav</title>
     <link rel="stylesheet" type="text/css" href="resources/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7/css/bootstrap.css"/>
     <script rel="script" type="text/javascript" src="resources/js/jquery-3.2.1.js"></script>
@@ -43,16 +43,16 @@
         </div>
         <table class="table">
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на загрузке</span></th>
-                <th><span id="firstCehKameraDozrevanyaTempProdukta" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение давления</span></th>
+                <th><span id="sevenCehAutoclavDavlenie" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> бар.</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры в центре</span></th>
-                <th><span id="firstCehKameraDozrevanyaTempSuhogo" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры в автоклаве</span></th>
+                <th><span id="sevenCehAutoclavTempAuto" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на выгрузке</span></th>
-                <th><span id="firstCehKameraDozrevanyaTempVlagnogo" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры в продукте</span></th>
+                <th><span id="sevenCehAutoclavTempProdukta" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
         </table>
     </div>
@@ -62,13 +62,13 @@
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="startMark">Начало</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2017-12-19T07:30">
+                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2018-01-24T07:30">
                 </div>
             </div>
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="endMark">Конец</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2017-12-19T18:00">
+                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2018-01-25T18:00">
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
@@ -97,7 +97,7 @@
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: "/generateChartFirstCehKameraDozrevanya",
+            url: "/generateChartSevenCehAutoclav",
             data: JSON.stringify({'start' : vStart, 'end' : vEnd}),
             dataType: "json",
             cache: false,
@@ -122,7 +122,7 @@
     function buildChart(xCord, y1Cord, y2Cord, y3Cord) {
         var start = document.getElementById("startChart").value;
         var end = document.getElementById("endChart").value;
-        var vTitle = 'Объект/Киевгума/1й Цех/Камера дозревания'+' с '+start.toString()+' по '+end.toString();
+        var vTitle = 'Объект/Киевгума/7й Цех/Автоклав'+' с '+start.toString()+' по '+end.toString();
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
             type: 'line',
@@ -130,7 +130,7 @@
                 labels: xCord,
                 datasets: [
                     {
-                        label: 'Температура на загрузке',
+                        label: 'Давление',
                         backgroundColor: '#00b3ee',
                         borderColor: '#00b3ee',
                         borderWidth: 5,
@@ -155,7 +155,7 @@
                         data: y1Cord
                     },
                     {
-                        label: 'Температура в середине',
+                        label: 'Температура в автоклаве',
                         backgroundColor: '#ffff00',
                         borderColor: '#ffff00',
                         borderWidth: 5,
@@ -180,7 +180,7 @@
                         data: y2Cord
                     },
                     {
-                        label: 'Температура на выгрузке',
+                        label: 'Температура в продукте',
                         backgroundColor: '#3C510C',
                         borderColor: '#3C510C',
                         borderWidth: 5,
@@ -383,7 +383,7 @@
         stompClient.connect({}, function(frame) {
             setConnected(true);
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/firstCehKameraDozrevanya', function(resultTrm){
+            stompClient.subscribe('/topic/sevenCehAutoclav', function(resultTrm){
                 showTrmBody(JSON.parse(resultTrm.body));
             });
         });
@@ -398,12 +398,12 @@
     }
 
     function showTrmBody(trmBody){
-        var tempProdukta = Math.round(trmBody.channel1 * 100)/100;
-        var tempSuhogo = Math.round(trmBody.channel2 * 100)/100;
-        var tempVlagnogo = Math.round(trmBody.channel3 * 100)/100;
-        $("#firstCehKameraDozrevanyaTempProdukta").text(tempProdukta);
-        $("#firstCehKameraDozrevanyaTempSuhogo").text(tempSuhogo);
-        $("#firstCehKameraDozrevanyaTempVlagnogo").text(tempVlagnogo);
+        var tempProdukta = /*Math.round(trmBody.channel1 * 100)/100;*/ trmBody.channel1;
+        var tempSuhogo = /*Math.round(trmBody.channel2 * 100)/100;*/ trmBody.channel2;
+        var tempVlagnogo = /*Math.round(trmBody.channel3 * 100)/100;*/ trmBody.channel3;
+        $("#sevenCehAutoclavDavlenie").text(tempProdukta);
+        $("#sevenCehAutoclavTempAuto").text(tempSuhogo);
+        $("#sevenCehAutoclavTempProdukta").text(tempVlagnogo);
     }
 </script>
 </body>

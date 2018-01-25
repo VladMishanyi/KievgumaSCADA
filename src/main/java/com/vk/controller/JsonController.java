@@ -141,6 +141,30 @@ public class JsonController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/generateChartSevenCehAutoclav", method = RequestMethod.POST)
+    public List<SevenCehAutoclav> generateChartSevenCehAutoclav(@RequestBody DateFromChart dateFromChart){
+        List<SevenCehAutoclav> sevenCehAutoclavs = null;
+        String start = dateFromChart.getStart();
+        String end = dateFromChart.getEnd();
+        String[] startTokens = start.split("T");
+        String[] endTokens = end.split("T");
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
+            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
+            sevenCehAutoclavs = trmRepositoryService.rangeTimestampSevenCehAutoclav(date1, date2);
+        }catch (ParseException e){
+            LOGGER.error("can't parse range of date: "+e.getClass());
+        }
+        return sevenCehAutoclavs;
+    }
+
+
+
+
+
+
+    @ResponseBody
     @RequestMapping(value = "/generateSizeTableFirstCehBuzuluk", method = RequestMethod.POST)
     public long generateSizeTableFirstCehBuzuluk(){
         long gh = trmRepositoryService.getSizeTableFirstChehBuzulukTRM200().longValue();

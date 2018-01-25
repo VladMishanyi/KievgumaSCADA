@@ -50,6 +50,7 @@ public class WebController {
     private final int ID_SLAVE_FirstCehAutoklavTRM202 = 22;
     private final int ID_SLAVE_FirstCehKameraDozrevanya = 13;
     private final int ID_SLAVE_FirstCehBuzulukTRM200 = 25;
+    private final int ID_SLAVE_SevenCehAutoclav = 21;
 //    private boolean bol1 = false;
 //    private boolean bol2 = false;
 //    private boolean bol3 = false;
@@ -65,6 +66,9 @@ public class WebController {
     private float firstCehKameraDozrevanyaTempVlagnogo = 0;
     private float firstCehBuzulukTemperatura = 0;
     private float firstCehBuzulukDavlenie = 0;
+    private float sevenCehAutoclavDavlenie = 0;
+    private float sevenCehAutoclavTempAuto = 0;
+    private float sevenCehAutoclavTempProdukta = 0;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex(Model model){
@@ -104,6 +108,11 @@ public class WebController {
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String getAdminPanel(Model model){
         return "/admin";
+    }
+
+    @RequestMapping(value = "/sevenCehAutoclav", method = RequestMethod.GET)
+    public String getSevenCehBuzuluk(Model model){
+        return "/sevenCehAutoclav";
     }
 
 ////    @RequestMapping(value = "/checkPin1", method = RequestMethod.POST)
@@ -173,12 +182,13 @@ public class WebController {
     @Scheduled(fixedDelay = 30000)//ms
     private void loopSerialLisener(){
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        TRM201_Energrtic trm201_energrtic = trmRepositoryService.getTRM201(ID_SLAVE_TRM201);
-        messageSendingOperations.convertAndSend("/topic/trm201", trm201_energrtic);
-        if ((trm201Temp -1 >= trm201_energrtic.getValue3()) || (trm201Temp +1 <= trm201_energrtic.getValue3()) || (0 == trm201_energrtic.getValue3()) ){
-            trmRepositoryService.addTRMvalue(trm201_energrtic);
-            trm201Temp = trm201_energrtic.getValue3();
-        }
+//        TRM201_Energrtic trm201_energrtic = trmRepositoryService.getTRM201(ID_SLAVE_TRM201);
+//        messageSendingOperations.convertAndSend("/topic/trm201", trm201_energrtic);
+//        if ((trm201Temp -1 >= trm201_energrtic.getValue3()) || (trm201Temp +1 <= trm201_energrtic.getValue3()) || (0 == trm201_energrtic.getValue3()) ){
+//            trmRepositoryService.addTRMvalue(trm201_energrtic);
+//            trm201Temp = trm201_energrtic.getValue3();
+//        }
+
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         ThirdCehAutoclav thirdCehAutoclav = trmRepositoryService.getThirdCehAutoclavTRM202(ID_SLAVE_ThirdCehAutoklavTRM202);
         messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", thirdCehAutoclav);
@@ -190,6 +200,7 @@ public class WebController {
             trmRepositoryService.addThirdCehAutoclavTRM202(thirdCehAutoclav);
             thirdCehAutoclavDavlenie = thirdCehAutoclav.getChannel2();
         }
+
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         FirstCehAutoclav firstCehAutoclav = trmRepositoryService.getFirstCehAutoclavTRM202(ID_SLAVE_FirstCehAutoklavTRM202);
         messageSendingOperations.convertAndSend("/topic/firstCehAvtoclav", firstCehAutoclav);
@@ -201,6 +212,7 @@ public class WebController {
             trmRepositoryService.addFirstCehAutoclavTRM202(firstCehAutoclav);
             firstCehAutoclavDavlenie = firstCehAutoclav.getChannel2();
         }
+
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         FirstCehKameraDozrevanya firstCehKameraDozrevanya = trmRepositoryService.getFirstCehKameraDozrevanyaMPR51(ID_SLAVE_FirstCehKameraDozrevanya);
         messageSendingOperations.convertAndSend("/topic/firstCehKameraDozrevanya", firstCehKameraDozrevanya);
@@ -216,6 +228,7 @@ public class WebController {
             trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
             firstCehKameraDozrevanyaTempVlagnogo = firstCehKameraDozrevanya.getChannel3();
         }
+
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         FirstCehBuzuluk firstCehBuzuluk = trmRepositoryService.getFirstCehBuzulukTRM200(ID_SLAVE_FirstCehBuzulukTRM200);
         messageSendingOperations.convertAndSend("/topic/firstCehBuzuluk", firstCehBuzuluk);
@@ -226,6 +239,23 @@ public class WebController {
         if ((firstCehBuzulukDavlenie -1 >= firstCehBuzuluk.getChannel2()) || (firstCehBuzulukDavlenie +1 <= firstCehBuzuluk.getChannel2()) || (0 == firstCehBuzuluk.getChannel2()) ){
             trmRepositoryService.addFirstCehBuzulukTRM200(firstCehBuzuluk);
             firstCehBuzulukDavlenie = firstCehBuzuluk.getChannel2();
+        }
+
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        SevenCehAutoclav sevenCehAutoclav = trmRepositoryService.getSevenCehAutoclavSPK(ID_SLAVE_SevenCehAutoclav);
+        messageSendingOperations.convertAndSend("/topic/sevenCehAutoclav", sevenCehAutoclav);
+        if ((sevenCehAutoclavDavlenie -1 >= sevenCehAutoclav.getChannel1()) || (sevenCehAutoclavDavlenie +1 <= sevenCehAutoclav.getChannel1()) || (0 == sevenCehAutoclav.getChannel1()) ){
+            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
+            sevenCehAutoclavDavlenie = sevenCehAutoclav.getChannel1();
+        }
+        if ((sevenCehAutoclavTempAuto -1 >= sevenCehAutoclav.getChannel2()) || (sevenCehAutoclavTempAuto +1 <= sevenCehAutoclav.getChannel2()) || (0 == sevenCehAutoclav.getChannel2()) ){
+            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
+            sevenCehAutoclavTempAuto = sevenCehAutoclav.getChannel2();
+        }
+        if ((sevenCehAutoclavTempProdukta -1 >= sevenCehAutoclav.getChannel3()) || (sevenCehAutoclavTempProdukta +1 <= sevenCehAutoclav.getChannel3()) || (0 == sevenCehAutoclav.getChannel3()) ){
+            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
+            sevenCehAutoclavTempProdukta = sevenCehAutoclav.getChannel3();
         }
     }
 }

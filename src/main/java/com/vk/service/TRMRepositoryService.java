@@ -33,11 +33,9 @@ public class TRMRepositoryService {
     public TRM201_Energrtic getTRM201(int slaveAdrr){
         return trmRepository.getTRM201(slaveAdrr);
     }
-
     public ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr){
         return trmRepository.getThirdCehAutoclavTRM202(slaveAdrr);
     }
-
     @Transactional
     public void addThirdCehAutoclavTRM202(ThirdCehAutoclav thirdCehAutoclav){
         trmRepository.addThirdCehAutoclavTRM202(thirdCehAutoclav);
@@ -47,16 +45,13 @@ public class TRMRepositoryService {
     public List<ThirdCehAutoclav> rangeTimestampThirdCehAutoclav(Date startTimestamp, Date endTimestamp){
         return trmRepository.rangeTimestampThirdCehAutoclav(startTimestamp, endTimestamp);
     }
-
     public FirstCehAutoclav getFirstCehAutoclavTRM202(int slaveAdrr){
         return trmRepository.getFirstCehAutoclavTRM202(slaveAdrr);
     }
-
     @Transactional
     public void addFirstCehAutoclavTRM202(FirstCehAutoclav firstCehAutoclav){
         trmRepository.addFirstCehAutoclavTRM202(firstCehAutoclav);
     }
-
     @Transactional(readOnly = true)
     public List<FirstCehAutoclav> rangeTimestampFirstCehAutoclav(Date startTimestamp, Date endTimestamp){
         return trmRepository.rangeTimestampFirstCehAutoclav(startTimestamp, endTimestamp);
@@ -65,12 +60,10 @@ public class TRMRepositoryService {
     public FirstCehKameraDozrevanya getFirstCehKameraDozrevanyaMPR51(int slaveAdrr){
         return trmRepository.getFirstCehKameraDozrevanyaMPR51(slaveAdrr);
     }
-
     @Transactional
     public void addFirstCehKameraDozrevanyaMPR51(FirstCehKameraDozrevanya firstCehKameraDozrevanya){
         trmRepository.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
     }
-
     @Transactional(readOnly = true)
     public List<FirstCehKameraDozrevanya> rangeTimestampFirstCehKameraDozrevanya(Date startTimestamp, Date endTimestamp){
         return trmRepository.rangeTimestampFirstCehKameraDozrevanya(startTimestamp, endTimestamp);
@@ -79,16 +72,31 @@ public class TRMRepositoryService {
     public FirstCehBuzuluk getFirstCehBuzulukTRM200(int slaveAdrr){
         return trmRepository.getFirstCehBuzulukTRM200(slaveAdrr);
     }
-
     @Transactional
     public void addFirstCehBuzulukTRM200(FirstCehBuzuluk firstCehBuzuluk){
         trmRepository.addFirstCehBuzulukTRM200(firstCehBuzuluk);
     }
-
     @Transactional(readOnly = true)
     public List<FirstCehBuzuluk> rangeTimestampFirstCehBuzuluk(Date startTimestamp, Date endTimestamp){
         return trmRepository.rangeTimestampFirstCehBuzuluk(startTimestamp, endTimestamp);
     }
+
+    public SevenCehAutoclav getSevenCehAutoclavSPK(int slaveAdrr){
+        return trmRepository.getSevenCehAutoclavSPK(slaveAdrr);
+    }
+    @Transactional
+    public void addSevenCehAutoclavSPK(SevenCehAutoclav sevenCehAutoclav){
+        trmRepository.addSevenCehAutoclavSPK(sevenCehAutoclav);
+    }
+    @Transactional(readOnly = true)
+    public List<SevenCehAutoclav> rangeTimestampSevenCehAutoclav(Date startTimestamp, Date endTimestamp){
+        return trmRepository.rangeTimestampSevenCehAutoclav(startTimestamp, endTimestamp);
+    }
+
+
+
+
+
 
     @Transactional(readOnly = true)
     public BigInteger getSizeTableFirstChehBuzulukTRM200(){

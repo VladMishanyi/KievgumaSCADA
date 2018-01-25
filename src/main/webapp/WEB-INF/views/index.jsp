@@ -77,7 +77,7 @@
             <polygon points="1037,94 1204,130 1166,150 996,112"/>
             Sorry, your browser does not support inline SVG.
         </a>
-        <a id="sevenceh" class="item" href="#">
+        <a id="sevenceh" class="item" data-toggle="modal" data-target=".img-sevenCeh-modal">
             <polygon points="921,147 1086,185 878,297 742,259 700,281 650,265 757,214 770,217"/>
             Sorry, your browser does not support inline SVG.
         </a>
@@ -145,6 +145,17 @@
                 </a>
                 <a id="FirstCehBuzuluk" class="item" href="/firstCehBuzuluk">
                     <polygon points="410,480 455,480 455,580 410,580"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+            </svg>
+        </div>
+    </div>
+    <div class="modal fade img-sevenCeh-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
+        <div class="modal-dialog modal-lg" role="document">
+            <img src="resources/img/kievguma_zone_v7_crop_1000px.jpg">
+            <svg height="624" width="1000">
+                <a id="SevenCehAutoclav" class="item" href="/sevenCehAutoclav">
+                    <polygon points="748,535 785,535 785,590 748,590"/>
                     Sorry, your browser does not support inline SVG.
                 </a>
             </svg>
