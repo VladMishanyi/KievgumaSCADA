@@ -78,4 +78,57 @@ CREATE TABLE SevenCehAutoclav (
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS FirstCehSmesitel1KMSF1;
+CREATE TABLE FirstCehSmesitel1KMSF1 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 INT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS FirstCehSmesitel2KMSF1;
+CREATE TABLE FirstCehSmesitel2KMSF1 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 INT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS FirstCehSmesitel3KMSF1;
+CREATE TABLE FirstCehSmesitel3KMSF1 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 INT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS FirstCehSmesitel4KMSF1;
+CREATE TABLE FirstCehSmesitel4KMSF1 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 INT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS FirstCehSmesitel5KMSF1;
+CREATE TABLE FirstCehSmesitel5KMSF1 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 INT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;

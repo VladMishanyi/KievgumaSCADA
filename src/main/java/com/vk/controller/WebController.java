@@ -51,6 +51,11 @@ public class WebController {
     private final int ID_SLAVE_FirstCehKameraDozrevanya = 13;
     private final int ID_SLAVE_FirstCehBuzulukTRM200 = 25;
     private final int ID_SLAVE_SevenCehAutoclav = 21;
+    private final int ID_SLAVE_FirstCehSmesitel1KMSF1 = 24;
+    private final int ID_SLAVE_FirstCehSmesitel2KMSF1 = 40;
+    private final int ID_SLAVE_FirstCehSmesitel3KMSF1 = 72;
+    private final int ID_SLAVE_FirstCehSmesitel4KMSF1 = 64;
+    private final int ID_SLAVE_FirstCehSmesitel5KMSF1 = 48;
 //    private boolean bol1 = false;
 //    private boolean bol2 = false;
 //    private boolean bol3 = false;
@@ -69,6 +74,11 @@ public class WebController {
     private float sevenCehAutoclavDavlenie = 0;
     private float sevenCehAutoclavTempAuto = 0;
     private float sevenCehAutoclavTempProdukta = 0;
+    private int firstCehSmesitel1Tok = 0;
+    private int firstCehSmesitel2Tok = 0;
+    private int firstCehSmesitel3Tok = 0;
+    private int firstCehSmesitel4Tok = 0;
+    private int firstCehSmesitel5Tok = 0;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex(Model model){
@@ -87,34 +97,58 @@ public class WebController {
 
     @RequestMapping(value = "/autoclavThirdCeh", method = RequestMethod.GET)
     public String getAutoclavThirdCeh(Model model){
-        return "/autoclavThirdCeh";
+        return "autoclavThirdCeh";
     }
 
     @RequestMapping(value = "/firstCehAutoclav", method = RequestMethod.GET)
     public String getAutoclavFirstCeh(Model model){
-        return "/firstCehAutoclav";
+        return "firstCehAutoclav";
     }
 
     @RequestMapping(value = "/firstCehKameraDozrevanya", method = RequestMethod.GET)
     public String getFirstCehKameraDozrevanya(Model model){
-        return "/firstCehKameraDozrevanya";
+        return "firstCehKameraDozrevanya";
     }
 
     @RequestMapping(value = "/firstCehBuzuluk", method = RequestMethod.GET)
     public String getFirstCehBuzuluk(Model model){
-        return "/firstCehBuzuluk";
+        return "firstCehBuzuluk";
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String getAdminPanel(Model model){
-        return "/admin";
+        return "admin";
     }
 
     @RequestMapping(value = "/sevenCehAutoclav", method = RequestMethod.GET)
     public String getSevenCehBuzuluk(Model model){
-        return "/sevenCehAutoclav";
+        return "sevenCehAutoclav";
     }
 
+    @RequestMapping(value = "/firstCehSmesitel1", method = RequestMethod.GET)
+    public String getFirstCehSmesitel1KMSF1(Model model){
+        return "firstCehSmesitel1KMSF1";
+    }
+
+    @RequestMapping(value = "/firstCehSmesitel2", method = RequestMethod.GET)
+    public String getFirstCehSmesitel2KMSF1(Model model){
+        return "firstCehSmesitel2KMSF1";
+    }
+
+    @RequestMapping(value = "/firstCehSmesitel3", method = RequestMethod.GET)
+    public String getFirstCehSmesitel3KMSF1(Model model){
+        return "firstCehSmesitel3KMSF1";
+    }
+
+    @RequestMapping(value = "/firstCehSmesitel4", method = RequestMethod.GET)
+    public String getFirstCehSmesitel4KMSF1(Model model){
+        return "firstCehSmesitel4KMSF1";
+    }
+
+    @RequestMapping(value = "/firstCehSmesitel5", method = RequestMethod.GET)
+    public String getFirstCehSmesitel5KMSF1(Model model){
+        return "firstCehSmesitel5KMSF1";
+    }
 ////    @RequestMapping(value = "/checkPin1", method = RequestMethod.POST)
 ////    @ResponseBody
 //    @MessageMapping("/reg0bit0")
@@ -241,7 +275,6 @@ public class WebController {
             firstCehBuzulukDavlenie = firstCehBuzuluk.getChannel2();
         }
 
-
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         SevenCehAutoclav sevenCehAutoclav = trmRepositoryService.getSevenCehAutoclavSPK(ID_SLAVE_SevenCehAutoclav);
         messageSendingOperations.convertAndSend("/topic/sevenCehAutoclav", sevenCehAutoclav);
@@ -256,6 +289,46 @@ public class WebController {
         if ((sevenCehAutoclavTempProdukta -1 >= sevenCehAutoclav.getChannel3()) || (sevenCehAutoclavTempProdukta +1 <= sevenCehAutoclav.getChannel3()) || (0 == sevenCehAutoclav.getChannel3()) ){
             trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
             sevenCehAutoclavTempProdukta = sevenCehAutoclav.getChannel3();
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1 = trmRepositoryService.getFirstCehSmesitel1KMSF1(ID_SLAVE_FirstCehSmesitel1KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", firstCehSmesitel1KMSF1);
+        if ((firstCehSmesitel1Tok -1 >= firstCehSmesitel1KMSF1.getChannel1()) || (firstCehSmesitel1Tok +1 <= firstCehSmesitel1KMSF1.getChannel1()) || (0 == firstCehSmesitel1KMSF1.getChannel1()) ){
+            trmRepositoryService.addFirstCehSmesitel1KMSF1(firstCehSmesitel1KMSF1);
+            firstCehSmesitel1Tok = firstCehSmesitel1KMSF1.getChannel1();
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1 = trmRepositoryService.getFirstCehSmesitel2KMSF1(ID_SLAVE_FirstCehSmesitel2KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", firstCehSmesitel2KMSF1);
+        if ((firstCehSmesitel2Tok -1 >= firstCehSmesitel2KMSF1.getChannel1()) || (firstCehSmesitel2Tok +1 <= firstCehSmesitel2KMSF1.getChannel1()) || (0 == firstCehSmesitel2KMSF1.getChannel1()) ){
+            trmRepositoryService.addFirstCehSmesitel2KMSF1(firstCehSmesitel2KMSF1);
+            firstCehSmesitel2Tok = firstCehSmesitel2KMSF1.getChannel1();
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1 = trmRepositoryService.getFirstCehSmesitel3KMSF1(ID_SLAVE_FirstCehSmesitel3KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", firstCehSmesitel3KMSF1);
+        if ((firstCehSmesitel3Tok -1 >= firstCehSmesitel3KMSF1.getChannel1()) || (firstCehSmesitel3Tok +1 <= firstCehSmesitel3KMSF1.getChannel1()) || (0 == firstCehSmesitel3KMSF1.getChannel1()) ){
+            trmRepositoryService.addFirstCehSmesitel3KMSF1(firstCehSmesitel3KMSF1);
+            firstCehSmesitel3Tok = firstCehSmesitel3KMSF1.getChannel1();
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1 = trmRepositoryService.getFirstCehSmesitel4KMSF1(ID_SLAVE_FirstCehSmesitel4KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", firstCehSmesitel4KMSF1);
+        if ((firstCehSmesitel4Tok -1 >= firstCehSmesitel4KMSF1.getChannel1()) || (firstCehSmesitel4Tok +1 <= firstCehSmesitel4KMSF1.getChannel1()) || (0 == firstCehSmesitel4KMSF1.getChannel1()) ){
+            trmRepositoryService.addFirstCehSmesitel4KMSF1(firstCehSmesitel4KMSF1);
+            firstCehSmesitel4Tok = firstCehSmesitel4KMSF1.getChannel1();
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1 = trmRepositoryService.getFirstCehSmesitel5KMSF1(ID_SLAVE_FirstCehSmesitel5KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", firstCehSmesitel5KMSF1);
+        if ((firstCehSmesitel5Tok -1 >= firstCehSmesitel5KMSF1.getChannel1()) || (firstCehSmesitel5Tok +1 <= firstCehSmesitel5KMSF1.getChannel1()) || (0 == firstCehSmesitel5KMSF1.getChannel1()) ){
+            trmRepositoryService.addFirstCehSmesitel5KMSF1(firstCehSmesitel5KMSF1);
+            firstCehSmesitel5Tok = firstCehSmesitel5KMSF1.getChannel1();
         }
     }
 }

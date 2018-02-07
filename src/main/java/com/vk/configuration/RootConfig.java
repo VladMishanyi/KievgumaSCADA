@@ -46,8 +46,8 @@ public class RootConfig {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("1991");
-        dataSource.setInitialSize(100);
-        dataSource.setMaxActive(100);
+        dataSource.setInitialSize(200);
+        dataSource.setMaxActive(200);
         dataSource.setTestOnBorrow(true);
 //        dataSource.setValidationQuery("SELECT 1");
         dataSource.setMaxWait(1000);
@@ -131,6 +131,25 @@ public class RootConfig {
 
         SerialParameters params = new SerialParameters();
         params.setCommPortId("COM4");
+        //for windows use COM0
+        //for ubuntu use /dev/ttyUSB0
+        params.setBaudRate(115200);
+        params.setDataBits(8);
+        params.setStopBits(1);
+        params.setParity(0);
+
+        ModbusMaster master = factory.createRtuMaster(params);
+        master.setTimeout(1000);//1000ms timeout
+        master.setRetries(3);//3 repeats
+        return master;
+    }
+
+    @Bean(name = "modbusMasterSerialThird")
+    public ModbusMaster modbusMasterSerialThird(){
+        ModbusFactory factory = new ModbusFactory();
+
+        SerialParameters params = new SerialParameters();
+        params.setCommPortId("COM7");
         //for windows use COM0
         //for ubuntu use /dev/ttyUSB0
         params.setBaudRate(115200);

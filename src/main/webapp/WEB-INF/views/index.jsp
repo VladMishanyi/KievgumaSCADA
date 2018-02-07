@@ -147,6 +147,37 @@
                     <polygon points="410,480 455,480 455,580 410,580"/>
                     Sorry, your browser does not support inline SVG.
                 </a>
+                <a id="FirstCehSecondFloor" class="item" data-toggle="modal" data-target=".img-firstCehSecondFloor-modal">
+                    <polygon points="825,630 970,630 970,700 825,700"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+            </svg>
+        </div>
+    </div>
+    <div class="modal fade img-firstCehSecondFloor-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
+        <div class="modal-dialog modal-lg" role="document">
+            <img src="resources/img/kievguma_zone_1_second_floor_1000px.png">
+            <svg height="1459" width="1000">
+                <a id="FirstCehSmesitel1" class="item" href="/firstCehSmesitel1">
+                    <polygon points="250,200 350,200 350,340 250,340"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="FirstCehSmesitel2" class="item" href="/firstCehSmesitel2">
+                    <polygon points="250,350 350,350 350,490 250,490"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="FirstCehSmesitel3" class="item" href="/firstCehSmesitel3">
+                    <polygon points="730,160 830,160 830,300 730,300"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="FirstCehSmesitel4" class="item" href="/firstCehSmesitel4">
+                    <polygon points="730,310 830,310 830,450 730,450"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="FirstCehSmesitel5" class="item" href="/firstCehSmesitel5">
+                    <polygon points="730,590 830,590 830,730 730,730"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
             </svg>
         </div>
     </div>

@@ -33,7 +33,7 @@ public class MasterSerialRTU {
         master.setTimeout(1000);//1s timeout
         master.setRetries(10);// 10 repeats
 
-        int slaveAdrr = 21;
+        int slaveAdrr = 25;
         long startTime = 0;
 
 
@@ -97,15 +97,15 @@ public class MasterSerialRTU {
 //                batchRead.addLocator(1,slaveAdrr, RegisterRange.HOLDING_REGISTER, 1, DataType.TWO_BYTE_INT_SIGNED);
 //                batchRead.addLocator(2,slaveAdrr, RegisterRange.HOLDING_REGISTER, 2, DataType.TWO_BYTE_INT_SIGNED);
 //                batchRead.addLocator(3,slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
-                batchRead.addLocator(4,slaveAdrr, RegisterRange.INPUT_REGISTER , 0, DataType.FOUR_BYTE_FLOAT);
-                batchRead.addLocator(5,slaveAdrr, RegisterRange.INPUT_REGISTER , 2, DataType.FOUR_BYTE_FLOAT);
-                batchRead.addLocator(6,slaveAdrr, RegisterRange.INPUT_REGISTER , 4, DataType.FOUR_BYTE_FLOAT);
+//                batchRead.addLocator(4,slaveAdrr, RegisterRange.INPUT_REGISTER , 0, DataType.FOUR_BYTE_FLOAT);
+                batchRead.addLocator(5,slaveAdrr, RegisterRange.HOLDING_REGISTER , 4105, DataType.FOUR_BYTE_FLOAT);
+                batchRead.addLocator(6,slaveAdrr, RegisterRange.HOLDING_REGISTER , 4107, DataType.FOUR_BYTE_FLOAT);
 
                 BatchResults batchResults =  master.send(batchRead);
 //                int value1 = (short) batchResults.getValue(1);
 //                int value2 = (short) batchResults.getValue(2);
 //                float value3 = (float) batchResults.getValue(3);
-                float value4 = (float) batchResults.getValue(4);
+//                float value4 = (float) batchResults.getValue(4);
                 float value5 = (float) batchResults.getValue(5);
                 float value6 = (float) batchResults.getValue(6);
 
@@ -129,7 +129,7 @@ public class MasterSerialRTU {
 //                System.out.println("value1 :" + value1);
 //                System.out.println("value2 :" + value2);
 //                System.out.println("value3 :" + value3);
-                System.out.println("value4 :" + value4);
+//                System.out.println("value4 :" + value4);
                 System.out.println("value5 :" + value5);
                 System.out.println("value6 :" + value6);
 

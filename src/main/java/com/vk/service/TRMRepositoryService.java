@@ -93,6 +93,66 @@ public class TRMRepositoryService {
         return trmRepository.rangeTimestampSevenCehAutoclav(startTimestamp, endTimestamp);
     }
 
+    public FirstCehSmesitel1KMSF1 getFirstCehSmesitel1KMSF1(int slaveAdrr){
+        return trmRepository.getFirstCehSmesitel1KMSF1(slaveAdrr);
+    }
+    @Transactional
+    public void addFirstCehSmesitel1KMSF1(FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1){
+        trmRepository.addFirstCehSmesitel1KMSF1(firstCehSmesitel1KMSF1);
+    }
+    @Transactional(readOnly = true)
+    public List<FirstCehSmesitel1KMSF1> rangeTimestampFirstCehSmesitel1KMSF1(Date startTimestamp, Date endTimestamp){
+        return trmRepository.rangeTimestampFirstCehSmesitel1KMSF1(startTimestamp, endTimestamp);
+    }
+
+    public FirstCehSmesitel2KMSF1 getFirstCehSmesitel2KMSF1(int slaveAdrr){
+        return trmRepository.getFirstCehSmesitel2KMSF1(slaveAdrr);
+    }
+    @Transactional
+    public void addFirstCehSmesitel2KMSF1(FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1){
+        trmRepository.addFirstCehSmesitel2KMSF1(firstCehSmesitel2KMSF1);
+    }
+    @Transactional(readOnly = true)
+    public List<FirstCehSmesitel2KMSF1> rangeTimestampFirstCehSmesitel2KMSF1(Date startTimestamp, Date endTimestamp){
+        return trmRepository.rangeTimestampFirstCehSmesitel2KMSF1(startTimestamp, endTimestamp);
+    }
+
+    public FirstCehSmesitel3KMSF1 getFirstCehSmesitel3KMSF1(int slaveAdrr){
+        return trmRepository.getFirstCehSmesitel3KMSF1(slaveAdrr);
+    }
+    @Transactional
+    public void addFirstCehSmesitel3KMSF1(FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1){
+        trmRepository.addFirstCehSmesitel3KMSF1(firstCehSmesitel3KMSF1);
+    }
+    @Transactional(readOnly = true)
+    public List<FirstCehSmesitel3KMSF1> rangeTimestampFirstCehSmesitel3KMSF1(Date startTimestamp, Date endTimestamp){
+        return trmRepository.rangeTimestampFirstCehSmesitel3KMSF1(startTimestamp, endTimestamp);
+    }
+
+    public FirstCehSmesitel4KMSF1 getFirstCehSmesitel4KMSF1(int slaveAdrr){
+        return trmRepository.getFirstCehSmesitel4KMSF1(slaveAdrr);
+    }
+    @Transactional
+    public void addFirstCehSmesitel4KMSF1(FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1){
+        trmRepository.addFirstCehSmesitel4KMSF1(firstCehSmesitel4KMSF1);
+    }
+    @Transactional(readOnly = true)
+    public List<FirstCehSmesitel4KMSF1> rangeTimestampFirstCehSmesitel4KMSF1(Date startTimestamp, Date endTimestamp){
+        return trmRepository.rangeTimestampFirstCehSmesitel4KMSF1(startTimestamp, endTimestamp);
+    }
+
+    public FirstCehSmesitel5KMSF1 getFirstCehSmesitel5KMSF1(int slaveAdrr){
+        return trmRepository.getFirstCehSmesitel5KMSF1(slaveAdrr);
+    }
+    @Transactional
+    public void addFirstCehSmesitel5KMSF1(FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1){
+        trmRepository.addFirstCehSmesitel5KMSF1(firstCehSmesitel5KMSF1);
+    }
+    @Transactional(readOnly = true)
+    public List<FirstCehSmesitel5KMSF1> rangeTimestampFirstCehSmesitel5KMSF1(Date startTimestamp, Date endTimestamp){
+        return trmRepository.rangeTimestampFirstCehSmesitel5KMSF1(startTimestamp, endTimestamp);
+    }
+
 
 
 
