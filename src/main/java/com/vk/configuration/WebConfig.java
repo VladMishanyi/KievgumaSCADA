@@ -39,21 +39,33 @@ import org.springframework.web.servlet.view.JstlView;
 //@Import({WebSoketConfig.class})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    private static final String CONTENT_TYPE = "text/html;charset=UTF-8";
+
+    private static final String PREFIX = "/WEB-INF/views/";
+
+    private static final String SUFFIX = ".jsp";
+
+    private static final boolean CONTEXT_BEANS = true;
+
+    private static final String RESOURCE_HANDLERS = "/resources/**";
+
+    private static final String RESOURCE_LOCATIONS = "/resources/";
+
     @Bean
     public ViewResolver viewResolver() {
         final InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setContentType("text/html;charset=UTF-8");
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp");
+        viewResolver.setContentType(CONTENT_TYPE);
+        viewResolver.setPrefix(PREFIX);
+        viewResolver.setSuffix(SUFFIX);
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setExposeContextBeansAsAttributes(true);
+        viewResolver.setExposeContextBeansAsAttributes(CONTEXT_BEANS);
         return viewResolver;
     }
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler(RESOURCE_HANDLERS)
+                .addResourceLocations(RESOURCE_LOCATIONS);
     }
 
 //    @Override

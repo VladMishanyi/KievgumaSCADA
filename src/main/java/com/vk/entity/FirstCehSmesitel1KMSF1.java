@@ -14,7 +14,7 @@ public class FirstCehSmesitel1KMSF1 implements Serializable{
     private static final long serialVersionUDI = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 

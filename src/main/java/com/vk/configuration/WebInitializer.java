@@ -15,10 +15,29 @@ import javax.servlet.ServletRegistration;
  */
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
+    private final static String OPTIONS_REQUEST = "true";
+
+    private final static boolean ASYNC_SUPPORTED = true;
+
+    private final static String SERVLET_MAPPINGS = "/";
+
+    private static final String ENCODING = "UTF-8";
+
+    private static final boolean FORCE_ENCODING = true;
+
+    private static final boolean MAPPING_FOR_URL_IS_MATH_AFTER = true;
+
+    private static final String MAPPING_FOR_URL_PATTERNS = "/*";
+
+    private static final boolean THROW_EXCEPTION_IF_NO_HANDLER_FOUND = true;
+
+
+
+
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setInitParameter("dispatchOptionsRequest", "true");
-        registration.setAsyncSupported(true);
+        registration.setInitParameter("dispatchOptionsRequest", OPTIONS_REQUEST);
+        registration.setAsyncSupported(ASYNC_SUPPORTED);
     }
 
     @Override
@@ -26,7 +45,11 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new Class<?>[]{
                 WebConfig.class,
                 WebSoketConfig.class,
-                RootConfig.class
+                RootConfig.class,
+                ModbusSerialFirstConfig.class,
+                ModbusSerialSecondConfig.class,
+                ModbusSerialThirdConfig.class,
+                DatabaseFirstConfig.class
         };
     }
 
@@ -39,7 +62,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};
+        return new String[]{SERVLET_MAPPINGS};
     }
 
     @Override
@@ -47,12 +70,12 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         super.onStartup(servletContext);
         final FilterRegistration.Dynamic filter = servletContext
                 .addFilter("encodingFilter", new CharacterEncodingFilter());
-        filter.setInitParameter("encoding", "UTF-8");
-        filter.setInitParameter("forceEncoding", Boolean.toString(true));
+        filter.setInitParameter("encoding", ENCODING);
+        filter.setInitParameter("forceEncoding", Boolean.toString(FORCE_ENCODING));
         filter.addMappingForUrlPatterns(
                 null,
-                true,
-                "/*"
+                MAPPING_FOR_URL_IS_MATH_AFTER,
+                MAPPING_FOR_URL_PATTERNS
         );
     }
 
@@ -62,7 +85,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     ) {
         final DispatcherServlet dispatcherServlet =
                 (DispatcherServlet) super.createDispatcherServlet(webApplicationContext);
-        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
+        dispatcherServlet.setThrowExceptionIfNoHandlerFound(THROW_EXCEPTION_IF_NO_HANDLER_FOUND);
         return dispatcherServlet;
     }
 }

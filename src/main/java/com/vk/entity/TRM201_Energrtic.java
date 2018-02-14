@@ -14,8 +14,8 @@ public class TRM201_Energrtic implements Serializable{
     private static final long serialVersionUDI = 1L;
 
     @Id
-    @GeneratedValue
-    @Column(name = " id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
 
     @Temporal(TemporalType.TIMESTAMP)

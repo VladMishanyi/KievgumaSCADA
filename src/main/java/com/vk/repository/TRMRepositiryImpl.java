@@ -38,7 +38,7 @@ public class TRMRepositiryImpl implements TRMRepository {
     private EntityManager entityManager;
 
     @Autowired
-    private ModbusMaster modbusMasterSerial;
+    private ModbusMaster modbusMasterSerialFirst;
 
     @Autowired
     private ModbusMaster modbusMasterSerialSecond;
@@ -67,7 +67,7 @@ public class TRMRepositiryImpl implements TRMRepository {
     public TRM201_Energrtic getTRM201(int slaveAdrr){
         TRM201_Energrtic trm201_energrtic = new TRM201_Energrtic();
         try {
-            modbusMasterSerial.init();
+            modbusMasterSerialFirst.init();
 //            System.out.println("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
 //            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
         }
@@ -81,7 +81,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 2, DataType.TWO_BYTE_INT_SIGNED);
             batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
             batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerial.send(batchRead);
+            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
             int value1 = (short) batchResults.getValue(1);
             int value2 = (short) batchResults.getValue(2);
             float value3 = (float) batchResults.getValue(3);
@@ -103,7 +103,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             return trm201_energrtic;
         }
         finally {
-            modbusMasterSerial.destroy();
+            modbusMasterSerialFirst.destroy();
 //            System.out.println("ModBus Close connection, slave address №"+slaveAdrr);
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
         }
@@ -114,7 +114,7 @@ public class TRMRepositiryImpl implements TRMRepository {
     public ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr){
         ThirdCehAutoclav thirdCehAutoclav = new ThirdCehAutoclav();
         try {
-            modbusMasterSerial.init();
+            modbusMasterSerialFirst.init();
 //            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
         }
         catch (ModbusInitException e){
@@ -124,7 +124,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             BatchRead batchRead = new BatchRead();
             batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
             batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerial.send(batchRead);
+            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
             float channel1 = (float) batchResults.getValue(3);
             float channel2 = (float) batchResults.getValue(4);
             thirdCehAutoclav.setDate(new Date());
@@ -138,7 +138,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             return thirdCehAutoclav;
         }
         finally {
-            modbusMasterSerial.destroy();
+            modbusMasterSerialFirst.destroy();
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
         }
         return thirdCehAutoclav;
@@ -163,7 +163,7 @@ public class TRMRepositiryImpl implements TRMRepository {
     public FirstCehAutoclav getFirstCehAutoclavTRM202(int slaveAdrr){
         FirstCehAutoclav firstCehAutoclav = new FirstCehAutoclav();
         try {
-            modbusMasterSerial.init();
+            modbusMasterSerialFirst.init();
 //            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
         }
         catch (ModbusInitException e){
@@ -173,7 +173,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             BatchRead batchRead = new BatchRead();
             batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
             batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerial.send(batchRead);
+            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
             float channel1 = (float) batchResults.getValue(3);
             float channel2 = (float) batchResults.getValue(4);
             firstCehAutoclav.setDate(new Date());
@@ -187,7 +187,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             return firstCehAutoclav;
         }
         finally {
-            modbusMasterSerial.destroy();
+            modbusMasterSerialFirst.destroy();
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
         }
         return firstCehAutoclav;
@@ -212,7 +212,7 @@ public class TRMRepositiryImpl implements TRMRepository {
     public FirstCehKameraDozrevanya getFirstCehKameraDozrevanyaMPR51(int slaveAdrr){
         FirstCehKameraDozrevanya firstCehKameraDozrevanya = new FirstCehKameraDozrevanya();
         try {
-            modbusMasterSerial.init();
+            modbusMasterSerialFirst.init();
 //            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
         }
         catch (ModbusInitException e){
@@ -223,7 +223,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 128, DataType.FOUR_BYTE_FLOAT);
             batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 130, DataType.FOUR_BYTE_FLOAT);
             batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerial.send(batchRead);
+            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
             float channel1 = (float) batchResults.getValue(2);
             float channel2 = (float) batchResults.getValue(3);
             float channel3 = (float) batchResults.getValue(4);
@@ -240,7 +240,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             return firstCehKameraDozrevanya;
         }
         finally {
-            modbusMasterSerial.destroy();
+            modbusMasterSerialFirst.destroy();
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
         }
         return firstCehKameraDozrevanya;
@@ -265,7 +265,7 @@ public class TRMRepositiryImpl implements TRMRepository {
     public FirstCehBuzuluk getFirstCehBuzulukTRM200(int slaveAdrr){
         FirstCehBuzuluk firstCehBuzuluk = new FirstCehBuzuluk();
         try {
-            modbusMasterSerial.init();
+            modbusMasterSerialFirst.init();
 //            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
         }
         catch (ModbusInitException e){
@@ -275,7 +275,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             BatchRead batchRead = new BatchRead();
             batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
             batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerial.send(batchRead);
+            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
             float channel1 = (float) batchResults.getValue(3);
             float channel2 = (float) batchResults.getValue(4);
             firstCehBuzuluk.setDate(new Date());
@@ -289,7 +289,7 @@ public class TRMRepositiryImpl implements TRMRepository {
             return firstCehBuzuluk;
         }
         finally {
-            modbusMasterSerial.destroy();
+            modbusMasterSerialFirst.destroy();
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
         }
         return firstCehBuzuluk;

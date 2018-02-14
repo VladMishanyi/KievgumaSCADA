@@ -120,19 +120,19 @@
                 datasets: [
                     {
                         label: 'Ток',
-                        backgroundColor: '#00b3ee',
+                        backgroundColor: '#00CC00',
                         borderColor: '#00CC00',
-                        borderWidth: 1,
+                        borderWidth: 5,
                         borderDash: [],
                         borderDashOffset: 0.0,
                         borderCapStyle: 'butt',
                         borderJoinStyle: 'miter',
-                        fill: true,
+                        fill: false,
                         lineTension: 0.1,
                         pointBackgroundColor: '#000000',
                         pointBorderColor: '#FF0000',
-                        pointBorderWidth: 1,
-                        pointRadius: 1,
+                        pointBorderWidth: 0,//1
+                        pointRadius: 0,//1
                         pointHitRadius: 10,
                         pointHoverBackgroundColor: '#000000',
                         pointHoverBorderColor: '#FF0000',
