@@ -70,20 +70,36 @@
             <div class="col-md-4 col-lg-4">
                 <div>
                     <input type="button" id="generateChart" name="generateChart" onclick="genChart();" class="btn btn-sm btn-success" value="Сгенерировать">
-                    <a href="/" id="back" class="btn btn-sm btn-success" onclick="disconnect()" value="Сохранить график"> Назад</a>
+                    <a href="/" id="back" class="btn btn-sm btn-success" onclick="disconnect();" value="Сохранить график"> Назад</a>
                     <input type="button" id="saveChart" name="saveChart" onclick="saveChart();" class="btn btn-sm btn-success" value="Сохранить график">
                 </div>
             </div>
-
         </div>
     </div>
 
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <div id="graph-container">
+        <canvas id="myChart" width="400" height="150"></canvas>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <a id="increase-chart" class="btn btn-sm btn-danger" onclick="increaseChart();">+</a>
+                <a id="decrease-chart" class="btn btn-sm btn-danger" onclick="decreaseChart();">-</a>
+                <input type="number" id="zoom-chart" name="zoom-chart" width="5" class="btn btn-sm btn-default" value="10">
+            </div>
+        </div>
+    </div>
 </div>
 
 <script rel="script" type="text/javascript">
+    var globalX = Array();
+    var globalY1 = Array();
+    var globalY2 = Array();
+    var increaseDecriaseZoom = 0;
 
     function genChart() {
+        clearChart();
         var x = Array();
         var y1 = Array();
         var y2 = Array();
@@ -108,17 +124,73 @@
                         }
                     }
                 }
+                globalX = x;
+                globalY1 = y1;
+                globalY2 = y2;
+                increaseDecriaseZoom = 0;
                 buildChart(x, y1, y2);
             }
         });
+    }
+    
+    function increaseChart() {
+        var increaseZoom = document.getElementById("zoom-chart").value;
+        var increaseArrayX = Array();
+        var increaseArrayY1 = Array();
+        var increaseArrayY2 = Array();
+        console.log("in increase bock :"+increaseDecriaseZoom + " globalX :" +globalX.length +" zoom :"+increaseZoom);
+        if ((globalX.length/2) > (increaseDecriaseZoom + increaseZoom)){
+            increaseDecriaseZoom = increaseDecriaseZoom.value + increaseZoom.value;
+            console.log("in increase body :"+increaseDecriaseZoom);
+            var from = increaseDecriaseZoom;
+            console.log("in increase body from:"+from);
+            var to = globalX.length - increaseDecriaseZoom;
+            console.log("in increase body to:"+to);
+            increaseArrayX = globalX.slice(from,to);
+            increaseArrayY1 = globalY1.slice(from,to);
+            increaseArrayY2 = globalY2.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
+        }
+
+    }
+    
+    function decreaseChart() {
+        var increaseZoom = document.getElementById("zoom-chart").value;
+        var increaseArrayX = Array();
+        var increaseArrayY1 = Array();
+        var increaseArrayY2 = Array();
+        console.log("in decrease bock "+increaseDecriaseZoom + " globalX :" +globalX.length);
+        if (0 < (increaseDecriaseZoom - increaseZoom)){
+            increaseDecriaseZoom = increaseDecriaseZoom - increaseZoom;
+            var from = increaseDecriaseZoom;
+            var to = globalX.length - increaseDecriaseZoom;
+            increaseArrayX = globalX.slice(from,to);
+            increaseArrayY1 = globalY1.slice(from,to);
+            increaseArrayY2 = globalY2.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
+        }
+    }
+
+    function clearChart(){
+//        var canvas = document.getElementById("myChart");
+//        var context = canvas.getContext('2d');
+//        var startX = 0;
+//        var startY = 0;
+//        var height = 10000;
+//        var width = 10000;
+//        context.clearRect(startX, startY, height, width);
+//        context.clearShadow();
+        $('#myChart').remove(); // this is my <canvas> element
+        $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
     }
 
     function buildChart(xCord, y1Cord, y2Cord) {
         var start = document.getElementById("startChart").value;
         var end = document.getElementById("endChart").value;
         var vTitle = 'Объект/Киевгума/3й Цех/Автоклав'+' с '+start.toString()+' по '+end.toString();
-        var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
+        var canvas = document.getElementById("myChart");
+        var context = canvas.getContext('2d');
+        var myChart = new Chart(context, {
             type: 'line',
             data: {
                 labels: xCord,

@@ -73,13 +73,15 @@
         </div>
     </div>
 
-    <canvas id="myChart" width="400" height="400"></canvas>
-
+    <div id="graph-container">
+        <canvas id="myChart" width="400" height="150"></canvas>
+    </div>
 </div>
 
 <script rel="script" type="text/javascript">
 
     function genChart() {
+        clearChart();
 //        var server = Array();
 //        console.log("start: "+vStart);
 //        console.log("end: "+vEnd);
@@ -116,6 +118,19 @@
                 buildChart(x, y);
             }
         });
+    }
+
+    function clearChart(){
+//        var canvas = document.getElementById("myChart");
+//        var context = canvas.getContext('2d');
+//        var startX = 0;
+//        var startY = 0;
+//        var height = 10000;
+//        var width = 10000;
+//        context.clearRect(startX, startY, height, width);
+//        context.clearShadow();
+        $('#myChart').remove(); // this is my <canvas> element
+        $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
     }
 
     function buildChart(xCord, yCord) {
