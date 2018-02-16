@@ -73,15 +73,39 @@
         </div>
     </div>
 
+    <div class="container" style="margin-top: 10px; margin-left: 30%; margin-bottom: 10px">
+        <div>
+            <div>
+                <a id="increase-chart" class="btn btn-sm btn-danger" onclick="increaseChart();">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+                <a id="decrease-chart" class="btn btn-sm btn-danger" onclick="decreaseChart();">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </a>
+                <input type="number" id="zoom-chart" name="zoom-chart" width="5" class="btn btn-sm btn-default" value="10">
+                <a id="left-chart" class="btn btn-sm btn-danger" onclick="leftChart();">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </a>
+                <a id="right-chart" class="btn btn-sm btn-danger" onclick="rightChart();">
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div id="graph-container">
         <canvas id="myChart" width="400" height="150"></canvas>
     </div>
 </div>
 
 <script rel="script" type="text/javascript">
+    var globalX = Array();
+    var globalY1 = Array();
+    var increaseDecriaseZoom = 0;
+    var leftRightPosition = 0;
 
     function genChart() {
-        clearChart();
+//        clearChart();
         var x = Array();
         var y1 = Array();
 //        var y2 = Array();
@@ -106,9 +130,85 @@
                         }
                     }
                 }
+                globalX = x;
+                globalY1 = y1;
+                increaseDecriaseZoom = 0;
+                leftRightPosition = 0;
                 buildChart(x, y1);
             }
         });
+    }
+
+    function increaseChart() {
+        var increaseZoom = document.getElementById("zoom-chart").value;
+        var increaseArrayX = Array();
+        var increaseArrayY1 = Array();
+//        console.log("in increase bock :"+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
+        if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
+            increaseDecriaseZoom = increaseDecriaseZoom + Number(increaseZoom);
+            console.log("in increase body :"+increaseDecriaseZoom);
+            var from = increaseDecriaseZoom - leftRightPosition;
+            console.log("in increase body from:"+from);
+            var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+            console.log("in increase body to:"+to);
+            increaseArrayX = globalX.slice(from,to);
+            increaseArrayY1 = globalY1.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1);
+        }
+    }
+
+    function decreaseChart() {
+        var increaseZoom = document.getElementById("zoom-chart").value;
+        var increaseArrayX = Array();
+        var increaseArrayY1 = Array();
+//        console.log("in decrease bock "+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
+        if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
+            increaseDecriaseZoom = increaseDecriaseZoom - Number(increaseZoom);
+            console.log("in decrease body :"+increaseDecriaseZoom);
+            var from = increaseDecriaseZoom - leftRightPosition;
+            console.log("in decrease body from:"+from);
+            var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+            console.log("in decrease body to:"+to);
+            increaseArrayX = globalX.slice(from,to);
+            increaseArrayY1 = globalY1.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1);
+        }
+    }
+
+    function leftChart() {
+        var increaseZoom = document.getElementById("zoom-chart").value;
+        var increaseArrayX = Array();
+        var increaseArrayY1 = Array();
+//        console.log("in left bock :"+leftRightPosition + " globalX :" +globalX.length+" zoom :"+increaseZoom);
+        if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
+            leftRightPosition = leftRightPosition + Number(increaseZoom);
+            console.log("in left body :"+leftRightPosition);
+            var from = increaseDecriaseZoom - leftRightPosition;
+            console.log("in left body from:"+from);
+            var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+            console.log("in left body to:"+to);
+            increaseArrayX = globalX.slice(from,to);
+            increaseArrayY1 = globalY1.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1);
+        }
+    }
+
+    function rightChart() {
+        var increaseZoom = document.getElementById("zoom-chart").value;
+        var increaseArrayX = Array();
+        var increaseArrayY1 = Array();
+//        console.log("in right bock "+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
+        if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
+            leftRightPosition  = leftRightPosition  - Number(increaseZoom);
+            console.log("in right body :"+leftRightPosition);
+            var from = increaseDecriaseZoom - leftRightPosition;
+            console.log("in right body from:"+from);
+            var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+            console.log("in right body to:"+to);
+            increaseArrayX = globalX.slice(from,to);
+            increaseArrayY1 = globalY1.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1);
+        }
     }
 
     function clearChart(){
@@ -125,6 +225,7 @@
     }
 
     function buildChart(xCord, y1Cord) {
+        clearChart();//Uncaught TypeError: Cannot read property !!!!!!!!!!!!!!!!!!
         var start = document.getElementById("startChart").value;
         var end = document.getElementById("endChart").value;
         var vTitle = 'Объект/Киевгума/1й Цех/Смеситель_2'+' с '+start.toString()+' по '+end.toString();

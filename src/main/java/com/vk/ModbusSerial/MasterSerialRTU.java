@@ -33,7 +33,7 @@ public class MasterSerialRTU {
         master.setTimeout(1000);//1s timeout
         master.setRetries(10);// 10 repeats
 
-        int slaveAdrr = 25;
+        int slaveAdrr = 16;
         long startTime = 0;
 
 
