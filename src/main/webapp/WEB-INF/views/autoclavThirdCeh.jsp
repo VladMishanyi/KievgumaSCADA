@@ -448,6 +448,8 @@
                 maintainAspectRatio: true,// Maintain the original canvas aspect ratio (width / height) when resizing.
                 showLines: true,//If false, the line is not drawn for this dataset.
                 spanGaps: false,//If true, lines will be drawn between points with no or null data. If false, points with NaN data will create a break in the line
+                // This chart will not respond to mousemove, etc
+                events: ['click']
             }
         });
     }
