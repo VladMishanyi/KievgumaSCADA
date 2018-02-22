@@ -1,5 +1,6 @@
 package com.vk.entity.device;
 
+import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.entity.register.Register;
 
 import java.util.ArrayList;
@@ -11,11 +12,10 @@ import java.util.List;
 public class DeviceFirstCehAutoclavTRM202 implements Device<Integer, Float> {
 
     private static Integer deviceAddress;
-
+    private static int deviceId;
+    private static RegisterRange deviceRegisterRange;
     private static List<Integer> deviceAddressRegisters = new ArrayList<>();
-
     private static List<Float> deviceValuesRegisters = new ArrayList<>();
-
     public DeviceFirstCehAutoclavTRM202(){
         setDeviceAddress(16);
         addDeviceAddressRegisters(0,4105);
