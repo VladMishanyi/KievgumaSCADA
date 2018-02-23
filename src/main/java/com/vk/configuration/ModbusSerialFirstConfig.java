@@ -3,6 +3,7 @@ package com.vk.configuration;
 import com.serotonin.io.serial.SerialParameters;
 import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;
+import com.vk.modbus.ModbusMasterSerialModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -40,20 +41,8 @@ public class ModbusSerialFirstConfig {
 
     @Bean(name = "modbusMasterSerialFirst")
     public ModbusMaster modbusMasterSerialFirst(){
-        ModbusFactory factory = new ModbusFactory();
-
-        SerialParameters params = new SerialParameters();
-        params.setCommPortId(commPortId);
-        //for windows use COM0
-        //for ubuntu use /dev/ttyUSB0
-        params.setBaudRate(baduRate);
-        params.setDataBits(dataBits);
-        params.setStopBits(stopBits);
-        params.setParity(parity);
-
-        ModbusMaster master = factory.createRtuMaster(params);
-        master.setTimeout(timeout);//1000ms timeout
-        master.setRetries(retries);//3 repeats
-        return master;
+        ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel(commPortId,
+                baduRate, dataBits, stopBits, parity, timeout, retries);
+        return modbusMasterSerialModel.getMaster();
     }
 }
