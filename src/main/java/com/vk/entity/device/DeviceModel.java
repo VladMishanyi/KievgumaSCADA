@@ -8,25 +8,30 @@ import java.util.List;
 /**
  * Created by User on 2018-02-23.
  */
-public class DeviceModel<T extends Number, E extends Number> {
-    private int arraySize;
+public class DeviceModel<E extends Number> {
     private int deviceAddress;
+    private int arraySize;
     private int[] deviceId;
-    private RegisterRange[] deviceRegisterRange;
-    private T[] deviceAddressRegisters;
+    private int[] deviceRegisterRange;
+    private int[] deviceAddressRegisters;
     private E[] deviceValuesRegisters;
 
     public DeviceModel(){}
 
     public DeviceModel(int arraySize, int deviceAddress,
-                       int[] deviceId, RegisterRange[] deviceRegisterRange,
-                       T[] deviceAddressRegisters, E[] deviceValuesRegisters){
-        this.arraySize = arraySize;
-        this.deviceAddress = deviceAddress;
-        this.deviceId = deviceId;
-        this.deviceRegisterRange = deviceRegisterRange;
-        this.deviceAddressRegisters = deviceAddressRegisters;
-        this.deviceValuesRegisters = deviceValuesRegisters;
+                       int[] deviceId, int[] deviceRegisterRange,
+                       int[] deviceAddressRegisters, E[] deviceValuesRegisters){
+        if ((arraySize == deviceId.length) &&
+                (arraySize == deviceRegisterRange.length) &&
+                (arraySize == deviceAddressRegisters.length) &&
+                (arraySize == deviceValuesRegisters.length)){
+            this.arraySize = arraySize;
+            this.deviceAddress = deviceAddress;
+            this.deviceId = deviceId;
+            this.deviceRegisterRange = deviceRegisterRange;
+            this.deviceAddressRegisters = deviceAddressRegisters;
+            this.deviceValuesRegisters = deviceValuesRegisters;
+        }
     }
 
     public int getArraySize() {
@@ -49,23 +54,23 @@ public class DeviceModel<T extends Number, E extends Number> {
         return deviceId;
     }
 
-    public void setDeviceId(int[] deviceId) {
+    public void setDeviceId(int ... deviceId) {
         this.deviceId = deviceId;
     }
 
-    public RegisterRange[] getDeviceRegisterRange() {
+    public int[] getDeviceRegisterRange() {
         return deviceRegisterRange;
     }
 
-    public void setDeviceRegisterRange(RegisterRange[] deviceRegisterRange) {
+    public void setDeviceRegisterRange(int ... deviceRegisterRange) {
         this.deviceRegisterRange = deviceRegisterRange;
     }
 
-    public T[] getDeviceAddressRegisters() {
+    public int[] getDeviceAddressRegisters() {
         return deviceAddressRegisters;
     }
 
-    public void setDeviceAddressRegisters(T[] deviceAddressRegisters) {
+    public void setDeviceAddressRegisters(int ... deviceAddressRegisters) {
         this.deviceAddressRegisters = deviceAddressRegisters;
     }
 
@@ -73,7 +78,7 @@ public class DeviceModel<T extends Number, E extends Number> {
         return deviceValuesRegisters;
     }
 
-    public void setDeviceValuesRegisters(E[] deviceValuesRegisters) {
+    public void setDeviceValuesRegisters(E ... deviceValuesRegisters) {
         this.deviceValuesRegisters = deviceValuesRegisters;
     }
 }
