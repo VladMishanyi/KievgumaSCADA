@@ -14,22 +14,29 @@ public class DeviceModel<E extends Number> {
     private int[] deviceId;
     private int[] deviceRegisterRange;
     private int[] deviceAddressRegisters;
+    private int[] deviceDataType;
     private E[] deviceValuesRegisters;
 
     public DeviceModel(){}
 
-    public DeviceModel(int arraySize, int deviceAddress,
-                       int[] deviceId, int[] deviceRegisterRange,
-                       int[] deviceAddressRegisters, E[] deviceValuesRegisters){
+    public DeviceModel(int arraySize,
+                       int deviceAddress,
+                       int[] deviceId,
+                       int[] deviceRegisterRange,
+                       int[] deviceAddressRegisters,
+                       int[] deviceDataType,
+                       E[] deviceValuesRegisters){
         if ((arraySize == deviceId.length) &&
                 (arraySize == deviceRegisterRange.length) &&
                 (arraySize == deviceAddressRegisters.length) &&
+                (arraySize == deviceDataType.length) &&
                 (arraySize == deviceValuesRegisters.length)){
             this.arraySize = arraySize;
             this.deviceAddress = deviceAddress;
             this.deviceId = deviceId;
             this.deviceRegisterRange = deviceRegisterRange;
             this.deviceAddressRegisters = deviceAddressRegisters;
+            this.deviceDataType = deviceDataType;
             this.deviceValuesRegisters = deviceValuesRegisters;
         }
     }
@@ -74,11 +81,19 @@ public class DeviceModel<E extends Number> {
         this.deviceAddressRegisters = deviceAddressRegisters;
     }
 
+    public int[] getDeviceDataType() {
+        return deviceDataType;
+    }
+
+    public void setDeviceDataType(int ... deviceDataType) {
+        this.deviceDataType = deviceDataType;
+    }
+
     public E[] getDeviceValuesRegisters() {
         return deviceValuesRegisters;
     }
 
-    public void setDeviceValuesRegisters(E ... deviceValuesRegisters) {
+    public void setDeviceValuesRegisters(E[] deviceValuesRegisters) {
         this.deviceValuesRegisters = deviceValuesRegisters;
     }
 }

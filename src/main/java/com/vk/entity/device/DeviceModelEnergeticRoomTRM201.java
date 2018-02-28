@@ -1,5 +1,6 @@
 package com.vk.entity.device;
 
+import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 
 /**
@@ -14,12 +15,16 @@ public class DeviceModelEnergeticRoomTRM201 extends DeviceModel<Float>{
     private int deviceRegisterRange2 = RegisterRange.HOLDING_REGISTER;
     private int deviceAddressRegisters1 = 4105;
     private int deviceAddressRegisters2 = 4107;
-    private Float[] deviceValuesRegisters = new Float[2];
+    private int deviceDataType1 = DataType.FOUR_BYTE_FLOAT;
+    private int deviceDataType2 = DataType.FOUR_BYTE_FLOAT;
+    private Float[] deviceValuesRegisters;
 
     public DeviceModelEnergeticRoomTRM201(){
+        this.setDeviceAddress(deviceAddress);
         this.setDeviceId(deviceId1, deviceId2);
         this.setDeviceRegisterRange(deviceRegisterRange1, deviceRegisterRange2);
         this.setDeviceAddressRegisters(deviceAddressRegisters1, deviceAddressRegisters2);
+        this.setDeviceDataType(deviceDataType1, deviceDataType2);
         this.setDeviceValuesRegisters(deviceValuesRegisters);
     }
 }

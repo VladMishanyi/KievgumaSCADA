@@ -8,6 +8,8 @@ import com.serotonin.modbus4j.ModbusMaster;
 //import com.vk.repository.PLCRepositoryImpl;
 import com.vk.repository.TRMRepositiryImpl;
 import com.vk.repository.TRMRepository;
+import com.vk.service.ServiceModelEnergeticRoomTRM201;
+import com.vk.service.ServiceModelImplEnergeticRoomTRM201;
 import com.vk.service.TRMRepositoryService;
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 import org.springframework.context.annotation.Bean;
@@ -181,5 +183,9 @@ public class RootConfig {
     public TRMRepositoryService trmRepositoryService(){
         TRMRepositoryService trmRepositoryService = new TRMRepositoryService();
         return trmRepositoryService;
+    }
+
+    public ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201(){
+        return new ServiceModelImplEnergeticRoomTRM201();
     }
 }
