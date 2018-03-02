@@ -11,8 +11,7 @@ import com.serotonin.modbus4j.code.RegisterRange;
 import com.serotonin.modbus4j.exception.ModbusInitException;
 //import com.serotonin.modbus4j.exception.ModbusTransportException;
 import com.vk.entity.*;
-import com.vk.util.ModbusFactoryMaster1;
-import com.vk.util.ModbusFactoryMaster1Impl;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -48,67 +47,67 @@ public class TRMRepositiryImpl implements TRMRepository {
 
     private final Logger LOGGER = Logger.getLogger(TRMRepositiryImpl.class);
 
-    @Override
-    public void addTRMvalue(TRM201_Energrtic trm201_energrtic) {
-        entityManager.merge(trm201_energrtic);
-    }
-
-    @Override
-    public List<TRM201_Energrtic> rangeTimestamp(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM TRM201_Energrtic t WHERE t.date >= :start AND t.date <= :end", TRM201_Energrtic.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<TRM201_Energrtic>) query.getResultList();
-    }
-
-    @Override
-    public TRM201_Energrtic getTRM201(int slaveAdrr){
-        TRM201_Energrtic trm201_energrtic = new TRM201_Energrtic();
-        try {
-            modbusMasterSerialFirst.init();
-//            System.out.println("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-//            System.out.println("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(1, slaveAdrr, RegisterRange.HOLDING_REGISTER, 1, DataType.TWO_BYTE_INT_SIGNED);
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 2, DataType.TWO_BYTE_INT_SIGNED);
-            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
-            int value1 = (short) batchResults.getValue(1);
-            int value2 = (short) batchResults.getValue(2);
-            float value3 = (float) batchResults.getValue(3);
-            float value4 = (float) batchResults.getValue(4);
-//            System.out.println(value1 +" : : "+value2+" : : "+value3+" : : "+value4);
-            trm201_energrtic.setDate(new Date());
-            trm201_energrtic.setValue1(value1);
-            trm201_energrtic.setValue2(value2);
-            trm201_energrtic.setValue3(value3);
-            trm201_energrtic.setValue4(value4);
-        }catch (Exception e){
-//            System.out.println("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            trm201_energrtic.setDate(new Date());
-            trm201_energrtic.setValue1(0);
-            trm201_energrtic.setValue2(0);
-            trm201_energrtic.setValue3(0);
-            trm201_energrtic.setValue4(0);
-            return trm201_energrtic;
-        }
-        finally {
-            modbusMasterSerialFirst.destroy();
-//            System.out.println("ModBus Close connection, slave address №"+slaveAdrr);
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return trm201_energrtic;
-    }
+//    @Override
+//    public void addTRMvalue(TRM201_Energrtic trm201_energrtic) {
+//        entityManager.merge(trm201_energrtic);
+//    }
+//
+//    @Override
+//    public List<TRM201_Energrtic> rangeTimestamp(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM TRM201_Energrtic t WHERE t.date >= :start AND t.date <= :end", TRM201_Energrtic.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<TRM201_Energrtic>) query.getResultList();
+//    }
+//
+//    @Override
+//    public TRM201_Energrtic getTRM201(int slaveAdrr){
+//        TRM201_Energrtic trm201_energrtic = new TRM201_Energrtic();
+//        try {
+//            modbusMasterSerialFirst.init();
+////            System.out.println("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+////            System.out.println("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(1, slaveAdrr, RegisterRange.HOLDING_REGISTER, 1, DataType.TWO_BYTE_INT_SIGNED);
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 2, DataType.TWO_BYTE_INT_SIGNED);
+//            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
+//            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
+//            int value1 = (short) batchResults.getValue(1);
+//            int value2 = (short) batchResults.getValue(2);
+//            float value3 = (float) batchResults.getValue(3);
+//            float value4 = (float) batchResults.getValue(4);
+////            System.out.println(value1 +" : : "+value2+" : : "+value3+" : : "+value4);
+//            trm201_energrtic.setDate(new Date());
+//            trm201_energrtic.setValue1(value1);
+//            trm201_energrtic.setValue2(value2);
+//            trm201_energrtic.setValue3(value3);
+//            trm201_energrtic.setValue4(value4);
+//        }catch (Exception e){
+////            System.out.println("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            trm201_energrtic.setDate(new Date());
+//            trm201_energrtic.setValue1(0);
+//            trm201_energrtic.setValue2(0);
+//            trm201_energrtic.setValue3(0);
+//            trm201_energrtic.setValue4(0);
+//            return trm201_energrtic;
+//        }
+//        finally {
+//            modbusMasterSerialFirst.destroy();
+////            System.out.println("ModBus Close connection, slave address №"+slaveAdrr);
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return trm201_energrtic;
+//    }
 
     @Override
     public ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr){

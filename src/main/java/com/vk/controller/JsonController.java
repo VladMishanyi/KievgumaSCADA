@@ -24,45 +24,45 @@ public class JsonController {
 
     private final Logger LOGGER = Logger.getLogger(JsonController.class);
 
-    @ResponseBody
-    @RequestMapping(value = "/generateChart", method = RequestMethod.POST)
-    public List<TRM201_Energrtic> generateChart(@RequestBody DateFromChart dateFromChart /*@RequestParam(value = "start") String start,
-                                @RequestParam(value = "end") String end*/){
-        List<TRM201_Energrtic> trm201_energrticList = null;
-        String start = dateFromChart.getStart();
-        String end = dateFromChart.getEnd();
-        String[] startTokens = start.split("T");
-        String[] endTokens = end.split("T");
-
-
-//        Date date = new Date();
-//        TRM201_Energrtic trm201_energrtic = new TRM201_Energrtic();
-//        trm201_energrtic.setDate(date);
-//        trm201_energrtic.setValue1(190);
-//        trm201_energrtic.setValue2(195);
-//        trmRepositoryService.addTRMvalue(trm201_energrtic);
-
-        try {
-//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-//            Date date1 = simpleDateFormat.parse("2017-07-19 15:16:02");
-//            Date date2 = simpleDateFormat.parse("2017-07-20 09:26:46");
-//            System.out.println("----------startPars---"+startTokens[0] +" "+ startTokens[1]+"-------endPars: "+endTokens[0] +" "+ endTokens[1]+"------");
-            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
-            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-//            System.out.println("------------------------start: "+date1+ "------------------------end: "+date2);
-            trm201_energrticList = trmRepositoryService.rangeTimestamp(date1, date2);
-//            System.out.println("--lengs:---------"+trm201_energrticList.size());
-//            for(TRM201_Energrtic x : trm201_energrticList){
-//                System.out.println(x.toString());
-//                System.out.println("-------------------------------------------------------------------------");
-//            }
-        }catch (ParseException e){
-//            System.out.println("--eror--------------------------"+e.getMessage()+"---------------------------------------------");
-            LOGGER.error("can't parse range of date: "+e.getClass());
-        }
-        return trm201_energrticList;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/generateChart", method = RequestMethod.POST)
+//    public List<TRM201_Energrtic> generateChart(@RequestBody DateFromChart dateFromChart /*@RequestParam(value = "start") String start,
+//                                @RequestParam(value = "end") String end*/){
+//        List<TRM201_Energrtic> trm201_energrticList = null;
+//        String start = dateFromChart.getStart();
+//        String end = dateFromChart.getEnd();
+//        String[] startTokens = start.split("T");
+//        String[] endTokens = end.split("T");
+//
+//
+////        Date date = new Date();
+////        TRM201_Energrtic trm201_energrtic = new TRM201_Energrtic();
+////        trm201_energrtic.setDate(date);
+////        trm201_energrtic.setValue1(190);
+////        trm201_energrtic.setValue2(195);
+////        trmRepositoryService.addTRMvalue(trm201_energrtic);
+//
+//        try {
+////            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+////            Date date1 = simpleDateFormat.parse("2017-07-19 15:16:02");
+////            Date date2 = simpleDateFormat.parse("2017-07-20 09:26:46");
+////            System.out.println("----------startPars---"+startTokens[0] +" "+ startTokens[1]+"-------endPars: "+endTokens[0] +" "+ endTokens[1]+"------");
+//            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
+//            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
+////            System.out.println("------------------------start: "+date1+ "------------------------end: "+date2);
+//            trm201_energrticList = trmRepositoryService.rangeTimestamp(date1, date2);
+////            System.out.println("--lengs:---------"+trm201_energrticList.size());
+////            for(TRM201_Energrtic x : trm201_energrticList){
+////                System.out.println(x.toString());
+////                System.out.println("-------------------------------------------------------------------------");
+////            }
+//        }catch (ParseException e){
+////            System.out.println("--eror--------------------------"+e.getMessage()+"---------------------------------------------");
+//            LOGGER.error("can't parse range of date: "+e.getClass());
+//        }
+//        return trm201_energrticList;
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/generateChartThirdCehAutoklav", method = RequestMethod.POST)

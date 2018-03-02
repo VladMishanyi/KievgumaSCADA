@@ -3,8 +3,8 @@ package com.vk.service;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.repository.*;
-import com.vk.repository.BaseRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +15,7 @@ import java.util.List;
  * Created by User on 2018-02-28.
  */
 @Service
+@ComponentScan
 public class ServiceModelImplEnergeticRoomTRM201 implements ServiceModelEnergeticRoomTRM201{
 
     @Autowired
@@ -23,7 +24,7 @@ public class ServiceModelImplEnergeticRoomTRM201 implements ServiceModelEnergeti
     @Autowired
     private ModbusRepositoryEnergeticRoomTRM201 modbusRepositoryEnergeticRoomTRM201;
 
-    public TableModelEnergeticRoomTRM201 getModbusDevice(){
+    public DeviceModelEnergeticRoomTRM201 getModbusDevice(){
         return modbusRepositoryEnergeticRoomTRM201.getDeviceModel();
     }
 

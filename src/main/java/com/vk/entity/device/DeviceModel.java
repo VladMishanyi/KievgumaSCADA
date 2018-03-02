@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 2018-02-23.
  */
-public class DeviceModel<E extends Number> {
+public abstract class DeviceModel<E extends Number, T extends DeviceModel> {
     private int deviceAddress;
     private int arraySize;
     private int[] deviceId;
@@ -96,4 +96,6 @@ public class DeviceModel<E extends Number> {
     public void setDeviceValuesRegisters(E[] deviceValuesRegisters) {
         this.deviceValuesRegisters = deviceValuesRegisters;
     }
+
+    public abstract boolean hysteresis();
 }

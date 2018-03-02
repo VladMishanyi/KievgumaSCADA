@@ -2,8 +2,11 @@ package com.vk.controller;
 
 import com.vk.entity.*;
 //import com.vk.repository.PLCRepository;
+import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.table.TableModelEnergeticRoomTRM201;
+import com.vk.service.ServiceModelEnergeticRoomTRM201;
 import com.vk.service.TRMRepositoryService;
-import com.vk.threads.LoopFirstChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.core.MessageSendingOperations;
 //import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -42,7 +45,10 @@ public class WebController {
     private TRMRepositoryService trmRepositoryService = new TRMRepositoryService();
 
     @Autowired
-    MessageSendingOperations<String> messageSendingOperations;
+    private MessageSendingOperations<String> messageSendingOperations;
+
+    @Autowired
+    private ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
 
 //    private final int ID_SLAVE_PLC100 = 1;
     private final int ID_SLAVE_TRM201 = 16;
@@ -215,6 +221,14 @@ public class WebController {
 //    }
     @Scheduled(fixedDelay = 30000)//ms
     private void loopSerialLisener(){
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201.getModbusDevice();
+        if (deviceModelEnergeticRoomTRM201.hysteresis()){
+            DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
+            TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
+            serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
+        }
+
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 //        TRM201_Energrtic trm201_energrtic = trmRepositoryService.getTRM201(ID_SLAVE_TRM201);
 //        messageSendingOperations.convertAndSend("/topic/trm201", trm201_energrtic);

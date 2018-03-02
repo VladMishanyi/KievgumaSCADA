@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface ServiceModelEnergeticRoomTRM201{
 
-    TableModelEnergeticRoomTRM201 getModbusDevice();
+    DeviceModelEnergeticRoomTRM201 getModbusDevice();
 
     void addTabeDevice(TableModelEnergeticRoomTRM201 tableModel);
 

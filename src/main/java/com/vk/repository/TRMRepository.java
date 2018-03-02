@@ -12,9 +12,9 @@ import java.util.List;
  * Created by User on 2017-07-18.
  */
 public interface TRMRepository {
-    TRM201_Energrtic getTRM201(int slaveAdrr);
-    void addTRMvalue(TRM201_Energrtic trm201_energrtic);
-    List<TRM201_Energrtic> rangeTimestamp(Date startTimestamp, Date endTimestamp);
+//    TRM201_Energrtic getTRM201(int slaveAdrr);
+//    void addTRMvalue(TRM201_Energrtic trm201_energrtic);
+//    List<TRM201_Energrtic> rangeTimestamp(Date startTimestamp, Date endTimestamp);
 
     ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr);
     void addThirdCehAutoclavTRM202(ThirdCehAutoclav thirdCehAutoclav);

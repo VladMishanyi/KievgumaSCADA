@@ -6,7 +6,7 @@ import com.serotonin.modbus4j.ModbusMaster;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.serotonin.modbus4j.exception.ModbusInitException;
-import com.vk.entity.TRM201_Energrtic;
+
 import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
@@ -20,7 +20,7 @@ import java.util.Date;
  * Created by User on 2018-02-27.
  */
 @Component
-public class ModbusRepositoryImplEnergeticRoomTRM201 extends ModbusRepositoryImpl<DeviceModelEnergeticRoomTRM201, TableModelEnergeticRoomTRM201> {
+public class ModbusRepositoryImplEnergeticRoomTRM201 implements ModbusRepositoryEnergeticRoomTRM201 {
 
     @Autowired
     private ModbusMaster modbusMasterSerialFirst;
@@ -28,7 +28,7 @@ public class ModbusRepositoryImplEnergeticRoomTRM201 extends ModbusRepositoryImp
     private final Logger LOGGER = Logger.getLogger(ModbusRepositoryImplEnergeticRoomTRM201.class);
 
     @Override
-    public TableModelEnergeticRoomTRM201 getDeviceModel(){
+    public DeviceModelEnergeticRoomTRM201 getDeviceModel(){
         DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = new DeviceModelEnergeticRoomTRM201();
         try {
             modbusMasterSerialFirst.init();
@@ -71,7 +71,6 @@ public class ModbusRepositoryImplEnergeticRoomTRM201 extends ModbusRepositoryImp
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+
                     deviceModelEnergeticRoomTRM201.getDeviceAddress());
         }
-        DeviceToTableEnergeticRoomTRM201 body = new DeviceToTableEnergeticRoomTRM201();
-        return body.convert(deviceModelEnergeticRoomTRM201);
+        return deviceModelEnergeticRoomTRM201;
     }
 }

@@ -20,19 +20,19 @@ public class TRMRepositoryService {
     @Autowired
     private TRMRepository trmRepository;
 
-    @Transactional
-    public void addTRMvalue(TRM201_Energrtic trm201_energrtic){
-        trmRepository.addTRMvalue(trm201_energrtic);
-    }
-
-    @Transactional(readOnly = true)
-    public List<TRM201_Energrtic> rangeTimestamp(Date startTimestamp, Date endTimestamp){
-        return trmRepository.rangeTimestamp(startTimestamp, endTimestamp);
-    }
-
-    public TRM201_Energrtic getTRM201(int slaveAdrr){
-        return trmRepository.getTRM201(slaveAdrr);
-    }
+//    @Transactional
+//    public void addTRMvalue(TRM201_Energrtic trm201_energrtic){
+//        trmRepository.addTRMvalue(trm201_energrtic);
+//    }
+//
+//    @Transactional(readOnly = true)
+//    public List<TRM201_Energrtic> rangeTimestamp(Date startTimestamp, Date endTimestamp){
+//        return trmRepository.rangeTimestamp(startTimestamp, endTimestamp);
+//    }
+//
+//    public TRM201_Energrtic getTRM201(int slaveAdrr){
+//        return trmRepository.getTRM201(slaveAdrr);
+//    }
     public ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr){
         return trmRepository.getThirdCehAutoclavTRM202(slaveAdrr);
     }
