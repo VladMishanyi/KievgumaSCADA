@@ -185,7 +185,7 @@ public class RootConfig {
         return trmRepositoryService;
     }
 
-    public ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201(){
-        return new ServiceModelImplEnergeticRoomTRM201();
-    }
+//    public ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201(){
+//        return new ServiceModelImplEnergeticRoomTRM201();
+//    }
 }

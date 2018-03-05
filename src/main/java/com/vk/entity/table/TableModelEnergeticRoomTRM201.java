@@ -6,6 +6,8 @@ import java.util.Date;
 /**
  * Created by User on 2018-02-27.
  */
+@Entity
+@Table(name = "Trm201Energetic")
 public class TableModelEnergeticRoomTRM201 extends TableModel {
 
     private static final long SERIAL_VERSION_UDI = 1L;

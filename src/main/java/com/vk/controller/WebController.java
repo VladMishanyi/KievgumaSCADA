@@ -8,6 +8,7 @@ import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.service.ServiceModelEnergeticRoomTRM201;
 import com.vk.service.TRMRepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.core.MessageSendingOperations;
 //import org.springframework.messaging.handler.annotation.MessageMapping;
 //import org.springframework.messaging.handler.annotation.SendTo;
@@ -34,6 +35,7 @@ import java.util.Date;
  */
 @Controller
 @EnableScheduling
+@ComponentScan(basePackages = {"com.vk.service"})
 public class WebController {
 
     private final Logger LOGGER = Logger.getLogger(WebController.class);
@@ -219,13 +221,15 @@ public class WebController {
 ////            System.out.println("------This time listening--------" + (System.currentTimeMillis() - start) + " ms");
 //        }
 //    }
-    @Scheduled(fixedDelay = 30000)//ms
+    @Scheduled(fixedDelay = 3000)//ms
     private void loopSerialLisener(){
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201.getModbusDevice();
+        DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
+        TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
+        messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
+        System.out.println("out data :"+tableModelEnergeticRoomTRM201.getValue3()+" -- "+tableModelEnergeticRoomTRM201.getValue4());
         if (deviceModelEnergeticRoomTRM201.hysteresis()){
-            DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
-            TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
             serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
         }
 
@@ -236,113 +240,113 @@ public class WebController {
 //            trmRepositoryService.addTRMvalue(trm201_energrtic);
 //            trm201Temp = trm201_energrtic.getValue3();
 //        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        ThirdCehAutoclav thirdCehAutoclav = trmRepositoryService.getThirdCehAutoclavTRM202(ID_SLAVE_ThirdCehAutoklavTRM202);
-        messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", thirdCehAutoclav);
-        if ((thirdCehAutoclavTemperatura -1 >= thirdCehAutoclav.getChannel1()) || (thirdCehAutoclavTemperatura +1 <= thirdCehAutoclav.getChannel1()) || (0 == thirdCehAutoclav.getChannel1()) ){
-            trmRepositoryService.addThirdCehAutoclavTRM202(thirdCehAutoclav);
-            thirdCehAutoclavTemperatura = thirdCehAutoclav.getChannel1();
-        }
-        if ((thirdCehAutoclavDavlenie -1 >= thirdCehAutoclav.getChannel2()) || (thirdCehAutoclavDavlenie +1 <= thirdCehAutoclav.getChannel2()) || (0 == thirdCehAutoclav.getChannel2()) ){
-            trmRepositoryService.addThirdCehAutoclavTRM202(thirdCehAutoclav);
-            thirdCehAutoclavDavlenie = thirdCehAutoclav.getChannel2();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehAutoclav firstCehAutoclav = trmRepositoryService.getFirstCehAutoclavTRM202(ID_SLAVE_FirstCehAutoklavTRM202);
-        messageSendingOperations.convertAndSend("/topic/firstCehAvtoclav", firstCehAutoclav);
-        if ((firstCehAutoclavTemperatura -1 >= firstCehAutoclav.getChannel1()) || (firstCehAutoclavTemperatura +1 <= firstCehAutoclav.getChannel1()) || (0 == firstCehAutoclav.getChannel1()) ){
-            trmRepositoryService.addFirstCehAutoclavTRM202(firstCehAutoclav);
-            firstCehAutoclavTemperatura = firstCehAutoclav.getChannel1();
-        }
-        if ((firstCehAutoclavDavlenie -1 >= firstCehAutoclav.getChannel2()) || (firstCehAutoclavDavlenie +1 <= firstCehAutoclav.getChannel2()) || (0 == firstCehAutoclav.getChannel2()) ){
-            trmRepositoryService.addFirstCehAutoclavTRM202(firstCehAutoclav);
-            firstCehAutoclavDavlenie = firstCehAutoclav.getChannel2();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehKameraDozrevanya firstCehKameraDozrevanya = trmRepositoryService.getFirstCehKameraDozrevanyaMPR51(ID_SLAVE_FirstCehKameraDozrevanya);
-        messageSendingOperations.convertAndSend("/topic/firstCehKameraDozrevanya", firstCehKameraDozrevanya);
-        if ((firstCehKameraDozrevanyaTempProdukta -1 >= firstCehKameraDozrevanya.getChannel1()) || (firstCehKameraDozrevanyaTempProdukta +1 <= firstCehKameraDozrevanya.getChannel1()) || (0 == firstCehKameraDozrevanya.getChannel1()) ){
-            trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
-            firstCehKameraDozrevanyaTempProdukta = firstCehKameraDozrevanya.getChannel1();
-        }
-        if ((firstCehKameraDozrevanyaTempSuhogo -1 >= firstCehKameraDozrevanya.getChannel2()) || (firstCehKameraDozrevanyaTempSuhogo +1 <= firstCehKameraDozrevanya.getChannel2()) || (0 == firstCehKameraDozrevanya.getChannel2()) ){
-            trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
-            firstCehKameraDozrevanyaTempSuhogo = firstCehKameraDozrevanya.getChannel2();
-        }
-        if ((firstCehKameraDozrevanyaTempVlagnogo -1 >= firstCehKameraDozrevanya.getChannel3()) || (firstCehKameraDozrevanyaTempVlagnogo +1 <= firstCehKameraDozrevanya.getChannel3()) || (0 == firstCehKameraDozrevanya.getChannel3()) ){
-            trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
-            firstCehKameraDozrevanyaTempVlagnogo = firstCehKameraDozrevanya.getChannel3();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehBuzuluk firstCehBuzuluk = trmRepositoryService.getFirstCehBuzulukTRM200(ID_SLAVE_FirstCehBuzulukTRM200);
-        messageSendingOperations.convertAndSend("/topic/firstCehBuzuluk", firstCehBuzuluk);
-        if ((firstCehBuzulukTemperatura -1 >= firstCehBuzuluk.getChannel1()) || (firstCehBuzulukTemperatura +1 <= firstCehBuzuluk.getChannel1()) || (0 == firstCehBuzuluk.getChannel1()) ){
-            trmRepositoryService.addFirstCehBuzulukTRM200(firstCehBuzuluk);
-            firstCehBuzulukTemperatura = firstCehBuzuluk.getChannel1();
-        }
-        if ((firstCehBuzulukDavlenie -1 >= firstCehBuzuluk.getChannel2()) || (firstCehBuzulukDavlenie +1 <= firstCehBuzuluk.getChannel2()) || (0 == firstCehBuzuluk.getChannel2()) ){
-            trmRepositoryService.addFirstCehBuzulukTRM200(firstCehBuzuluk);
-            firstCehBuzulukDavlenie = firstCehBuzuluk.getChannel2();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        SevenCehAutoclav sevenCehAutoclav = trmRepositoryService.getSevenCehAutoclavSPK(ID_SLAVE_SevenCehAutoclav);
-        messageSendingOperations.convertAndSend("/topic/sevenCehAutoclav", sevenCehAutoclav);
-        if ((sevenCehAutoclavDavlenie -1 >= sevenCehAutoclav.getChannel1()) || (sevenCehAutoclavDavlenie +1 <= sevenCehAutoclav.getChannel1()) || (0 == sevenCehAutoclav.getChannel1()) ){
-            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
-            sevenCehAutoclavDavlenie = sevenCehAutoclav.getChannel1();
-        }
-        if ((sevenCehAutoclavTempAuto -1 >= sevenCehAutoclav.getChannel2()) || (sevenCehAutoclavTempAuto +1 <= sevenCehAutoclav.getChannel2()) || (0 == sevenCehAutoclav.getChannel2()) ){
-            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
-            sevenCehAutoclavTempAuto = sevenCehAutoclav.getChannel2();
-        }
-        if ((sevenCehAutoclavTempProdukta -1 >= sevenCehAutoclav.getChannel3()) || (sevenCehAutoclavTempProdukta +1 <= sevenCehAutoclav.getChannel3()) || (0 == sevenCehAutoclav.getChannel3()) ){
-            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
-            sevenCehAutoclavTempProdukta = sevenCehAutoclav.getChannel3();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1 = trmRepositoryService.getFirstCehSmesitel1KMSF1(ID_SLAVE_FirstCehSmesitel1KMSF1);
-        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", firstCehSmesitel1KMSF1);
-        if ((firstCehSmesitel1Tok -1 >= firstCehSmesitel1KMSF1.getChannel1()) || (firstCehSmesitel1Tok +1 <= firstCehSmesitel1KMSF1.getChannel1()) || (0 == firstCehSmesitel1KMSF1.getChannel1()) ){
-            trmRepositoryService.addFirstCehSmesitel1KMSF1(firstCehSmesitel1KMSF1);
-            firstCehSmesitel1Tok = firstCehSmesitel1KMSF1.getChannel1();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1 = trmRepositoryService.getFirstCehSmesitel2KMSF1(ID_SLAVE_FirstCehSmesitel2KMSF1);
-        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", firstCehSmesitel2KMSF1);
-        if ((firstCehSmesitel2Tok -1 >= firstCehSmesitel2KMSF1.getChannel1()) || (firstCehSmesitel2Tok +1 <= firstCehSmesitel2KMSF1.getChannel1()) || (0 == firstCehSmesitel2KMSF1.getChannel1()) ){
-            trmRepositoryService.addFirstCehSmesitel2KMSF1(firstCehSmesitel2KMSF1);
-            firstCehSmesitel2Tok = firstCehSmesitel2KMSF1.getChannel1();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1 = trmRepositoryService.getFirstCehSmesitel3KMSF1(ID_SLAVE_FirstCehSmesitel3KMSF1);
-        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", firstCehSmesitel3KMSF1);
-        if ((firstCehSmesitel3Tok -1 >= firstCehSmesitel3KMSF1.getChannel1()) || (firstCehSmesitel3Tok +1 <= firstCehSmesitel3KMSF1.getChannel1()) || (0 == firstCehSmesitel3KMSF1.getChannel1()) ){
-            trmRepositoryService.addFirstCehSmesitel3KMSF1(firstCehSmesitel3KMSF1);
-            firstCehSmesitel3Tok = firstCehSmesitel3KMSF1.getChannel1();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1 = trmRepositoryService.getFirstCehSmesitel4KMSF1(ID_SLAVE_FirstCehSmesitel4KMSF1);
-        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", firstCehSmesitel4KMSF1);
-        if ((firstCehSmesitel4Tok -1 >= firstCehSmesitel4KMSF1.getChannel1()) || (firstCehSmesitel4Tok +1 <= firstCehSmesitel4KMSF1.getChannel1()) || (0 == firstCehSmesitel4KMSF1.getChannel1()) ){
-            trmRepositoryService.addFirstCehSmesitel4KMSF1(firstCehSmesitel4KMSF1);
-            firstCehSmesitel4Tok = firstCehSmesitel4KMSF1.getChannel1();
-        }
-
-        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1 = trmRepositoryService.getFirstCehSmesitel5KMSF1(ID_SLAVE_FirstCehSmesitel5KMSF1);
-        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", firstCehSmesitel5KMSF1);
-        if ((firstCehSmesitel5Tok -1 >= firstCehSmesitel5KMSF1.getChannel1()) || (firstCehSmesitel5Tok +1 <= firstCehSmesitel5KMSF1.getChannel1()) || (0 == firstCehSmesitel5KMSF1.getChannel1()) ){
-            trmRepositoryService.addFirstCehSmesitel5KMSF1(firstCehSmesitel5KMSF1);
-            firstCehSmesitel5Tok = firstCehSmesitel5KMSF1.getChannel1();
-        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        ThirdCehAutoclav thirdCehAutoclav = trmRepositoryService.getThirdCehAutoclavTRM202(ID_SLAVE_ThirdCehAutoklavTRM202);
+//        messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", thirdCehAutoclav);
+//        if ((thirdCehAutoclavTemperatura -1 >= thirdCehAutoclav.getChannel1()) || (thirdCehAutoclavTemperatura +1 <= thirdCehAutoclav.getChannel1()) || (0 == thirdCehAutoclav.getChannel1()) ){
+//            trmRepositoryService.addThirdCehAutoclavTRM202(thirdCehAutoclav);
+//            thirdCehAutoclavTemperatura = thirdCehAutoclav.getChannel1();
+//        }
+//        if ((thirdCehAutoclavDavlenie -1 >= thirdCehAutoclav.getChannel2()) || (thirdCehAutoclavDavlenie +1 <= thirdCehAutoclav.getChannel2()) || (0 == thirdCehAutoclav.getChannel2()) ){
+//            trmRepositoryService.addThirdCehAutoclavTRM202(thirdCehAutoclav);
+//            thirdCehAutoclavDavlenie = thirdCehAutoclav.getChannel2();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehAutoclav firstCehAutoclav = trmRepositoryService.getFirstCehAutoclavTRM202(ID_SLAVE_FirstCehAutoklavTRM202);
+//        messageSendingOperations.convertAndSend("/topic/firstCehAvtoclav", firstCehAutoclav);
+//        if ((firstCehAutoclavTemperatura -1 >= firstCehAutoclav.getChannel1()) || (firstCehAutoclavTemperatura +1 <= firstCehAutoclav.getChannel1()) || (0 == firstCehAutoclav.getChannel1()) ){
+//            trmRepositoryService.addFirstCehAutoclavTRM202(firstCehAutoclav);
+//            firstCehAutoclavTemperatura = firstCehAutoclav.getChannel1();
+//        }
+//        if ((firstCehAutoclavDavlenie -1 >= firstCehAutoclav.getChannel2()) || (firstCehAutoclavDavlenie +1 <= firstCehAutoclav.getChannel2()) || (0 == firstCehAutoclav.getChannel2()) ){
+//            trmRepositoryService.addFirstCehAutoclavTRM202(firstCehAutoclav);
+//            firstCehAutoclavDavlenie = firstCehAutoclav.getChannel2();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehKameraDozrevanya firstCehKameraDozrevanya = trmRepositoryService.getFirstCehKameraDozrevanyaMPR51(ID_SLAVE_FirstCehKameraDozrevanya);
+//        messageSendingOperations.convertAndSend("/topic/firstCehKameraDozrevanya", firstCehKameraDozrevanya);
+//        if ((firstCehKameraDozrevanyaTempProdukta -1 >= firstCehKameraDozrevanya.getChannel1()) || (firstCehKameraDozrevanyaTempProdukta +1 <= firstCehKameraDozrevanya.getChannel1()) || (0 == firstCehKameraDozrevanya.getChannel1()) ){
+//            trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
+//            firstCehKameraDozrevanyaTempProdukta = firstCehKameraDozrevanya.getChannel1();
+//        }
+//        if ((firstCehKameraDozrevanyaTempSuhogo -1 >= firstCehKameraDozrevanya.getChannel2()) || (firstCehKameraDozrevanyaTempSuhogo +1 <= firstCehKameraDozrevanya.getChannel2()) || (0 == firstCehKameraDozrevanya.getChannel2()) ){
+//            trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
+//            firstCehKameraDozrevanyaTempSuhogo = firstCehKameraDozrevanya.getChannel2();
+//        }
+//        if ((firstCehKameraDozrevanyaTempVlagnogo -1 >= firstCehKameraDozrevanya.getChannel3()) || (firstCehKameraDozrevanyaTempVlagnogo +1 <= firstCehKameraDozrevanya.getChannel3()) || (0 == firstCehKameraDozrevanya.getChannel3()) ){
+//            trmRepositoryService.addFirstCehKameraDozrevanyaMPR51(firstCehKameraDozrevanya);
+//            firstCehKameraDozrevanyaTempVlagnogo = firstCehKameraDozrevanya.getChannel3();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehBuzuluk firstCehBuzuluk = trmRepositoryService.getFirstCehBuzulukTRM200(ID_SLAVE_FirstCehBuzulukTRM200);
+//        messageSendingOperations.convertAndSend("/topic/firstCehBuzuluk", firstCehBuzuluk);
+//        if ((firstCehBuzulukTemperatura -1 >= firstCehBuzuluk.getChannel1()) || (firstCehBuzulukTemperatura +1 <= firstCehBuzuluk.getChannel1()) || (0 == firstCehBuzuluk.getChannel1()) ){
+//            trmRepositoryService.addFirstCehBuzulukTRM200(firstCehBuzuluk);
+//            firstCehBuzulukTemperatura = firstCehBuzuluk.getChannel1();
+//        }
+//        if ((firstCehBuzulukDavlenie -1 >= firstCehBuzuluk.getChannel2()) || (firstCehBuzulukDavlenie +1 <= firstCehBuzuluk.getChannel2()) || (0 == firstCehBuzuluk.getChannel2()) ){
+//            trmRepositoryService.addFirstCehBuzulukTRM200(firstCehBuzuluk);
+//            firstCehBuzulukDavlenie = firstCehBuzuluk.getChannel2();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        SevenCehAutoclav sevenCehAutoclav = trmRepositoryService.getSevenCehAutoclavSPK(ID_SLAVE_SevenCehAutoclav);
+//        messageSendingOperations.convertAndSend("/topic/sevenCehAutoclav", sevenCehAutoclav);
+//        if ((sevenCehAutoclavDavlenie -1 >= sevenCehAutoclav.getChannel1()) || (sevenCehAutoclavDavlenie +1 <= sevenCehAutoclav.getChannel1()) || (0 == sevenCehAutoclav.getChannel1()) ){
+//            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
+//            sevenCehAutoclavDavlenie = sevenCehAutoclav.getChannel1();
+//        }
+//        if ((sevenCehAutoclavTempAuto -1 >= sevenCehAutoclav.getChannel2()) || (sevenCehAutoclavTempAuto +1 <= sevenCehAutoclav.getChannel2()) || (0 == sevenCehAutoclav.getChannel2()) ){
+//            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
+//            sevenCehAutoclavTempAuto = sevenCehAutoclav.getChannel2();
+//        }
+//        if ((sevenCehAutoclavTempProdukta -1 >= sevenCehAutoclav.getChannel3()) || (sevenCehAutoclavTempProdukta +1 <= sevenCehAutoclav.getChannel3()) || (0 == sevenCehAutoclav.getChannel3()) ){
+//            trmRepositoryService.addSevenCehAutoclavSPK(sevenCehAutoclav);
+//            sevenCehAutoclavTempProdukta = sevenCehAutoclav.getChannel3();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1 = trmRepositoryService.getFirstCehSmesitel1KMSF1(ID_SLAVE_FirstCehSmesitel1KMSF1);
+//        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", firstCehSmesitel1KMSF1);
+//        if ((firstCehSmesitel1Tok -1 >= firstCehSmesitel1KMSF1.getChannel1()) || (firstCehSmesitel1Tok +1 <= firstCehSmesitel1KMSF1.getChannel1()) || (0 == firstCehSmesitel1KMSF1.getChannel1()) ){
+//            trmRepositoryService.addFirstCehSmesitel1KMSF1(firstCehSmesitel1KMSF1);
+//            firstCehSmesitel1Tok = firstCehSmesitel1KMSF1.getChannel1();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1 = trmRepositoryService.getFirstCehSmesitel2KMSF1(ID_SLAVE_FirstCehSmesitel2KMSF1);
+//        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", firstCehSmesitel2KMSF1);
+//        if ((firstCehSmesitel2Tok -1 >= firstCehSmesitel2KMSF1.getChannel1()) || (firstCehSmesitel2Tok +1 <= firstCehSmesitel2KMSF1.getChannel1()) || (0 == firstCehSmesitel2KMSF1.getChannel1()) ){
+//            trmRepositoryService.addFirstCehSmesitel2KMSF1(firstCehSmesitel2KMSF1);
+//            firstCehSmesitel2Tok = firstCehSmesitel2KMSF1.getChannel1();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1 = trmRepositoryService.getFirstCehSmesitel3KMSF1(ID_SLAVE_FirstCehSmesitel3KMSF1);
+//        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", firstCehSmesitel3KMSF1);
+//        if ((firstCehSmesitel3Tok -1 >= firstCehSmesitel3KMSF1.getChannel1()) || (firstCehSmesitel3Tok +1 <= firstCehSmesitel3KMSF1.getChannel1()) || (0 == firstCehSmesitel3KMSF1.getChannel1()) ){
+//            trmRepositoryService.addFirstCehSmesitel3KMSF1(firstCehSmesitel3KMSF1);
+//            firstCehSmesitel3Tok = firstCehSmesitel3KMSF1.getChannel1();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1 = trmRepositoryService.getFirstCehSmesitel4KMSF1(ID_SLAVE_FirstCehSmesitel4KMSF1);
+//        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", firstCehSmesitel4KMSF1);
+//        if ((firstCehSmesitel4Tok -1 >= firstCehSmesitel4KMSF1.getChannel1()) || (firstCehSmesitel4Tok +1 <= firstCehSmesitel4KMSF1.getChannel1()) || (0 == firstCehSmesitel4KMSF1.getChannel1()) ){
+//            trmRepositoryService.addFirstCehSmesitel4KMSF1(firstCehSmesitel4KMSF1);
+//            firstCehSmesitel4Tok = firstCehSmesitel4KMSF1.getChannel1();
+//        }
+//
+//        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//        FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1 = trmRepositoryService.getFirstCehSmesitel5KMSF1(ID_SLAVE_FirstCehSmesitel5KMSF1);
+//        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", firstCehSmesitel5KMSF1);
+//        if ((firstCehSmesitel5Tok -1 >= firstCehSmesitel5KMSF1.getChannel1()) || (firstCehSmesitel5Tok +1 <= firstCehSmesitel5KMSF1.getChannel1()) || (0 == firstCehSmesitel5KMSF1.getChannel1()) ){
+//            trmRepositoryService.addFirstCehSmesitel5KMSF1(firstCehSmesitel5KMSF1);
+//            firstCehSmesitel5Tok = firstCehSmesitel5KMSF1.getChannel1();
+//        }
     }
 }

@@ -1,6 +1,6 @@
 package com.vk.repository;
 
-import com.vk.entity.TRM201_Energrtic;
+
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import org.springframework.stereotype.Repository;
 

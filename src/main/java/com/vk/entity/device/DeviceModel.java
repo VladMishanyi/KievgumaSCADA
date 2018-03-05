@@ -1,6 +1,7 @@
 package com.vk.entity.device;
 
 import com.serotonin.modbus4j.code.RegisterRange;
+import com.vk.lib.HysComparator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +9,16 @@ import java.util.List;
 /**
  * Created by User on 2018-02-23.
  */
-public abstract class DeviceModel<E extends Number, T extends DeviceModel> {
-    private int deviceAddress;
-    private int arraySize;
-    private int[] deviceId;
-    private int[] deviceRegisterRange;
-    private int[] deviceAddressRegisters;
-    private int[] deviceDataType;
+public abstract class DeviceModel<E extends Number> {
+    private static int deviceAddress;
+    private static int arraySize;
+    private static int[] deviceId;
+    private static int[] deviceRegisterRange;
+    private static int[] deviceAddressRegisters;
+    private static int[] deviceDataType;
     private E[] deviceValuesRegisters;
+    private E[] hisDeviceValuesRegisters;
+    private static int hysteresis;
 
     public DeviceModel(){}
 
@@ -93,8 +96,40 @@ public abstract class DeviceModel<E extends Number, T extends DeviceModel> {
         return deviceValuesRegisters;
     }
 
+    public E getDeviceValuesRegistersIndex(int i) {
+        return deviceValuesRegisters[i];
+    }
+
     public void setDeviceValuesRegisters(E[] deviceValuesRegisters) {
         this.deviceValuesRegisters = deviceValuesRegisters;
+    }
+
+    public void setDeviceValuesRegistersIndex(int i, E deviceValueRegisters) {
+        this.deviceValuesRegisters[i] = deviceValueRegisters;
+    }
+
+    public E[] getHisDeviceValuesRegisters() {
+        return hisDeviceValuesRegisters;
+    }
+
+    public E getHisDeviceValuesRegistersIndex(int i){
+        return hisDeviceValuesRegisters[i];
+    }
+
+    public void setHisDeviceValuesRegisters(E[] hisDeviceValuesRegisters) {
+        this.hisDeviceValuesRegisters = hisDeviceValuesRegisters;
+    }
+
+    public void setHisDeviceValuesRegistersIndex(int i, E hisDeviceValueRegisters) {
+        this.hisDeviceValuesRegisters[i] = hisDeviceValueRegisters;
+    }
+
+    public int getHysteresis() {
+        return hysteresis;
+    }
+
+    public void setHysteresis(int hysteresis) {
+        this.hysteresis = hysteresis;
     }
 
     public abstract boolean hysteresis();

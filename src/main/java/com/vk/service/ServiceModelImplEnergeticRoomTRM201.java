@@ -15,7 +15,7 @@ import java.util.List;
  * Created by User on 2018-02-28.
  */
 @Service
-@ComponentScan
+@ComponentScan(basePackages = {"com.vk.repository"})
 public class ServiceModelImplEnergeticRoomTRM201 implements ServiceModelEnergeticRoomTRM201{
 
     @Autowired
