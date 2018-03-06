@@ -8,7 +8,13 @@ public class HysComparator {
     private HysComparator(){}
 
     public static boolean compare(Float oldValue, Float currentValue, Integer hysterysys){
-//        System.out.println(oldValue+"---"+currentValue+"---"+hysterysys);
+        if (oldValue - hysterysys >= currentValue) return true;
+        if (oldValue + hysterysys <= currentValue) return true;
+        if (0 == currentValue) return true;
+        return false;
+    }
+
+    public static boolean compare(Integer oldValue, Integer currentValue, Integer hysterysys){
         if (oldValue - hysterysys >= currentValue) return true;
         if (oldValue + hysterysys <= currentValue) return true;
         if (0 == currentValue) return true;

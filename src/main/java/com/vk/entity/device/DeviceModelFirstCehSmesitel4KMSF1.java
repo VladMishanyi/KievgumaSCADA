@@ -7,8 +7,8 @@ import com.vk.lib.HysComparator;
 /**
  * Created by User on 2018-03-06.
  */
-public class DeviceModelFirstCehSmesitel2KMSF1 extends DeviceModel<Integer> {
-    private static final int deviceAddress = 40;
+public class DeviceModelFirstCehSmesitel4KMSF1 extends DeviceModel<Integer> {
+    private static final int deviceAddress = 64;
     private static final int arraySize = 1;
     private static final int deviceId1 = 0;
     private static final int deviceRegisterRange1 = RegisterRange.HOLDING_REGISTER;
@@ -18,7 +18,7 @@ public class DeviceModelFirstCehSmesitel2KMSF1 extends DeviceModel<Integer> {
     private static Integer[] hisDeviceValuesRegisters = {0};
     private static final int hysteresis = 1;
 
-    public DeviceModelFirstCehSmesitel2KMSF1(){
+    public DeviceModelFirstCehSmesitel4KMSF1(){
         this.setDeviceAddress(deviceAddress);
         this.setArraySize(arraySize);
         this.setDeviceId(deviceId1);
