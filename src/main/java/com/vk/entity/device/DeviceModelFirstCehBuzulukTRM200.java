@@ -5,10 +5,10 @@ import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
 
 /**
- * Created by User on 2018-02-26.
+ * Created by User on 2018-03-06.
  */
-public class DeviceModelEnergeticRoomTRM201 extends DeviceModel<Float>{
-    private static final int deviceAddress = 16;
+public class DeviceModelFirstCehBuzulukTRM200 extends DeviceModel<Float>{
+    private static final int deviceAddress = 25;
     private static final int arraySize = 2;
     private static final int deviceId1 = 0;
     private static final int deviceId2 = 1;
@@ -22,7 +22,7 @@ public class DeviceModelEnergeticRoomTRM201 extends DeviceModel<Float>{
     private static Float[] hisDeviceValuesRegisters = {0F,0F};
     private static final int hysteresis = 1;
 
-    public DeviceModelEnergeticRoomTRM201(){
+    public DeviceModelFirstCehBuzulukTRM200(){
         this.setDeviceAddress(deviceAddress);
         this.setArraySize(arraySize);
         this.setDeviceId(deviceId1, deviceId2);

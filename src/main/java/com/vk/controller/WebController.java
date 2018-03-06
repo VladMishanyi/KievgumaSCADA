@@ -228,7 +228,7 @@ public class WebController {
         DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
         TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
         messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
-        System.out.println("out data :"+tableModelEnergeticRoomTRM201.getValue3()+" -- "+tableModelEnergeticRoomTRM201.getValue4());
+//        System.out.println("out data :"+tableModelEnergeticRoomTRM201.getValue3()+" -- "+tableModelEnergeticRoomTRM201.getValue4());
         if (deviceModelEnergeticRoomTRM201.hysteresis()){
             serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
         }

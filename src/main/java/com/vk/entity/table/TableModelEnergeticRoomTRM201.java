@@ -13,16 +13,16 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
     private static final long SERIAL_VERSION_UDI = 1L;
 
     @Column(name = "value1")
-    private Integer value1;
+    private int value1;
 
     @Column(name = "value2")
-    private  Integer value2;
+    private  int value2;
 
     @Column(name = "value3")
-    private  Float value3;
+    private  float value3;
 
     @Column(name = "value4")
-    private  Float value4;
+    private  float value4;
 
     public TableModelEnergeticRoomTRM201(){}
 
@@ -40,10 +40,10 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
         boolean result = super.equals(object);
         if (result){
             TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = (TableModelEnergeticRoomTRM201) object;
-            result = (this.value1.equals(tableModelEnergeticRoomTRM201.value1)) &&
-                    (this.value2.equals(tableModelEnergeticRoomTRM201.value2)) &&
-                    (this.value3.equals(tableModelEnergeticRoomTRM201.value3)) &&
-                    (this.value4.equals(tableModelEnergeticRoomTRM201.value4));
+            result = (this.value1 == tableModelEnergeticRoomTRM201.value1) &&
+                    (this.value2 == tableModelEnergeticRoomTRM201.value2) &&
+                    (this.value3 == tableModelEnergeticRoomTRM201.value3) &&
+                    (this.value4 == tableModelEnergeticRoomTRM201.value4);
         }
         return result;
     }
@@ -55,42 +55,41 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
 
     @Override
     public int hashCode(){
-        return this.value1.hashCode() +
-                this.value2.hashCode() +
-                this.value3.hashCode() +
-                this.value4.hashCode();
+        return Integer.hashCode(this.value1) +
+                Integer.hashCode(this.value2) +
+                Float.hashCode(this.value3) +
+                Float.hashCode(this.value4);
     }
 
-    public Integer getValue1() {
+    public int getValue1() {
         return value1;
     }
 
-    public void setValue1(Integer value1) {
+    public void setValue1(int value1) {
         this.value1 = value1;
     }
 
-    public Integer getValue2() {
+    public int getValue2() {
         return value2;
     }
 
-    public void setValue2(Integer value2) {
+    public void setValue2(int value2) {
         this.value2 = value2;
     }
 
-    public Float getValue3() {
+    public float getValue3() {
         return value3;
     }
 
-    public void setValue3(Float value3) {
+    public void setValue3(float value3) {
         this.value3 = value3;
     }
 
-    public Float getValue4() {
+    public float getValue4() {
         return value4;
     }
 
-    public void setValue4(Float value4) {
+    public void setValue4(float value4) {
         this.value4 = value4;
     }
-
 }

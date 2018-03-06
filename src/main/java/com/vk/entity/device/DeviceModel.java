@@ -10,15 +10,15 @@ import java.util.List;
  * Created by User on 2018-02-23.
  */
 public abstract class DeviceModel<E extends Number> {
-    private static int deviceAddress;
-    private static int arraySize;
-    private static int[] deviceId;
-    private static int[] deviceRegisterRange;
-    private static int[] deviceAddressRegisters;
-    private static int[] deviceDataType;
+    private int deviceAddress;
+    private int arraySize;
+    private int[] deviceId;
+    private int[] deviceRegisterRange;
+    private int[] deviceAddressRegisters;
+    private int[] deviceDataType;
     private E[] deviceValuesRegisters;
     private E[] hisDeviceValuesRegisters;
-    private static int hysteresis;
+    private int hysteresis;
 
     public DeviceModel(){}
 

@@ -1,9 +1,6 @@
 package com.vk.controller;
 
 import com.vk.entity.DateFromChart;
-import com.vk.entity.ThirdCehAutoclav;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-import com.vk.service.ServiceModelEnergeticRoomTRM201;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,21 +12,21 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by User on 2018-03-02.
+ * Created by User on 2018-03-06.
  */
 @RestController
 @ComponentScan(basePackages = {"com.vk.service"})
-public class JsonControllerEnergeticRoomTRM201 {
+public class JsonControllerSevenCehAutoclavSPK107 {
 
     @Autowired
-    private ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
+    private ServiceModelSevenCehAutoclav serviceModelSevenCehAutoclav;
 
-    private final Logger LOGGER = Logger.getLogger(JsonControllerEnergeticRoomTRM201.class);
+    private final Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
 
     @ResponseBody
-    @RequestMapping(value = "/generateChart", method = RequestMethod.POST)
-    public List<TableModelEnergeticRoomTRM201> generateChartEnergeticRoomTRM201(@RequestBody DateFromChart dateFromChart){
-        List<TableModelEnergeticRoomTRM201> tableModelEnergeticRoomTRM201List = null;
+    @RequestMapping(value = "/generateChartSevenCehAutoclav", method = RequestMethod.POST)
+    public List<TableModelSevenCehAutoclav> generateChartSevenCehAutoclav(@RequestBody DateFromChart dateFromChart){
+        List<TableModelSevenCehAutoclav> tableModelsevenCehAutoclavs = null;
         String start = dateFromChart.getStart();
         String end = dateFromChart.getEnd();
         String[] startTokens = start.split("T");
@@ -38,11 +35,10 @@ public class JsonControllerEnergeticRoomTRM201 {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
             Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-            tableModelEnergeticRoomTRM201List = serviceModelEnergeticRoomTRM201.rangeTimestamp(date1, date2);
+            tableModelsevenCehAutoclavs = serviceModelSevenCehAutoclav.rangeTimestampSevenCehAutoclav(date1, date2);
         }catch (ParseException e){
             LOGGER.error("can't parse range of date: "+e.getClass());
         }
-        System.out.println("10");
-        return tableModelEnergeticRoomTRM201List;
+        return tableModelsevenCehAutoclavs;
     }
 }

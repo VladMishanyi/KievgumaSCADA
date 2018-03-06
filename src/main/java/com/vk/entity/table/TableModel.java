@@ -21,7 +21,7 @@ public abstract class TableModel implements Serializable, Cloneable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long id;
+    private long id;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date", columnDefinition="DATETIME")
@@ -43,8 +43,8 @@ public abstract class TableModel implements Serializable, Cloneable{
                 (this.getClass() == object.getClass());
         if (result){
             TableModel tableModel = (TableModel) object;
-            result = this.id.equals(tableModel) &&
-                    this.date.equals(tableModel);
+            result = (this.id == tableModel.id) &&
+                    (this.date.equals(tableModel.date));
         }
         return result;
     }
@@ -60,11 +60,11 @@ public abstract class TableModel implements Serializable, Cloneable{
         return tableModel;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
