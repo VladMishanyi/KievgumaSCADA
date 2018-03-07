@@ -24,7 +24,6 @@ public class DeviceToTableEnergeticRoomTRM201 extends DeviceToTable<DeviceModelE
             tableModelEnergeticRoomTRM201.setValue3(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM201.getDeviceValuesRegisters()[0]));
             tableModelEnergeticRoomTRM201.setValue4(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM201.getDeviceValuesRegisters()[1]));
         }
-
         return tableModelEnergeticRoomTRM201;
     }
 }

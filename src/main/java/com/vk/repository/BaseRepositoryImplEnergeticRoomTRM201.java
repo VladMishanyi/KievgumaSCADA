@@ -27,14 +27,9 @@ public class BaseRepositoryImplEnergeticRoomTRM201 implements BaseRepositoryEner
 
     @Override
     public List<TableModelEnergeticRoomTRM201> rangeTimestamp(Date startTimestamp, Date endTimestamp){
-//        System.out.println("rangeTimestamp1");
-//        System.out.println(startTimestamp+" -- "+endTimestamp);
         Query query = entityManager.createQuery("SELECT t FROM TableModelEnergeticRoomTRM201 t WHERE t.date >= :start AND t.date <= :end", TableModelEnergeticRoomTRM201.class);
-//        System.out.println("rangeTimestamp2");
         query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-//        System.out.println("rangeTimestamp3");
         query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-//        System.out.println("rangeTimestamp4");
         return (List<TableModelEnergeticRoomTRM201>) query.getResultList();
     }
 }

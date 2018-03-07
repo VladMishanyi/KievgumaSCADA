@@ -34,57 +34,31 @@ public class ModbusRepositoryImplEnergeticRoomTRM201 implements ModbusRepository
         DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = new DeviceModelEnergeticRoomTRM201();
         try {
             modbusMasterSerialFirst.init();
-//            System.out.println("ModBus Listen slave address №"+
-//                    deviceModelEnergeticRoomTRM201.getDeviceAddress()+
-//                    "--"+modbusMasterSerialFirst.testSlaveNode(deviceModelEnergeticRoomTRM201.getDeviceAddress()));
             LOGGER.info("ModBus Listen slave address №"+
                     deviceModelEnergeticRoomTRM201.getDeviceAddress()+
                     "--"+modbusMasterSerialFirst.testSlaveNode(deviceModelEnergeticRoomTRM201.getDeviceAddress()));
         }
         catch (ModbusInitException e){
-//            System.out.println("ModBus Init problem, slave address №"+
-//                    deviceModelEnergeticRoomTRM201.getDeviceAddress()+
-//                    "--"+e.getMessage());
             LOGGER.error("ModBus Init problem, slave address №"+
                     deviceModelEnergeticRoomTRM201.getDeviceAddress()+
                     "--"+e.getMessage());
         }
         try {
-//            System.out.println("1");
             BatchRead batchRead = new BatchRead();
-//            System.out.println("2");
-//            System.out.println("getArraySize() :"+deviceModelEnergeticRoomTRM201.getArraySize());
             for (int i=0; i<deviceModelEnergeticRoomTRM201.getArraySize(); i++){
-//                System.out.println("getArraySize() :"+deviceModelEnergeticRoomTRM201.getArraySize());
-//                System.out.println("[i] :"+i);
                 batchRead.addLocator(deviceModelEnergeticRoomTRM201.getDeviceId()[i],
                         deviceModelEnergeticRoomTRM201.getDeviceAddress(),
                         deviceModelEnergeticRoomTRM201.getDeviceRegisterRange()[i],
                         deviceModelEnergeticRoomTRM201.getDeviceAddressRegisters()[i],
                         deviceModelEnergeticRoomTRM201.getDeviceDataType()[i]);
-//                System.out.println("getDeviceId()[i] :"+deviceModelEnergeticRoomTRM201.getDeviceId()[i]);
-//                System.out.println("getDeviceAddress() :"+deviceModelEnergeticRoomTRM201.getDeviceAddress());
-//                System.out.println("getDeviceRegisterRange()[i] :"+deviceModelEnergeticRoomTRM201.getDeviceRegisterRange()[i]);
-//                System.out.println("getDeviceAddressRegisters()[i] :"+deviceModelEnergeticRoomTRM201.getDeviceAddressRegisters()[i]);
-//                System.out.println("getDeviceDataType()[i]) :"+deviceModelEnergeticRoomTRM201.getDeviceDataType()[i]);
             }
-//            System.out.println("3");
             BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
-//            System.out.println("4");
             Float[] arr = new Float[deviceModelEnergeticRoomTRM201.getArraySize()];
-//            System.out.println("5");
             for (int i=0; i<deviceModelEnergeticRoomTRM201.getArraySize(); i++){
-
-//                System.out.println("This is real value :"+arr[i]);
                 deviceModelEnergeticRoomTRM201.setDeviceValuesRegistersIndex(i,
                         (Float) batchResults.getValue(deviceModelEnergeticRoomTRM201.getDeviceId()[i]) );
             }
-//            System.out.println("6");
-//            System.out.println("7");
         }catch (Exception e){
-//            System.out.println("ModBus Transport problem, slave address №"+
-//                    deviceModelEnergeticRoomTRM201.getDeviceAddress()+
-//                    "--"+e.getMessage());
             LOGGER.error("ModBus Transport problem, slave address №"+
                     deviceModelEnergeticRoomTRM201.getDeviceAddress()+
                     "--"+e.getMessage());
@@ -96,8 +70,6 @@ public class ModbusRepositoryImplEnergeticRoomTRM201 implements ModbusRepository
         }
         finally {
             modbusMasterSerialFirst.destroy();
-//            System.out.println("ModBus Close connection (Transport problem), slave address №"+
-//                    deviceModelEnergeticRoomTRM201.getDeviceAddress());
             LOGGER.info("ModBus Close connection (Transport problem), slave address №"+
                     deviceModelEnergeticRoomTRM201.getDeviceAddress());
         }
