@@ -2,11 +2,10 @@ package com.vk.controller;
 
 import com.vk.entity.*;
 //import com.vk.repository.PLCRepository;
-import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-import com.vk.service.ServiceModelEnergeticRoomTRM201;
-import com.vk.service.TRMRepositoryService;
+import com.vk.entity.converter.*;
+import com.vk.entity.device.*;
+import com.vk.entity.table.*;
+import com.vk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.core.MessageSendingOperations;
@@ -43,8 +42,8 @@ public class WebController {
 //    @Autowired
 //    private PLCRepository plcRepository;
 
-    @Autowired
-    private TRMRepositoryService trmRepositoryService = new TRMRepositoryService();
+//    @Autowired
+//    private TRMRepositoryService trmRepositoryService = new TRMRepositoryService();
 
     @Autowired
     private MessageSendingOperations<String> messageSendingOperations;
@@ -52,41 +51,71 @@ public class WebController {
     @Autowired
     private ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
 
+    @Autowired
+    private ServiceModelFirstCehAutoclavTRM202 serviceModelFirstCehAutoclavTRM202;
+
+    @Autowired
+    private ServiceModelFirstCehBuzulukTRM200 serviceModelFirstCehBuzulukTRM200;
+
+    @Autowired
+    private ServiceModelFirstCehKameraDozrevanyaMPR51 serviceModelFirstCehKameraDozrevanyaMPR51;
+
+    @Autowired
+    private ServiceModelFirstCehSmesitel1KMSF1 serviceModelFirstCehSmesitel1KMSF1;
+
+    @Autowired
+    private ServiceModelFirstCehSmesitel2KMSF1 serviceModelFirstCehSmesitel2KMSF1;
+
+    @Autowired
+    private ServiceModelFirstCehSmesitel3KMSF1 serviceModelFirstCehSmesitel3KMSF1;
+
+    @Autowired
+    private ServiceModelFirstCehSmesitel4KMSF1 serviceModelFirstCehSmesitel4KMSF1;
+
+    @Autowired
+    private ServiceModelFirstCehSmesitel5KMSF1 serviceModelFirstCehSmesitel5KMSF1;
+
+    @Autowired
+    private ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107;
+
+    @Autowired
+    private ServiceModelThirdCehAutoclavTRM202 serviceModelThirdCehAutoclavTRM202;
+
 //    private final int ID_SLAVE_PLC100 = 1;
-    private final int ID_SLAVE_TRM201 = 16;
-    private final int ID_SLAVE_ThirdCehAutoklavTRM202 = 103;
-    private final int ID_SLAVE_FirstCehAutoklavTRM202 = 22;
-    private final int ID_SLAVE_FirstCehKameraDozrevanya = 13;
-    private final int ID_SLAVE_FirstCehBuzulukTRM200 = 25;
-    private final int ID_SLAVE_SevenCehAutoclav = 21;
-    private final int ID_SLAVE_FirstCehSmesitel1KMSF1 = 24;
-    private final int ID_SLAVE_FirstCehSmesitel2KMSF1 = 40;
-    private final int ID_SLAVE_FirstCehSmesitel3KMSF1 = 72;
-    private final int ID_SLAVE_FirstCehSmesitel4KMSF1 = 64;
-    private final int ID_SLAVE_FirstCehSmesitel5KMSF1 = 48;
+//    private final int ID_SLAVE_TRM201 = 16;
+//    private final int ID_SLAVE_ThirdCehAutoklavTRM202 = 103;
+//    private final int ID_SLAVE_FirstCehAutoklavTRM202 = 22;
+//    private final int ID_SLAVE_FirstCehKameraDozrevanya = 13;
+//    private final int ID_SLAVE_FirstCehBuzulukTRM200 = 25;
+//    private final int ID_SLAVE_SevenCehAutoclav = 21;
+//    private final int ID_SLAVE_FirstCehSmesitel1KMSF1 = 24;
+//    private final int ID_SLAVE_FirstCehSmesitel2KMSF1 = 40;
+//    private final int ID_SLAVE_FirstCehSmesitel3KMSF1 = 72;
+//    private final int ID_SLAVE_FirstCehSmesitel4KMSF1 = 64;
+//    private final int ID_SLAVE_FirstCehSmesitel5KMSF1 = 48;
 //    private boolean bol1 = false;
 //    private boolean bol2 = false;
 //    private boolean bol3 = false;
 //    private boolean bol4 = false;
 //    private boolean loop = false;
-    private float trm201Temp = 0;
-    private float thirdCehAutoclavTemperatura = 0;
-    private float thirdCehAutoclavDavlenie = 0;
-    private float firstCehAutoclavTemperatura = 0;
-    private float firstCehAutoclavDavlenie = 0;
-    private float firstCehKameraDozrevanyaTempProdukta = 0;
-    private float firstCehKameraDozrevanyaTempSuhogo = 0;
-    private float firstCehKameraDozrevanyaTempVlagnogo = 0;
-    private float firstCehBuzulukTemperatura = 0;
-    private float firstCehBuzulukDavlenie = 0;
-    private float sevenCehAutoclavDavlenie = 0;
-    private float sevenCehAutoclavTempAuto = 0;
-    private float sevenCehAutoclavTempProdukta = 0;
-    private int firstCehSmesitel1Tok = 0;
-    private int firstCehSmesitel2Tok = 0;
-    private int firstCehSmesitel3Tok = 0;
-    private int firstCehSmesitel4Tok = 0;
-    private int firstCehSmesitel5Tok = 0;
+//    private float trm201Temp = 0;
+//    private float thirdCehAutoclavTemperatura = 0;
+//    private float thirdCehAutoclavDavlenie = 0;
+//    private float firstCehAutoclavTemperatura = 0;
+//    private float firstCehAutoclavDavlenie = 0;
+//    private float firstCehKameraDozrevanyaTempProdukta = 0;
+//    private float firstCehKameraDozrevanyaTempSuhogo = 0;
+//    private float firstCehKameraDozrevanyaTempVlagnogo = 0;
+//    private float firstCehBuzulukTemperatura = 0;
+//    private float firstCehBuzulukDavlenie = 0;
+//    private float sevenCehAutoclavDavlenie = 0;
+//    private float sevenCehAutoclavTempAuto = 0;
+//    private float sevenCehAutoclavTempProdukta = 0;
+//    private int firstCehSmesitel1Tok = 0;
+//    private int firstCehSmesitel2Tok = 0;
+//    private int firstCehSmesitel3Tok = 0;
+//    private int firstCehSmesitel4Tok = 0;
+//    private int firstCehSmesitel5Tok = 0;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex(Model model){
@@ -228,9 +257,98 @@ public class WebController {
         DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
         TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
         messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
-//        System.out.println("out data :"+tableModelEnergeticRoomTRM201.getValue3()+" -- "+tableModelEnergeticRoomTRM201.getValue4());
         if (deviceModelEnergeticRoomTRM201.hysteresis()){
             serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehAutoclavTRM202 deviceModelFirstCehAutoclavTRM202 = serviceModelFirstCehAutoclavTRM202.getModbusDevice();
+        DeviceToTableFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202 = new DeviceToTableFirstCehAutoclavTRM202();
+        TableModelFirstCehAutoclavTRM202 tableModelFirstCehAutoclavTRM202 = deviceToTableFirstCehAutoclavTRM202.convert(deviceModelFirstCehAutoclavTRM202);
+        messageSendingOperations.convertAndSend("/topic/firstCehAvtoclav", tableModelFirstCehAutoclavTRM202);
+        if (deviceModelFirstCehAutoclavTRM202.hysteresis()){
+            serviceModelFirstCehAutoclavTRM202.addTabeDevice(tableModelFirstCehAutoclavTRM202);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200 = serviceModelFirstCehBuzulukTRM200.getModbusDevice();
+        DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200 = new DeviceToTableFirstCehBuzulukTRM200();
+        TableModelFirstCehBuzulukTRM200 tableModelFirstCehBuzulukTRM200 = deviceToTableFirstCehBuzulukTRM200.convert(deviceModelFirstCehBuzulukTRM200);
+        messageSendingOperations.convertAndSend("/topic/firstCehBuzuluk", tableModelFirstCehBuzulukTRM200);
+        if (deviceModelFirstCehBuzulukTRM200.hysteresis()){
+            serviceModelFirstCehBuzulukTRM200.addTabeDevice(tableModelFirstCehBuzulukTRM200);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51 = serviceModelFirstCehKameraDozrevanyaMPR51.getModbusDevice();
+        DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51 = new DeviceToTableFirstCehKameraDozrevanyaMPR51();
+        TableModelFirstCehKameraDozrevanyaMPR51 tableModelFirstCehKameraDozrevanyaMPR51 = deviceToTableFirstCehKameraDozrevanyaMPR51.convert(deviceModelFirstCehKameraDozrevanyaMPR51);
+        messageSendingOperations.convertAndSend("/topic/firstCehKameraDozrevanya", tableModelFirstCehKameraDozrevanyaMPR51);
+        if (deviceModelFirstCehKameraDozrevanyaMPR51.hysteresis()){
+            serviceModelFirstCehKameraDozrevanyaMPR51.addTabeDevice(tableModelFirstCehKameraDozrevanyaMPR51);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1 = serviceModelFirstCehSmesitel1KMSF1.getModbusDevice();
+        DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1 = new DeviceToTableFirstCehSmesitel1KMSF1();
+        TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = deviceToTableFirstCehSmesitel1KMSF1.convert(deviceModelFirstCehSmesitel1KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", tableModelFirstCehSmesitel1KMSF1);
+        if (deviceModelFirstCehSmesitel1KMSF1.hysteresis()){
+            serviceModelFirstCehSmesitel1KMSF1.addTabeDevice(tableModelFirstCehSmesitel1KMSF1);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehSmesitel2KMSF1 deviceModelFirstCehSmesitel2KMSF1 = serviceModelFirstCehSmesitel2KMSF1.getModbusDevice();
+        DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1 = new DeviceToTableFirstCehSmesitel2KMSF1();
+        TableModelFirstCehSmesitel2KMSF1 tableModelFirstCehSmesitel2KMSF1 = deviceToTableFirstCehSmesitel2KMSF1.convert(deviceModelFirstCehSmesitel2KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", tableModelFirstCehSmesitel2KMSF1);
+        if (deviceModelFirstCehSmesitel2KMSF1.hysteresis()){
+            serviceModelFirstCehSmesitel2KMSF1.addTabeDevice(tableModelFirstCehSmesitel2KMSF1);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1 = serviceModelFirstCehSmesitel3KMSF1.getModbusDevice();
+        DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1 = new DeviceToTableFirstCehSmesitel3KMSF1();
+        TableModelFirstCehSmesitel3KMSF1 tableModelFirstCehSmesitel3KMSF1 = deviceToTableFirstCehSmesitel3KMSF1.convert(deviceModelFirstCehSmesitel3KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", tableModelFirstCehSmesitel3KMSF1);
+        if (deviceModelFirstCehSmesitel3KMSF1.hysteresis()){
+            serviceModelFirstCehSmesitel3KMSF1.addTabeDevice(tableModelFirstCehSmesitel3KMSF1);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehSmesitel4KMSF1 deviceModelFirstCehSmesitel4KMSF1 = serviceModelFirstCehSmesitel4KMSF1.getModbusDevice();
+        DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1 = new DeviceToTableFirstCehSmesitel4KMSF1();
+        TableModelFirstCehSmesitel4KMSF1 tableModelFirstCehSmesitel4KMSF1 = deviceToTableFirstCehSmesitel4KMSF1.convert(deviceModelFirstCehSmesitel4KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", tableModelFirstCehSmesitel4KMSF1);
+        if (deviceModelFirstCehSmesitel4KMSF1.hysteresis()){
+            serviceModelFirstCehSmesitel4KMSF1.addTabeDevice(tableModelFirstCehSmesitel4KMSF1);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelFirstCehSmesitel5KMSF1 deviceModelFirstCehSmesitel5KMSF1 = serviceModelFirstCehSmesitel5KMSF1.getModbusDevice();
+        DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1 = new DeviceToTableFirstCehSmesitel5KMSF1();
+        TableModelFirstCehSmesitel5KMSF1 tableModelFirstCehSmesitel5KMSF1 = deviceToTableFirstCehSmesitel5KMSF1.convert(deviceModelFirstCehSmesitel5KMSF1);
+        messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", tableModelFirstCehSmesitel5KMSF1);
+        if (deviceModelFirstCehSmesitel5KMSF1.hysteresis()){
+            serviceModelFirstCehSmesitel5KMSF1.addTabeDevice(tableModelFirstCehSmesitel5KMSF1);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107.getModbusDevice();
+        DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107 = new DeviceToTableSevenCehAutoclavSPK107();
+        TableModelSevenCehAutoclavSPK107 tableModelSevenCehAutoclavSPK107 = deviceToTableSevenCehAutoclavSPK107.convert(deviceModelSevenCehAutoclavSPK107);
+        messageSendingOperations.convertAndSend("/topic/sevenCehAutoclav", tableModelSevenCehAutoclavSPK107);
+        if (deviceModelSevenCehAutoclavSPK107.hysteresis()){
+            serviceModelSevenCehAutoclavSPK107.addTabeDevice(tableModelSevenCehAutoclavSPK107);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202 = serviceModelThirdCehAutoclavTRM202.getModbusDevice();
+        DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202 = new DeviceToTableThirdCehAutoclavTRM202();
+        TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202 = deviceToTableThirdCehAutoclavTRM202.convert(deviceModelThirdCehAutoclavTRM202);
+        messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", tableModelThirdCehAutoclavTRM202);
+        if (deviceModelThirdCehAutoclavTRM202.hysteresis()){
+            serviceModelThirdCehAutoclavTRM202.addTabeDevice(tableModelThirdCehAutoclavTRM202);
         }
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

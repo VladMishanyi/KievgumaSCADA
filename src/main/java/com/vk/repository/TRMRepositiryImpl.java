@@ -108,475 +108,475 @@ public class TRMRepositiryImpl implements TRMRepository {
 //        }
 //        return trm201_energrtic;
 //    }
-
-    @Override
-    public ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr){
-        ThirdCehAutoclav thirdCehAutoclav = new ThirdCehAutoclav();
-        try {
-            modbusMasterSerialFirst.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
-            float channel1 = (float) batchResults.getValue(3);
-            float channel2 = (float) batchResults.getValue(4);
-            thirdCehAutoclav.setDate(new Date());
-            thirdCehAutoclav.setChannel1(channel1);
-            thirdCehAutoclav.setChannel2(channel2);
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            thirdCehAutoclav.setDate(new Date());
-            thirdCehAutoclav.setChannel1(0);
-            thirdCehAutoclav.setChannel2(0);
-            return thirdCehAutoclav;
-        }
-        finally {
-            modbusMasterSerialFirst.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return thirdCehAutoclav;
-    }
-
-    @Override
-    public void addThirdCehAutoclavTRM202(ThirdCehAutoclav thirdCehAutoclav) {
-        entityManager.merge(thirdCehAutoclav);
-    }
-
-    @Override
-    public List<ThirdCehAutoclav> rangeTimestampThirdCehAutoclav(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM ThirdCehAutoclav t WHERE t.date >= :start AND t.date <= :end", ThirdCehAutoclav.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<ThirdCehAutoclav>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehAutoclav getFirstCehAutoclavTRM202(int slaveAdrr){
-        FirstCehAutoclav firstCehAutoclav = new FirstCehAutoclav();
-        try {
-            modbusMasterSerialFirst.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
-            float channel1 = (float) batchResults.getValue(3);
-            float channel2 = (float) batchResults.getValue(4);
-            firstCehAutoclav.setDate(new Date());
-            firstCehAutoclav.setChannel1(channel1);
-            firstCehAutoclav.setChannel2(channel2);
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehAutoclav.setDate(new Date());
-            firstCehAutoclav.setChannel1(0);
-            firstCehAutoclav.setChannel2(0);
-            return firstCehAutoclav;
-        }
-        finally {
-            modbusMasterSerialFirst.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehAutoclav;
-    }
-
-    @Override
-    public void addFirstCehAutoclavTRM202(FirstCehAutoclav firstCehAutoclav) {
-        entityManager.merge(firstCehAutoclav);
-    }
-
-    @Override
-    public List<FirstCehAutoclav> rangeTimestampFirstCehAutoclav(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehAutoclav t WHERE t.date >= :start AND t.date <= :end", FirstCehAutoclav.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehAutoclav>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehKameraDozrevanya getFirstCehKameraDozrevanyaMPR51(int slaveAdrr){
-        FirstCehKameraDozrevanya firstCehKameraDozrevanya = new FirstCehKameraDozrevanya();
-        try {
-            modbusMasterSerialFirst.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 128, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 130, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
-            float channel1 = (float) batchResults.getValue(2);
-            float channel2 = (float) batchResults.getValue(3);
-            float channel3 = (float) batchResults.getValue(4);
-            firstCehKameraDozrevanya.setDate(new Date());
-            firstCehKameraDozrevanya.setChannel1(channel1);
-            firstCehKameraDozrevanya.setChannel2(channel2);
-            firstCehKameraDozrevanya.setChannel3(channel3);
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehKameraDozrevanya.setDate(new Date());
-            firstCehKameraDozrevanya.setChannel1(0);
-            firstCehKameraDozrevanya.setChannel2(0);
-            firstCehKameraDozrevanya.setChannel3(0);
-            return firstCehKameraDozrevanya;
-        }
-        finally {
-            modbusMasterSerialFirst.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehKameraDozrevanya;
-    }
-
-    @Override
-    public void addFirstCehKameraDozrevanyaMPR51(FirstCehKameraDozrevanya firstCehKameraDozrevanya) {
-        entityManager.merge(firstCehKameraDozrevanya);
-    }
-
-    @Override
-    public List<FirstCehKameraDozrevanya> rangeTimestampFirstCehKameraDozrevanya(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehKameraDozrevanya t WHERE t.date >= :start AND t.date <= :end", FirstCehKameraDozrevanya.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehKameraDozrevanya>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehBuzuluk getFirstCehBuzulukTRM200(int slaveAdrr){
-        FirstCehBuzuluk firstCehBuzuluk = new FirstCehBuzuluk();
-        try {
-            modbusMasterSerialFirst.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
-            float channel1 = (float) batchResults.getValue(3);
-            float channel2 = (float) batchResults.getValue(4);
-            firstCehBuzuluk.setDate(new Date());
-            firstCehBuzuluk.setChannel1(channel1);
-            firstCehBuzuluk.setChannel2(channel2);
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehBuzuluk.setDate(new Date());
-            firstCehBuzuluk.setChannel1(0);
-            firstCehBuzuluk.setChannel2(0);
-            return firstCehBuzuluk;
-        }
-        finally {
-            modbusMasterSerialFirst.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehBuzuluk;
-    }
-
-    @Override
-    public void addFirstCehBuzulukTRM200(FirstCehBuzuluk firstCehBuzuluk) {
-        entityManager.merge(firstCehBuzuluk);
-    }
-
-    @Override
-    public List<FirstCehBuzuluk> rangeTimestampFirstCehBuzuluk(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehBuzuluk t WHERE t.date >= :start AND t.date <= :end", FirstCehBuzuluk.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehBuzuluk>) query.getResultList();
-    }
-
-    @Override
-    public SevenCehAutoclav getSevenCehAutoclavSPK(int slaveAdrr){
-        SevenCehAutoclav sevenCehAutoclav = new SevenCehAutoclav();
-        try {
-            modbusMasterSerialSecond.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.INPUT_REGISTER, 0, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(3, slaveAdrr, RegisterRange.INPUT_REGISTER, 2, DataType.FOUR_BYTE_FLOAT);
-            batchRead.addLocator(4, slaveAdrr, RegisterRange.INPUT_REGISTER, 4, DataType.FOUR_BYTE_FLOAT);
-            BatchResults batchResults = modbusMasterSerialSecond.send(batchRead);
-            float channel1 = (float) batchResults.getValue(2);
-            float channel2 = (float) batchResults.getValue(3);
-            float channel3 = (float) batchResults.getValue(4);
-            channel1 = Math.round(channel1*100);
-            channel2 = Math.round(channel2*100);
-            channel3 = Math.round(channel3*100);
-            sevenCehAutoclav.setDate(new Date());
-            sevenCehAutoclav.setChannel1(channel1/100);
-            sevenCehAutoclav.setChannel2(channel2/100);
-            sevenCehAutoclav.setChannel3(channel3/100);
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            sevenCehAutoclav.setDate(new Date());
-            sevenCehAutoclav.setChannel1(0);
-            sevenCehAutoclav.setChannel2(0);
-            sevenCehAutoclav.setChannel3(0);
-            return sevenCehAutoclav;
-        }
-        finally {
-            modbusMasterSerialSecond.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return sevenCehAutoclav;
-    }
-    @Override
-    public void addSevenCehAutoclavSPK(SevenCehAutoclav sevenCehAutoclav) {
-        entityManager.merge(sevenCehAutoclav);
-    }
-    @Override
-    public List<SevenCehAutoclav> rangeTimestampSevenCehAutoclav(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM SevenCehAutoclav t WHERE t.date >= :start AND t.date <= :end", SevenCehAutoclav.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<SevenCehAutoclav>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehSmesitel1KMSF1 getFirstCehSmesitel1KMSF1(int slaveAdrr){
-        FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1 = new FirstCehSmesitel1KMSF1();
-        try {
-            modbusMasterSerialThird.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
-            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
-            Integer channel1 = (Integer) batchResults.getValue(2);
-            firstCehSmesitel1KMSF1.setDate(new Date());
-            firstCehSmesitel1KMSF1.setChannel1(channel1.intValue());
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehSmesitel1KMSF1.setDate(new Date());
-            firstCehSmesitel1KMSF1.setChannel1(0);
-            return firstCehSmesitel1KMSF1;
-        }
-        finally {
-            modbusMasterSerialThird.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehSmesitel1KMSF1;
-    }
-    @Override
-    public void addFirstCehSmesitel1KMSF1(FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1) {
-        entityManager.merge(firstCehSmesitel1KMSF1);
-    }
-    @Override
-    public List<FirstCehSmesitel1KMSF1> rangeTimestampFirstCehSmesitel1KMSF1(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel1KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel1KMSF1.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehSmesitel1KMSF1>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehSmesitel2KMSF1 getFirstCehSmesitel2KMSF1(int slaveAdrr){
-        FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1 = new FirstCehSmesitel2KMSF1();
-        try {
-            modbusMasterSerialThird.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
-            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
-            Integer channel1 = (Integer) batchResults.getValue(2);
-            firstCehSmesitel2KMSF1.setDate(new Date());
-            firstCehSmesitel2KMSF1.setChannel1(channel1.intValue());
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehSmesitel2KMSF1.setDate(new Date());
-            firstCehSmesitel2KMSF1.setChannel1(0);
-            return firstCehSmesitel2KMSF1;
-        }
-        finally {
-            modbusMasterSerialThird.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehSmesitel2KMSF1;
-    }
-    @Override
-    public void addFirstCehSmesitel2KMSF1(FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1) {
-        entityManager.merge(firstCehSmesitel2KMSF1);
-    }
-    @Override
-    public List<FirstCehSmesitel2KMSF1> rangeTimestampFirstCehSmesitel2KMSF1(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel2KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel2KMSF1.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehSmesitel2KMSF1>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehSmesitel3KMSF1 getFirstCehSmesitel3KMSF1(int slaveAdrr){
-        FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1 = new FirstCehSmesitel3KMSF1();
-        try {
-            modbusMasterSerialThird.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
-            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
-            Integer channel1 = (Integer) batchResults.getValue(2);
-            firstCehSmesitel3KMSF1.setDate(new Date());
-            firstCehSmesitel3KMSF1.setChannel1(channel1.intValue());
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehSmesitel3KMSF1.setDate(new Date());
-            firstCehSmesitel3KMSF1.setChannel1(0);
-            return firstCehSmesitel3KMSF1;
-        }
-        finally {
-            modbusMasterSerialThird.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehSmesitel3KMSF1;
-    }
-    @Override
-    public void addFirstCehSmesitel3KMSF1(FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1) {
-        entityManager.merge(firstCehSmesitel3KMSF1);
-    }
-    @Override
-    public List<FirstCehSmesitel3KMSF1> rangeTimestampFirstCehSmesitel3KMSF1(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel3KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel3KMSF1.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehSmesitel3KMSF1>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehSmesitel4KMSF1 getFirstCehSmesitel4KMSF1(int slaveAdrr){
-        FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1 = new FirstCehSmesitel4KMSF1();
-        try {
-            modbusMasterSerialThird.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
-            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
-            Integer channel1 = (Integer) batchResults.getValue(2);
-            firstCehSmesitel4KMSF1.setDate(new Date());
-            firstCehSmesitel4KMSF1.setChannel1(channel1.intValue());
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehSmesitel4KMSF1.setDate(new Date());
-            firstCehSmesitel4KMSF1.setChannel1(0);
-            return firstCehSmesitel4KMSF1;
-        }
-        finally {
-            modbusMasterSerialThird.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehSmesitel4KMSF1;
-    }
-    @Override
-    public void addFirstCehSmesitel4KMSF1(FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1) {
-        entityManager.merge(firstCehSmesitel4KMSF1);
-    }
-    @Override
-    public List<FirstCehSmesitel4KMSF1> rangeTimestampFirstCehSmesitel4KMSF1(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel4KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel4KMSF1.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehSmesitel4KMSF1>) query.getResultList();
-    }
-
-    @Override
-    public FirstCehSmesitel5KMSF1 getFirstCehSmesitel5KMSF1(int slaveAdrr){
-        FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1 = new FirstCehSmesitel5KMSF1();
-        try {
-            modbusMasterSerialThird.init();
-//            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
-        }
-        catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-        }
-        try {
-            BatchRead batchRead = new BatchRead();
-            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
-            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
-            Integer channel1 = (Integer) batchResults.getValue(2);
-            firstCehSmesitel5KMSF1.setDate(new Date());
-            firstCehSmesitel5KMSF1.setChannel1(channel1.intValue());
-        }catch (Exception e){
-            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
-            firstCehSmesitel5KMSF1.setDate(new Date());
-            firstCehSmesitel5KMSF1.setChannel1(0);
-            return firstCehSmesitel5KMSF1;
-        }
-        finally {
-            modbusMasterSerialThird.destroy();
-            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
-        }
-        return firstCehSmesitel5KMSF1;
-    }
-    @Override
-    public void addFirstCehSmesitel5KMSF1(FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1) {
-        entityManager.merge(firstCehSmesitel5KMSF1);
-    }
-    @Override
-    public List<FirstCehSmesitel5KMSF1> rangeTimestampFirstCehSmesitel5KMSF1(Date startTimestamp, Date endTimestamp) {
-
-        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel5KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel5KMSF1.class);
-        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
-        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
-        return (List<FirstCehSmesitel5KMSF1>) query.getResultList();
-    }
+//
+//    @Override
+//    public ThirdCehAutoclav getThirdCehAutoclavTRM202(int slaveAdrr){
+//        ThirdCehAutoclav thirdCehAutoclav = new ThirdCehAutoclav();
+//        try {
+//            modbusMasterSerialFirst.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
+//            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
+//            float channel1 = (float) batchResults.getValue(3);
+//            float channel2 = (float) batchResults.getValue(4);
+//            thirdCehAutoclav.setDate(new Date());
+//            thirdCehAutoclav.setChannel1(channel1);
+//            thirdCehAutoclav.setChannel2(channel2);
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            thirdCehAutoclav.setDate(new Date());
+//            thirdCehAutoclav.setChannel1(0);
+//            thirdCehAutoclav.setChannel2(0);
+//            return thirdCehAutoclav;
+//        }
+//        finally {
+//            modbusMasterSerialFirst.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return thirdCehAutoclav;
+//    }
+//
+//    @Override
+//    public void addThirdCehAutoclavTRM202(ThirdCehAutoclav thirdCehAutoclav) {
+//        entityManager.merge(thirdCehAutoclav);
+//    }
+//
+//    @Override
+//    public List<ThirdCehAutoclav> rangeTimestampThirdCehAutoclav(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM ThirdCehAutoclav t WHERE t.date >= :start AND t.date <= :end", ThirdCehAutoclav.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<ThirdCehAutoclav>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehAutoclav getFirstCehAutoclavTRM202(int slaveAdrr){
+//        FirstCehAutoclav firstCehAutoclav = new FirstCehAutoclav();
+//        try {
+//            modbusMasterSerialFirst.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
+//            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
+//            float channel1 = (float) batchResults.getValue(3);
+//            float channel2 = (float) batchResults.getValue(4);
+//            firstCehAutoclav.setDate(new Date());
+//            firstCehAutoclav.setChannel1(channel1);
+//            firstCehAutoclav.setChannel2(channel2);
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehAutoclav.setDate(new Date());
+//            firstCehAutoclav.setChannel1(0);
+//            firstCehAutoclav.setChannel2(0);
+//            return firstCehAutoclav;
+//        }
+//        finally {
+//            modbusMasterSerialFirst.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehAutoclav;
+//    }
+//
+//    @Override
+//    public void addFirstCehAutoclavTRM202(FirstCehAutoclav firstCehAutoclav) {
+//        entityManager.merge(firstCehAutoclav);
+//    }
+//
+//    @Override
+//    public List<FirstCehAutoclav> rangeTimestampFirstCehAutoclav(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehAutoclav t WHERE t.date >= :start AND t.date <= :end", FirstCehAutoclav.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehAutoclav>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehKameraDozrevanya getFirstCehKameraDozrevanyaMPR51(int slaveAdrr){
+//        FirstCehKameraDozrevanya firstCehKameraDozrevanya = new FirstCehKameraDozrevanya();
+//        try {
+//            modbusMasterSerialFirst.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 128, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 130, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
+//            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
+//            float channel1 = (float) batchResults.getValue(2);
+//            float channel2 = (float) batchResults.getValue(3);
+//            float channel3 = (float) batchResults.getValue(4);
+//            firstCehKameraDozrevanya.setDate(new Date());
+//            firstCehKameraDozrevanya.setChannel1(channel1);
+//            firstCehKameraDozrevanya.setChannel2(channel2);
+//            firstCehKameraDozrevanya.setChannel3(channel3);
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehKameraDozrevanya.setDate(new Date());
+//            firstCehKameraDozrevanya.setChannel1(0);
+//            firstCehKameraDozrevanya.setChannel2(0);
+//            firstCehKameraDozrevanya.setChannel3(0);
+//            return firstCehKameraDozrevanya;
+//        }
+//        finally {
+//            modbusMasterSerialFirst.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehKameraDozrevanya;
+//    }
+//
+//    @Override
+//    public void addFirstCehKameraDozrevanyaMPR51(FirstCehKameraDozrevanya firstCehKameraDozrevanya) {
+//        entityManager.merge(firstCehKameraDozrevanya);
+//    }
+//
+//    @Override
+//    public List<FirstCehKameraDozrevanya> rangeTimestampFirstCehKameraDozrevanya(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehKameraDozrevanya t WHERE t.date >= :start AND t.date <= :end", FirstCehKameraDozrevanya.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehKameraDozrevanya>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehBuzuluk getFirstCehBuzulukTRM200(int slaveAdrr){
+//        FirstCehBuzuluk firstCehBuzuluk = new FirstCehBuzuluk();
+//        try {
+//            modbusMasterSerialFirst.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(3, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(4, slaveAdrr, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
+//            BatchResults batchResults = modbusMasterSerialFirst.send(batchRead);
+//            float channel1 = (float) batchResults.getValue(3);
+//            float channel2 = (float) batchResults.getValue(4);
+//            firstCehBuzuluk.setDate(new Date());
+//            firstCehBuzuluk.setChannel1(channel1);
+//            firstCehBuzuluk.setChannel2(channel2);
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehBuzuluk.setDate(new Date());
+//            firstCehBuzuluk.setChannel1(0);
+//            firstCehBuzuluk.setChannel2(0);
+//            return firstCehBuzuluk;
+//        }
+//        finally {
+//            modbusMasterSerialFirst.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehBuzuluk;
+//    }
+//
+//    @Override
+//    public void addFirstCehBuzulukTRM200(FirstCehBuzuluk firstCehBuzuluk) {
+//        entityManager.merge(firstCehBuzuluk);
+//    }
+//
+//    @Override
+//    public List<FirstCehBuzuluk> rangeTimestampFirstCehBuzuluk(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehBuzuluk t WHERE t.date >= :start AND t.date <= :end", FirstCehBuzuluk.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehBuzuluk>) query.getResultList();
+//    }
+//
+//    @Override
+//    public SevenCehAutoclav getSevenCehAutoclavSPK(int slaveAdrr){
+//        SevenCehAutoclav sevenCehAutoclav = new SevenCehAutoclav();
+//        try {
+//            modbusMasterSerialSecond.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.INPUT_REGISTER, 0, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(3, slaveAdrr, RegisterRange.INPUT_REGISTER, 2, DataType.FOUR_BYTE_FLOAT);
+//            batchRead.addLocator(4, slaveAdrr, RegisterRange.INPUT_REGISTER, 4, DataType.FOUR_BYTE_FLOAT);
+//            BatchResults batchResults = modbusMasterSerialSecond.send(batchRead);
+//            float channel1 = (float) batchResults.getValue(2);
+//            float channel2 = (float) batchResults.getValue(3);
+//            float channel3 = (float) batchResults.getValue(4);
+//            channel1 = Math.round(channel1*100);
+//            channel2 = Math.round(channel2*100);
+//            channel3 = Math.round(channel3*100);
+//            sevenCehAutoclav.setDate(new Date());
+//            sevenCehAutoclav.setChannel1(channel1/100);
+//            sevenCehAutoclav.setChannel2(channel2/100);
+//            sevenCehAutoclav.setChannel3(channel3/100);
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            sevenCehAutoclav.setDate(new Date());
+//            sevenCehAutoclav.setChannel1(0);
+//            sevenCehAutoclav.setChannel2(0);
+//            sevenCehAutoclav.setChannel3(0);
+//            return sevenCehAutoclav;
+//        }
+//        finally {
+//            modbusMasterSerialSecond.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return sevenCehAutoclav;
+//    }
+//    @Override
+//    public void addSevenCehAutoclavSPK(SevenCehAutoclav sevenCehAutoclav) {
+//        entityManager.merge(sevenCehAutoclav);
+//    }
+//    @Override
+//    public List<SevenCehAutoclav> rangeTimestampSevenCehAutoclav(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM SevenCehAutoclav t WHERE t.date >= :start AND t.date <= :end", SevenCehAutoclav.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<SevenCehAutoclav>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehSmesitel1KMSF1 getFirstCehSmesitel1KMSF1(int slaveAdrr){
+//        FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1 = new FirstCehSmesitel1KMSF1();
+//        try {
+//            modbusMasterSerialThird.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+//            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
+//            Integer channel1 = (Integer) batchResults.getValue(2);
+//            firstCehSmesitel1KMSF1.setDate(new Date());
+//            firstCehSmesitel1KMSF1.setChannel1(channel1.intValue());
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehSmesitel1KMSF1.setDate(new Date());
+//            firstCehSmesitel1KMSF1.setChannel1(0);
+//            return firstCehSmesitel1KMSF1;
+//        }
+//        finally {
+//            modbusMasterSerialThird.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehSmesitel1KMSF1;
+//    }
+//    @Override
+//    public void addFirstCehSmesitel1KMSF1(FirstCehSmesitel1KMSF1 firstCehSmesitel1KMSF1) {
+//        entityManager.merge(firstCehSmesitel1KMSF1);
+//    }
+//    @Override
+//    public List<FirstCehSmesitel1KMSF1> rangeTimestampFirstCehSmesitel1KMSF1(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel1KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel1KMSF1.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehSmesitel1KMSF1>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehSmesitel2KMSF1 getFirstCehSmesitel2KMSF1(int slaveAdrr){
+//        FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1 = new FirstCehSmesitel2KMSF1();
+//        try {
+//            modbusMasterSerialThird.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+//            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
+//            Integer channel1 = (Integer) batchResults.getValue(2);
+//            firstCehSmesitel2KMSF1.setDate(new Date());
+//            firstCehSmesitel2KMSF1.setChannel1(channel1.intValue());
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehSmesitel2KMSF1.setDate(new Date());
+//            firstCehSmesitel2KMSF1.setChannel1(0);
+//            return firstCehSmesitel2KMSF1;
+//        }
+//        finally {
+//            modbusMasterSerialThird.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehSmesitel2KMSF1;
+//    }
+//    @Override
+//    public void addFirstCehSmesitel2KMSF1(FirstCehSmesitel2KMSF1 firstCehSmesitel2KMSF1) {
+//        entityManager.merge(firstCehSmesitel2KMSF1);
+//    }
+//    @Override
+//    public List<FirstCehSmesitel2KMSF1> rangeTimestampFirstCehSmesitel2KMSF1(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel2KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel2KMSF1.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehSmesitel2KMSF1>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehSmesitel3KMSF1 getFirstCehSmesitel3KMSF1(int slaveAdrr){
+//        FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1 = new FirstCehSmesitel3KMSF1();
+//        try {
+//            modbusMasterSerialThird.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+//            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
+//            Integer channel1 = (Integer) batchResults.getValue(2);
+//            firstCehSmesitel3KMSF1.setDate(new Date());
+//            firstCehSmesitel3KMSF1.setChannel1(channel1.intValue());
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehSmesitel3KMSF1.setDate(new Date());
+//            firstCehSmesitel3KMSF1.setChannel1(0);
+//            return firstCehSmesitel3KMSF1;
+//        }
+//        finally {
+//            modbusMasterSerialThird.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehSmesitel3KMSF1;
+//    }
+//    @Override
+//    public void addFirstCehSmesitel3KMSF1(FirstCehSmesitel3KMSF1 firstCehSmesitel3KMSF1) {
+//        entityManager.merge(firstCehSmesitel3KMSF1);
+//    }
+//    @Override
+//    public List<FirstCehSmesitel3KMSF1> rangeTimestampFirstCehSmesitel3KMSF1(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel3KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel3KMSF1.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehSmesitel3KMSF1>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehSmesitel4KMSF1 getFirstCehSmesitel4KMSF1(int slaveAdrr){
+//        FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1 = new FirstCehSmesitel4KMSF1();
+//        try {
+//            modbusMasterSerialThird.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+//            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
+//            Integer channel1 = (Integer) batchResults.getValue(2);
+//            firstCehSmesitel4KMSF1.setDate(new Date());
+//            firstCehSmesitel4KMSF1.setChannel1(channel1.intValue());
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehSmesitel4KMSF1.setDate(new Date());
+//            firstCehSmesitel4KMSF1.setChannel1(0);
+//            return firstCehSmesitel4KMSF1;
+//        }
+//        finally {
+//            modbusMasterSerialThird.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehSmesitel4KMSF1;
+//    }
+//    @Override
+//    public void addFirstCehSmesitel4KMSF1(FirstCehSmesitel4KMSF1 firstCehSmesitel4KMSF1) {
+//        entityManager.merge(firstCehSmesitel4KMSF1);
+//    }
+//    @Override
+//    public List<FirstCehSmesitel4KMSF1> rangeTimestampFirstCehSmesitel4KMSF1(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel4KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel4KMSF1.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehSmesitel4KMSF1>) query.getResultList();
+//    }
+//
+//    @Override
+//    public FirstCehSmesitel5KMSF1 getFirstCehSmesitel5KMSF1(int slaveAdrr){
+//        FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1 = new FirstCehSmesitel5KMSF1();
+//        try {
+//            modbusMasterSerialThird.init();
+////            LOGGER.info("ModBus Listen slave address №"+slaveAdrr+"--"+modbusMasterSerial.testSlaveNode(slaveAdrr));
+//        }
+//        catch (ModbusInitException e){
+//            LOGGER.error("ModBus Init problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//        }
+//        try {
+//            BatchRead batchRead = new BatchRead();
+//            batchRead.addLocator(2, slaveAdrr, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+//            BatchResults batchResults = modbusMasterSerialThird.send(batchRead);
+//            Integer channel1 = (Integer) batchResults.getValue(2);
+//            firstCehSmesitel5KMSF1.setDate(new Date());
+//            firstCehSmesitel5KMSF1.setChannel1(channel1.intValue());
+//        }catch (Exception e){
+//            LOGGER.error("ModBus Transport problem, slave address №"+slaveAdrr+"--"+e.getMessage());
+//            firstCehSmesitel5KMSF1.setDate(new Date());
+//            firstCehSmesitel5KMSF1.setChannel1(0);
+//            return firstCehSmesitel5KMSF1;
+//        }
+//        finally {
+//            modbusMasterSerialThird.destroy();
+//            LOGGER.info("ModBus Close connection (Transport problem), slave address №"+slaveAdrr);
+//        }
+//        return firstCehSmesitel5KMSF1;
+//    }
+//    @Override
+//    public void addFirstCehSmesitel5KMSF1(FirstCehSmesitel5KMSF1 firstCehSmesitel5KMSF1) {
+//        entityManager.merge(firstCehSmesitel5KMSF1);
+//    }
+//    @Override
+//    public List<FirstCehSmesitel5KMSF1> rangeTimestampFirstCehSmesitel5KMSF1(Date startTimestamp, Date endTimestamp) {
+//
+//        Query query = entityManager.createQuery("SELECT t FROM FirstCehSmesitel5KMSF1 t WHERE t.date >= :start AND t.date <= :end", FirstCehSmesitel5KMSF1.class);
+//        query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
+//        query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
+//
+//        return (List<FirstCehSmesitel5KMSF1>) query.getResultList();
+//    }
 
 
 

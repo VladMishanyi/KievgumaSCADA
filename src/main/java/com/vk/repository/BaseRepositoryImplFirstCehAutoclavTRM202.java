@@ -1,6 +1,6 @@
 package com.vk.repository;
 
-import com.vk.entity.FirstCehAutoclav;
+//import com.vk.entity.FirstCehAutoclav;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import org.springframework.stereotype.Repository;
@@ -27,12 +27,12 @@ public class BaseRepositoryImplFirstCehAutoclavTRM202 implements BaseRepositoryF
     }
 
     @Override
+    @SuppressWarnings(value = {"unchecked"})
     public List<TableModelFirstCehAutoclavTRM202> rangeTimestamp(Date startTimestamp, Date endTimestamp) {
 
         Query query = entityManager.createQuery("SELECT t FROM TableModelFirstCehAutoclavTRM202 t WHERE t.date >= :start AND t.date <= :end", TableModelFirstCehAutoclavTRM202.class);
         query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
         query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
         return (List<TableModelFirstCehAutoclavTRM202>) query.getResultList();
     }
 }

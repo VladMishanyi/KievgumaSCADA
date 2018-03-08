@@ -1,8 +1,12 @@
 package com.vk.controller;
 
 import com.vk.entity.DateFromChart;
+//import com.vk.entity.SevenCehAutoclav;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
+import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
+import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.service.ServiceModelFirstCehAutoclavTRM202;
+import com.vk.service.ServiceModelSevenCehAutoclavSPK107;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,14 +25,14 @@ import java.util.List;
 public class JsonControllerSevenCehAutoclavSPK107 {
 
     @Autowired
-    private ServiceModelFirstCehAutoclavTRM202 serviceModelFirstCehAutoclavTRM202;
+    private ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107;
 
     private final Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
 
     @ResponseBody
     @RequestMapping(value = "/generateChartSevenCehAutoclav", method = RequestMethod.POST)
-    public List<TableModelFirstCehAutoclavTRM202> generateChartSevenCehAutoclav(@RequestBody DateFromChart dateFromChart){
-        List<TableModelFirstCehAutoclavTRM202> tableModelFirstCehAutoclavTRM202 = null;
+    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclav(@RequestBody DateFromChart dateFromChart){
+        List<TableModelSevenCehAutoclavSPK107> tableModelSevenCehAutoclavSPK107 = null;
         String start = dateFromChart.getStart();
         String end = dateFromChart.getEnd();
         String[] startTokens = start.split("T");
@@ -37,10 +41,10 @@ public class JsonControllerSevenCehAutoclavSPK107 {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
             Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-            tableModelFirstCehAutoclavTRM202 = serviceModelFirstCehAutoclavTRM202.rangeTimestamp(date1, date2);
+            tableModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107.rangeTimestamp(date1, date2);
         }catch (ParseException e){
             LOGGER.error("can't parse range of date: "+e.getClass());
         }
-        return tableModelFirstCehAutoclavTRM202;
+        return tableModelSevenCehAutoclavSPK107;
     }
 }
