@@ -1,8 +1,6 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;

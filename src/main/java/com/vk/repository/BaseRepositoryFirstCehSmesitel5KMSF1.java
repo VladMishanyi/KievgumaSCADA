@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.table.TableModelFirstCehSmesitel1KMSF1;
 import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
 
 import java.util.Date;

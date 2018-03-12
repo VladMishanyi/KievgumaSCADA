@@ -4,7 +4,6 @@ import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.ModbusMaster;
 import com.serotonin.modbus4j.exception.ModbusInitException;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel2KMSF1;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

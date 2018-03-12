@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
 
 public interface ModbusRepositoryThirdCehAutoclavTRM202 {

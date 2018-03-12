@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 
 public interface ModbusRepositoryFirstCehKameraDozrevanyaMPR51 {

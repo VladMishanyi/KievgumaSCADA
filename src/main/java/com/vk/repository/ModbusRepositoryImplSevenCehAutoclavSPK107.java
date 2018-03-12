@@ -5,7 +5,6 @@ import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.ModbusMaster;
 import com.serotonin.modbus4j.exception.ModbusInitException;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

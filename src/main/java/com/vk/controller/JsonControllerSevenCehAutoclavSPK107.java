@@ -1,11 +1,7 @@
 package com.vk.controller;
 
 import com.vk.entity.DateFromChart;
-//import com.vk.entity.SevenCehAutoclav;
-import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
-import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
-import com.vk.service.ServiceModelFirstCehAutoclavTRM202;
 import com.vk.service.ServiceModelSevenCehAutoclavSPK107;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +20,14 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.service"})
 public class JsonControllerSevenCehAutoclavSPK107 {
 
-    @Autowired
-    private ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107;
+    private final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107;
 
     private final Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
 
+    @Autowired
+    public JsonControllerSevenCehAutoclavSPK107(final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107){
+        this.serviceModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107;
+    }
     @ResponseBody
     @RequestMapping(value = "/generateChartSevenCehAutoclav", method = RequestMethod.POST)
     public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclav(@RequestBody DateFromChart dateFromChart){

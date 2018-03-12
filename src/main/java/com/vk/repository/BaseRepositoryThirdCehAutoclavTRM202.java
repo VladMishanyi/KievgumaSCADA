@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 
 import java.util.Date;

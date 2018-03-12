@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.table.TableModelFirstCehBuzulukTRM200;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 
 import java.util.Date;

@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 
 import java.util.Date;

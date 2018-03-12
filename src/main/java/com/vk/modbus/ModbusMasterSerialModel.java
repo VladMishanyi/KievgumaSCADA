@@ -1,12 +1,8 @@
 package com.vk.modbus;
 
 import com.serotonin.io.serial.SerialParameters;
-import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;
-import com.serotonin.modbus4j.code.DataType;
-import com.serotonin.modbus4j.code.RegisterRange;
 
 
 /**

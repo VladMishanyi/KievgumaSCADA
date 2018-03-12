@@ -1,7 +1,6 @@
 package com.vk.controller;
 
 import com.vk.entity.DateFromChart;
-//import com.vk.entity.ThirdCehAutoclav;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.service.ServiceModelEnergeticRoomTRM201;
 import org.apache.log4j.Logger;
@@ -21,11 +20,15 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.service"})
 public class JsonControllerEnergeticRoomTRM201 {
 
-    @Autowired
-    private ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
+    private final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
 
     private final Logger LOGGER = Logger.getLogger(JsonControllerEnergeticRoomTRM201.class);
 
+    @Autowired
+    public JsonControllerEnergeticRoomTRM201(final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201){
+        this.serviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201;
+
+    }
     @ResponseBody
     @RequestMapping(value = "/generateChart", method = RequestMethod.POST)
     public List<TableModelEnergeticRoomTRM201> generateChartEnergeticRoomTRM201(@RequestBody DateFromChart dateFromChart){

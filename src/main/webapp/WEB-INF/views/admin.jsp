@@ -30,31 +30,31 @@
 
 <div class="container">
     <table class="table" style="font-family: sans-serif; font-size: 24px;">
-        <tr>
-            <th>Занято на диске таблицой, первый цех Бузулук ТРМ200</th>
-            <th><span id="tableFirstCehBuzuluk" style="color: red"></span> byte</th>
-            <th><button id="buttonFirstCehBuzuluk" onclick="genSizeTableFirstCehBuzuluk()" class="btn btn-sm btn-success">Вычитать</button></th>
-        </tr>
-        <tr>
-            <th>Занято на диске таблицой, первый цех Камера Дозревания МПР51</th>
-            <th><span id="tableFirstCehKameraDozrevanya" style="color: red"></span> byte</th>
-            <th><button id="buttonFirstCehKameraDozrevanya" onclick="genSizeTableFirstCehKameraDozrevanya()" class="btn btn-sm btn-success">Вычитать</button></th>
-        </tr>
-        <tr>
-            <th>Занято на диске таблицой, первый цех Автоклав ТРМ202</th>
-            <th><span id="tableFirstCehAutoclav" style="color: red"></span> byte</th>
-            <th><button id="buttonFirstCehAutoclav" onclick="genSizeTableFirstCehAutoclav()" class="btn btn-sm btn-success">Вычитать</button></th>
-        </tr>
-        <tr>
-            <th>Занято на диске таблицой, третий цех Автоклав ТРМ202</th>
-            <th><span id="tableThirdCehAutoclav" style="color: red"></span> byte</th>
-            <th><button id="buttonThirdCehAutoclav" onclick="genSizeTableThirdCehAutoclav()" class="btn btn-sm btn-success">Вычитать</button></th>
-        </tr>
-        <tr>
-            <th>Занято на диске таблицой, отдел энегетика ТРМ202</th>
-            <th><span id="tableOtdelEnergetika" style="color: red"></span> byte</th>
-            <th><button id="buttonOtdelEnergetika" onclick="genSizeTableOtdelEnergetika()" class="btn btn-sm btn-success">Вычитать</button></th>
-        </tr>
+        <%--<tr>--%>
+            <%--<th>Занято на диске таблицой, первый цех Бузулук ТРМ200</th>--%>
+            <%--<th><span id="tableFirstCehBuzuluk" style="color: red"></span> byte</th>--%>
+            <%--<th><button id="buttonFirstCehBuzuluk" onclick="genSizeTableFirstCehBuzuluk()" class="btn btn-sm btn-success">Вычитать</button></th>--%>
+        <%--</tr>--%>
+        <%--<tr>--%>
+            <%--<th>Занято на диске таблицой, первый цех Камера Дозревания МПР51</th>--%>
+            <%--<th><span id="tableFirstCehKameraDozrevanya" style="color: red"></span> byte</th>--%>
+            <%--<th><button id="buttonFirstCehKameraDozrevanya" onclick="genSizeTableFirstCehKameraDozrevanya()" class="btn btn-sm btn-success">Вычитать</button></th>--%>
+        <%--</tr>--%>
+        <%--<tr>--%>
+            <%--<th>Занято на диске таблицой, первый цех Автоклав ТРМ202</th>--%>
+            <%--<th><span id="tableFirstCehAutoclav" style="color: red"></span> byte</th>--%>
+            <%--<th><button id="buttonFirstCehAutoclav" onclick="genSizeTableFirstCehAutoclav()" class="btn btn-sm btn-success">Вычитать</button></th>--%>
+        <%--</tr>--%>
+        <%--<tr>--%>
+            <%--<th>Занято на диске таблицой, третий цех Автоклав ТРМ202</th>--%>
+            <%--<th><span id="tableThirdCehAutoclav" style="color: red"></span> byte</th>--%>
+            <%--<th><button id="buttonThirdCehAutoclav" onclick="genSizeTableThirdCehAutoclav()" class="btn btn-sm btn-success">Вычитать</button></th>--%>
+        <%--</tr>--%>
+        <%--<tr>--%>
+            <%--<th>Занято на диске таблицой, отдел энегетика ТРМ202</th>--%>
+            <%--<th><span id="tableOtdelEnergetika" style="color: red"></span> byte</th>--%>
+            <%--<th><button id="buttonOtdelEnergetika" onclick="genSizeTableOtdelEnergetika()" class="btn btn-sm btn-success">Вычитать</button></th>--%>
+        <%--</tr>--%>
         <tr>
             <th>Занято на диске суммарно, байт</th>
             <th><span id="amountSizeTableByte" style="color: red"></span> byte</th>
@@ -73,80 +73,76 @@
 
 <script rel="script" type="text/javascript">
 
-    function genSizeTableFirstCehBuzuluk() {
-        $.ajax({
-            type: "POST",
-            url: "/generateSizeTableFirstCehBuzuluk",
-            dataType: "html",
-            cache: false,
-            success: function(data){
-                $("#tableFirstCehBuzuluk").text(data);
-            }
-        });
-    }
-    function genSizeTableFirstCehKameraDozrevanya() {
-        $.ajax({
-            type: "POST",
-            url: "/generateSizeTableFirstCehKameraDozrevanya",
-            dataType: "html",
-            cache: false,
-            success: function(data){
-                $("#tableFirstCehKameraDozrevanya").text(data);
-            }
-        });
-    }
-    function genSizeTableFirstCehAutoclav() {
-        $.ajax({
-            type: "POST",
-            url: "/generateSizeTableFirstCehAutoclav",
-            dataType: "html",
-            cache: false,
-            success: function(data){
-                $("#tableFirstCehAutoclav").text(data);
-            }
-        });
-    }
-    function genSizeTableThirdCehAutoclav() {
-        $.ajax({
-            type: "POST",
-            url: "/generateSizeTableThirdCehAutoclav",
-            dataType: "html",
-            cache: false,
-            success: function(data){
-                $("#tableThirdCehAutoclav").text(data);
-            }
-        });
-    }
-    function genSizeTableOtdelEnergetika() {
-        $.ajax({
-            type: "POST",
-            url: "/generateSizeTableOtdelEnergetika",
-            dataType: "html",
-            cache: false,
-            success: function(data){
-                $("#tableOtdelEnergetika").text(data);
-            }
-        });
-    }
+//    function genSizeTableFirstCehBuzuluk() {
+//        $.ajax({
+//            type: "POST",
+//            url: "/generateSizeTableFirstCehBuzuluk",
+//            dataType: "html",
+//            cache: false,
+//            success: function(data){
+//                $("#tableFirstCehBuzuluk").text(data);
+//            }
+//        });
+//    }
+//    function genSizeTableFirstCehKameraDozrevanya() {
+//        $.ajax({
+//            type: "POST",
+//            url: "/generateSizeTableFirstCehKameraDozrevanya",
+//            dataType: "html",
+//            cache: false,
+//            success: function(data){
+//                $("#tableFirstCehKameraDozrevanya").text(data);
+//            }
+//        });
+//    }
+//    function genSizeTableFirstCehAutoclav() {
+//        $.ajax({
+//            type: "POST",
+//            url: "/generateSizeTableFirstCehAutoclav",
+//            dataType: "html",
+//            cache: false,
+//            success: function(data){
+//                $("#tableFirstCehAutoclav").text(data);
+//            }
+//        });
+//    }
+//    function genSizeTableThirdCehAutoclav() {
+//        $.ajax({
+//            type: "POST",
+//            url: "/generateSizeTableThirdCehAutoclav",
+//            dataType: "html",
+//            cache: false,
+//            success: function(data){
+//                $("#tableThirdCehAutoclav").text(data);
+//            }
+//        });
+//    }
+//    function genSizeTableOtdelEnergetika() {
+//        $.ajax({
+//            type: "POST",
+//            url: "/generateSizeTableOtdelEnergetika",
+//            dataType: "html",
+//            cache: false,
+//            success: function(data){
+//                $("#tableOtdelEnergetika").text(data);
+//            }
+//        });
+//    }
     function genAmountSizeTableByte() {
-        var sizeTableFirstCehBuzuluk = $("#tableFirstCehBuzuluk").text();
-        var sizeTableFirstCehKameraDozrevanya = $("#tableFirstCehKameraDozrevanya").text();
-        var sizeTableFirstCehAutoclav = $("#tableFirstCehAutoclav").text();
-        var sizeTableThirdCehAutoclav = $("#tableThirdCehAutoclav").text();
-        var sizeOtdelEnergetika = $("#tableOtdelEnergetika").text();
-        var countTableByte =
-            parseFloat(sizeTableFirstCehKameraDozrevanya)
-            + parseFloat(sizeTableFirstCehBuzuluk)
-            + parseFloat(sizeTableFirstCehAutoclav)
-            + parseFloat(sizeTableThirdCehAutoclav)
-            + parseFloat(sizeOtdelEnergetika);
-        var countTableKByte = countTableByte / 1024;
-        var countTableMByte = countTableKByte / 1024;
-
-        $("#amountSizeTableByte").text(countTableByte);
-        $("#amountSizeTableKByte").text(countTableKByte);
-        $("#amountSizeTableMByte").text(countTableMByte);
-        $("#tableFirstCehKameraDozrevanya").text(data);
+        $.ajax({
+            type: "POST",
+            url: "/generateAmountSizeTableByte",
+            dataType: "json",
+            cache: false,
+            success: function(data){
+                var countTableByte = parseFloat(data);
+                var countTableKByte = countTableByte / 1024;
+                var countTableMByte = countTableKByte / 1024;
+                $("#amountSizeTableByte").text(countTableByte);
+                $("#amountSizeTableKByte").text(countTableKByte);
+                $("#amountSizeTableMByte").text(countTableMByte);
+            }
+        });
     }
 </script>
 </body>

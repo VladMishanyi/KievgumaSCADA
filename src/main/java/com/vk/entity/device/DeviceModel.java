@@ -1,11 +1,5 @@
 package com.vk.entity.device;
 
-import com.serotonin.modbus4j.code.RegisterRange;
-import com.vk.lib.HysComparator;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by User on 2018-02-23.
  */

@@ -1,6 +1,5 @@
 package com.vk.repository;
 
-import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.entity.table.TableModelFirstCehBuzulukTRM200;
 import org.springframework.stereotype.Repository;
 
@@ -26,12 +25,11 @@ public class BaseRepositoryImplFirstCehBuzulukTRM200 implements BaseRepositoryFi
     }
 
     @Override
+    @SuppressWarnings(value = {"unchecked"})
     public List<TableModelFirstCehBuzulukTRM200> rangeTimestamp(Date startTimestamp, Date endTimestamp) {
-
         Query query = entityManager.createQuery("SELECT t FROM TableModelFirstCehBuzulukTRM200 t WHERE t.date >= :start AND t.date <= :end", TableModelFirstCehBuzulukTRM200.class);
         query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
         query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-
         return (List<TableModelFirstCehBuzulukTRM200>) query.getResultList();
     }
 }

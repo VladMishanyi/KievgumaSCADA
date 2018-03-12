@@ -3,19 +3,13 @@ package com.vk.repository;
 import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.ModbusMaster;
-import com.serotonin.modbus4j.code.DataType;
-import com.serotonin.modbus4j.code.RegisterRange;
 import com.serotonin.modbus4j.exception.ModbusInitException;
 
-import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
 
 /**
  * Created by User on 2018-02-27.

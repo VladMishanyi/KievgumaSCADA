@@ -1,7 +1,5 @@
 package com.vk.configuration;
 
-import com.serotonin.io.serial.SerialParameters;
-import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.modbus.ModbusMasterSerialModel;
 import org.springframework.beans.factory.annotation.Value;

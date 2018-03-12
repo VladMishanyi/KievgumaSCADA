@@ -1,7 +1,6 @@
 package com.vk.entity.table;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by User on 2018-03-06.

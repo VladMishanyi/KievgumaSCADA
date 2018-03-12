@@ -1,10 +1,7 @@
 package com.vk.controller;
 
 import com.vk.entity.DateFromChart;
-//import com.vk.entity.FirstCehSmesitel5KMSF1;
-import com.vk.entity.table.TableModelFirstCehSmesitel4KMSF1;
 import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
-import com.vk.service.ServiceModelEnergeticRoomTRM201;
 import com.vk.service.ServiceModelFirstCehSmesitel5KMSF1;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +17,14 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.service"})
 public class JsonControllerFirstCehSmesitel5KMSF1 {
 
-    @Autowired
-    private ServiceModelFirstCehSmesitel5KMSF1 serviceModelFirstCehSmesitel5KMSF1;
+    private final ServiceModelFirstCehSmesitel5KMSF1 serviceModelFirstCehSmesitel5KMSF1;
 
     private final Logger LOGGER = Logger.getLogger(JsonControllerFirstCehSmesitel5KMSF1.class);
 
+    @Autowired
+    public JsonControllerFirstCehSmesitel5KMSF1(final ServiceModelFirstCehSmesitel5KMSF1 serviceModelFirstCehSmesitel5KMSF1){
+        this.serviceModelFirstCehSmesitel5KMSF1 = serviceModelFirstCehSmesitel5KMSF1;
+    }
     @ResponseBody
     @RequestMapping(value = "/generateChartFirstCehSmesitel5KMSF1", method = RequestMethod.POST)
     public List<TableModelFirstCehSmesitel5KMSF1> generateChartFirstCehSmesitel5KMSF1(@RequestBody DateFromChart dateFromChart){

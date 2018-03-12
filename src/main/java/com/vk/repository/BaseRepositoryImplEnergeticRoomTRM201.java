@@ -26,6 +26,7 @@ public class BaseRepositoryImplEnergeticRoomTRM201 implements BaseRepositoryEner
     }
 
     @Override
+    @SuppressWarnings(value = {"unchecked"})
     public List<TableModelEnergeticRoomTRM201> rangeTimestamp(Date startTimestamp, Date endTimestamp){
         Query query = entityManager.createQuery("SELECT t FROM TableModelEnergeticRoomTRM201 t WHERE t.date >= :start AND t.date <= :end", TableModelEnergeticRoomTRM201.class);
         query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
