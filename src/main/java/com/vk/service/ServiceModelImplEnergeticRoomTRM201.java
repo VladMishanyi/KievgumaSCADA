@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class ServiceModelImplEnergeticRoomTRM201 implements ServiceModelEnergeticRoomTRM201{
+public class ServiceModelImplEnergeticRoomTRM201 /*extends ServiceModelImpl*/ implements ServiceModelEnergeticRoomTRM201{
 
     @Autowired
     private BaseRepositoryEnergeticRoomTRM201 baseRepositoryEnergeticRoomTRM201;

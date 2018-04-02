@@ -18,7 +18,7 @@ import java.util.List;
 
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class ServiceModelImplFirstCehKameraDozrevanyaMPR51 implements ServiceModelFirstCehKameraDozrevanyaMPR51{
+public class ServiceModelImplFirstCehKameraDozrevanyaMPR51  /*extends ServiceModelImpl*/ implements ServiceModelFirstCehKameraDozrevanyaMPR51{
 
     @Autowired
     private BaseRepositoryFirstCehKameraDozrevanyaMPR51 baseRepositoryFirstCehKameraDozrevanyaMPR51;

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 2018-03-07.
  */
-public interface BaseRepositoryFirstCehSmesitel5KMSF1 {
+public interface BaseRepositoryFirstCehSmesitel5KMSF1 /*extends BaseRepository*/ {
 
     void addValue(TableModelFirstCehSmesitel5KMSF1 deviceModel);
 

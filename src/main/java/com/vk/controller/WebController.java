@@ -49,6 +49,8 @@ public class WebController {
 
     private final ServiceModelThirdCehAutoclavTRM202 serviceModelThirdCehAutoclavTRM202;
 
+    private final ServiceModelLaboratoryAutoclavMV110 serviceModelLaboratoryAutoclavMV110;
+
     @Autowired
     public WebController(
             final MessageSendingOperations<String> messageSendingOperations,
@@ -62,7 +64,8 @@ public class WebController {
             final ServiceModelFirstCehSmesitel4KMSF1 serviceModelFirstCehSmesitel4KMSF1,
             final ServiceModelFirstCehSmesitel5KMSF1 serviceModelFirstCehSmesitel5KMSF1,
             final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107,
-            final ServiceModelThirdCehAutoclavTRM202 serviceModelThirdCehAutoclavTRM202
+            final ServiceModelThirdCehAutoclavTRM202 serviceModelThirdCehAutoclavTRM202,
+            final ServiceModelLaboratoryAutoclavMV110 serviceModelLaboratoryAutoclavMV110
     ){
         this.messageSendingOperations = messageSendingOperations;
         this.serviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201;
@@ -76,6 +79,7 @@ public class WebController {
         this.serviceModelFirstCehSmesitel5KMSF1 = serviceModelFirstCehSmesitel5KMSF1;
         this.serviceModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107;
         this.serviceModelThirdCehAutoclavTRM202 = serviceModelThirdCehAutoclavTRM202;
+        this.serviceModelLaboratoryAutoclavMV110 = serviceModelLaboratoryAutoclavMV110;
     }
 
 //    private final int ID_SLAVE_PLC100 = 1;
@@ -159,6 +163,11 @@ public class WebController {
     @RequestMapping(value = "/firstCehSmesitel5", method = RequestMethod.GET)
     public String getFirstCehSmesitel5KMSF1(){
         return "firstCehSmesitel5KMSF1";
+    }
+
+    @RequestMapping(value = "/laboratoryAutoclav", method = RequestMethod.GET)
+    public String getLaboratoryAutoclavMV110(){
+        return "laboratoryAutoclav";
     }
 
     @Scheduled(fixedDelay = 30000)//ms
@@ -260,6 +269,15 @@ public class WebController {
         messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", tableModelThirdCehAutoclavTRM202);
         if (deviceModelThirdCehAutoclavTRM202.hysteresis()){
             serviceModelThirdCehAutoclavTRM202.addTabeDevice(tableModelThirdCehAutoclavTRM202);
+        }
+
+        /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110 = serviceModelLaboratoryAutoclavMV110.getModbusDevice();
+        DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110 = new DeviceToTableLaboratoryAutoclavMV110();
+        TableModelLaboratoryAutoclavMV110 tableModelLaboratoryAutoclavMV110 = deviceToTableLaboratoryAutoclavMV110.convert(deviceModelLaboratoryAutoclavMV110);
+        messageSendingOperations.convertAndSend("/topic/laboratoryAvtoclav", tableModelLaboratoryAutoclavMV110);
+        if (deviceModelLaboratoryAutoclavMV110.hysteresis()){
+            serviceModelLaboratoryAutoclavMV110.addTabeDevice(tableModelLaboratoryAutoclavMV110);
         }
     }
 }

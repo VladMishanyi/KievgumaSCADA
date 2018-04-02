@@ -132,3 +132,15 @@ CREATE TABLE FirstCehSmesitel5KMSF1 (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS LaboratoryAutoclavMV110;
+CREATE TABLE LaboratoryAutoclavMV110 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 FLOAT        NOT NULL DEFAULT 0,
+  channel2 FLOAT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;

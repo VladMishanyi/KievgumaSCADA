@@ -8,7 +8,7 @@ import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import java.util.Date;
 import java.util.List;
 
-public interface ServiceModelThirdCehAutoclavTRM202 {
+public interface ServiceModelThirdCehAutoclavTRM202 /*extends ServiceModel*/{
 
     DeviceModelThirdCehAutoclavTRM202 getModbusDevice();
 

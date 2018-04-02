@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 2018-03-07.
  */
-public interface BaseRepositoryFirstCehBuzulukTRM200 {
+public interface BaseRepositoryFirstCehBuzulukTRM200 /*extends BaseRepository*/ {
 
     void addValue(TableModelFirstCehBuzulukTRM200 deviceModel);
 

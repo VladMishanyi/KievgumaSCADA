@@ -15,7 +15,7 @@ import java.util.List;
  * Created by User on 2018-02-27.
  */
 @Repository
-public class BaseRepositoryImplEnergeticRoomTRM201 implements BaseRepositoryEnergeticRoomTRM201 {
+public class BaseRepositoryImplEnergeticRoomTRM201 /*extends BaseRepositoryImpl*/ implements BaseRepositoryEnergeticRoomTRM201 {
 
     @PersistenceContext
     private EntityManager entityManager;

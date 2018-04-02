@@ -8,7 +8,7 @@ import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
 import java.util.Date;
 import java.util.List;
 
-public interface ServiceModelFirstCehSmesitel5KMSF1 {
+public interface ServiceModelFirstCehSmesitel5KMSF1 /*extends ServiceModel*/{
 
     DeviceModelFirstCehSmesitel5KMSF1 getModbusDevice();
 

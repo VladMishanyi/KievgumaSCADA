@@ -18,7 +18,7 @@ import java.util.List;
 
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class ServiceModelImplFirstCehSmesitel2KMSF1 implements ServiceModelFirstCehSmesitel2KMSF1{
+public class ServiceModelImplFirstCehSmesitel2KMSF1  /*extends ServiceModelImpl*/ implements ServiceModelFirstCehSmesitel2KMSF1{
 
     @Autowired
     private BaseRepositoryFirstCehSmesitel2KMSF1 baseRepositoryFirstCehSmesitel2KMSF1;

@@ -8,7 +8,7 @@ import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import java.util.Date;
 import java.util.List;
 
-public interface ServiceModelSevenCehAutoclavSPK107 {
+public interface ServiceModelSevenCehAutoclavSPK107 /*extends ServiceModel*/{
 
     DeviceModelSevenCehAutoclavSPK107 getModbusDevice();
 

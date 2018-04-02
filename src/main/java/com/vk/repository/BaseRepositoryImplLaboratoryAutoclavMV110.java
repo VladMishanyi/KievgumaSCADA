@@ -1,6 +1,7 @@
 package com.vk.repository;
 
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
+import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -11,25 +12,25 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by User on 2018-03-07.
+ * Created by User on 2018-04-02.
  */
 @Repository
-public class BaseRepositoryImplFirstCehAutoclavTRM202  /*extends BaseRepositoryImpl*/ implements BaseRepositoryFirstCehAutoclavTRM202 {
+public class BaseRepositoryImplLaboratoryAutoclavMV110 implements BaseRepositoryLaboratoryAutoclavMV110{
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public void addValue(TableModelFirstCehAutoclavTRM202 deviceModel) {
+    public void addValue(TableModelLaboratoryAutoclavMV110 deviceModel) {
         entityManager.merge(deviceModel);
     }
 
     @Override
     @SuppressWarnings(value = {"unchecked"})
-    public List<TableModelFirstCehAutoclavTRM202> rangeTimestamp(Date startTimestamp, Date endTimestamp) {
-        Query query = entityManager.createQuery("SELECT t FROM TableModelFirstCehAutoclavTRM202 t WHERE t.date >= :start AND t.date <= :end", TableModelFirstCehAutoclavTRM202.class);
+    public List<TableModelLaboratoryAutoclavMV110> rangeTimestamp(Date startTimestamp, Date endTimestamp) {
+        Query query = entityManager.createQuery("SELECT t FROM TableModelLaboratoryAutoclavMV110 t WHERE t.date >= :start AND t.date <= :end", TableModelLaboratoryAutoclavMV110.class);
         query.setParameter("start", startTimestamp, TemporalType.TIMESTAMP);
         query.setParameter("end", endTimestamp, TemporalType.TIMESTAMP);
-        return (List<TableModelFirstCehAutoclavTRM202>) query.getResultList();
+        return (List<TableModelLaboratoryAutoclavMV110>) query.getResultList();
     }
 }

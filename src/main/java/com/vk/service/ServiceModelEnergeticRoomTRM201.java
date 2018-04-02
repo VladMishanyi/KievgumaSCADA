@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by User on 2018-02-28.
  */
-public interface ServiceModelEnergeticRoomTRM201{
+public interface ServiceModelEnergeticRoomTRM201 /*extends ServiceModel*/{
 
     DeviceModelEnergeticRoomTRM201 getModbusDevice();
 

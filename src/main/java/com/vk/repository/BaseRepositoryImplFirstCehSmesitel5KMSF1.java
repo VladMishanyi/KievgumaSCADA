@@ -14,7 +14,7 @@ import java.util.List;
  * Created by User on 2018-03-07.
  */
 @Repository
-public class BaseRepositoryImplFirstCehSmesitel5KMSF1 implements BaseRepositoryFirstCehSmesitel5KMSF1{
+public class BaseRepositoryImplFirstCehSmesitel5KMSF1  /*extends BaseRepositoryImpl*/ implements BaseRepositoryFirstCehSmesitel5KMSF1{
 
     @PersistenceContext
     private EntityManager entityManager;

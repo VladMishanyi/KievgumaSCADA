@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 2018-03-07.
  */
-public interface BaseRepositorySevenCehAutoclavSPK107 {
+public interface BaseRepositorySevenCehAutoclavSPK107 /*extends BaseRepository*/ {
 
     void addValue(TableModelSevenCehAutoclavSPK107 deviceModel);
 

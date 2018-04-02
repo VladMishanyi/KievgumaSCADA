@@ -73,7 +73,7 @@
             <polygon points="1250,162 1610,240 1567,279 1529,269 1522,275 1185,198"/>
             Sorry, your browser does not support inline SVG.
         </a>
-        <a id="mainoffice" class="item" href="#">
+        <a id="mainoffice" class="item" data-toggle="modal" data-target=".img-mainoffice-modal">
             <polygon points="1037,94 1204,130 1166,150 996,112"/>
             Sorry, your browser does not support inline SVG.
         </a>
@@ -187,6 +187,25 @@
             <svg height="624" width="1000">
                 <a id="SevenCehAutoclav" class="item" href="/sevenCehAutoclav">
                     <polygon points="748,535 785,535 785,590 748,590"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+            </svg>
+        </div>
+    </div>
+    <div class="modal fade img-mainoffice-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
+        <div class="modal-dialog modal-lg" role="document">
+            <img src="resources/img/kievguma_laboratory_crop_1000px.jpg">
+            <svg height="1441" width="1000">
+                <a id="LaboratoryAutoclav" class="item" href="/laboratoryAutoclav">
+                    <polygon points="150,355 235,355 235,485 150,485"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="LaboratoryTVS1" class="item" href="/laboratoryTvs1">
+                    <polygon points="195,1340 245,1340 245,1405 195,1405"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="LaboratoryTVS2" class="item" href="/laboratoryTvs2">
+                    <polygon points="70,1340 123,1340 123,1405 70,1405"/>
                     Sorry, your browser does not support inline SVG.
                 </a>
             </svg>

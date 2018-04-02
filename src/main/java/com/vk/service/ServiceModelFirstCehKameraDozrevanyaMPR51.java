@@ -8,7 +8,7 @@ import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import java.util.Date;
 import java.util.List;
 
-public interface ServiceModelFirstCehKameraDozrevanyaMPR51 {
+public interface ServiceModelFirstCehKameraDozrevanyaMPR51 /*extends ServiceModel*/{
 
     DeviceModelFirstCehKameraDozrevanyaMPR51 getModbusDevice();
 

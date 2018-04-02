@@ -14,7 +14,7 @@ import java.util.List;
  * Created by User on 2018-03-07.
  */
 @Repository
-public class BaseRepositoryImplSevenCehAutoclavSPK107 implements BaseRepositorySevenCehAutoclavSPK107{
+public class BaseRepositoryImplSevenCehAutoclavSPK107  /*extends BaseRepositoryImpl*/ implements BaseRepositorySevenCehAutoclavSPK107{
 
     @PersistenceContext
     private EntityManager entityManager;
