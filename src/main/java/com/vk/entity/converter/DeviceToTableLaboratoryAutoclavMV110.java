@@ -1,6 +1,7 @@
 package com.vk.entity.converter;
 
 import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
+import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelLaboratoryAutoclavMV110;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
@@ -12,7 +13,9 @@ import java.util.Date;
 /**
  * Created by User on 2018-04-02.
  */
-public class DeviceToTableLaboratoryAutoclavMV110 extends DeviceToTable<DeviceModelLaboratoryAutoclavMV110,TableModelLaboratoryAutoclavMV110>{
+public class DeviceToTableLaboratoryAutoclavMV110 extends DeviceToTable<DeviceModelLaboratoryAutoclavMV110,
+        DeviceModelFirstCehSmesitel1MB110,
+        TableModelLaboratoryAutoclavMV110>{
 
     @Override
     public TableModelLaboratoryAutoclavMV110 convert(DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110){

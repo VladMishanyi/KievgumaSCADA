@@ -14,12 +14,20 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
     @Column(name = "channel1")
     private int channel1;
 
+    @Column (name = "channel2")
+    private float channel2;
+
+    @Column (name = "channel3")
+    private float channel3;
+
     public TableModelFirstCehSmesitel1KMSF1(){}
 
     @Override
     public String toString() {
         return "TableModelFirstCehSmesitel1KMSF1{"
-                +"channel1="+this.channel1 +"}";
+                +"channel1="+this.channel1
+                +"channel2="+this.channel2
+                +"channel3="+this.channel3 +"}";
     }
 
     @Override
@@ -27,7 +35,9 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
         boolean result = super.equals(object);
         if (result){
             TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = (TableModelFirstCehSmesitel1KMSF1) object;
-            result = (this.channel1 == tableModelFirstCehSmesitel1KMSF1.channel1);
+            result = (this.channel1 == tableModelFirstCehSmesitel1KMSF1.channel1) &&
+                    (this.channel2 == tableModelFirstCehSmesitel1KMSF1.channel2) &&
+                    (this.channel3 == tableModelFirstCehSmesitel1KMSF1.channel3);
         }
         return result;
     }
@@ -39,7 +49,9 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
 
     @Override
     public int hashCode(){
-        return Integer.hashCode(this.channel1);
+        return Integer.hashCode(this.channel1)+
+                Float.hashCode(this.channel2)+
+                Float.hashCode(this.channel3);
     }
 
     public int getChannel1() {
@@ -48,5 +60,21 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
 
     public void setChannel1(int channel1) {
         this.channel1 = channel1;
+    }
+
+    public float getChannel2() {
+        return channel2;
+    }
+
+    public void setChannel2(float channel2) {
+        this.channel2 = channel2;
+    }
+
+    public float getChannel3() {
+        return channel3;
+    }
+
+    public void setChannel3(float channel3) {
+        this.channel3 = channel3;
     }
 }

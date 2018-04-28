@@ -1,6 +1,7 @@
 package com.vk.entity.converter;
 
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
+import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
@@ -10,7 +11,9 @@ import java.util.Date;
 /**
  * Created by User on 2018-03-07.
  */
-public class DeviceToTableFirstCehKameraDozrevanyaMPR51 extends DeviceToTable<DeviceModelFirstCehKameraDozrevanyaMPR51,TableModelFirstCehKameraDozrevanyaMPR51>{
+public class DeviceToTableFirstCehKameraDozrevanyaMPR51 extends DeviceToTable<DeviceModelFirstCehKameraDozrevanyaMPR51,
+        DeviceModelFirstCehSmesitel1MB110,
+        TableModelFirstCehKameraDozrevanyaMPR51>{
 
     @Override
     public TableModelFirstCehKameraDozrevanyaMPR51 convert(DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51){

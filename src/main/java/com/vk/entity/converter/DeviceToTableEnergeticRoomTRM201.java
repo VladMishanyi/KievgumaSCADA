@@ -1,6 +1,7 @@
 package com.vk.entity.converter;
 
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 
 import java.util.Date;
@@ -11,7 +12,9 @@ import com.vk.lib.ObjectValidator;
 /**
  * Created by User on 2018-02-28.
  */
-public class DeviceToTableEnergeticRoomTRM201 extends DeviceToTable<DeviceModelEnergeticRoomTRM201,TableModelEnergeticRoomTRM201>{
+public class DeviceToTableEnergeticRoomTRM201 extends DeviceToTable<DeviceModelEnergeticRoomTRM201,
+        DeviceModelFirstCehSmesitel1MB110,
+        TableModelEnergeticRoomTRM201>{
 
     @Override
     public TableModelEnergeticRoomTRM201 convert(DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201){

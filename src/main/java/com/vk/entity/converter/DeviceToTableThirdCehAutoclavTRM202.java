@@ -1,5 +1,6 @@
 package com.vk.entity.converter;
 
+import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
 import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import com.vk.lib.FloatCut;
@@ -10,7 +11,9 @@ import java.util.Date;
 /**
  * Created by User on 2018-03-07.
  */
-public class DeviceToTableThirdCehAutoclavTRM202 extends DeviceToTable<DeviceModelThirdCehAutoclavTRM202,TableModelThirdCehAutoclavTRM202>{
+public class DeviceToTableThirdCehAutoclavTRM202 extends DeviceToTable<DeviceModelThirdCehAutoclavTRM202,
+        DeviceModelFirstCehSmesitel1MB110,
+        TableModelThirdCehAutoclavTRM202>{
 
     @Override
     public TableModelThirdCehAutoclavTRM202 convert(DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202){

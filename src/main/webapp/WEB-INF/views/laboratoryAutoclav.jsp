@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8"/>
     <%--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
-    <title>FirstCehAutoclav</title>
+    <title>LaboratoryAutoclav</title>
     <link rel="stylesheet" type="text/css" href="resources/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7/css/bootstrap.css"/>
     <script rel="script" type="text/javascript" src="resources/js/jquery-3.2.1.js"></script>
@@ -57,13 +57,13 @@
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="startMark">Начало</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2017-12-15T07:30">
+                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2018-04-11T07:30">
                 </div>
             </div>
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="endMark">Конец</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2017-12-15T18:00">
+                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2018-04-11T18:00">
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">

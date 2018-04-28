@@ -2,12 +2,10 @@ package com.vk.service;
 
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel1KMSF1;
+import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehSmesitel1KMSF1;
-import com.vk.repository.BaseRepositoryEnergeticRoomTRM201;
-import com.vk.repository.BaseRepositoryFirstCehSmesitel1KMSF1;
-import com.vk.repository.ModbusRepositoryEnergeticRoomTRM201;
-import com.vk.repository.ModbusRepositoryFirstCehSmesitel1KMSF1;
+import com.vk.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
@@ -26,8 +24,17 @@ public class ServiceModelImplFirstCehSmesitel1KMSF1  /*extends ServiceModelImpl*
     @Autowired
     private ModbusRepositoryFirstCehSmesitel1KMSF1 modbusRepositoryFirstCehSmesitel1KMSF1;
 
+    @Autowired
+    private ModbusRepositoryFirstCehSmesitel1MB110 modbusRepositoryFirstCehSmesitel1MB110;
+
+    @Override
     public DeviceModelFirstCehSmesitel1KMSF1 getModbusDevice(){
         return modbusRepositoryFirstCehSmesitel1KMSF1.getDeviceModel();
+    }
+
+    @Override
+    public DeviceModelFirstCehSmesitel1MB110 getModbusDevice2() {
+        return modbusRepositoryFirstCehSmesitel1MB110.getDeviceModel();
     }
 
     @Transactional
