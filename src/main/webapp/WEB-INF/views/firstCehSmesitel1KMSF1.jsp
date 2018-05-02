@@ -45,6 +45,14 @@
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение тока</span></th>
                 <th><span id="firstCehSmesitel1Tok" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> А</th>
             </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры</span></th>
+                <th><span id="firstCehSmesitel1Temp" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+            </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение давления</span></th>
+                <th><span id="firstCehSmesitel1Pressure" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> бар.</th>
+            </tr>
         </table>
     </div>
 
@@ -101,6 +109,8 @@
 <script rel="script" type="text/javascript">
     var globalX = Array();
     var globalY1 = Array();
+    var globalY2 = Array();
+    var globalY3 = Array();
     var increaseDecriaseZoom = 0;
     var leftRightPosition = 0;
 
@@ -108,6 +118,8 @@
 //        clearChart();
         var x = Array();
         var y1 = Array();
+        var y2 = Array();
+        var y3 = Array();
 //        var y2 = Array();
         var vStart = document.getElementById("startChart").value;
         var vEnd = document.getElementById("endChart").value;
@@ -124,6 +136,8 @@
                         try {
                             x[i] = moment(data[i]["date"]).utc().format("YYYY-MM-DD HH:mm:ss");
                             y1[i] = data[i]["channel1"];
+                            y2[i] = data[i]["channel2"];
+                            y3[i] = data[i]["channel3"];
 //                            y2[i] = data[i]["channel2"];
                         }catch (err){
                             console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
@@ -132,9 +146,11 @@
                 }
                 globalX = x;
                 globalY1 = y1;
+                globalY2 = y2;
+                globalY3 = y3;
                 increaseDecriaseZoom = 0;
                 leftRightPosition = 0;
-                buildChart(x, y1);
+                buildChart(x, y1, y2, y3);
             }
         });
     }
@@ -143,6 +159,8 @@
         var increaseZoom = document.getElementById("zoom-chart").value;
         var increaseArrayX = Array();
         var increaseArrayY1 = Array();
+        var increaseArrayY2 = Array();
+        var increaseArrayY3 = Array();
 //        console.log("in increase bock :"+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             increaseDecriaseZoom = increaseDecriaseZoom + Number(increaseZoom);
@@ -153,7 +171,9 @@
             console.log("in increase body to:"+to);
             increaseArrayX = globalX.slice(from,to);
             increaseArrayY1 = globalY1.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1);
+            increaseArrayY2 = globalY2.slice(from,to);
+            increaseArrayY3 = globalY3.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
         }
     }
 
@@ -161,6 +181,8 @@
         var increaseZoom = document.getElementById("zoom-chart").value;
         var increaseArrayX = Array();
         var increaseArrayY1 = Array();
+        var increaseArrayY2 = Array();
+        var increaseArrayY3 = Array();
 //        console.log("in decrease bock "+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             increaseDecriaseZoom = increaseDecriaseZoom - Number(increaseZoom);
@@ -171,7 +193,9 @@
             console.log("in decrease body to:"+to);
             increaseArrayX = globalX.slice(from,to);
             increaseArrayY1 = globalY1.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1);
+            increaseArrayY2 = globalY2.slice(from,to);
+            increaseArrayY3 = globalY3.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
         }
     }
 
@@ -179,6 +203,8 @@
         var increaseZoom = document.getElementById("zoom-chart").value;
         var increaseArrayX = Array();
         var increaseArrayY1 = Array();
+        var increaseArrayY2 = Array();
+        var increaseArrayY3 = Array();
 //        console.log("in left bock :"+leftRightPosition + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             leftRightPosition = leftRightPosition + Number(increaseZoom);
@@ -189,7 +215,9 @@
             console.log("in left body to:"+to);
             increaseArrayX = globalX.slice(from,to);
             increaseArrayY1 = globalY1.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1);
+            increaseArrayY2 = globalY2.slice(from,to);
+            increaseArrayY3 = globalY3.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
         }
     }
 
@@ -197,6 +225,8 @@
         var increaseZoom = document.getElementById("zoom-chart").value;
         var increaseArrayX = Array();
         var increaseArrayY1 = Array();
+        var increaseArrayY2 = Array();
+        var increaseArrayY3 = Array();
 //        console.log("in right bock "+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             leftRightPosition  = leftRightPosition  - Number(increaseZoom);
@@ -207,7 +237,9 @@
             console.log("in right body to:"+to);
             increaseArrayX = globalX.slice(from,to);
             increaseArrayY1 = globalY1.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1);
+            increaseArrayY2 = globalY2.slice(from,to);
+            increaseArrayY3 = globalY3.slice(from,to);
+            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
         }
     }
 
@@ -224,7 +256,7 @@
         $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
     }
 
-    function buildChart(xCord, y1Cord) {
+    function buildChart(xCord, y1Cord, y2Cord, y3Cord) {
         clearChart();//Uncaught TypeError: Cannot read property !!!!!!!!!!!!!!!!!!
         var start = document.getElementById("startChart").value;
         var end = document.getElementById("endChart").value;
@@ -258,34 +290,60 @@
                         showLine: true,
                         spanGaps: false,
                         steppedLine: false,
-                        data: y1Cord,
+                        data: y1Cord
                     }
-//                    ,
-//                    {
-//                        label: 'Давление',
-//                        backgroundColor: '#ffff00',
-//                        borderColor: '#985f0d',
-//                        borderWidth: 1,
-//                        borderDash: [],
-//                        borderDashOffset: 0.0,
-//                        borderCapStyle: 'butt',
-//                        borderJoinStyle: 'miter',
-//                        fill: true,
-//                        lineTension: 0.1,
-//                        pointBackgroundColor: '#000000',
-//                        pointBorderColor: '#FF0000',
-//                        pointBorderWidth: 1,
-//                        pointRadius: 1,
-//                        pointHitRadius: 10,
-//                        pointHoverBackgroundColor: '#000000',
-//                        pointHoverBorderColor: '#FF0000',
-//                        pointHoverBorderWidth: 2,
-//                        pointHoverRadius: 5,
-//                        showLine: true,
-//                        spanGaps: false,
-//                        steppedLine: false,
-//                        data: y2Cord,
-//                    }
+                    ,
+                    {
+                        label: 'Температура',
+                        backgroundColor: '#ffff00',
+                        borderColor: '#985f0d',
+                        borderWidth: 1,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: true,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 1,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y2Cord
+                    }
+                    ,
+                    {
+                        label: 'Давление',
+                        backgroundColor: '#3C510C',
+                        borderColor: '#3C510C',
+                        borderWidth: 5,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: false,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 0,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y3Cord
+                    }
                 ]
             },
             options: {
@@ -482,8 +540,12 @@
     }
 
     function showTrmBody(trmBody){
-        var tempFormat = trmBody.channel1;
-        $("#firstCehSmesitel1Tok").text(tempFormat);
+        var temp1 = trmBody.channel1;
+        var temp2 = trmBody.channel2;
+        var temp3 = trmBody.channel3;
+        $("#firstCehSmesitel1Tok").text(temp1);
+        $("#firstCehSmesitel1Temp").text(temp2);
+        $("#firstCehSmesitel1Pressure").text(temp3);
     }
 </script>
 </body>

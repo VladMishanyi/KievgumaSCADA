@@ -210,8 +210,9 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1 = serviceModelFirstCehSmesitel1KMSF1.getModbusDevice();
+        DeviceModelFirstCehSmesitel1MB110 deviceModelFirstCehSmesitel1MB110 = serviceModelFirstCehSmesitel1KMSF1.getModbusDevice2();
         DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1 = new DeviceToTableFirstCehSmesitel1KMSF1();
-        TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = deviceToTableFirstCehSmesitel1KMSF1.convert(deviceModelFirstCehSmesitel1KMSF1);
+        TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = deviceToTableFirstCehSmesitel1KMSF1.convert(deviceModelFirstCehSmesitel1KMSF1, deviceModelFirstCehSmesitel1MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", tableModelFirstCehSmesitel1KMSF1);
         if (deviceModelFirstCehSmesitel1KMSF1.hysteresis()){
             serviceModelFirstCehSmesitel1KMSF1.addTabeDevice(tableModelFirstCehSmesitel1KMSF1);
@@ -219,8 +220,9 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel2KMSF1 deviceModelFirstCehSmesitel2KMSF1 = serviceModelFirstCehSmesitel2KMSF1.getModbusDevice();
+        DeviceModelFirstCehSmesitel2MB110 deviceModelFirstCehSmesitel2MB110 = serviceModelFirstCehSmesitel2KMSF1.getModbusDevice2();
         DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1 = new DeviceToTableFirstCehSmesitel2KMSF1();
-        TableModelFirstCehSmesitel2KMSF1 tableModelFirstCehSmesitel2KMSF1 = deviceToTableFirstCehSmesitel2KMSF1.convert(deviceModelFirstCehSmesitel2KMSF1);
+        TableModelFirstCehSmesitel2KMSF1 tableModelFirstCehSmesitel2KMSF1 = deviceToTableFirstCehSmesitel2KMSF1.convert(deviceModelFirstCehSmesitel2KMSF1, deviceModelFirstCehSmesitel2MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", tableModelFirstCehSmesitel2KMSF1);
         if (deviceModelFirstCehSmesitel2KMSF1.hysteresis()){
             serviceModelFirstCehSmesitel2KMSF1.addTabeDevice(tableModelFirstCehSmesitel2KMSF1);
@@ -228,8 +230,9 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1 = serviceModelFirstCehSmesitel3KMSF1.getModbusDevice();
+        DeviceModelFirstCehSmesitel3MB110 deviceModelFirstCehSmesitel3MB110 = serviceModelFirstCehSmesitel3KMSF1.getModbusDevice2();
         DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1 = new DeviceToTableFirstCehSmesitel3KMSF1();
-        TableModelFirstCehSmesitel3KMSF1 tableModelFirstCehSmesitel3KMSF1 = deviceToTableFirstCehSmesitel3KMSF1.convert(deviceModelFirstCehSmesitel3KMSF1);
+        TableModelFirstCehSmesitel3KMSF1 tableModelFirstCehSmesitel3KMSF1 = deviceToTableFirstCehSmesitel3KMSF1.convert(deviceModelFirstCehSmesitel3KMSF1, deviceModelFirstCehSmesitel3MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", tableModelFirstCehSmesitel3KMSF1);
         if (deviceModelFirstCehSmesitel3KMSF1.hysteresis()){
             serviceModelFirstCehSmesitel3KMSF1.addTabeDevice(tableModelFirstCehSmesitel3KMSF1);
@@ -237,8 +240,9 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel4KMSF1 deviceModelFirstCehSmesitel4KMSF1 = serviceModelFirstCehSmesitel4KMSF1.getModbusDevice();
+        DeviceModelFirstCehSmesitel4MB110 deviceModelFirstCehSmesitel4MB110 = serviceModelFirstCehSmesitel4KMSF1.getModbusDevice2();
         DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1 = new DeviceToTableFirstCehSmesitel4KMSF1();
-        TableModelFirstCehSmesitel4KMSF1 tableModelFirstCehSmesitel4KMSF1 = deviceToTableFirstCehSmesitel4KMSF1.convert(deviceModelFirstCehSmesitel4KMSF1);
+        TableModelFirstCehSmesitel4KMSF1 tableModelFirstCehSmesitel4KMSF1 = deviceToTableFirstCehSmesitel4KMSF1.convert(deviceModelFirstCehSmesitel4KMSF1, deviceModelFirstCehSmesitel4MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", tableModelFirstCehSmesitel4KMSF1);
         if (deviceModelFirstCehSmesitel4KMSF1.hysteresis()){
             serviceModelFirstCehSmesitel4KMSF1.addTabeDevice(tableModelFirstCehSmesitel4KMSF1);
@@ -246,8 +250,9 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel5KMSF1 deviceModelFirstCehSmesitel5KMSF1 = serviceModelFirstCehSmesitel5KMSF1.getModbusDevice();
+        DeviceModelFirstCehSmesitel5MB110 deviceModelFirstCehSmesitel5MB110 = serviceModelFirstCehSmesitel5KMSF1.getModbusDevice2();
         DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1 = new DeviceToTableFirstCehSmesitel5KMSF1();
-        TableModelFirstCehSmesitel5KMSF1 tableModelFirstCehSmesitel5KMSF1 = deviceToTableFirstCehSmesitel5KMSF1.convert(deviceModelFirstCehSmesitel5KMSF1);
+        TableModelFirstCehSmesitel5KMSF1 tableModelFirstCehSmesitel5KMSF1 = deviceToTableFirstCehSmesitel5KMSF1.convert(deviceModelFirstCehSmesitel5KMSF1, deviceModelFirstCehSmesitel5MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", tableModelFirstCehSmesitel5KMSF1);
         if (deviceModelFirstCehSmesitel5KMSF1.hysteresis()){
             serviceModelFirstCehSmesitel5KMSF1.addTabeDevice(tableModelFirstCehSmesitel5KMSF1);
