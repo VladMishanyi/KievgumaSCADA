@@ -501,6 +501,11 @@
         $("#realAutoclavLaboratoryDavlenieValue").text(davlenieFormat);
     }
 </script>
+<script rel="script" type="text/javascript">
+    var currentDateTime = moment().format("YYYY-MM-DDTHH:mm");
+    $("#startChart").val(currentDateTime);
+    $("#endChart").val(currentDateTime);
+</script>
 </body>
 </html>
 

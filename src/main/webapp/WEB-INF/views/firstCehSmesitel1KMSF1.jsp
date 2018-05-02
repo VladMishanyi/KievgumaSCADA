@@ -61,13 +61,13 @@
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="startMark">Начало</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2018-02-07T07:30">
+                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2018-05-02T07:30">
                 </div>
             </div>
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="endMark">Конец</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2018-02-10T18:00">
+                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2018-05-02T18:00">
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
@@ -547,6 +547,11 @@
         $("#firstCehSmesitel1Temp").text(temp2);
         $("#firstCehSmesitel1Pressure").text(temp3);
     }
+</script>
+<script rel="script" type="text/javascript">
+    var currentDateTime = moment().format("YYYY-MM-DDTHH:mm");
+    $("#startChart").val(currentDateTime);
+    $("#endChart").val(currentDateTime);
 </script>
 </body>
 </html>
