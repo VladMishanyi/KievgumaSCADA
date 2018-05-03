@@ -47,11 +47,11 @@
             </tr>
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры</span></th>
-                <th><span id="firstCehSmesitel1Temp" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+                <th><span id="firstCehSmesitel5Temp" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение давления</span></th>
-                <th><span id="firstCehSmesitel1Pressure" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> бар.</th>
+                <th><span id="firstCehSmesitel5Pressure" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> бар.</th>
             </tr>
         </table>
     </div>
@@ -543,9 +543,9 @@
         var temp1 = trmBody.channel1;
         var temp2 = trmBody.channel2;
         var temp3 = trmBody.channel3;
-        $("#firstCehSmesitel1Tok").text(temp1);
-        $("#firstCehSmesitel1Temp").text(temp2);
-        $("#firstCehSmesitel1Pressure").text(temp3);
+        $("#firstCehSmesitel5Tok").text(temp1);
+        $("#firstCehSmesitel5Temp").text(temp2);
+        $("#firstCehSmesitel5Pressure").text(temp3);
     }
 </script>
 <script rel="script" type="text/javascript">
