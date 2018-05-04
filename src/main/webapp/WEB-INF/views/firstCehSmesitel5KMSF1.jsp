@@ -302,7 +302,7 @@
                         borderDashOffset: 0.0,
                         borderCapStyle: 'butt',
                         borderJoinStyle: 'miter',
-                        fill: true,
+                        fill: false,
                         lineTension: 0.1,
                         pointBackgroundColor: '#000000',
                         pointBorderColor: '#FF0000',

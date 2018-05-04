@@ -4,6 +4,7 @@ import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel5KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel5MB110;
 import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
+import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
 
 import java.util.Date;
@@ -23,8 +24,8 @@ public class DeviceToTableFirstCehSmesitel5KMSF1 extends DeviceToTable<DeviceMod
             tableModelFirstCehSmesitel5KMSF1 = new TableModelFirstCehSmesitel5KMSF1();
             tableModelFirstCehSmesitel5KMSF1.setDate(new Date());
             tableModelFirstCehSmesitel5KMSF1.setChannel1(deviceModelFirstCehSmesitel5KMSF1.getDeviceValuesRegisters()[0]);
-            tableModelFirstCehSmesitel5KMSF1.setChannel2(deviceModelFirstCehSmesitel5MB110.getDeviceValuesRegisters()[0]);
-            tableModelFirstCehSmesitel5KMSF1.setChannel3(deviceModelFirstCehSmesitel5MB110.getDeviceValuesRegisters()[1]);
+            tableModelFirstCehSmesitel5KMSF1.setChannel2(FloatCut.floatTwoDigs(deviceModelFirstCehSmesitel5MB110.getDeviceValuesRegisters()[0]));
+            tableModelFirstCehSmesitel5KMSF1.setChannel3(FloatCut.floatTwoDigs(deviceModelFirstCehSmesitel5MB110.getDeviceValuesRegisters()[1]));
         }
         return tableModelFirstCehSmesitel5KMSF1;
     }

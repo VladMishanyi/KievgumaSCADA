@@ -214,7 +214,7 @@ public class WebController {
         DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1 = new DeviceToTableFirstCehSmesitel1KMSF1();
         TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = deviceToTableFirstCehSmesitel1KMSF1.convert(deviceModelFirstCehSmesitel1KMSF1, deviceModelFirstCehSmesitel1MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", tableModelFirstCehSmesitel1KMSF1);
-        if (deviceModelFirstCehSmesitel1KMSF1.hysteresis()){
+        if (deviceModelFirstCehSmesitel1KMSF1.hysteresis() || deviceModelFirstCehSmesitel1MB110.hysteresis()){
             serviceModelFirstCehSmesitel1KMSF1.addTabeDevice(tableModelFirstCehSmesitel1KMSF1);
         }
 
@@ -224,7 +224,7 @@ public class WebController {
         DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1 = new DeviceToTableFirstCehSmesitel2KMSF1();
         TableModelFirstCehSmesitel2KMSF1 tableModelFirstCehSmesitel2KMSF1 = deviceToTableFirstCehSmesitel2KMSF1.convert(deviceModelFirstCehSmesitel2KMSF1, deviceModelFirstCehSmesitel2MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", tableModelFirstCehSmesitel2KMSF1);
-        if (deviceModelFirstCehSmesitel2KMSF1.hysteresis()){
+        if (deviceModelFirstCehSmesitel2KMSF1.hysteresis() || deviceModelFirstCehSmesitel2MB110.hysteresis()){
             serviceModelFirstCehSmesitel2KMSF1.addTabeDevice(tableModelFirstCehSmesitel2KMSF1);
         }
 
@@ -234,7 +234,7 @@ public class WebController {
         DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1 = new DeviceToTableFirstCehSmesitel3KMSF1();
         TableModelFirstCehSmesitel3KMSF1 tableModelFirstCehSmesitel3KMSF1 = deviceToTableFirstCehSmesitel3KMSF1.convert(deviceModelFirstCehSmesitel3KMSF1, deviceModelFirstCehSmesitel3MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", tableModelFirstCehSmesitel3KMSF1);
-        if (deviceModelFirstCehSmesitel3KMSF1.hysteresis()){
+        if (deviceModelFirstCehSmesitel3KMSF1.hysteresis() || deviceModelFirstCehSmesitel3MB110.hysteresis()){
             serviceModelFirstCehSmesitel3KMSF1.addTabeDevice(tableModelFirstCehSmesitel3KMSF1);
         }
 
@@ -244,7 +244,7 @@ public class WebController {
         DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1 = new DeviceToTableFirstCehSmesitel4KMSF1();
         TableModelFirstCehSmesitel4KMSF1 tableModelFirstCehSmesitel4KMSF1 = deviceToTableFirstCehSmesitel4KMSF1.convert(deviceModelFirstCehSmesitel4KMSF1, deviceModelFirstCehSmesitel4MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", tableModelFirstCehSmesitel4KMSF1);
-        if (deviceModelFirstCehSmesitel4KMSF1.hysteresis()){
+        if (deviceModelFirstCehSmesitel4KMSF1.hysteresis() || deviceModelFirstCehSmesitel4MB110.hysteresis()){
             serviceModelFirstCehSmesitel4KMSF1.addTabeDevice(tableModelFirstCehSmesitel4KMSF1);
         }
 
@@ -254,7 +254,7 @@ public class WebController {
         DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1 = new DeviceToTableFirstCehSmesitel5KMSF1();
         TableModelFirstCehSmesitel5KMSF1 tableModelFirstCehSmesitel5KMSF1 = deviceToTableFirstCehSmesitel5KMSF1.convert(deviceModelFirstCehSmesitel5KMSF1, deviceModelFirstCehSmesitel5MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", tableModelFirstCehSmesitel5KMSF1);
-        if (deviceModelFirstCehSmesitel5KMSF1.hysteresis()){
+        if (deviceModelFirstCehSmesitel5KMSF1.hysteresis() || deviceModelFirstCehSmesitel5MB110.hysteresis()){
             serviceModelFirstCehSmesitel5KMSF1.addTabeDevice(tableModelFirstCehSmesitel5KMSF1);
         }
 

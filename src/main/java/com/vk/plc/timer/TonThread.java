@@ -12,7 +12,7 @@ public class TonThread extends Thread {
     private long count = 0;
 
     public TonThread(){
-        this.setDaemon(true);
+//        this.setDaemon(true);
     }
 
     @Override
@@ -25,17 +25,17 @@ public class TonThread extends Thread {
                     this.sleep(1000);
                     timeOut = ++count;
                     timeOut = count;
-                    System.out.print("count value :"+count);
+                    System.out.println("count value :"+count);
                 }
 
                 if (timeIn == count){
                     qOut = true;
-                    System.out.print("count done :"+qOut);
+                    System.out.println("count done :"+qOut);
                 }
 
                 if (!inIn){
                     this.resetTon();
-                    System.out.print("count not start");
+                    System.out.println("count not start");
                 }
             }
             catch (InterruptedException e){
