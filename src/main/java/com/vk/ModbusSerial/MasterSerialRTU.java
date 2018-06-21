@@ -98,8 +98,8 @@ public class MasterSerialRTU {
 //                batchRead.addLocator(2,slaveAdrr, RegisterRange.HOLDING_REGISTER, 2, DataType.TWO_BYTE_INT_SIGNED);
 //                batchRead.addLocator(3,slaveAdrr, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
 //                batchRead.addLocator(4,slaveAdrr, RegisterRange.INPUT_REGISTER , 0, DataType.FOUR_BYTE_FLOAT);
-                batchRead.addLocator(5,slaveAdrr, RegisterRange.HOLDING_REGISTER , 4, DataType.FOUR_BYTE_FLOAT);
-                batchRead.addLocator(6,slaveAdrr, RegisterRange.HOLDING_REGISTER , 10, DataType.FOUR_BYTE_FLOAT);
+                batchRead.addLocator(5,slaveAdrr, RegisterRange.HOLDING_REGISTER , 4105, DataType.FOUR_BYTE_FLOAT);
+                batchRead.addLocator(6,slaveAdrr, RegisterRange.HOLDING_REGISTER , 4107, DataType.FOUR_BYTE_FLOAT);
 
                 BatchResults batchResults =  master.send(batchRead);
 //                int value1 = (short) batchResults.getValue(1);

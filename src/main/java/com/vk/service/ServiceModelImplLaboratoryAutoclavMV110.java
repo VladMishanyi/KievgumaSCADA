@@ -1,13 +1,9 @@
 package com.vk.service;
 
-import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
 import com.vk.entity.device.DeviceModelLaboratoryAutoclavMV110;
-import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
-import com.vk.repository.BaseRepositoryFirstCehAutoclavTRM202;
-import com.vk.repository.BaseRepositoryLaboratoryAutoclavMV110;
-import com.vk.repository.ModbusRepositoryFirstCehAutoclavTRM202;
-import com.vk.repository.ModbusRepositoryLaboratoryAutoclavMV110;
+import com.vk.repository.old_jpql.BaseRepositoryLaboratoryAutoclavMV110;
+import com.vk.repository.old_modbus.ModbusRepositoryLaboratoryAutoclavMV110;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;

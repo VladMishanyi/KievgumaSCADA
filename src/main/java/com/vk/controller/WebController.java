@@ -4,6 +4,7 @@ import com.vk.entity.converter.*;
 import com.vk.entity.device.*;
 import com.vk.entity.table.*;
 import com.vk.service.*;
+import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.core.MessageSendingOperations;
@@ -27,7 +28,7 @@ public class WebController {
 
     private final MessageSendingOperations<String> messageSendingOperations;
 
-    private final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
+//    private final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
 
     private final ServiceModelFirstCehAutoclavTRM202 serviceModelFirstCehAutoclavTRM202;
 
@@ -51,10 +52,12 @@ public class WebController {
 
     private final ServiceModelLaboratoryAutoclavMV110 serviceModelLaboratoryAutoclavMV110;
 
+    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+
     @Autowired
     public WebController(
             final MessageSendingOperations<String> messageSendingOperations,
-            final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201,
+            /*final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201,*/
             final ServiceModelFirstCehAutoclavTRM202 serviceModelFirstCehAutoclavTRM202,
             final ServiceModelFirstCehBuzulukTRM200 serviceModelFirstCehBuzulukTRM200,
             final ServiceModelFirstCehKameraDozrevanyaMPR51 serviceModelFirstCehKameraDozrevanyaMPR51,
@@ -65,10 +68,11 @@ public class WebController {
             final ServiceModelFirstCehSmesitel5KMSF1 serviceModelFirstCehSmesitel5KMSF1,
             final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107,
             final ServiceModelThirdCehAutoclavTRM202 serviceModelThirdCehAutoclavTRM202,
-            final ServiceModelLaboratoryAutoclavMV110 serviceModelLaboratoryAutoclavMV110
+            final ServiceModelLaboratoryAutoclavMV110 serviceModelLaboratoryAutoclavMV110,
+            final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData
     ){
         this.messageSendingOperations = messageSendingOperations;
-        this.serviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201;
+        /*this.serviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201;*/
         this.serviceModelFirstCehAutoclavTRM202 = serviceModelFirstCehAutoclavTRM202;
         this.serviceModelFirstCehBuzulukTRM200 = serviceModelFirstCehBuzulukTRM200;
         this.serviceModelFirstCehKameraDozrevanyaMPR51 = serviceModelFirstCehKameraDozrevanyaMPR51;
@@ -80,6 +84,7 @@ public class WebController {
         this.serviceModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107;
         this.serviceModelThirdCehAutoclavTRM202 = serviceModelThirdCehAutoclavTRM202;
         this.serviceModelLaboratoryAutoclavMV110 = serviceModelLaboratoryAutoclavMV110;
+        this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
     }
 
 //    private final int ID_SLAVE_PLC100 = 1;
@@ -170,15 +175,16 @@ public class WebController {
         return "laboratoryAutoclav";
     }
 
-    @Scheduled(fixedDelay = 30000)//ms
+    @Scheduled(fixedDelay = 3000)//30000ms
     private void loopSerialLisener(){
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201.getModbusDevice();
+        DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = energeticRoomTRM201ServiceData.getModbusDevice();
         DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
         TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
         messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
         if (deviceModelEnergeticRoomTRM201.hysteresis()){
-            serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
+//            serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
+            energeticRoomTRM201ServiceData.addTabeDevice(tableModelEnergeticRoomTRM201);
         }
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

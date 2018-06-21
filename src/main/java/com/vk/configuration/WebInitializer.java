@@ -32,8 +32,6 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     private static final boolean THROW_EXCEPTION_IF_NO_HANDLER_FOUND = true;
 
 
-
-
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setInitParameter("dispatchOptionsRequest", OPTIONS_REQUEST);
@@ -56,7 +54,13 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
-//                RootConfig.class//@scheduled executed twice, that why commit this line
+//                WebConfig.class,
+//                WebSoketConfig.class,
+//                RootConfig.class,
+//                ModbusSerialFirstConfig.class,
+//                ModbusSerialSecondConfig.class,
+//                ModbusSerialThirdConfig.class,
+//                DatabaseFirstConfig.class
         };
     }
 

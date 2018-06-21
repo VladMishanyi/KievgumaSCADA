@@ -1,13 +1,9 @@
 package com.vk.service;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehBuzulukTRM200;
-import com.vk.repository.BaseRepositoryEnergeticRoomTRM201;
-import com.vk.repository.BaseRepositoryFirstCehBuzulukTRM200;
-import com.vk.repository.ModbusRepositoryEnergeticRoomTRM201;
-import com.vk.repository.ModbusRepositoryFirstCehBuzulukTRM200;
+import com.vk.repository.old_jpql.BaseRepositoryFirstCehBuzulukTRM200;
+import com.vk.repository.old_modbus.ModbusRepositoryFirstCehBuzulukTRM200;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;

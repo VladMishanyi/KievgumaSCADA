@@ -1,12 +1,11 @@
 package com.vk.service;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel3KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel3MB110;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehSmesitel3KMSF1;
-import com.vk.repository.*;
+import com.vk.repository.old_jpql.BaseRepositoryFirstCehSmesitel3KMSF1;
+import com.vk.repository.old_modbus.ModbusRepositoryFirstCehSmesitel3KMSF1;
+import com.vk.repository.old_modbus.ModbusRepositoryFirstCehSmesitel3MB110;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;

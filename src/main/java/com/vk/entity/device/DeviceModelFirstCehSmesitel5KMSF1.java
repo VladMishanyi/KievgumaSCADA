@@ -3,10 +3,14 @@ package com.vk.entity.device;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * Created by User on 2018-03-06.
  */
+@Component
+@ApplicationScope
 public class DeviceModelFirstCehSmesitel5KMSF1 extends DeviceModel<Integer> {
     private static final int deviceAddress = 48;
     private static final int arraySize = 1;
@@ -44,5 +48,12 @@ public class DeviceModelFirstCehSmesitel5KMSF1 extends DeviceModel<Integer> {
             }
         }
         return inner;
+    }
+
+    @Override
+    public void setDeviceValuesDafault() {
+        for (int i=0; i<deviceValuesRegisters.length; i++){
+            deviceValuesRegisters[i] = 0;
+        }
     }
 }

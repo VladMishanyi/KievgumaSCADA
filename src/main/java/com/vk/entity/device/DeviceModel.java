@@ -127,4 +127,6 @@ public abstract class DeviceModel<E extends Number> {
     }
 
     public abstract boolean hysteresis();
+
+    public abstract void setDeviceValuesDafault();
 }
