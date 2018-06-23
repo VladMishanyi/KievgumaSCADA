@@ -3,7 +3,6 @@ package com.vk.controller;
 import com.vk.entity.converter.*;
 import com.vk.entity.device.*;
 import com.vk.entity.table.*;
-import com.vk.service.*;
 import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -179,7 +178,7 @@ public class WebController {
     private void loopSerialLisener(){
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = energeticRoomTRM201ServiceData.getModbusDevice();
-        DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableEnergeticRoomTRM201();
+        DeviceToTableImplEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableImplEnergeticRoomTRM201();
         TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
         messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
         if (deviceModelEnergeticRoomTRM201.hysteresis()){
@@ -189,7 +188,7 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehAutoclavTRM202 deviceModelFirstCehAutoclavTRM202 = serviceModelFirstCehAutoclavTRM202.getModbusDevice();
-        DeviceToTableFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202 = new DeviceToTableFirstCehAutoclavTRM202();
+        DeviceToTableImplFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202 = new DeviceToTableImplFirstCehAutoclavTRM202();
         TableModelFirstCehAutoclavTRM202 tableModelFirstCehAutoclavTRM202 = deviceToTableFirstCehAutoclavTRM202.convert(deviceModelFirstCehAutoclavTRM202);
         messageSendingOperations.convertAndSend("/topic/firstCehAvtoclav", tableModelFirstCehAutoclavTRM202);
         if (deviceModelFirstCehAutoclavTRM202.hysteresis()){
@@ -198,7 +197,7 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200 = serviceModelFirstCehBuzulukTRM200.getModbusDevice();
-        DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200 = new DeviceToTableFirstCehBuzulukTRM200();
+        DeviceToTableImplFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200 = new DeviceToTableImplFirstCehBuzulukTRM200();
         TableModelFirstCehBuzulukTRM200 tableModelFirstCehBuzulukTRM200 = deviceToTableFirstCehBuzulukTRM200.convert(deviceModelFirstCehBuzulukTRM200);
         messageSendingOperations.convertAndSend("/topic/firstCehBuzuluk", tableModelFirstCehBuzulukTRM200);
         if (deviceModelFirstCehBuzulukTRM200.hysteresis()){
@@ -207,7 +206,7 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51 = serviceModelFirstCehKameraDozrevanyaMPR51.getModbusDevice();
-        DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51 = new DeviceToTableFirstCehKameraDozrevanyaMPR51();
+        DeviceToTableImplFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51 = new DeviceToTableImplFirstCehKameraDozrevanyaMPR51();
         TableModelFirstCehKameraDozrevanyaMPR51 tableModelFirstCehKameraDozrevanyaMPR51 = deviceToTableFirstCehKameraDozrevanyaMPR51.convert(deviceModelFirstCehKameraDozrevanyaMPR51);
         messageSendingOperations.convertAndSend("/topic/firstCehKameraDozrevanya", tableModelFirstCehKameraDozrevanyaMPR51);
         if (deviceModelFirstCehKameraDozrevanyaMPR51.hysteresis()){
@@ -217,7 +216,7 @@ public class WebController {
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1 = serviceModelFirstCehSmesitel1KMSF1.getModbusDevice();
         DeviceModelFirstCehSmesitel1MB110 deviceModelFirstCehSmesitel1MB110 = serviceModelFirstCehSmesitel1KMSF1.getModbusDevice2();
-        DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1 = new DeviceToTableFirstCehSmesitel1KMSF1();
+        DeviceToTableImplFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1 = new DeviceToTableImplFirstCehSmesitel1KMSF1();
         TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = deviceToTableFirstCehSmesitel1KMSF1.convert(deviceModelFirstCehSmesitel1KMSF1, deviceModelFirstCehSmesitel1MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel1KMSF1", tableModelFirstCehSmesitel1KMSF1);
         if (deviceModelFirstCehSmesitel1KMSF1.hysteresis() || deviceModelFirstCehSmesitel1MB110.hysteresis()){
@@ -227,7 +226,7 @@ public class WebController {
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel2KMSF1 deviceModelFirstCehSmesitel2KMSF1 = serviceModelFirstCehSmesitel2KMSF1.getModbusDevice();
         DeviceModelFirstCehSmesitel2MB110 deviceModelFirstCehSmesitel2MB110 = serviceModelFirstCehSmesitel2KMSF1.getModbusDevice2();
-        DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1 = new DeviceToTableFirstCehSmesitel2KMSF1();
+        DeviceToTableImplFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1 = new DeviceToTableImplFirstCehSmesitel2KMSF1();
         TableModelFirstCehSmesitel2KMSF1 tableModelFirstCehSmesitel2KMSF1 = deviceToTableFirstCehSmesitel2KMSF1.convert(deviceModelFirstCehSmesitel2KMSF1, deviceModelFirstCehSmesitel2MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel2KMSF1", tableModelFirstCehSmesitel2KMSF1);
         if (deviceModelFirstCehSmesitel2KMSF1.hysteresis() || deviceModelFirstCehSmesitel2MB110.hysteresis()){
@@ -237,7 +236,7 @@ public class WebController {
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1 = serviceModelFirstCehSmesitel3KMSF1.getModbusDevice();
         DeviceModelFirstCehSmesitel3MB110 deviceModelFirstCehSmesitel3MB110 = serviceModelFirstCehSmesitel3KMSF1.getModbusDevice2();
-        DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1 = new DeviceToTableFirstCehSmesitel3KMSF1();
+        DeviceToTableImplFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1 = new DeviceToTableImplFirstCehSmesitel3KMSF1();
         TableModelFirstCehSmesitel3KMSF1 tableModelFirstCehSmesitel3KMSF1 = deviceToTableFirstCehSmesitel3KMSF1.convert(deviceModelFirstCehSmesitel3KMSF1, deviceModelFirstCehSmesitel3MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel3KMSF1", tableModelFirstCehSmesitel3KMSF1);
         if (deviceModelFirstCehSmesitel3KMSF1.hysteresis() || deviceModelFirstCehSmesitel3MB110.hysteresis()){
@@ -247,7 +246,7 @@ public class WebController {
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel4KMSF1 deviceModelFirstCehSmesitel4KMSF1 = serviceModelFirstCehSmesitel4KMSF1.getModbusDevice();
         DeviceModelFirstCehSmesitel4MB110 deviceModelFirstCehSmesitel4MB110 = serviceModelFirstCehSmesitel4KMSF1.getModbusDevice2();
-        DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1 = new DeviceToTableFirstCehSmesitel4KMSF1();
+        DeviceToTableImplFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1 = new DeviceToTableImplFirstCehSmesitel4KMSF1();
         TableModelFirstCehSmesitel4KMSF1 tableModelFirstCehSmesitel4KMSF1 = deviceToTableFirstCehSmesitel4KMSF1.convert(deviceModelFirstCehSmesitel4KMSF1, deviceModelFirstCehSmesitel4MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel4KMSF1", tableModelFirstCehSmesitel4KMSF1);
         if (deviceModelFirstCehSmesitel4KMSF1.hysteresis() || deviceModelFirstCehSmesitel4MB110.hysteresis()){
@@ -257,7 +256,7 @@ public class WebController {
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehSmesitel5KMSF1 deviceModelFirstCehSmesitel5KMSF1 = serviceModelFirstCehSmesitel5KMSF1.getModbusDevice();
         DeviceModelFirstCehSmesitel5MB110 deviceModelFirstCehSmesitel5MB110 = serviceModelFirstCehSmesitel5KMSF1.getModbusDevice2();
-        DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1 = new DeviceToTableFirstCehSmesitel5KMSF1();
+        DeviceToTableImplFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1 = new DeviceToTableImplFirstCehSmesitel5KMSF1();
         TableModelFirstCehSmesitel5KMSF1 tableModelFirstCehSmesitel5KMSF1 = deviceToTableFirstCehSmesitel5KMSF1.convert(deviceModelFirstCehSmesitel5KMSF1, deviceModelFirstCehSmesitel5MB110);
         messageSendingOperations.convertAndSend("/topic/firstCehSmesitel5KMSF1", tableModelFirstCehSmesitel5KMSF1);
         if (deviceModelFirstCehSmesitel5KMSF1.hysteresis() || deviceModelFirstCehSmesitel5MB110.hysteresis()){
@@ -266,7 +265,7 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107.getModbusDevice();
-        DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107 = new DeviceToTableSevenCehAutoclavSPK107();
+        DeviceToTableImplSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107 = new DeviceToTableImplSevenCehAutoclavSPK107();
         TableModelSevenCehAutoclavSPK107 tableModelSevenCehAutoclavSPK107 = deviceToTableSevenCehAutoclavSPK107.convert(deviceModelSevenCehAutoclavSPK107);
         messageSendingOperations.convertAndSend("/topic/sevenCehAutoclav", tableModelSevenCehAutoclavSPK107);
         if (deviceModelSevenCehAutoclavSPK107.hysteresis()){
@@ -275,7 +274,7 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202 = serviceModelThirdCehAutoclavTRM202.getModbusDevice();
-        DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202 = new DeviceToTableThirdCehAutoclavTRM202();
+        DeviceToTableImplThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202 = new DeviceToTableImplThirdCehAutoclavTRM202();
         TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202 = deviceToTableThirdCehAutoclavTRM202.convert(deviceModelThirdCehAutoclavTRM202);
         messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", tableModelThirdCehAutoclavTRM202);
         if (deviceModelThirdCehAutoclavTRM202.hysteresis()){
@@ -284,7 +283,7 @@ public class WebController {
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110 = serviceModelLaboratoryAutoclavMV110.getModbusDevice();
-        DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110 = new DeviceToTableLaboratoryAutoclavMV110();
+        DeviceToTableImplLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110 = new DeviceToTableImplLaboratoryAutoclavMV110();
         TableModelLaboratoryAutoclavMV110 tableModelLaboratoryAutoclavMV110 = deviceToTableLaboratoryAutoclavMV110.convert(deviceModelLaboratoryAutoclavMV110);
         messageSendingOperations.convertAndSend("/topic/laboratoryAvtoclav", tableModelLaboratoryAutoclavMV110);
         if (deviceModelLaboratoryAutoclavMV110.hysteresis()){

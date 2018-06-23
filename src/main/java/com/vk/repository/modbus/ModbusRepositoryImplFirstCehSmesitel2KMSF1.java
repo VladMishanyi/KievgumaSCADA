@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Created by KIP-PC99 on 21.06.2018.
  */
 @Component
-@ComponentScan(basePackages = {"com.vk.configuration"})
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplFirstCehSmesitel2KMSF1 extends RootModbusRepositoryImpl<Integer, DeviceModelFirstCehSmesitel2KMSF1> implements ModbusRepositoryFirstCehSmesitel2KMSF1 {
 
 

@@ -1,20 +1,23 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel5KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel5MB110;
 import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 /**
  * Created by User on 2018-03-07.
  */
-public class DeviceToTableFirstCehSmesitel5KMSF1 extends DeviceToTable<DeviceModelFirstCehSmesitel5KMSF1,
+@Component
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
+public class DeviceToTableImplFirstCehSmesitel5KMSF1 extends DeviceToTableImpl<DeviceModelFirstCehSmesitel5KMSF1,
         DeviceModelFirstCehSmesitel5MB110,
-        TableModelFirstCehSmesitel5KMSF1>{
+        TableModelFirstCehSmesitel5KMSF1> {
 
     @Override
     public TableModelFirstCehSmesitel5KMSF1 convert(DeviceModelFirstCehSmesitel5KMSF1 deviceModelFirstCehSmesitel5KMSF1,

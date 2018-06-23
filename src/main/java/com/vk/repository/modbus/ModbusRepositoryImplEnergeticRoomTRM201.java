@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Created by User on 2018-02-27.
  */
 @Component
-@ComponentScan(basePackages = {"com.vk.configuration"})
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplEnergeticRoomTRM201 extends RootModbusRepositoryImpl<Float, DeviceModelEnergeticRoomTRM201> implements ModbusRepositoryEnergeticRoomTRM201 {
 
 

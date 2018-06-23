@@ -1,21 +1,23 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelLaboratoryAutoclavMV110;
-import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 /**
  * Created by User on 2018-04-02.
  */
-public class DeviceToTableLaboratoryAutoclavMV110 extends DeviceToTable<DeviceModelLaboratoryAutoclavMV110,
+@Component
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
+public class DeviceToTableImplLaboratoryAutoclavMV110 extends DeviceToTableImpl<DeviceModelLaboratoryAutoclavMV110,
         DeviceModelFirstCehSmesitel1MB110,
-        TableModelLaboratoryAutoclavMV110>{
+        TableModelLaboratoryAutoclavMV110> {
 
     @Override
     public TableModelLaboratoryAutoclavMV110 convert(DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110){

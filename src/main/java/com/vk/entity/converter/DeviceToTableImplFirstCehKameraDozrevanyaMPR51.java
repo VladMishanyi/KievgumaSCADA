@@ -5,15 +5,19 @@ import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 /**
  * Created by User on 2018-03-07.
  */
-public class DeviceToTableFirstCehKameraDozrevanyaMPR51 extends DeviceToTable<DeviceModelFirstCehKameraDozrevanyaMPR51,
+@Component
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
+public class DeviceToTableImplFirstCehKameraDozrevanyaMPR51 extends DeviceToTableImpl<DeviceModelFirstCehKameraDozrevanyaMPR51,
         DeviceModelFirstCehSmesitel1MB110,
-        TableModelFirstCehKameraDozrevanyaMPR51>{
+        TableModelFirstCehKameraDozrevanyaMPR51> {
 
     @Override
     public TableModelFirstCehKameraDozrevanyaMPR51 convert(DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51){

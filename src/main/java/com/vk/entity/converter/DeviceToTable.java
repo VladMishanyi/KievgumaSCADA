@@ -4,15 +4,11 @@ import com.vk.entity.device.DeviceModel;
 import com.vk.entity.table.TableModel;
 
 /**
- * Created by User on 2018-02-28.
+ * Created by KIP-PC99 on 23.06.2018.
  */
-public class DeviceToTable<T extends DeviceModel, K extends DeviceModel, E extends TableModel> {
+public interface DeviceToTable<T extends DeviceModel, K extends DeviceModel, E extends TableModel> {
 
-    public E convert(T device){
-        return null;
-    }
+    public E convert(T device);
 
-    public E convert(T device1, K device2){
-        return null;
-    }
+    public E convert(T device1, K device2);
 }

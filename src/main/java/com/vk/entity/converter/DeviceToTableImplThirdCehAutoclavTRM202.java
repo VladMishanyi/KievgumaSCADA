@@ -5,15 +5,19 @@ import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
 import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 /**
  * Created by User on 2018-03-07.
  */
-public class DeviceToTableThirdCehAutoclavTRM202 extends DeviceToTable<DeviceModelThirdCehAutoclavTRM202,
+@Component
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
+public class DeviceToTableImplThirdCehAutoclavTRM202 extends DeviceToTableImpl<DeviceModelThirdCehAutoclavTRM202,
         DeviceModelFirstCehSmesitel1MB110,
-        TableModelThirdCehAutoclavTRM202>{
+        TableModelThirdCehAutoclavTRM202> {
 
     @Override
     public TableModelThirdCehAutoclavTRM202 convert(DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202){

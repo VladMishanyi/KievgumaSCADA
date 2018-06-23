@@ -8,13 +8,17 @@ import java.util.Date;
 
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by User on 2018-02-28.
  */
-public class DeviceToTableEnergeticRoomTRM201 extends DeviceToTable<DeviceModelEnergeticRoomTRM201,
+@Component
+@ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
+public class DeviceToTableImplEnergeticRoomTRM201 extends DeviceToTableImpl<DeviceModelEnergeticRoomTRM201,
         DeviceModelFirstCehSmesitel1MB110,
-        TableModelEnergeticRoomTRM201>{
+        TableModelEnergeticRoomTRM201> {
 
     @Override
     public TableModelEnergeticRoomTRM201 convert(DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201){
