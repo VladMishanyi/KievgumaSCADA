@@ -1,6 +1,6 @@
 package com.vk.controller;
 
-import com.vk.entity.DateFromChart;
+import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 //import com.vk.service.ServiceModelEnergeticRoomTRM201;
 import com.vk.service.data.EnergeticRoomTRM201ServiceData;

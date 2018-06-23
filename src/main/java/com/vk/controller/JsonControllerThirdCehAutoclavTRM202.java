@@ -1,6 +1,6 @@
 package com.vk.controller;
 
-import com.vk.entity.DateFromChart;
+import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import com.vk.service.ServiceModelThirdCehAutoclavTRM202;
 import org.apache.log4j.Logger;

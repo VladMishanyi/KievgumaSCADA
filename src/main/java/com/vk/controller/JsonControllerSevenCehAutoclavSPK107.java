@@ -1,6 +1,6 @@
 package com.vk.controller;
 
-import com.vk.entity.DateFromChart;
+import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.service.ServiceModelSevenCehAutoclavSPK107;
 import org.apache.log4j.Logger;
