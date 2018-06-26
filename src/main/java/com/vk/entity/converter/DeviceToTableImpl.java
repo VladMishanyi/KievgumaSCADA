@@ -16,3 +16,4 @@ public class DeviceToTableImpl<T extends DeviceModel, K extends DeviceModel, E e
         return null;
     }
 }
+

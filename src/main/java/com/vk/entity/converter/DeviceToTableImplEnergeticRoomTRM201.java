@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class DeviceToTableImplEnergeticRoomTRM201 extends DeviceToTableImpl<DeviceModelEnergeticRoomTRM201,
         DeviceModelFirstCehSmesitel1MB110,
-        TableModelEnergeticRoomTRM201> {
+        TableModelEnergeticRoomTRM201> implements DeviceToTableEnergeticRoomTRM201{
 
     @Override
     public TableModelEnergeticRoomTRM201 convert(DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201){

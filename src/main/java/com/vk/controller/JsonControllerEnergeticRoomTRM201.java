@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,37 +20,36 @@ import java.util.List;
  */
 @RestController
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
-public class JsonControllerEnergeticRoomTRM201 {
-
-//    private final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201;
-
-    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+public class JsonControllerEnergeticRoomTRM201 extends JsonController{
 
     private final Logger LOGGER = Logger.getLogger(JsonControllerEnergeticRoomTRM201.class);
 
+    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+
+    private final SimpleDateFormat simpleDateFormat;
+
     @Autowired
-    public JsonControllerEnergeticRoomTRM201(/*final ServiceModelEnergeticRoomTRM201 serviceModelEnergeticRoomTRM201,*/
-                                             final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData){
-//        this.serviceModelEnergeticRoomTRM201 = serviceModelEnergeticRoomTRM201;
+    public JsonControllerEnergeticRoomTRM201(final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData,
+                                             final SimpleDateFormat simpleDateFormat){
         this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
+        this.simpleDateFormat = simpleDateFormat;
     }
     @ResponseBody
     @RequestMapping(value = "/generateChart", method = RequestMethod.POST)
     public List<TableModelEnergeticRoomTRM201> generateChartEnergeticRoomTRM201(@RequestBody DateFromChart dateFromChart){
-        List<TableModelEnergeticRoomTRM201> tableModelEnergeticRoomTRM201List = null;
-        String start = dateFromChart.getStart();
-        String end = dateFromChart.getEnd();
-        String[] startTokens = start.split("T");
-        String[] endTokens = end.split("T");
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
-            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-//            tableModelEnergeticRoomTRM201List = serviceModelEnergeticRoomTRM201.rangeTimestamp(date1, date2);
-            tableModelEnergeticRoomTRM201List = energeticRoomTRM201ServiceData.rangeTimestamp(date1, date2);
-        }catch (ParseException e){
-            LOGGER.error("can't parse range of date: "+e.getClass());
+        return this.generateTimeObject(energeticRoomTRM201ServiceData, dateFromChart, simpleDateFormat);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/generateAmountSizeTableByte", method = RequestMethod.POST)
+    public long generateAmountSizeTableByte(){
+        long som = 0;
+//        serviceModel.readBaseSize().forEach(big->{
+//            som += big.longValue();
+//        });
+        for (BigInteger bigInteger : energeticRoomTRM201ServiceData.readBaseSize()){
+            som += bigInteger.longValue();
         }
-        return tableModelEnergeticRoomTRM201List;
+        return som;
     }
 }

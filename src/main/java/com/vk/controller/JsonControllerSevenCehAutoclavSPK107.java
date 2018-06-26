@@ -17,8 +17,8 @@ import java.util.List;
  * Created by User on 2018-03-06.
  */
 @RestController
-@ComponentScan(basePackages = {"com.vk.service"})
-public class JsonControllerSevenCehAutoclavSPK107 {
+@ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
+public class JsonControllerSevenCehAutoclavSPK107 extends JsonController {
 
     private final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107;
 

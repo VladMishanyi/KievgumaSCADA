@@ -14,8 +14,8 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@ComponentScan(basePackages = {"com.vk.service"})
-public class JsonControllerFirstCehKameraDozrevanyaMPR51 {
+@ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
+public class JsonControllerFirstCehKameraDozrevanyaMPR51 extends JsonController {
 
     private final ServiceModelFirstCehKameraDozrevanyaMPR51 serviceModelFirstCehKameraDozrevanyaMPR51;
 

@@ -1,40 +1,37 @@
 package com.vk.controller;
 
-import com.vk.service.ServiceModel;
+import com.vk.entity.json.DateFromChart;
+import com.vk.entity.table.TableModel;
+import com.vk.service.data.RootServiceData;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.*;
-
-import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 
 /**
  * Created by User on 2017-07-20.
  */
-@RestController
-@ComponentScan(basePackages = {"com.vk.service"})
-public class JsonController {
 
-    private final ServiceModel serviceModel;
+public class JsonController<E extends RootServiceData, T extends TableModel> {
 
     private final Logger LOGGER = Logger.getLogger(JsonController.class);
 
-    @Autowired
-    public JsonController(final ServiceModel serviceModel){
-        this.serviceModel = serviceModel;
-    }
+    public List<E> generateTimeObject(E serviceData, DateFromChart dateFromChart, SimpleDateFormat simpleDateFormat){
 
-    @ResponseBody
-    @RequestMapping(value = "/generateAmountSizeTableByte", method = RequestMethod.POST)
-    public long generateAmountSizeTableByte(){
-        long som = 0;
-//        serviceModel.readBaseSize().forEach(big->{
-//            som += big.longValue();
-//        });
-        for (BigInteger bigInteger : serviceModel.readBaseSize()){
-            som += bigInteger.longValue();
+        List<E> tableModel = null;
+        String start = dateFromChart.getStart();
+        String end = dateFromChart.getEnd();
+        String[] startTokens = start.split("T");
+        String[] endTokens = end.split("T");
+        try {
+            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
+            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
+            tableModel = serviceData.rangeTimestamp(date1, date2);
+        }catch (ParseException e){
+            LOGGER.error("can't parse range of date: "+e.getClass());
         }
-        return som;
+        return tableModel;
     }
 }

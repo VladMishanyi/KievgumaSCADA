@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Created by User on 2017-07-19.
  */
@@ -22,5 +24,10 @@ public class RootConfig {
     @Bean
     public BatchRead batchRead(){
         return new BatchRead();
+    }
+
+    @Bean
+    public SimpleDateFormat simpleDateFormat(){
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm");
     }
 }

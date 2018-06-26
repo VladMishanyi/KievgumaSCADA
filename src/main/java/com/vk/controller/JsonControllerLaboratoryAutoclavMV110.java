@@ -18,8 +18,8 @@ import java.util.List;
  * Created by User on 2018-04-02.
  */
 @RestController
-@ComponentScan(basePackages = {"com.vk.service"})
-public class JsonControllerLaboratoryAutoclavMV110 {
+@ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
+public class JsonControllerLaboratoryAutoclavMV110 extends JsonController {
 
     private final ServiceModelLaboratoryAutoclavMV110 serviceModelLaboratoryAutoclavMV110;
 
