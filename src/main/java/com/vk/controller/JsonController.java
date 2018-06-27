@@ -16,10 +16,9 @@ import java.util.List;
 
 public class JsonController<E extends RootServiceData, T extends TableModel> {
 
-    private final Logger LOGGER = Logger.getLogger(JsonController.class);
+    private Logger LOGGER = Logger.getLogger(JsonController.class);
 
     public List<E> generateTimeObject(E serviceData, DateFromChart dateFromChart, SimpleDateFormat simpleDateFormat){
-
         List<E> tableModel = null;
         String start = dateFromChart.getStart();
         String end = dateFromChart.getEnd();

@@ -1,5 +1,7 @@
 package com.vk.entity.table;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "FirstCehSmesitel1KMSF1")
+//@Component
 public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
 
     private static final long SERIAL_VERSION_UDI = 1L;

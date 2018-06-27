@@ -2,45 +2,34 @@ package com.vk.controller;
 
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
-import com.vk.service.ServiceModelFirstCehKameraDozrevanyaMPR51;
+import com.vk.service.data.KameraDozrevanyaMPR51ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @RestController
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
 public class JsonControllerFirstCehKameraDozrevanyaMPR51 extends JsonController {
 
-    private final ServiceModelFirstCehKameraDozrevanyaMPR51 serviceModelFirstCehKameraDozrevanyaMPR51;
+    private Logger LOGGER = Logger.getLogger(JsonControllerFirstCehKameraDozrevanyaMPR51.class);
 
-    private final Logger LOGGER = Logger.getLogger(JsonControllerFirstCehKameraDozrevanyaMPR51.class);
+    private KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
+
+    private SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerFirstCehKameraDozrevanyaMPR51(final ServiceModelFirstCehKameraDozrevanyaMPR51 serviceModelFirstCehKameraDozrevanyaMPR51){
-        this.serviceModelFirstCehKameraDozrevanyaMPR51 = serviceModelFirstCehKameraDozrevanyaMPR51;
+    public JsonControllerFirstCehKameraDozrevanyaMPR51(KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
+                                               SimpleDateFormat simpleDateFormat){
+        this.kameraDozrevanyaMPR51ServiceData = kameraDozrevanyaMPR51ServiceData;
+        this.simpleDateFormat = simpleDateFormat;
     }
     @ResponseBody
     @RequestMapping(value = "/generateChartFirstCehKameraDozrevanya", method = RequestMethod.POST)
-    public List<TableModelFirstCehKameraDozrevanyaMPR51> generateChartFirstCehKameraDozrevanya(@RequestBody DateFromChart dateFromChart){
-        List<TableModelFirstCehKameraDozrevanyaMPR51> tableModelFirstCehKameraDozrevanyaMPR51 = null;
-        String start = dateFromChart.getStart();
-        String end = dateFromChart.getEnd();
-        String[] startTokens = start.split("T");
-        String[] endTokens = end.split("T");
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
-            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-            tableModelFirstCehKameraDozrevanyaMPR51 = serviceModelFirstCehKameraDozrevanyaMPR51.rangeTimestamp(date1, date2);
-        }catch (ParseException e){
-            LOGGER.error("can't parse range of date: "+e.getClass());
-        }
-        return tableModelFirstCehKameraDozrevanyaMPR51;
+    public List<TableModelFirstCehKameraDozrevanyaMPR51> generateChartFirstCehKameraDozrevanyaMPR51(@RequestBody DateFromChart dateFromChart){
+        return this.generateTimeObject(kameraDozrevanyaMPR51ServiceData, dateFromChart, simpleDateFormat);
     }
 }

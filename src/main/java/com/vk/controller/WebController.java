@@ -178,15 +178,13 @@ public class WebController {
         return "laboratoryAutoclav";
     }
 
-    @Scheduled(fixedDelay = 3000)//30000ms
+    @Scheduled(fixedDelay = 1000)//30000ms
     private void loopSerialLisener(){
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = energeticRoomTRM201ServiceData.getModbusDevice();
-//        DeviceToTableImplEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201 = new DeviceToTableImplEnergeticRoomTRM201();
         TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
         messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
         if (deviceModelEnergeticRoomTRM201.hysteresis()){
-//            serviceModelEnergeticRoomTRM201.addTabeDevice(tableModelEnergeticRoomTRM201);
             energeticRoomTRM201ServiceData.addTabeDevice(tableModelEnergeticRoomTRM201);
         }
 

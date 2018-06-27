@@ -31,7 +31,7 @@ public class MasterSerialRTU {
 
         ModbusMaster master = factory.createRtuMaster(params);
         master.setTimeout(1000);//1s timeout
-        master.setRetries(10);// 10 repeats
+        master.setRetries(1);// 10 repeats
 
         int slaveAdrr = 16;
         long startTime = 0;

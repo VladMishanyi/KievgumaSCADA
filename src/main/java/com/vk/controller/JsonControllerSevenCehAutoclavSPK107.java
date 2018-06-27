@@ -2,15 +2,13 @@ package com.vk.controller;
 
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
-import com.vk.service.ServiceModelSevenCehAutoclavSPK107;
+import com.vk.service.data.SevenCehAutoclavSPK107ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,30 +18,21 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
 public class JsonControllerSevenCehAutoclavSPK107 extends JsonController {
 
-    private final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107;
+    private Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
 
-    private final Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
+    private SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
+
+    private SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerSevenCehAutoclavSPK107(final ServiceModelSevenCehAutoclavSPK107 serviceModelSevenCehAutoclavSPK107){
-        this.serviceModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107;
+    public JsonControllerSevenCehAutoclavSPK107(SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData,
+                                                 SimpleDateFormat simpleDateFormat){
+        this.sevenCehAutoclavSPK107ServiceData = sevenCehAutoclavSPK107ServiceData;
+        this.simpleDateFormat = simpleDateFormat;
     }
     @ResponseBody
     @RequestMapping(value = "/generateChartSevenCehAutoclav", method = RequestMethod.POST)
-    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclav(@RequestBody DateFromChart dateFromChart){
-        List<TableModelSevenCehAutoclavSPK107> tableModelSevenCehAutoclavSPK107 = null;
-        String start = dateFromChart.getStart();
-        String end = dateFromChart.getEnd();
-        String[] startTokens = start.split("T");
-        String[] endTokens = end.split("T");
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
-            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-            tableModelSevenCehAutoclavSPK107 = serviceModelSevenCehAutoclavSPK107.rangeTimestamp(date1, date2);
-        }catch (ParseException e){
-            LOGGER.error("can't parse range of date: "+e.getClass());
-        }
-        return tableModelSevenCehAutoclavSPK107;
+    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclavSPK107(@RequestBody DateFromChart dateFromChart){
+        return this.generateTimeObject(sevenCehAutoclavSPK107ServiceData, dateFromChart, simpleDateFormat);
     }
 }
