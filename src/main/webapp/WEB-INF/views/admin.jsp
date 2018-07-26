@@ -13,10 +13,10 @@
     <title>Admin panel</title>
     <meta charset="UTF-8"/>
     <%--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
-    <link rel="stylesheet" type="text/css" href="resources/css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7/css/bootstrap.css"/>
-    <script rel="script" type="text/javascript" src="resources/js/jquery-3.2.1.js"></script>
-    <script rel="script" type="text/javascript" src="resources/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <link href="<c:url value="/resources/css/index.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/bootstrap-3.3.7/css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
+    <script src="<c:url value="/resources/js/jquery-3.2.1.js"/>" rel="script" type="text/javascript" ></script>
+    <script src="<c:url value="/resources/bootstrap-3.3.7/js/bootstrap.js"/>" rel="script" type="text/javascript"></script>
     <%--<script rel="script" type="text/javascript" src="resources/js/sockjs-0.3.4.js"></script>--%>
     <%--<script rel="script" type="text/javascript" src="resources/js/stomp.js"></script>--%>
     <%--<script rel="script" type="text/javascript" src="resources/js/angular.js"></script>--%>

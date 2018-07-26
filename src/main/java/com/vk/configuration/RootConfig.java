@@ -38,4 +38,9 @@ public class RootConfig {
     public Date date(){
         return new Date();
     }
+
+    @Bean
+    public SHA256PasswordEncoder sha256PasswordEncoder() {
+        return new SHA256PasswordEncoder();
+    }
 }

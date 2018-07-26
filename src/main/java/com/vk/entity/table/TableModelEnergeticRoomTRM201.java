@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Trm201Energetic")
-@Component
+//@Component
 public class TableModelEnergeticRoomTRM201 extends TableModel {
 
     private static final long SERIAL_VERSION_UDI = 1L;

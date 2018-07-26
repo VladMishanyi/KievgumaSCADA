@@ -1,5 +1,6 @@
 package com.vk.entity.table;
 
+import javafx.scene.control.Tab;
 import org.apache.log4j.Logger;
 
 import javax.persistence.*;
@@ -27,7 +28,12 @@ public abstract class TableModel implements Serializable, Cloneable{
     @Column(name = "date", columnDefinition="DATETIME")
     private Date date;
 
-    TableModel(){}
+    public TableModel(){}
+
+    public TableModel(long id, Date date){
+        this.id = id;
+        this.date = date;
+    }
 
     @Override
     public String toString(){

@@ -154,3 +154,22 @@ CREATE TABLE LaboratoryAutoclavMV110 (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  id          INT UNSIGNED                                      NOT NULL         AUTO_INCREMENT,
+  date        TIMESTAMP                                         NOT NULL         DEFAULT CURRENT_TIMESTAMP,
+  role        ENUM ('SUPERADMIN', 'ADMIN', 'CLIENT', 'ANOTHER') NOT NULL         DEFAULT 'CLIENT',
+  name        VARCHAR(50)                                       NOT NULL         DEFAULT '',
+  login       VARCHAR(50)                                       NOT NULL         DEFAULT ''         UNIQUE ,
+  password    VARCHAR(64)                                       NOT NULL         DEFAULT '',
+  description TEXT                                              NOT NULL         ,
+  locked      TINYINT(1)                                        NOT NULL         DEFAULT TRUE,
+  PRIMARY KEY (`id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+INSERT INTO users (id, date, role, name, login, password, description, locked) VALUES (1, CURRENT_TIMESTAMP, 'ADMIN', 'ad', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'new', FALSE);
