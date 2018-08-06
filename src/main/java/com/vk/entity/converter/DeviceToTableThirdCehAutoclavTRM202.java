@@ -9,7 +9,8 @@ import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 /**
  * Created by KIP-PC99 on 26.06.2018.
  */
-public interface DeviceToTableThirdCehAutoclavTRM202 extends DeviceToTable<DeviceModelThirdCehAutoclavTRM202,
+public interface DeviceToTableThirdCehAutoclavTRM202
+        extends DeviceToTable<DeviceModelThirdCehAutoclavTRM202,
         DeviceModelThirdCehAutoclavTRM202,
         TableModelThirdCehAutoclavTRM202> {
 }

@@ -10,6 +10,7 @@ For installing Trent Jarvi's RXTX package, please download the RXTX binaries for
 Installation procedure:
 
  copy rxtxSerial.dll to %JAVA_HOME%\bin, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\bin\rxtxSerial.dll)
+ copy rxtxSerial.dll to %JAVA_HOME%\bin, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\bin\rxtxSerial.dll)
  copy RXTXcomm.jar to %JAVA_HOME%\lib\ext, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\lib\ext\RXTXcomm.jar)
  copy seroUtils.jar to %JAVA_HOME%\lib\ext, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\lib\ext\seroUtils.jar)
  copy modbus4J.jar to %JAVA_HOME%\lib\ext, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\lib\ext\modbus4J.jar)

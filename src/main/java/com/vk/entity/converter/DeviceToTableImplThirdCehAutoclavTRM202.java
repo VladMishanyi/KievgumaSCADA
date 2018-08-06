@@ -5,6 +5,7 @@ import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
 import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
@@ -15,12 +16,25 @@ import java.util.Date;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class DeviceToTableImplThirdCehAutoclavTRM202 extends DeviceToTableImpl<DeviceModelThirdCehAutoclavTRM202,
+public class DeviceToTableImplThirdCehAutoclavTRM202
+        extends DeviceToTableImpl<DeviceModelThirdCehAutoclavTRM202,
         DeviceModelThirdCehAutoclavTRM202,
         TableModelThirdCehAutoclavTRM202> implements DeviceToTableThirdCehAutoclavTRM202 {
 
+//    private TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202;
+
+//    private Date date;
+
+//    @Autowired
+//    public DeviceToTableImplThirdCehAutoclavTRM202(TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202,
+//                                                Date getDate){
+//        this.tableModelThirdCehAutoclavTRM202 = tableModelThirdCehAutoclavTRM202;
+//        this.date = date;
+//    }
+
     @Override
     public TableModelThirdCehAutoclavTRM202 convert(DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202){
+
         TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202 = null;
         if (ObjectValidator.isNotNull(deviceModelThirdCehAutoclavTRM202)){
             tableModelThirdCehAutoclavTRM202 = new TableModelThirdCehAutoclavTRM202();

@@ -5,7 +5,9 @@ import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 //import com.vk.repository.old_modbus.ModbusRepositoryEnergeticRoomTRM201;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**

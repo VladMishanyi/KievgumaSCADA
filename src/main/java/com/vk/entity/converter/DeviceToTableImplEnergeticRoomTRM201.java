@@ -20,17 +20,18 @@ import javax.inject.Inject;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class DeviceToTableImplEnergeticRoomTRM201 extends DeviceToTableImpl<DeviceModelEnergeticRoomTRM201,
-        DeviceModelFirstCehSmesitel1MB110,
+public class DeviceToTableImplEnergeticRoomTRM201
+        extends DeviceToTableImpl<DeviceModelEnergeticRoomTRM201,
+        DeviceModelEnergeticRoomTRM201,
         TableModelEnergeticRoomTRM201> implements DeviceToTableEnergeticRoomTRM201{
 
 //    private TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201;
-//
+
 //    private Date date;
-//
+
 //    @Autowired
 //    public DeviceToTableImplEnergeticRoomTRM201(TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201,
-//                                                Date date){
+//                                                Date getDate){
 //        this.tableModelEnergeticRoomTRM201 = tableModelEnergeticRoomTRM201;
 //        this.date = date;
 //    }

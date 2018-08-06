@@ -15,7 +15,8 @@ import java.util.Date;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class DeviceToTableImplFirstCehSmesitel5KMSF1 extends DeviceToTableImpl<DeviceModelFirstCehSmesitel5KMSF1,
+public class DeviceToTableImplFirstCehSmesitel5KMSF1
+        extends DeviceToTableImpl<DeviceModelFirstCehSmesitel5KMSF1,
         DeviceModelFirstCehSmesitel5MB110,
         TableModelFirstCehSmesitel5KMSF1> implements DeviceToTableFirstCehSmesitel5KMSF1 {
 

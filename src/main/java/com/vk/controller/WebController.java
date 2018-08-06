@@ -4,6 +4,8 @@ import com.vk.entity.converter.*;
 import com.vk.entity.device.*;
 import com.vk.entity.table.*;
 import com.vk.service.data.*;
+import com.vk.tasks.TaskEnergeticRoomTRM201;
+import com.vk.tasks.TaskThirdCehAutoclavTRM202;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.core.MessageSendingOperations;
@@ -25,98 +27,104 @@ public class WebController {
 
     private final Logger LOGGER = Logger.getLogger(WebController.class);
 
-    private final MessageSendingOperations<String> messageSendingOperations;
+    private MessageSendingOperations<String> messageSendingOperations;
 
-    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+    private EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
 
-    private final DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201;
+    private DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201;
 
-    private final FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData;
+    private FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData;
 
-    private final DeviceToTableFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202;
+    private DeviceToTableFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202;
 
-    private final FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData;
+    private FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData;
 
-    private final DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200;
+    private DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200;
 
-    private final KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
+    private KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
 
-    private final DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51;
+    private DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51;
 
-    private final FirstCehSmesitel1KMSF1ServiceData firstCehSmesitel1KMSF1ServiceData;
+    private FirstCehSmesitel1KMSF1ServiceData firstCehSmesitel1KMSF1ServiceData;
 
-    private final FirstCehSmesitel1MB110ServiceData firstCehSmesitel1MB110ServiceData;
+    private FirstCehSmesitel1MB110ServiceData firstCehSmesitel1MB110ServiceData;
 
-    private final DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1;
+    private DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1;
 
-    private final FirstCehSmesitel2KMSF1ServiceData firstCehSmesitel2KMSF1ServiceData;
+    private FirstCehSmesitel2KMSF1ServiceData firstCehSmesitel2KMSF1ServiceData;
 
-    private final FirstCehSmesitel2MB110ServiceData firstCehSmesitel2MB110ServiceData;
+    private FirstCehSmesitel2MB110ServiceData firstCehSmesitel2MB110ServiceData;
 
-    private final DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1;
+    private DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1;
 
-    private final FirstCehSmesitel3KMSF1ServiceData firstCehSmesitel3KMSF1ServiceData;
+    private FirstCehSmesitel3KMSF1ServiceData firstCehSmesitel3KMSF1ServiceData;
 
-    private final FirstCehSmesitel3MB110ServiceData firstCehSmesitel3MB110ServiceData;
+    private FirstCehSmesitel3MB110ServiceData firstCehSmesitel3MB110ServiceData;
 
-    private final DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1;
+    private DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1;
 
-    private final FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData;
+    private FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData;
 
-    private final FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData;
+    private FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData;
 
-    private final DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1;
+    private DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1;
 
-    private final FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData;
+    private FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData;
 
-    private final FirstCehSmesitel5MB110ServiceData firstCehSmesitel5MB110ServiceData;
+    private FirstCehSmesitel5MB110ServiceData firstCehSmesitel5MB110ServiceData;
 
-    private final DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1;
+    private DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1;
 
-    private final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
+    private SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
 
-    private final DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107;
+    private DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107;
 
-    private final ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData;
+    private ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData;
 
-    private final DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202;
+    private DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202;
 
-    private final LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData;
+    private LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData;
 
-    private final DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110;
+    private DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110;
+
+    private TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
+
+    private TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202;
 
     @Autowired
     public WebController(
-            final MessageSendingOperations<String> messageSendingOperations,
-            final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData,
-            final DeviceToTableImplEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201,
-            final FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData,
-            final DeviceToTableFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202,
-            final FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData,
-            final DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200,
-            final KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
-            final DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51,
-            final FirstCehSmesitel1KMSF1ServiceData firstCehSmesitel1KMSF1ServiceData,
-            final FirstCehSmesitel1MB110ServiceData firstCehSmesitel1MB110ServiceData,
-            final DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1,
-            final FirstCehSmesitel2KMSF1ServiceData firstCehSmesitel2KMSF1ServiceData,
-            final FirstCehSmesitel2MB110ServiceData firstCehSmesitel2MB110ServiceData,
-            final DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1,
-            final FirstCehSmesitel3KMSF1ServiceData firstCehSmesitel3KMSF1ServiceData,
-            final FirstCehSmesitel3MB110ServiceData firstCehSmesitel3MB110ServiceData,
-            final DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1,
-            final FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData,
-            final FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData,
-            final DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1,
-            final FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData,
-            final FirstCehSmesitel5MB110ServiceData firstCehSmesitel5MB110ServiceData,
-            final DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1,
-            final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData,
-            final DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107,
-            final ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData,
-            final DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202,
-            final LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData,
-            final DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110
+            MessageSendingOperations<String> messageSendingOperations,
+            EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData,
+            DeviceToTableImplEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201,
+            FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData,
+            DeviceToTableFirstCehAutoclavTRM202 deviceToTableFirstCehAutoclavTRM202,
+            FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData,
+            DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200,
+            KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
+            DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51,
+            FirstCehSmesitel1KMSF1ServiceData firstCehSmesitel1KMSF1ServiceData,
+            FirstCehSmesitel1MB110ServiceData firstCehSmesitel1MB110ServiceData,
+            DeviceToTableFirstCehSmesitel1KMSF1 deviceToTableFirstCehSmesitel1KMSF1,
+            FirstCehSmesitel2KMSF1ServiceData firstCehSmesitel2KMSF1ServiceData,
+            FirstCehSmesitel2MB110ServiceData firstCehSmesitel2MB110ServiceData,
+            DeviceToTableFirstCehSmesitel2KMSF1 deviceToTableFirstCehSmesitel2KMSF1,
+            FirstCehSmesitel3KMSF1ServiceData firstCehSmesitel3KMSF1ServiceData,
+            FirstCehSmesitel3MB110ServiceData firstCehSmesitel3MB110ServiceData,
+            DeviceToTableFirstCehSmesitel3KMSF1 deviceToTableFirstCehSmesitel3KMSF1,
+            FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData,
+            FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData,
+            DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1,
+            FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData,
+            FirstCehSmesitel5MB110ServiceData firstCehSmesitel5MB110ServiceData,
+            DeviceToTableFirstCehSmesitel5KMSF1 deviceToTableFirstCehSmesitel5KMSF1,
+            SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData,
+            DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107,
+            ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData,
+            DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202,
+            LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData,
+            DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110,
+            TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
+            TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202
     ){
         this.messageSendingOperations = messageSendingOperations;
         this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
@@ -148,6 +156,8 @@ public class WebController {
         this.deviceToTableThirdCehAutoclavTRM202 = deviceToTableThirdCehAutoclavTRM202;
         this.laboratoryAutoclavMV110ServiceData = laboratoryAutoclavMV110ServiceData;
         this.deviceToTableLaboratoryAutoclavMV110 = deviceToTableLaboratoryAutoclavMV110;
+        this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;
+        this.taskThirdCehAutoclavTRM202 = taskThirdCehAutoclavTRM202;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -220,15 +230,16 @@ public class WebController {
         return "laboratoryAutoclav";
     }
 
-    @Scheduled(fixedDelay = 500)//30000ms
+    @Scheduled(fixedDelay = 30000)//30000ms
     private void loopSerialLisener(){
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = energeticRoomTRM201ServiceData.getModbusDevice();
-        TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
-        messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
-        if (deviceModelEnergeticRoomTRM201.hysteresis()){
-            energeticRoomTRM201ServiceData.addTabeDevice(tableModelEnergeticRoomTRM201);
-        }
+//        DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201 = energeticRoomTRM201ServiceData.getModbusDevice();
+//        TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201.convert(deviceModelEnergeticRoomTRM201);
+//        messageSendingOperations.convertAndSend("/topic/trm201", tableModelEnergeticRoomTRM201);
+//        if (deviceModelEnergeticRoomTRM201.hysteresis()){
+//            energeticRoomTRM201ServiceData.addTabeDevice(tableModelEnergeticRoomTRM201);
+//        }
+        taskEnergeticRoomTRM201.work1();
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelFirstCehAutoclavTRM202 deviceModelFirstCehAutoclavTRM202 = firstCehAutoclavTRM202ServiceData.getModbusDevice();
@@ -308,12 +319,13 @@ public class WebController {
         }
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202 = thirdCehAutoclavTRM202ServiceData.getModbusDevice();
-        TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202 = deviceToTableThirdCehAutoclavTRM202.convert(deviceModelThirdCehAutoclavTRM202);
-        messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", tableModelThirdCehAutoclavTRM202);
-        if (deviceModelThirdCehAutoclavTRM202.hysteresis()){
-            thirdCehAutoclavTRM202ServiceData.addTabeDevice(tableModelThirdCehAutoclavTRM202);
-        }
+//        DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202 = thirdCehAutoclavTRM202ServiceData.getModbusDevice();
+//        TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202 = deviceToTableThirdCehAutoclavTRM202.convert(deviceModelThirdCehAutoclavTRM202);
+//        messageSendingOperations.convertAndSend("/topic/thirdCehAvtoclav", tableModelThirdCehAutoclavTRM202);
+//        if (deviceModelThirdCehAutoclavTRM202.hysteresis()){
+//            thirdCehAutoclavTRM202ServiceData.addTabeDevice(tableModelThirdCehAutoclavTRM202);
+//        }
+        taskThirdCehAutoclavTRM202.work1();
 
         /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110 = laboratoryAutoclavMV110ServiceData.getModbusDevice();

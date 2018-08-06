@@ -1,12 +1,12 @@
 package com.vk.configuration;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import java.text.SimpleDateFormat;
@@ -25,6 +25,7 @@ public class RootConfig {
     }
 
     @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public BatchRead batchRead(){
         return new BatchRead();
     }
@@ -35,7 +36,8 @@ public class RootConfig {
     }
 
     @Bean
-    public Date date(){
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public Date getDate(){
         return new Date();
     }
 

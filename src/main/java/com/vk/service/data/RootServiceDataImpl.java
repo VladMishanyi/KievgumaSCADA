@@ -36,6 +36,7 @@ public class RootServiceDataImpl<K extends Number, E extends TableModel, T exten
         this.rootModbusRepository = rootModbusRepository;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<BigInteger> readBaseSize(){
         return rootRepositoryData.readBaseSize();
