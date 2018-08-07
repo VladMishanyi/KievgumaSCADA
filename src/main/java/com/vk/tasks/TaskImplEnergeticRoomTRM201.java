@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 @ComponentScan(basePackages = {"com.vk.service.data", "com.vk.entity.converter"})
 public class TaskImplEnergeticRoomTRM201
         extends TaskImplRoot<Float,
+        Float,
         EnergeticRoomTRM201ServiceData,
         EnergeticRoomTRM201ServiceData,
         DeviceModelEnergeticRoomTRM201,
@@ -35,7 +36,7 @@ public class TaskImplEnergeticRoomTRM201
 
     @Autowired
     public TaskImplEnergeticRoomTRM201(MessageSendingOperations<String> messageSendingOperations,
-                                       DeviceToTableImplEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201,
+                                       DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201,
                                        EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData){
         super(messageSendingOperations, deviceToTableEnergeticRoomTRM201, energeticRoomTRM201ServiceData);
         super.setMessage(messageThirdCehAutoclavTRM202);

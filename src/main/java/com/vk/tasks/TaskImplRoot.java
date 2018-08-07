@@ -16,10 +16,11 @@ import org.springframework.messaging.core.MessageSendingOperations;
  * Created by KIP-PC99 on 03.08.2018.
  */
 public class TaskImplRoot<I extends Number,
+        S extends Number,
         T extends RootServiceData,
         G extends RootServiceData,
         K extends DeviceModel<I>,
-        F extends DeviceModel<I>,
+        F extends DeviceModel<S>,
         A extends TableModel,
         E extends DeviceToTable<K, F, A>> implements TaskRoot{
 

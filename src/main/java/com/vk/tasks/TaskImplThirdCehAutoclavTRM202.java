@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 @ComponentScan(basePackages = {"com.vk.service.data", "com.vk.entity.converter"})
 public class TaskImplThirdCehAutoclavTRM202
         extends TaskImplRoot<Float,
+        Float,
         ThirdCehAutoclavTRM202ServiceData,
         ThirdCehAutoclavTRM202ServiceData,
         DeviceModelThirdCehAutoclavTRM202,
@@ -40,7 +41,7 @@ public class TaskImplThirdCehAutoclavTRM202
 
     @Autowired
     public TaskImplThirdCehAutoclavTRM202(MessageSendingOperations<String> messageSendingOperations,
-                                       DeviceToTableImplThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202,
+                                          DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202,
                                           ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData){
         super(messageSendingOperations, deviceToTableThirdCehAutoclavTRM202, thirdCehAutoclavTRM202ServiceData);
         super.setMessage(messageThirdCehAutoclavTRM202);
