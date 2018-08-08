@@ -110,6 +110,8 @@ public class WebController {
 
     private TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110;
 
+    private TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
+
     @Autowired
     public WebController(
             MessageSendingOperations<String> messageSendingOperations,
@@ -153,7 +155,8 @@ public class WebController {
             TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1,
             TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107,
             TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202,
-            TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110
+            TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110,
+            TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4
     ){
         this.messageSendingOperations = messageSendingOperations;
 //        this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
@@ -197,6 +200,7 @@ public class WebController {
         this.taskSevenCehAutoclavSPK107 = taskSevenCehAutoclavSPK107;
         this.taskThirdCehAutoclavTRM202 = taskThirdCehAutoclavTRM202;
         this.taskLaboratoryAutoclavMV110 = taskLaboratoryAutoclavMV110;
+        this.taskKotelnyaParMikrolITM4 = taskKotelnyaParMikrolITM4;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -267,6 +271,11 @@ public class WebController {
     @RequestMapping(value = "/laboratoryAutoclav", method = RequestMethod.GET)
     public String getLaboratoryAutoclavMV110(){
         return "laboratoryAutoclav";
+    }
+
+    @RequestMapping(value = "/taskKotelnyaParMikrolITM4", method = RequestMethod.GET)
+    public String getTaskKotelnyaParMikrolITM4(){
+        return "taskKotelnyaParMikrolITM4";
     }
 
     @Scheduled(fixedDelay = 30000)//30000ms
@@ -383,5 +392,7 @@ public class WebController {
 //            laboratoryAutoclavMV110ServiceData.addTabeDevice(tableModelLaboratoryAutoclavMV110);
 //        }
         taskLaboratoryAutoclavMV110.work1();
+
+        taskKotelnyaParMikrolITM4.work1();
     }
 }

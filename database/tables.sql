@@ -156,6 +156,20 @@ CREATE TABLE LaboratoryAutoclavMV110 (
   DEFAULT CHARSET = utf8;
 
 /*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS KotelnyaParMikrolITM4;
+CREATE TABLE KotelnyaParMikrolITM4 (
+  id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date     TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 FLOAT        NOT NULL DEFAULT 0,
+  channel2 FLOAT        NOT NULL DEFAULT 0,
+  channel3 FLOAT        NOT NULL DEFAULT 0,
+  channel4 FLOAT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id          INT UNSIGNED                                      NOT NULL         AUTO_INCREMENT,

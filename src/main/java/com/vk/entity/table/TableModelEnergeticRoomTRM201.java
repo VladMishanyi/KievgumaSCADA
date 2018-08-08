@@ -13,7 +13,7 @@ import javax.persistence.*;
 //@Component
 public class TableModelEnergeticRoomTRM201 extends TableModel {
 
-    private static final long SERIAL_VERSION_UDI = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "value1")
     private int value1;
@@ -32,6 +32,7 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
     @Override
     public String toString() {
         return "TableModelEnergeticRoomTRM201{"
+                +super.toString()
                 +"value1="+this.value1
                 +", value2="+this.value2
                 +", value3="+this.value3
@@ -58,7 +59,9 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
 
     @Override
     public int hashCode(){
-        return Integer.hashCode(this.value1) +
+        return  Long.hashCode(this.getId())+
+                this.getDate().hashCode()+
+                Integer.hashCode(this.value1) +
                 Integer.hashCode(this.value2) +
                 Float.hashCode(this.value3) +
                 Float.hashCode(this.value4);

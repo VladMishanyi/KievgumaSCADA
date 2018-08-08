@@ -14,7 +14,7 @@ import javax.persistence.Table;
 //@Component
 public class TableModelLaboratoryAutoclavMV110 extends TableModel{
 
-    private static final long SERIAL_VERSION_UDI = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "channel1")
     private float channel1;
@@ -27,6 +27,7 @@ public class TableModelLaboratoryAutoclavMV110 extends TableModel{
     @Override
     public String toString() {
         return "TableModelLaboratoryAutoclavMV110{"
+                +super.toString()
                 +"channel1="+this.channel1
                 +", channel2="+this.channel2 +"}";
     }
@@ -49,7 +50,9 @@ public class TableModelLaboratoryAutoclavMV110 extends TableModel{
 
     @Override
     public int hashCode(){
-        return Float.hashCode(this.channel1) +
+        return  Long.hashCode(this.getId())+
+                this.getDate().hashCode()+
+                Float.hashCode(this.channel1) +
                 Float.hashCode(this.channel2);
     }
 

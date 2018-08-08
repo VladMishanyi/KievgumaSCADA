@@ -41,9 +41,6 @@ public class JsonControllerEnergeticRoomTRM201 extends JsonController{
     @RequestMapping(value = "/generateAmountSizeTableByte", method = RequestMethod.POST)
     public long generateAmountSizeTableByte(){
         long som = 0;
-//        serviceModel.readBaseSize().forEach(big->{
-//            som += big.longValue();
-//        });
         for (BigInteger bigInteger : energeticRoomTRM201ServiceData.readBaseSize()){
             som += bigInteger.longValue();
         }

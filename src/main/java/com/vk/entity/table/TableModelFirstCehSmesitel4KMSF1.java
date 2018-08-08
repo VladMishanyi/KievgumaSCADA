@@ -14,7 +14,7 @@ import javax.persistence.Table;
 //@Component
 public class TableModelFirstCehSmesitel4KMSF1 extends TableModel{
 
-    private static final long SERIAL_VERSION_UDI = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "channel1")
     private int channel1;
@@ -30,6 +30,7 @@ public class TableModelFirstCehSmesitel4KMSF1 extends TableModel{
     @Override
     public String toString() {
         return "TableModelFirstCehSmesitel4KMSF1{"
+                +super.toString()
                 +"channel1="+this.channel1
                 +"channel2="+this.channel2
                 +"channel3="+this.channel3+"}";
@@ -54,7 +55,9 @@ public class TableModelFirstCehSmesitel4KMSF1 extends TableModel{
 
     @Override
     public int hashCode(){
-        return Integer.hashCode(this.channel1)+
+        return  Long.hashCode(this.getId())+
+                this.getDate().hashCode()+
+                Integer.hashCode(this.channel1)+
                 Float.hashCode(this.channel2)+
                 Float.hashCode(this.channel3);
     }

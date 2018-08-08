@@ -15,7 +15,7 @@ import com.vk.lib.ObjectValidator;
 @MappedSuperclass
 public abstract class TableModel implements Serializable, Cloneable{
 
-    private static final long SERIAL_VERSION_UID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = Logger.getLogger(TableModel.class);
 
@@ -66,6 +66,9 @@ public abstract class TableModel implements Serializable, Cloneable{
         return tableModel;
     }
 
+    @Override
+    public abstract int hashCode();
+
     public long getId() {
         return id;
     }
@@ -81,7 +84,4 @@ public abstract class TableModel implements Serializable, Cloneable{
     public void setDate(Date date) {
         this.date = date;
     }
-
-    @Override
-    public abstract int hashCode();
 }
