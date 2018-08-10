@@ -37,7 +37,7 @@
             <polygon points="969,406 1323,512 1064,756 806,654 860,613 776,577 874,507 834,491"/>
             Sorry, your browser does not support inline SVG.
         </a>
-        <a id="kotelnya" class="item" href="#">
+        <a id="kotelnya" class="item" data-toggle="modal" data-target=".img-kotelnya-modal">
             <polygon points="1038,898 1122,935 992,1078 818,991 904,911 990,947"/>
             Sorry, your browser does not support inline SVG.
         </a>
@@ -206,6 +206,17 @@
                 </a>
                 <a id="LaboratoryTVS2" class="item" href="/laboratoryTvs2">
                     <polygon points="70,1340 123,1340 123,1405 70,1405"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+            </svg>
+        </div>
+    </div>
+    <div class="modal fade img-kotelnya-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
+        <div class="modal-dialog modal-lg" role="document">
+            <img src="resources/img/kotelnya_crop_1000px.jpg">
+            <svg height="669" width="1000">
+                <a id="KotelnyaParMikrolITM4" class="item" href="/kotelnyaParMikrolITM4">
+                    <polygon points="20,363 75,363 75,457 20,457"/>
                     Sorry, your browser does not support inline SVG.
                 </a>
             </svg>

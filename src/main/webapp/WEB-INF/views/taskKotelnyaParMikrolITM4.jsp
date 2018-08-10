@@ -344,8 +344,8 @@
                     },
                     {
                         label: 'Температура котельни',
-                        backgroundColor: '#3C510C',
-                        borderColor: '#3C510C',
+                        backgroundColor: '#7a43b6',
+                        borderColor: '#7a43b6',
                         borderWidth: 5,
                         borderDash: [],
                         borderDashOffset: 0.0,
