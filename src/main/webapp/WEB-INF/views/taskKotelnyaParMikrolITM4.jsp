@@ -27,6 +27,7 @@
 
 <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
     <div class="container">
+
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
                 <h4 class="modal-title" id="myModalLabel" style="margin-top: 40px; text-align: center">
@@ -38,6 +39,7 @@
                 </h4>
             </div>
         </div>
+
         <table class="table">
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение выработки пара</span></th>
@@ -56,35 +58,33 @@
                 <th><span id="kotelnyaParMikrolITM4TemperaturaKotelny" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
         </table>
+
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-left: 30%">
         <div class="row">
-            <div class="col-md-3 col-lg-3">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="startMark">Начало</span>
                     <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2017-12-19T07:30">
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="endMark">Конец</span>
                     <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2017-12-19T18:00">
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4">
-                <div>
-                    <input type="button" id="generateChart" name="generateChart" onclick="genChart();" class="btn btn-sm btn-success" value="Сгенерировать">
-                    <a href="/" id="back" class="btn btn-sm btn-success" onclick="disconnect()" value="Сохранить график"> Назад</a>
-                    <input type="button" id="saveChart" name="saveChart" onclick="saveChart();" class="btn btn-sm btn-success" value="Сохранить график">
-                </div>
-            </div>
-
         </div>
     </div>
 
-    <div class="container" style="margin-top: 10px; margin-left: 30%; margin-bottom: 10px">
-        <div>
+    <div class="container" style="margin-top: 10px; margin-left: 20%; margin-bottom: 10px">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <input type="button" id="generateChart" name="generateChart" onclick="genChart();" class="btn btn-sm btn-success" value="Сгенерировать">
+                <a href="/" id="back" class="btn btn-sm btn-success" onclick="disconnect()" value="Сохранить график"> Назад</a>
+                <input type="button" id="saveChart" name="saveChart" onclick="saveChart();" class="btn btn-sm btn-success" value="Сохранить график">
+            </div>
             <div>
                 <a id="increase-chart" class="btn btn-sm btn-danger" onclick="increaseChart();">
                     <span class="glyphicon glyphicon-plus"></span>
@@ -105,6 +105,28 @@
 
     <div id="graph-container">
         <canvas id="myChart" width="400" height="150"></canvas>
+    </div>
+
+    <div class="container" style="margin-left: 20%">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="startMarkTable">Начало</span>
+                    <input type="datetime-local" class="form-control" aria-describedby="startTable" id="startTable" name="startTable" value="2017-12-19T07:30">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="endMarkTable">Конец</span>
+                    <input type="datetime-local" class="form-control" aria-describedby="endMarkTable" id="endTable" name="endTable" value="2017-12-19T18:00">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <input type="button" id="generateTable" name="generateTable" onclick="genTable();" class="btn btn-sm btn-success" value="Сгенерировать таблицу">
+                <a href="/" id="backTable" class="btn btn-sm btn-success" onclick="disconnect()"> Назад</a>
+                <input type="button" id="saveTable" name="saveTable" onclick="saveTabl();" class="btn btn-sm btn-success" value="Сохранить таблицу">
+            </div>
+        </div>
     </div>
 </div>
 

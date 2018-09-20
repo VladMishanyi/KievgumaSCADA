@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51 extends RootModbusRepositoryImpl<Float, DeviceModelFirstCehKameraDozrevanyaMPR51> implements ModbusRepositoryFirstCehKameraDozrevanyaMPR51 {
 
-
     private ModbusMaster modbusMasterSerialFirst;
 
     private DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51;

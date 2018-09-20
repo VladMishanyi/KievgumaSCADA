@@ -48,10 +48,22 @@ CREATE TABLE FirstCehKameraDozrevanya (
   channel1 FLOAT        NOT NULL DEFAULT 0,
   channel2 FLOAT        NOT NULL DEFAULT 0,
   channel3 FLOAT        NOT NULL DEFAULT 0,
+  channel4 FLOAT        NOT NULL DEFAULT 0,
+  channel5 FLOAT        NOT NULL DEFAULT 0,
+  channel6 FLOAT        NOT NULL DEFAULT 0,
+  channel7 FLOAT        NOT NULL DEFAULT 0,
+  channel8 FLOAT        NOT NULL DEFAULT 0,
   PRIMARY KEY (id)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
+
+# ALTER TABLE FirstCehKameraDozrevanya
+#     ADD channel4 FLOAT NOT NULL DEFAULT 0,
+#     ADD channel5 FLOAT NOT NULL DEFAULT 0,
+#     ADD channel6 FLOAT NOT NULL DEFAULT 0,
+#     ADD channel7 FLOAT NOT NULL DEFAULT 0,
+#     ADD channel8 FLOAT NOT NULL DEFAULT 0;
 
 /*----------------------------------------------------------------------------------*/
 DROP TABLE IF EXISTS FirstCehBuzuluk;

@@ -54,6 +54,26 @@
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на выгрузке</span></th>
                 <th><span id="firstCehKameraDozrevanyaTempVlagnogo" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал1</span></th>
+                <th><span id="firstCehKameraDozrevanyaTempKanal1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+            </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал2</span></th>
+                <th><span id="firstCehKameraDozrevanyaTempKanal2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+            </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал3</span></th>
+                <th><span id="firstCehKameraDozrevanyaTempKanal3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+            </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал4</span></th>
+                <th><span id="firstCehKameraDozrevanyaTempKanal4" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+            </tr>
+            <tr>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал5</span></th>
+                <th><span id="firstCehKameraDozrevanyaTempKanal5" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+            </tr>
         </table>
     </div>
 
@@ -112,6 +132,11 @@
     var globalY1 = Array();
     var globalY2 = Array();
     var globalY3 = Array();
+    var globalY4 = Array();
+    var globalY5 = Array();
+    var globalY6 = Array();
+    var globalY7 = Array();
+    var globalY8 = Array();
     var increaseDecriaseZoom = 0;
     var leftRightPosition = 0;
 
@@ -121,6 +146,11 @@
         var y1 = Array();
         var y2 = Array();
         var y3 = Array();
+        var y4 = Array();
+        var y5 = Array();
+        var y6 = Array();
+        var y7 = Array();
+        var y8 = Array();
         var vStart = document.getElementById("startChart").value;
         var vEnd = document.getElementById("endChart").value;
         $.ajax({
@@ -138,6 +168,11 @@
                             y1[i] = data[i]["channel1"];
                             y2[i] = data[i]["channel2"];
                             y3[i] = data[i]["channel3"];
+                            y4[i] = data[i]["channel4"];
+                            y5[i] = data[i]["channel5"];
+                            y6[i] = data[i]["channel6"];
+                            y7[i] = data[i]["channel7"];
+                            y8[i] = data[i]["channel8"];
                         }catch (err){
                             console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
                         }
@@ -147,9 +182,14 @@
                 globalY1 = y1;
                 globalY2 = y2;
                 globalY3 = y3;
+                globalY4 = y4;
+                globalY5 = y5;
+                globalY6 = y6;
+                globalY7 = y7;
+                globalY8 = y8;
                 increaseDecriaseZoom = 0;
                 leftRightPosition = 0;
-                buildChart(x, y1, y2, y3);
+                buildChart(x, y1, y2, y3, y4, y5, y6, y7, y8);
             }
         });
     }
@@ -160,6 +200,11 @@
         var increaseArrayY1 = Array();
         var increaseArrayY2 = Array();
         var increaseArrayY3 = Array();
+        var increaseArrayY4 = Array();
+        var increaseArrayY5 = Array();
+        var increaseArrayY6 = Array();
+        var increaseArrayY7 = Array();
+        var increaseArrayY8 = Array();
 //        console.log("in increase bock :"+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             increaseDecriaseZoom = increaseDecriaseZoom + Number(increaseZoom);
@@ -172,7 +217,20 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
+            increaseArrayY4 = globalY3.slice(from,to);
+            increaseArrayY5 = globalY3.slice(from,to);
+            increaseArrayY6 = globalY3.slice(from,to);
+            increaseArrayY7 = globalY3.slice(from,to);
+            increaseArrayY8 = globalY3.slice(from,to);
+            buildChart(increaseArrayX,
+                increaseArrayY1,
+                increaseArrayY2,
+                increaseArrayY3,
+                increaseArrayY4,
+                increaseArrayY5,
+                increaseArrayY6,
+                increaseArrayY7,
+                increaseArrayY8);
         }
     }
 
@@ -182,6 +240,11 @@
         var increaseArrayY1 = Array();
         var increaseArrayY2 = Array();
         var increaseArrayY3 = Array();
+        var increaseArrayY4 = Array();
+        var increaseArrayY5 = Array();
+        var increaseArrayY6 = Array();
+        var increaseArrayY7 = Array();
+        var increaseArrayY8 = Array();
 //        console.log("in decrease bock "+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             increaseDecriaseZoom = increaseDecriaseZoom - Number(increaseZoom);
@@ -194,7 +257,20 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
+            increaseArrayY4 = globalY3.slice(from,to);
+            increaseArrayY5 = globalY3.slice(from,to);
+            increaseArrayY6 = globalY3.slice(from,to);
+            increaseArrayY7 = globalY3.slice(from,to);
+            increaseArrayY8 = globalY3.slice(from,to);
+            buildChart(increaseArrayX,
+                increaseArrayY1,
+                increaseArrayY2,
+                increaseArrayY3,
+                increaseArrayY4,
+                increaseArrayY5,
+                increaseArrayY6,
+                increaseArrayY7,
+                increaseArrayY8);
         }
     }
 
@@ -204,6 +280,11 @@
         var increaseArrayY1 = Array();
         var increaseArrayY2 = Array();
         var increaseArrayY3 = Array();
+        var increaseArrayY4 = Array();
+        var increaseArrayY5 = Array();
+        var increaseArrayY6 = Array();
+        var increaseArrayY7 = Array();
+        var increaseArrayY8 = Array();
 //        console.log("in left bock :"+leftRightPosition + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             leftRightPosition = leftRightPosition + Number(increaseZoom);
@@ -216,7 +297,20 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
+            increaseArrayY4 = globalY3.slice(from,to);
+            increaseArrayY5 = globalY3.slice(from,to);
+            increaseArrayY6 = globalY3.slice(from,to);
+            increaseArrayY7 = globalY3.slice(from,to);
+            increaseArrayY8 = globalY3.slice(from,to);
+            buildChart(increaseArrayX,
+                increaseArrayY1,
+                increaseArrayY2,
+                increaseArrayY3,
+                increaseArrayY4,
+                increaseArrayY5,
+                increaseArrayY6,
+                increaseArrayY7,
+                increaseArrayY8);
         }
     }
 
@@ -226,6 +320,11 @@
         var increaseArrayY1 = Array();
         var increaseArrayY2 = Array();
         var increaseArrayY3 = Array();
+        var increaseArrayY4 = Array();
+        var increaseArrayY5 = Array();
+        var increaseArrayY6 = Array();
+        var increaseArrayY7 = Array();
+        var increaseArrayY8 = Array();
 //        console.log("in right bock "+increaseDecriaseZoom + " globalX :" +globalX.length+" zoom :"+increaseZoom);
         if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
             leftRightPosition  = leftRightPosition  - Number(increaseZoom);
@@ -238,7 +337,20 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2, increaseArrayY3);
+            increaseArrayY4 = globalY3.slice(from,to);
+            increaseArrayY5 = globalY3.slice(from,to);
+            increaseArrayY6 = globalY3.slice(from,to);
+            increaseArrayY7 = globalY3.slice(from,to);
+            increaseArrayY8 = globalY3.slice(from,to);
+            buildChart(increaseArrayX,
+                increaseArrayY1,
+                increaseArrayY2,
+                increaseArrayY3,
+                increaseArrayY4,
+                increaseArrayY5,
+                increaseArrayY6,
+                increaseArrayY7,
+                increaseArrayY8);
         }
     }
 
@@ -255,7 +367,7 @@
         $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
     }
 
-    function buildChart(xCord, y1Cord, y2Cord, y3Cord) {
+    function buildChart(xCord, y1Cord, y2Cord, y3Cord, y4Cord, y5Cord, y6Cord, y7Cord, y8Cord) {
         clearChart();//Uncaught TypeError: Cannot read property !!!!!!!!!!!!!!!!!!
         var start = document.getElementById("startChart").value;
         var end = document.getElementById("endChart").value;
@@ -340,6 +452,131 @@
                         spanGaps: false,
                         steppedLine: false,
                         data: y3Cord
+                    },
+                    {
+                        label: 'Канал1',
+                        backgroundColor: '#9C510C',
+                        borderColor: '#9C510C',
+                        borderWidth: 5,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: false,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 0,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y4Cord
+                    },
+                    {
+                        label: 'Канал2',
+                        backgroundColor: '#8C510C',
+                        borderColor: '#8C510C',
+                        borderWidth: 5,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: false,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 0,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y5Cord
+                    },
+                    {
+                        label: 'Канал3',
+                        backgroundColor: '#7C510C',
+                        borderColor: '#7C510C',
+                        borderWidth: 5,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: false,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 0,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y6Cord
+                    },
+                    {
+                        label: 'Канал4',
+                        backgroundColor: '#6C510C',
+                        borderColor: '#6C510C',
+                        borderWidth: 5,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: false,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 0,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y7Cord
+                    },
+                    {
+                        label: 'Канал5',
+                        backgroundColor: '#5C510C',
+                        borderColor: '#5C510C',
+                        borderWidth: 5,
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderCapStyle: 'butt',
+                        borderJoinStyle: 'miter',
+                        fill: false,
+                        lineTension: 0.1,
+                        pointBackgroundColor: '#000000',
+                        pointBorderColor: '#FF0000',
+                        pointBorderWidth: 0,
+                        pointRadius: 0,
+                        pointHitRadius: 10,
+                        pointHoverBackgroundColor: '#000000',
+                        pointHoverBorderColor: '#FF0000',
+                        pointHoverBorderWidth: 2,
+                        pointHoverRadius: 5,
+                        showLine: true,
+                        spanGaps: false,
+                        steppedLine: false,
+                        data: y8Cord
                     }
                 ]
             },
@@ -537,12 +774,22 @@
     }
 
     function showTrmBody(trmBody){
-        var tempProdukta = Math.round(trmBody.channel1 * 100)/100;
-        var tempSuhogo = Math.round(trmBody.channel2 * 100)/100;
-        var tempVlagnogo = Math.round(trmBody.channel3 * 100)/100;
+        var tempProdukta = trmBody.channel1;
+        var tempSuhogo = trmBody.channel2;
+        var tempVlagnogo = trmBody.channel3;
+        var kanal1 = trmBody.channel4;
+        var kanal2 = trmBody.channel5;
+        var kanal3 = trmBody.channel6;
+        var kanal4 = trmBody.channel7;
+        var kanal5 = trmBody.channel8;
         $("#firstCehKameraDozrevanyaTempProdukta").text(tempProdukta);
         $("#firstCehKameraDozrevanyaTempSuhogo").text(tempSuhogo);
         $("#firstCehKameraDozrevanyaTempVlagnogo").text(tempVlagnogo);
+        $("#firstCehKameraDozrevanyaTempKanal1").text(kanal1);
+        $("#firstCehKameraDozrevanyaTempKanal2").text(kanal2);
+        $("#firstCehKameraDozrevanyaTempKanal3").text(kanal3);
+        $("#firstCehKameraDozrevanyaTempKanal4").text(kanal4);
+        $("#firstCehKameraDozrevanyaTempKanal5").text(kanal5);
     }
 </script>
 <script rel="script" type="text/javascript">

@@ -167,7 +167,7 @@ public class WebController {
 
         taskFirstCehBuzulukTRM200.work1();
 
-        taskKameraDozrevanyaMPR51.work1();
+        taskKameraDozrevanyaMPR51.work2();
 
         taskFirstCehSmesitel1KMSF1.work2();
 
