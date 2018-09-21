@@ -52,23 +52,20 @@ public class RootModbusRepositoryImpl<E extends Number, T extends DeviceModel<E>
         }
         finally {
             try {
-
-                for (int i=0; i<deviceModel.getArraySize(); i++){
+                for (int i=0; i < deviceModel.getDeviceValuesRegisters().length; i++){
                     batchRead.addLocator(deviceModel.getDeviceId()[i],
                             deviceModel.getDeviceAddress(),
                             deviceModel.getDeviceRegisterRange()[i],
                             deviceModel.getDeviceAddressRegisters()[i],
                             deviceModel.getDeviceDataType()[i]);
                 }
-
                 //-----------------------------------------------------------------------------
                 System.out.println("ModBus Listen slave address №"+
                         deviceModel.getDeviceAddress()+
                         "--"+modbusMasterSerial.testSlaveNode(deviceModel.getDeviceAddress()));
                 //-----------------------------------------------------------------------------
-
                 BatchResults batchResults = modbusMasterSerial.send(batchRead);
-                for (int i=0; i<deviceModel.getArraySize(); i++){
+                for (int i=0; i < deviceModel.getDeviceValuesRegisters().length; i++){
                     deviceModel.setDeviceValuesRegistersIndex(i,
                             (E) batchResults.getValue(deviceModel.getDeviceId()[i]) );
                 }
@@ -87,8 +84,8 @@ public class RootModbusRepositoryImpl<E extends Number, T extends DeviceModel<E>
 
             //-----------------------------------------------------------------------------
             String form = "---";
-            for (int i=0; i<deviceModel.getHisDeviceValuesRegisters().length; i++){
-                form = form + deviceModel.getHisDeviceValuesRegisters()[i] + "---";
+            for (int i=0; i < deviceModel.getDeviceValuesRegisters().length; i++){
+                form = form + deviceModel.getDeviceValuesRegisters()[i] + "---";
             }
             System.out.println("Device №" + deviceModel.getDeviceAddress() + "  "+ form);
             //-----------------------------------------------------------------------------
