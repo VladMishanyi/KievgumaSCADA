@@ -13,7 +13,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
 @ApplicationScope
 public class DeviceModelSevenCehAutoclavSPK107 extends DeviceModel<Float> {
     private static final int deviceAddress = 21;
-    private static final int arraySize = 3;
     private static final int deviceId1 = 0;
     private static final int deviceId2 = 1;
     private static final int deviceId3 = 2;
@@ -32,7 +31,6 @@ public class DeviceModelSevenCehAutoclavSPK107 extends DeviceModel<Float> {
 
     public DeviceModelSevenCehAutoclavSPK107(){
         this.setDeviceAddress(deviceAddress);
-        this.setArraySize(arraySize);
         this.setDeviceId(deviceId1, deviceId2, deviceId3);
         this.setDeviceRegisterRange(deviceRegisterRange1, deviceRegisterRange2, deviceRegisterRange3);
         this.setDeviceAddressRegisters(deviceAddressRegisters1, deviceAddressRegisters2, deviceAddressRegisters3);
@@ -45,13 +43,13 @@ public class DeviceModelSevenCehAutoclavSPK107 extends DeviceModel<Float> {
     @Override
     public boolean hysteresis(){
         boolean inner = false;
-        for (int i=0; i<getArraySize(); i++){
+        for (int i=0; i<deviceValuesRegisters.length; i++){
             inner |= HysComparator.compare(getHisDeviceValuesRegistersIndex(i),
                     getDeviceValuesRegistersIndex(i),
                     getHysteresis());
         }
         if (inner){
-            for (int i=0; i<getArraySize(); i++){
+            for (int i=0; i<deviceValuesRegisters.length; i++){
                 setHisDeviceValuesRegistersIndex(i, getDeviceValuesRegistersIndex(i));
             }
         }

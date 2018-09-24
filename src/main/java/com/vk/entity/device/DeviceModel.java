@@ -5,7 +5,6 @@ package com.vk.entity.device;
  */
 public abstract class DeviceModel<E extends Number> {
     private int deviceAddress;
-    private int arraySize;
     private int[] deviceId;
     private int[] deviceRegisterRange;
     private int[] deviceAddressRegisters;
@@ -28,7 +27,6 @@ public abstract class DeviceModel<E extends Number> {
                 (arraySize == deviceAddressRegisters.length) &&
                 (arraySize == deviceDataType.length) &&
                 (arraySize == deviceValuesRegisters.length)){
-            this.arraySize = arraySize;
             this.deviceAddress = deviceAddress;
             this.deviceId = deviceId;
             this.deviceRegisterRange = deviceRegisterRange;
@@ -36,14 +34,6 @@ public abstract class DeviceModel<E extends Number> {
             this.deviceDataType = deviceDataType;
             this.deviceValuesRegisters = deviceValuesRegisters;
         }
-    }
-
-    public int getArraySize() {
-        return arraySize;
-    }
-
-    public void setArraySize(int arraySize) {
-        this.arraySize = arraySize;
     }
 
     public int getDeviceAddress() {

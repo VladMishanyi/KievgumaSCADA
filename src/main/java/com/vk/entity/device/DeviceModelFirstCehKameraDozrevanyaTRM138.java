@@ -13,7 +13,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
 @ApplicationScope
 public class DeviceModelFirstCehKameraDozrevanyaTRM138 extends DeviceModel<Float> {
     private static final int deviceAddress = 80;//80-88 reserved for this device
-    private static final int arraySize = 8;
     private static final int deviceId1 = 0;
     private static final int deviceId2 = 1;
     private static final int deviceId3 = 2;
@@ -52,7 +51,6 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 extends DeviceModel<Float
 
     public DeviceModelFirstCehKameraDozrevanyaTRM138(){
         this.setDeviceAddress(deviceAddress);
-        this.setArraySize(arraySize);
         this.setDeviceId(deviceId1,
                 deviceId2,
                 deviceId3,
@@ -81,13 +79,13 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 extends DeviceModel<Float
     @Override
     public boolean hysteresis(){
         boolean inner = false;
-        for (int i=0; i<getArraySize(); i++){
+        for (int i=0; i<deviceValuesRegisters.length; i++){
             inner |= HysComparator.compare(getHisDeviceValuesRegistersIndex(i),
                     getDeviceValuesRegistersIndex(i),
                     getHysteresis());
         }
         if (inner){
-            for (int i=0; i<getArraySize(); i++){
+            for (int i=0; i<deviceValuesRegisters.length; i++){
                 setHisDeviceValuesRegistersIndex(i, getDeviceValuesRegistersIndex(i));
             }
         }

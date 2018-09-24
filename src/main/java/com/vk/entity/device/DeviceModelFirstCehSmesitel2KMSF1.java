@@ -13,7 +13,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
 @ApplicationScope
 public class DeviceModelFirstCehSmesitel2KMSF1 extends DeviceModel<Integer> {
     private static final int deviceAddress = 40;
-    private static final int arraySize = 1;
     private static final int deviceId1 = 0;
     private static final int deviceRegisterRange1 = RegisterRange.HOLDING_REGISTER;
     private static final int deviceAddressRegisters1 = 28;
@@ -24,7 +23,6 @@ public class DeviceModelFirstCehSmesitel2KMSF1 extends DeviceModel<Integer> {
 
     public DeviceModelFirstCehSmesitel2KMSF1(){
         this.setDeviceAddress(deviceAddress);
-        this.setArraySize(arraySize);
         this.setDeviceId(deviceId1);
         this.setDeviceRegisterRange(deviceRegisterRange1);
         this.setDeviceAddressRegisters(deviceAddressRegisters1);
@@ -37,13 +35,13 @@ public class DeviceModelFirstCehSmesitel2KMSF1 extends DeviceModel<Integer> {
     @Override
     public boolean hysteresis(){
         boolean inner = false;
-        for (int i=0; i<getArraySize(); i++){
+        for (int i=0; i<deviceValuesRegisters.length; i++){
             inner |= HysComparator.compare(getHisDeviceValuesRegistersIndex(i),
                     getDeviceValuesRegistersIndex(i),
                     getHysteresis());
         }
         if (inner){
-            for (int i=0; i<getArraySize(); i++){
+            for (int i=0; i<deviceValuesRegisters.length; i++){
                 setHisDeviceValuesRegistersIndex(i, getDeviceValuesRegistersIndex(i));
             }
         }
