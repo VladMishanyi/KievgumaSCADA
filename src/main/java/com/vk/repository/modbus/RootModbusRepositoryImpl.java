@@ -41,14 +41,14 @@ public class RootModbusRepositoryImpl<E extends Number, T extends DeviceModel<E>
 
         try {
             modbusMasterSerial.init();
-            LOGGER.info("ModBus Listen slave address №"+
-                    deviceModel.getDeviceAddress()+
-                    "--"+modbusMasterSerial.testSlaveNode(deviceModel.getDeviceAddress()));
+            boolean test = modbusMasterSerial.testSlaveNode(deviceModel.getDeviceAddress());
+            LOGGER.info("ModBus Listen slave address №"+deviceModel.getDeviceAddress()+"--"+test);
+            System.out.println("ModBus Listen slave address №"+deviceModel.getDeviceAddress()+"--"+test);
         }
         catch (ModbusInitException e){
-            LOGGER.error("ModBus Init problem, slave address №"+
-                    deviceModel.getDeviceAddress()+
-                    "--"+e.getMessage());
+            String message = e.getMessage();
+            LOGGER.error("ModBus Init problem, slave address №"+deviceModel.getDeviceAddress()+"--"+message);
+            System.out.println("ModBus Init problem, slave address №"+deviceModel.getDeviceAddress()+ "--"+message);
         }
         finally {
             try {
@@ -59,27 +59,22 @@ public class RootModbusRepositoryImpl<E extends Number, T extends DeviceModel<E>
                             deviceModel.getDeviceAddressRegisters()[i],
                             deviceModel.getDeviceDataType()[i]);
                 }
-                //-----------------------------------------------------------------------------
-                System.out.println("ModBus Listen slave address №"+
-                        deviceModel.getDeviceAddress()+
-                        "--"+modbusMasterSerial.testSlaveNode(deviceModel.getDeviceAddress()));
-                //-----------------------------------------------------------------------------
+
                 BatchResults batchResults = modbusMasterSerial.send(batchRead);
                 for (int i=0; i < deviceModel.getDeviceValuesRegisters().length; i++){
                     deviceModel.setDeviceValuesRegistersIndex(i,
                             (E) batchResults.getValue(deviceModel.getDeviceId()[i]) );
                 }
             }catch (Exception e){
-                LOGGER.error("ModBus Transport problem, slave address №"+
-                        deviceModel.getDeviceAddress()+
-                        "--"+e.getMessage());
-
+                String message = e.getMessage();
+                LOGGER.error("ModBus Transport problem, slave address №"+deviceModel.getDeviceAddress()+"--"+message);
+                System.out.println("ModBus Transport problem, slave address №"+deviceModel.getDeviceAddress()+"--"+message);
                 deviceModel.setDeviceValuesDafault();
             }
             finally {
+                LOGGER.info("ModBus Close connection, slave address №"+deviceModel.getDeviceAddress());
+                System.out.println("ModBus Close connection, slave address №"+deviceModel.getDeviceAddress());
                 modbusMasterSerial.destroy();
-                LOGGER.info("ModBus Close connection (Transport problem), slave address №"+
-                        deviceModel.getDeviceAddress());
             }
 
             //-----------------------------------------------------------------------------

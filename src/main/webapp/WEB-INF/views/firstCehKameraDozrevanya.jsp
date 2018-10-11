@@ -217,11 +217,11 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            increaseArrayY4 = globalY3.slice(from,to);
-            increaseArrayY5 = globalY3.slice(from,to);
-            increaseArrayY6 = globalY3.slice(from,to);
-            increaseArrayY7 = globalY3.slice(from,to);
-            increaseArrayY8 = globalY3.slice(from,to);
+            increaseArrayY4 = globalY4.slice(from,to);
+            increaseArrayY5 = globalY5.slice(from,to);
+            increaseArrayY6 = globalY6.slice(from,to);
+            increaseArrayY7 = globalY7.slice(from,to);
+            increaseArrayY8 = globalY8.slice(from,to);
             buildChart(increaseArrayX,
                 increaseArrayY1,
                 increaseArrayY2,
@@ -257,11 +257,11 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            increaseArrayY4 = globalY3.slice(from,to);
-            increaseArrayY5 = globalY3.slice(from,to);
-            increaseArrayY6 = globalY3.slice(from,to);
-            increaseArrayY7 = globalY3.slice(from,to);
-            increaseArrayY8 = globalY3.slice(from,to);
+            increaseArrayY4 = globalY4.slice(from,to);
+            increaseArrayY5 = globalY5.slice(from,to);
+            increaseArrayY6 = globalY6.slice(from,to);
+            increaseArrayY7 = globalY7.slice(from,to);
+            increaseArrayY8 = globalY8.slice(from,to);
             buildChart(increaseArrayX,
                 increaseArrayY1,
                 increaseArrayY2,
@@ -297,11 +297,11 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            increaseArrayY4 = globalY3.slice(from,to);
-            increaseArrayY5 = globalY3.slice(from,to);
-            increaseArrayY6 = globalY3.slice(from,to);
-            increaseArrayY7 = globalY3.slice(from,to);
-            increaseArrayY8 = globalY3.slice(from,to);
+            increaseArrayY4 = globalY4.slice(from,to);
+            increaseArrayY5 = globalY5.slice(from,to);
+            increaseArrayY6 = globalY6.slice(from,to);
+            increaseArrayY7 = globalY7.slice(from,to);
+            increaseArrayY8 = globalY8.slice(from,to);
             buildChart(increaseArrayX,
                 increaseArrayY1,
                 increaseArrayY2,
@@ -337,11 +337,11 @@
             increaseArrayY1 = globalY1.slice(from,to);
             increaseArrayY2 = globalY2.slice(from,to);
             increaseArrayY3 = globalY3.slice(from,to);
-            increaseArrayY4 = globalY3.slice(from,to);
-            increaseArrayY5 = globalY3.slice(from,to);
-            increaseArrayY6 = globalY3.slice(from,to);
-            increaseArrayY7 = globalY3.slice(from,to);
-            increaseArrayY8 = globalY3.slice(from,to);
+            increaseArrayY4 = globalY4.slice(from,to);
+            increaseArrayY5 = globalY5.slice(from,to);
+            increaseArrayY6 = globalY6.slice(from,to);
+            increaseArrayY7 = globalY7.slice(from,to);
+            increaseArrayY8 = globalY8.slice(from,to);
             buildChart(increaseArrayX,
                 increaseArrayY1,
                 increaseArrayY2,
