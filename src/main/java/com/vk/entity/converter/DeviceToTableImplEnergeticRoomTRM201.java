@@ -45,8 +45,8 @@ public class DeviceToTableImplEnergeticRoomTRM201
             tableModelEnergeticRoomTRM201.setDate(new Date());
             tableModelEnergeticRoomTRM201.setValue1(0);
             tableModelEnergeticRoomTRM201.setValue2(0);
-            tableModelEnergeticRoomTRM201.setValue3(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM201.getDeviceValuesRegisters()[0]));
-            tableModelEnergeticRoomTRM201.setValue4(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM201.getDeviceValuesRegisters()[1]));
+            tableModelEnergeticRoomTRM201.setValue3(FloatCut.floatTwoDigs(DeviceModelEnergeticRoomTRM201.getDeviceValuesRegister0()));
+            tableModelEnergeticRoomTRM201.setValue4(FloatCut.floatTwoDigs(DeviceModelEnergeticRoomTRM201.getDeviceValuesRegister1()));
         }
         return tableModelEnergeticRoomTRM201;
     }

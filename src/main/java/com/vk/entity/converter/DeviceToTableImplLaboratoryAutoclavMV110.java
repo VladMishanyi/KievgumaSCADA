@@ -26,8 +26,8 @@ public class DeviceToTableImplLaboratoryAutoclavMV110
         if (ObjectValidator.isNotNull(deviceModelLaboratoryAutoclavMV110)){
             tableModelLaboratoryAutoclavMV110 = new TableModelLaboratoryAutoclavMV110();
             tableModelLaboratoryAutoclavMV110.setDate(new Date());
-            tableModelLaboratoryAutoclavMV110.setChannel1(FloatCut.floatTwoDigs(deviceModelLaboratoryAutoclavMV110.getDeviceValuesRegisters()[0]));
-            tableModelLaboratoryAutoclavMV110.setChannel2(FloatCut.floatTwoDigs(deviceModelLaboratoryAutoclavMV110.getDeviceValuesRegisters()[1]));
+            tableModelLaboratoryAutoclavMV110.setChannel1(FloatCut.floatTwoDigs(DeviceModelLaboratoryAutoclavMV110.getDeviceValuesRegister0()));
+            tableModelLaboratoryAutoclavMV110.setChannel2(FloatCut.floatTwoDigs(DeviceModelLaboratoryAutoclavMV110.getDeviceValuesRegister1()));
         }
         return tableModelLaboratoryAutoclavMV110;
     }
