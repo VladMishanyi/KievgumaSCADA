@@ -18,11 +18,11 @@ public class KameraDozrevanyaTRM138ServiceDataImpl extends RootServiceDataImpl<F
 
     private RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository;
+    private RootModbusRepository<DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository;
 
     @Autowired
     public KameraDozrevanyaTRM138ServiceDataImpl(RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData,
-                                                RootModbusRepository<Float, DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository){
+                                                RootModbusRepository<DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

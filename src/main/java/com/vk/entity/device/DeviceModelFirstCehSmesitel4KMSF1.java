@@ -12,7 +12,7 @@ import org.springframework.web.context.annotation.ApplicationScope;
  */
 @Component
 @ApplicationScope
-public class DeviceModelFirstCehSmesitel4KMSF1 extends DeviceModel{
+public class DeviceModelFirstCehSmesitel4KMSF1 implements DeviceModel{
     private static final int deviceAddress = 64;
 
     private static final int deviceRegisterRange0 = RegisterRange.HOLDING_REGISTER;
@@ -29,47 +29,49 @@ public class DeviceModelFirstCehSmesitel4KMSF1 extends DeviceModel{
 
     public DeviceModelFirstCehSmesitel4KMSF1(){}
 
-    public static int getDeviceAddress() {
+    @Override
+    public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    public static int getDeviceRegisterRange0() {
+    public int getDeviceRegisterRange0() {
         return deviceRegisterRange0;
     }
 
-    public static int getDeviceRegisterOffset0() {
+    public int getDeviceRegisterOffset0() {
         return deviceRegisterOffset0;
     }
 
-    public static int getDeviceRegisterDataType0() {
+    public int getDeviceRegisterDataType0() {
         return deviceRegisterDataType0;
     }
 
-    public static short getHysteresis0() {
+    public short getHysteresis0() {
         return hysteresis0;
     }
 
-    public static short getDeviceValuesRegister0() {
+    public short getDeviceValuesRegister0() {
         return deviceValuesRegister0;
     }
 
-    public static void setDeviceValuesRegister0(short deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(short deviceValuesRegister0) {
         DeviceModelFirstCehSmesitel4KMSF1.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
-    public static short getHisDeviceValuesRegisters0() {
+    public short getHisDeviceValuesRegisters0() {
         return hisDeviceValuesRegisters0;
     }
 
-    public static void setHisDeviceValuesRegisters0(short hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(short hisDeviceValuesRegisters0) {
         DeviceModelFirstCehSmesitel4KMSF1.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 
-    public static ModbusLocator getModbusLocator0() {
+    public ModbusLocator getModbusLocator0() {
         return modbusLocator0;
     }
 
-    public static boolean hysteresis(){
+    @Override
+    public boolean hysteresis(){
         boolean inner = HysComparator.compare(getHisDeviceValuesRegisters0(),
                 getDeviceValuesRegister0(),
                 getHysteresis0());

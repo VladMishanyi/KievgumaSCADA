@@ -19,8 +19,8 @@ public class TaskImplRoot<I extends Number,
         S extends Number,
         T extends RootServiceData,
         G extends RootServiceData,
-        K extends DeviceModel<I>,
-        F extends DeviceModel<S>,
+        K extends DeviceModel,
+        F extends DeviceModel,
         A extends TableModel,
         E extends DeviceToTable<K, F, A>> implements TaskRoot{
 

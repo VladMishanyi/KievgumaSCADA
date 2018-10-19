@@ -20,11 +20,11 @@ public class FirstCehSmesitel2KMSF1ServiceDataImpl extends RootServiceDataImpl<I
 
     private RootRepositoryData<TableModelFirstCehSmesitel2KMSF1> rootRepositoryData;
 
-    private RootModbusRepository<Integer, DeviceModelFirstCehSmesitel2KMSF1> rootModbusRepository;
+    private RootModbusRepository<DeviceModelFirstCehSmesitel2KMSF1> rootModbusRepository;
 
     @Autowired
     public FirstCehSmesitel2KMSF1ServiceDataImpl(RootRepositoryData<TableModelFirstCehSmesitel2KMSF1> rootRepositoryData,
-                                              RootModbusRepository<Integer, DeviceModelFirstCehSmesitel2KMSF1> rootModbusRepository){
+                                              RootModbusRepository<DeviceModelFirstCehSmesitel2KMSF1> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

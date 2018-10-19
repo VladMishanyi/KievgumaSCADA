@@ -20,11 +20,11 @@ public class LaboratoryAutoclavMV110ServiceDataImpl extends RootServiceDataImpl<
 
     private RootRepositoryData<TableModelLaboratoryAutoclavMV110> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelLaboratoryAutoclavMV110> rootModbusRepository;
+    private RootModbusRepository<DeviceModelLaboratoryAutoclavMV110> rootModbusRepository;
 
     @Autowired
     public LaboratoryAutoclavMV110ServiceDataImpl(RootRepositoryData<TableModelLaboratoryAutoclavMV110> rootRepositoryData,
-                                              RootModbusRepository<Float, DeviceModelLaboratoryAutoclavMV110> rootModbusRepository){
+                                              RootModbusRepository<DeviceModelLaboratoryAutoclavMV110> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

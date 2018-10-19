@@ -22,11 +22,11 @@ public class FirstCehBuzulukTRM200ServiceDataImpl extends RootServiceDataImpl<Fl
 
     private RootRepositoryData<TableModelFirstCehBuzulukTRM200> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelFirstCehBuzulukTRM200> rootModbusRepository;
+    private RootModbusRepository<DeviceModelFirstCehBuzulukTRM200> rootModbusRepository;
 
     @Autowired
     public FirstCehBuzulukTRM200ServiceDataImpl(RootRepositoryData<TableModelFirstCehBuzulukTRM200> rootRepositoryData,
-                                                RootModbusRepository<Float, DeviceModelFirstCehBuzulukTRM200> rootModbusRepository){
+                                                RootModbusRepository<DeviceModelFirstCehBuzulukTRM200> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

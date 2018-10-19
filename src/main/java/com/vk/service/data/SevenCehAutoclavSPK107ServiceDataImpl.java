@@ -20,11 +20,11 @@ public class SevenCehAutoclavSPK107ServiceDataImpl extends RootServiceDataImpl<F
 
     private RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelSevenCehAutoclavSPK107> rootModbusRepository;
+    private RootModbusRepository<DeviceModelSevenCehAutoclavSPK107> rootModbusRepository;
 
     @Autowired
     public SevenCehAutoclavSPK107ServiceDataImpl(RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData,
-                                              RootModbusRepository<Float, DeviceModelSevenCehAutoclavSPK107> rootModbusRepository){
+                                              RootModbusRepository<DeviceModelSevenCehAutoclavSPK107> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

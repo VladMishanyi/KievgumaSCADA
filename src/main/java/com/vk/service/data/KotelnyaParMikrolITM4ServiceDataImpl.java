@@ -20,11 +20,11 @@ public class KotelnyaParMikrolITM4ServiceDataImpl extends RootServiceDataImpl<Fl
 
     private RootRepositoryData<TableModelKotelnyaParMikrolITM4> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelKotelnyaParMikrolITM4> rootModbusRepository;
+    private RootModbusRepository<DeviceModelKotelnyaParMikrolITM4> rootModbusRepository;
 
     @Autowired
     public KotelnyaParMikrolITM4ServiceDataImpl(RootRepositoryData<TableModelKotelnyaParMikrolITM4> rootRepositoryData,
-                                                RootModbusRepository<Float, DeviceModelKotelnyaParMikrolITM4> rootModbusRepository){
+                                                RootModbusRepository<DeviceModelKotelnyaParMikrolITM4> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

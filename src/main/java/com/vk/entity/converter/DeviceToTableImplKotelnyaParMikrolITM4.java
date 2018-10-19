@@ -27,10 +27,10 @@ public class DeviceToTableImplKotelnyaParMikrolITM4
         if (ObjectValidator.isNotNull(deviceModelKotelnyaParMikrolITM4)){
             tableModelKotelnyaParMikrolITM4 = new TableModelKotelnyaParMikrolITM4();
             tableModelKotelnyaParMikrolITM4.setDate(new Date());
-            tableModelKotelnyaParMikrolITM4.setChannel1(FloatCut.floatTwoDigs(DeviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister0()));
-            tableModelKotelnyaParMikrolITM4.setChannel2(FloatCut.floatTwoDigs(DeviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister1()));
-            tableModelKotelnyaParMikrolITM4.setChannel3(FloatCut.floatTwoDigs(DeviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister2()));
-            tableModelKotelnyaParMikrolITM4.setChannel4(FloatCut.floatTwoDigs(DeviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister3()));
+            tableModelKotelnyaParMikrolITM4.setChannel1(FloatCut.floatTwoDigs(deviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister0()));
+            tableModelKotelnyaParMikrolITM4.setChannel2(FloatCut.floatTwoDigs(deviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister1()));
+            tableModelKotelnyaParMikrolITM4.setChannel3(FloatCut.floatTwoDigs(deviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister2()));
+            tableModelKotelnyaParMikrolITM4.setChannel4(FloatCut.floatTwoDigs(deviceModelKotelnyaParMikrolITM4.getDeviceValuesRegister3()));
         }
         return tableModelKotelnyaParMikrolITM4;
     }

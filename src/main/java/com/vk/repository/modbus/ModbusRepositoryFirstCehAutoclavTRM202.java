@@ -6,5 +6,5 @@ import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
 /**
  * Created by KIP-PC99 on 21.06.2018.
  */
-public interface ModbusRepositoryFirstCehAutoclavTRM202 extends RootModbusRepository<Float, DeviceModelFirstCehAutoclavTRM202> {
+public interface ModbusRepositoryFirstCehAutoclavTRM202 extends RootModbusRepository<DeviceModelFirstCehAutoclavTRM202> {
 }

@@ -1,4 +1,4 @@
-package com.vk.modbus;
+package com.vk.entity.modbus;
 
 import com.serotonin.io.serial.SerialParameters;
 import com.serotonin.modbus4j.ModbusFactory;

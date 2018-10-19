@@ -158,7 +158,7 @@ public class WebController {
         return "taskKotelnyaParMikrolITM4";
     }
 
-    @Scheduled(fixedDelay = 30000)//30000ms
+    @Scheduled(fixedDelay = 10000)//10000ms
     private void loopSerialLisener(){
 
         taskEnergeticRoomTRM201.work1();

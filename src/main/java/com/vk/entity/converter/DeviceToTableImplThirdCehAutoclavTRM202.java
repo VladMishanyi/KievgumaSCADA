@@ -39,8 +39,8 @@ public class DeviceToTableImplThirdCehAutoclavTRM202
         if (ObjectValidator.isNotNull(deviceModelThirdCehAutoclavTRM202)){
             tableModelThirdCehAutoclavTRM202 = new TableModelThirdCehAutoclavTRM202();
             tableModelThirdCehAutoclavTRM202.setDate(new Date());
-            tableModelThirdCehAutoclavTRM202.setChannel1(FloatCut.floatTwoDigs(DeviceModelThirdCehAutoclavTRM202.getDeviceValuesRegister0()));
-            tableModelThirdCehAutoclavTRM202.setChannel2(FloatCut.floatTwoDigs(DeviceModelThirdCehAutoclavTRM202.getDeviceValuesRegister1()));
+            tableModelThirdCehAutoclavTRM202.setChannel1(FloatCut.floatTwoDigs(deviceModelThirdCehAutoclavTRM202.getDeviceValuesRegister0()));
+            tableModelThirdCehAutoclavTRM202.setChannel2(FloatCut.floatTwoDigs(deviceModelThirdCehAutoclavTRM202.getDeviceValuesRegister1()));
         }
         return tableModelThirdCehAutoclavTRM202;
     }

@@ -27,9 +27,9 @@ public class DeviceToTableImplFirstCehSmesitel2KMSF1
         if (ObjectValidator.isNotNull(deviceModelFirstCehSmesitel2KMSF1)){
             tableModelFirstCehSmesitel2KMSF1 = new TableModelFirstCehSmesitel2KMSF1();
             tableModelFirstCehSmesitel2KMSF1.setDate(new Date());
-            tableModelFirstCehSmesitel2KMSF1.setChannel1(DeviceModelFirstCehSmesitel2KMSF1.getDeviceValuesRegister0());
-            tableModelFirstCehSmesitel2KMSF1.setChannel2(FloatCut.floatTwoDigs(DeviceModelFirstCehSmesitel2MB110.getDeviceValuesRegister0()));
-            tableModelFirstCehSmesitel2KMSF1.setChannel3(FloatCut.floatTwoDigs(DeviceModelFirstCehSmesitel2MB110.getDeviceValuesRegister1()));
+            tableModelFirstCehSmesitel2KMSF1.setChannel1(deviceModelFirstCehSmesitel2KMSF1.getDeviceValuesRegister0());
+            tableModelFirstCehSmesitel2KMSF1.setChannel2(FloatCut.floatTwoDigs(deviceModelFirstCehSmesitel2MB110.getDeviceValuesRegister0()));
+            tableModelFirstCehSmesitel2KMSF1.setChannel3(FloatCut.floatTwoDigs(deviceModelFirstCehSmesitel2MB110.getDeviceValuesRegister1()));
         }
         return tableModelFirstCehSmesitel2KMSF1;
     }

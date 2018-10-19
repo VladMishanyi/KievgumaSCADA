@@ -20,18 +20,15 @@ import java.util.List;
 /**
  * Created by KIP-PC99 on 15.06.2018.
  */
-//@Component
-//@ComponentScan(basePackages = {"com.vk.repository"})
-public class RootServiceDataImpl<K extends Number, E extends TableModel, T extends DeviceModel<K>> implements RootServiceData<E, T>{
+
+public class RootServiceDataImpl<K extends Number, E extends TableModel, T extends DeviceModel> implements RootServiceData<E, T>{
 
     private RootRepositoryData<E> rootRepositoryData;
 
-    private RootModbusRepository<K, T> rootModbusRepository;
+    private RootModbusRepository<T> rootModbusRepository;
 
-
-//    @Autowired
     public RootServiceDataImpl(RootRepositoryData<E> rootRepositoryData,
-                               RootModbusRepository<K, T> rootModbusRepository){
+                               RootModbusRepository<T> rootModbusRepository){
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;
     }
@@ -44,7 +41,7 @@ public class RootServiceDataImpl<K extends Number, E extends TableModel, T exten
 
     @Override
     public T getModbusDevice(){
-        return rootModbusRepository.getDeviceModel();
+        return rootModbusRepository.getDeviceModel(false);
     }
 
     @Transactional

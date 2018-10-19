@@ -21,11 +21,11 @@ public class EnergeticRoomTRM201ServiceDataImpl extends RootServiceDataImpl<Floa
 
     private RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelEnergeticRoomTRM201> rootModbusRepository;
+    private RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository;
 
     @Autowired
     public EnergeticRoomTRM201ServiceDataImpl(RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData,
-                                              RootModbusRepository<Float, DeviceModelEnergeticRoomTRM201> rootModbusRepository){
+                                              RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

@@ -20,11 +20,11 @@ public class ThirdCehAutoclavTRM202ServiceDataImpl extends RootServiceDataImpl<F
 
     private RootRepositoryData<TableModelThirdCehAutoclavTRM202> rootRepositoryData;
 
-    private RootModbusRepository<Float, DeviceModelThirdCehAutoclavTRM202> rootModbusRepository;
+    private RootModbusRepository<DeviceModelThirdCehAutoclavTRM202> rootModbusRepository;
 
     @Autowired
     public ThirdCehAutoclavTRM202ServiceDataImpl(RootRepositoryData<TableModelThirdCehAutoclavTRM202> rootRepositoryData,
-                                              RootModbusRepository<Float, DeviceModelThirdCehAutoclavTRM202> rootModbusRepository){
+                                              RootModbusRepository<DeviceModelThirdCehAutoclavTRM202> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;
