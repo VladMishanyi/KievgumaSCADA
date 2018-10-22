@@ -49,7 +49,7 @@ public class ModbusRepositoryImplEnergeticRoomTRM201 implements ModbusRepository
                 deviceModelEnergeticRoomTRM201.getModbusLocator0(),
                 deviceModelEnergeticRoomTRM201.getModbusLocator1());
         deviceModelEnergeticRoomTRM201.setDeviceValuesRegister0(list.get(0));
-        deviceModelEnergeticRoomTRM201.setDeviceValuesRegister1(list.get(0));
+        deviceModelEnergeticRoomTRM201.setDeviceValuesRegister1(list.get(1));
         return deviceModelEnergeticRoomTRM201;
     }
 }

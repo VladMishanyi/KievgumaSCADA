@@ -6,6 +6,8 @@ import com.vk.service.data.SevenCehAutoclavSPK107ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -30,9 +32,10 @@ public class JsonControllerSevenCehAutoclavSPK107 extends JsonController {
         this.sevenCehAutoclavSPK107ServiceData = sevenCehAutoclavSPK107ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateChartSevenCehAutoclav", method = RequestMethod.POST)
-    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclavSPK107(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateChartSevenCehAutoclav")
+    @SendTo("/topic/generateChartSevenCehAutoclav")
+    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclavSPK107(final DateFromChart dateFromChart){
         return this.generateTimeObject(sevenCehAutoclavSPK107ServiceData, dateFromChart, simpleDateFormat);
     }
 }

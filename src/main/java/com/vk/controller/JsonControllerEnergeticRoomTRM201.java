@@ -6,6 +6,8 @@ import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -31,15 +33,16 @@ public class JsonControllerEnergeticRoomTRM201 extends JsonController{
         this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateChart", method = RequestMethod.POST)
-    public List<TableModelEnergeticRoomTRM201> generateChartEnergeticRoomTRM201(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateChart")
+    @SendTo("/topic/generateChart")
+    public List<TableModelEnergeticRoomTRM201> generateChartEnergeticRoomTRM201(final DateFromChart dateFromChart){
         return this.generateTimeObject(energeticRoomTRM201ServiceData, dateFromChart, simpleDateFormat);
     }
 
     @ResponseBody
     @RequestMapping(value = "/generateAmountSizeTableByte", method = RequestMethod.POST)
-    public long generateAmountSizeTableByte(){
+    public long generateAmountSizeTableByte(/*@RequestBody DateFromChart dateFromChart*/){
         long som = 0;
         for (BigInteger bigInteger : energeticRoomTRM201ServiceData.readBaseSize()){
             som += bigInteger.longValue();

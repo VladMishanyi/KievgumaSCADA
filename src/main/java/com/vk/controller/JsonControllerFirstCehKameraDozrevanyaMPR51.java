@@ -6,6 +6,8 @@ import com.vk.service.data.KameraDozrevanyaMPR51ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -27,9 +29,10 @@ public class JsonControllerFirstCehKameraDozrevanyaMPR51 extends JsonController 
         this.kameraDozrevanyaMPR51ServiceData = kameraDozrevanyaMPR51ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateChartFirstCehKameraDozrevanya", method = RequestMethod.POST)
-    public List<TableModelFirstCehKameraDozrevanyaMPR51> generateChartFirstCehKameraDozrevanyaMPR51(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateChartFirstCehKameraDozrevanya")
+    @SendTo("/topic/generateChartFirstCehKameraDozrevanya")
+    public List<TableModelFirstCehKameraDozrevanyaMPR51> generateChartFirstCehKameraDozrevanyaMPR51(final DateFromChart dateFromChart){
         return this.generateTimeObject(kameraDozrevanyaMPR51ServiceData, dateFromChart, simpleDateFormat);
     }
 }

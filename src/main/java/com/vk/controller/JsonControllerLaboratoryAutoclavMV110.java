@@ -6,6 +6,8 @@ import com.vk.service.data.LaboratoryAutoclavMV110ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -30,9 +32,10 @@ public class JsonControllerLaboratoryAutoclavMV110 extends JsonController {
         this.laboratoryAutoclavMV110ServiceData = laboratoryAutoclavMV110ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateLaboratoryAutoklav", method = RequestMethod.POST)
-    public List<TableModelLaboratoryAutoclavMV110> generateChartLaboratoryAutoclavMV110(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateLaboratoryAutoklav")
+    @SendTo("/topic/generateLaboratoryAutoklav")
+    public List<TableModelLaboratoryAutoclavMV110> generateChartLaboratoryAutoclavMV110(final DateFromChart dateFromChart){
         return this.generateTimeObject(laboratoryAutoclavMV110ServiceData, dateFromChart, simpleDateFormat);
     }
 }

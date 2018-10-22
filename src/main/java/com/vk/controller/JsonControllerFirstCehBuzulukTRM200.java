@@ -6,6 +6,8 @@ import com.vk.service.data.FirstCehBuzulukTRM200ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -27,9 +29,10 @@ public class JsonControllerFirstCehBuzulukTRM200 extends JsonController {
         this.firstCehBuzulukTRM200ServiceData = firstCehBuzulukTRM200ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateChartFirstCehBuzuluk", method = RequestMethod.POST)
-    public List<TableModelFirstCehBuzulukTRM200> generateChartFirstCehBuzulukTRM200(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateChartFirstCehBuzuluk")
+    @SendTo("/topic/generateChartFirstCehBuzuluk")
+    public List<TableModelFirstCehBuzulukTRM200> generateChartFirstCehBuzulukTRM200(final DateFromChart dateFromChart){
         return this.generateTimeObject(firstCehBuzulukTRM200ServiceData, dateFromChart, simpleDateFormat);
     }
 }

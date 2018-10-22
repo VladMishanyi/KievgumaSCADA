@@ -6,6 +6,8 @@ import com.vk.service.data.FirstCehSmesitel4KMSF1ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -27,9 +29,10 @@ public class JsonControllerFirstCehSmesitel4KMSF1 extends JsonController {
         this.firstCehSmesitel4KMSF1ServiceData = firstCehSmesitel4KMSF1ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateChartFirstCehSmesitel4KMSF1", method = RequestMethod.POST)
-    public List<TableModelFirstCehSmesitel4KMSF1> generateChartFirstCehSmesitel4KMSF1(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateChartFirstCehSmesitel4KMSF1")
+    @SendTo("/topic/generateChartFirstCehSmesitel4KMSF1")
+    public List<TableModelFirstCehSmesitel4KMSF1> generateChartFirstCehSmesitel4KMSF1(final DateFromChart dateFromChart){
         return this.generateTimeObject(firstCehSmesitel4KMSF1ServiceData, dateFromChart, simpleDateFormat);
     }
 }

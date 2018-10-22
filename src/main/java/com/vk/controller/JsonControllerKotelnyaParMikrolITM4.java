@@ -8,6 +8,8 @@ import com.vk.service.data.KotelnyaParMikrolITM4ServiceData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -32,9 +34,10 @@ public class JsonControllerKotelnyaParMikrolITM4 extends JsonController {
         this.kotelnyaParMikrolITM4ServiceData = kotelnyaParMikrolITM4ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }
-    @ResponseBody
-    @RequestMapping(value = "/generateChartKotelnyaParMikrolITM4", method = RequestMethod.POST)
-    public List<TableModelKotelnyaParMikrolITM4> generateChartKotelnyaParMikrolITM4(@RequestBody DateFromChart dateFromChart){
+
+    @MessageMapping(value="/generateChartKotelnyaParMikrolITM4")
+    @SendTo("/topic/generateChartKotelnyaParMikrolITM4")
+    public List<TableModelKotelnyaParMikrolITM4> generateChartKotelnyaParMikrolITM4(final DateFromChart dateFromChart){
         return this.generateTimeObject(kotelnyaParMikrolITM4ServiceData, dateFromChart, simpleDateFormat);
     }
 }

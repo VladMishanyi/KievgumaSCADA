@@ -1,5 +1,5 @@
 /**
- * Created by KIP-PC99 on 19.10.2018.
+ * Created by KIP-PC99 on 22.10.2018.
  */
 var currentDateTime = moment().format("YYYY-MM-DDTHH:mm");
 $("#startChart").val(currentDateTime);
@@ -22,7 +22,7 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/thirdCehAvtoclav', function(resultTrm){
+        stompClient.subscribe('/topic/trm201', function(resultTrm){
             var parsed = JSON.parse(resultTrm.body);
             showBody(parsed);
             if (onDraw){
@@ -30,7 +30,7 @@ function connect() {
             }
         });
 
-        stompClient.subscribe('/topic/generateChartThirdCehAutoklav', function(result){
+        stompClient.subscribe('/topic/generateChart', function(result){
             genChart(JSON.parse(result.body));
         });
     });
@@ -42,7 +42,7 @@ function sendChartBody() {
     vStart = document.getElementById("startChart").value;
     vEnd = document.getElementById("endChart").value;
     var dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
-    stompClient.send("/app/generateChartThirdCehAutoklav", {}, dataChart);
+    stompClient.send("/app/generateChart", {}, dataChart);
 }
 
 function disconnect() {
@@ -53,13 +53,13 @@ function disconnect() {
 }
 
 function showBody(body){
-    var channel1 = body.channel1;
-    var channel2 = body.channel2;
-    $("#realAutoclavThirdCehTemperaturaValue").text(channel1);
-    $("#realAutoclavThirdCehDavlenieValue").text(channel2);
+    var channel3 = body.value3;
+    var channel4 = body.value4;
+    $("#realTrmValue").text(channel3);
+    $("#realTrmValue2").text(channel4);
 }
 
-var vTitle = 'Объект/Киевгума/3й Цех/Автоклав'+' с '+vStart.toString()+' по '+vEnd.toString();
+var vTitle = 'Объект/Киевгума/Отдел ГЭ/Температура помещения'+' с '+vStart.toString()+' по '+vEnd.toString();
 var config = {
     type: 'line',
     data: {
@@ -91,7 +91,7 @@ var config = {
                 data: [0]
             },
             {
-                label: 'Давление',
+                label: 'Температура2',
                 backgroundColor: '#ffff00',
                 borderColor: '#ffff00',
                 borderWidth: 5,
@@ -280,8 +280,8 @@ function genChart(data) {
         if (data.hasOwnProperty(i)){
             try {
                 x[i] = moment(data[i]["date"]).utc().format("YYYY-MM-DD HH:mm:ss");
-                y1[i] = data[i]["channel1"];
-                y2[i] = data[i]["channel2"];
+                y1[i] = data[i]["value3"];
+                y2[i] = data[i]["value4"];
 
             }catch (err){
                 console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
@@ -330,7 +330,6 @@ function addLastElementToChart(X1, Y1, Y2) {
 function removeFirstElementFromChart() {
     globalX.shift();
     globalY1.shift();
-    globalY2.shift();
     config.data.labels.shift();
     config.data.datasets.forEach(function(dataset) {
         dataset.data.shift();
@@ -341,8 +340,8 @@ function removeFirstElementFromChart() {
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
     var x = moment(parsed.date).utc().format("YYYY-MM-DD HH:mm:ss");
-    var y1 = parsed.channel1;
-    var y2 = parsed.channel2;
+    var y1 = parsed.value3;
+    var y2 = parsed.value4;
     if (config.data.labels.length < buffer){
         addLastElementToChart(x, y1, y2);
     }
@@ -394,7 +393,7 @@ function leftChart() {
         var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
-        increaseArrayY2 = globalY2.slice(from,to);
+        increaseArrayY2 = globalY1.slice(from,to);
         buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
 }
