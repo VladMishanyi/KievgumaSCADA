@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>KotelnyaParMikrolITM4</title>
+    <title>Kotelnya Par MikrolITM4</title>
     <link rel="icon" type="image/png" href="resources/img/favicons.png">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7/css/bootstrap.css"/>
@@ -28,7 +28,6 @@
 
 <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
     <div class="container">
-
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
                 <h4 class="modal-title" id="myModalLabel" style="margin-top: 40px; text-align: center">
@@ -40,7 +39,6 @@
                 </h4>
             </div>
         </div>
-
         <table class="table">
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение выработки пара</span></th>
@@ -59,75 +57,60 @@
                 <th><span id="kotelnyaParMikrolITM4TemperaturaKotelny" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
         </table>
-
-    </div>
-
-    <div class="container" style="margin-left: 30%">
         <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="startMark">Начало</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2017-12-19T07:30">
+                    <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2018-01-24T07:30">
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+            <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="endMark">Конец</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2017-12-19T18:00">
+                    <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2018-01-25T18:00">
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div>
+                    <input type="button" id="generateChart" name="generateChart" onclick="sendChartBody();" class="btn btn-sm btn-success" value="Сгенерировать">
+                    <a href="/" id="back" class="btn btn-sm btn-success" onclick="disconnect();" value="Сохранить график"> Назад</a>
+                    <input type="button" id="saveChart" name="saveChart" onclick="saveChart();" class="btn btn-sm btn-success" value="Сохранить график">
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container" style="margin-top: 10px; margin-left: 20%; margin-bottom: 10px">
-        <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                <input type="button" id="generateChart" name="generateChart" onclick="genChart();" class="btn btn-sm btn-success" value="Сгенерировать">
-                <a href="/" id="back" class="btn btn-sm btn-success" onclick="disconnect()" value="Сохранить график"> Назад</a>
-                <input type="button" id="saveChart" name="saveChart" onclick="saveChart();" class="btn btn-sm btn-success" value="Сохранить график">
+        <div class="row" style="margin-top: 10px">
+            <div class="col-md-4 col-lg-4 col-">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="bufferChartMark">Буффер графика</span>
+                    <input type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="1000">
+                </div>
             </div>
-            <div>
-                <a id="increase-chart" class="btn btn-sm btn-danger" onclick="increaseChart();">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-                <a id="decrease-chart" class="btn btn-sm btn-danger" onclick="decreaseChart();">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </a>
-                <input type="number" id="zoom-chart" name="zoom-chart" width="5" class="btn btn-sm btn-default" value="10">
-                <a id="left-chart" class="btn btn-sm btn-danger" onclick="leftChart();">
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-                </a>
-                <a id="right-chart" class="btn btn-sm btn-danger" onclick="rightChart();">
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                </a>
+            <div class="col-md-4 col-lg-4 col-">
+                <input type="button" id="goChart" name="goChart" onclick="onDrawChange();" class="btn btn-sm btn-success" value="Старт/Стоп">
             </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-">
+                <input type="button" id="removeChart" name="removeChart" onclick="clearChart();" class="btn btn-sm btn-success" value="Стереть">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px; margin-left: 30%; margin-bottom: 10px">
+            <a id="increase-chart" class="btn btn-sm btn-danger" onclick="increaseChart();">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+            <a id="decrease-chart" class="btn btn-sm btn-danger" onclick="decreaseChart();">
+                <span class="glyphicon glyphicon-minus"></span>
+            </a>
+            <input type="number" id="zoom-chart" name="zoom-chart" width="5" class="btn btn-sm btn-default" value="10">
+            <a id="left-chart" class="btn btn-sm btn-danger" onclick="leftChart();">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+            <a id="right-chart" class="btn btn-sm btn-danger" onclick="rightChart();">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </a>
         </div>
     </div>
 
     <div id="graph-container">
-        <canvas id="myChart" width="400" height="150"></canvas>
-    </div>
-
-    <div class="container" style="margin-left: 20%">
-        <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                <div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="startMarkTable">Начало</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="startTable" id="startTable" name="startTable" value="2017-12-19T07:30">
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                <div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="endMarkTable">Конец</span>
-                    <input type="datetime-local" class="form-control" aria-describedby="endMarkTable" id="endTable" name="endTable" value="2017-12-19T18:00">
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                <input type="button" id="generateTable" name="generateTable" onclick="genTable();" class="btn btn-sm btn-success" value="Сгенерировать таблицу">
-                <a href="/" id="backTable" class="btn btn-sm btn-success" onclick="disconnect()"> Назад</a>
-                <input type="button" id="saveTable" name="saveTable" onclick="saveTabl();" class="btn btn-sm btn-success" value="Сохранить таблицу">
-            </div>
-        </div>
+        <canvas id="myChart" width="500" height="210"></canvas>
     </div>
 </div>
 

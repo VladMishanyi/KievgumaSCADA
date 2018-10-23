@@ -7,23 +7,18 @@
     <!DOCTYPE HTML>
     <html lang="ru">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <meta name="robots" content="noindex,nofollow">
-        <title>Авторизация</title>
-        <meta name="title" content="Авторизация">
-        <link rel="shortcut icon" href="<c:url value="/resources/img/static/login.ico"/>" type="image/x-icon">
-        <link rel="icon" href="<c:url value="/resources/img/static/login.ico"/>" type="image/x-icon">
-            <%-- CSS styles --%>
+        <title>Autorization</title>
+        <link href="<c:url value="/resources/img/favicons.png"/>" rel="icon" type="image/png" >
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
               rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
               rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="<c:url value="/resources/css/login.css"/>" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7/css/bootstrap.css"/>
+        <link href="<c:url value="/resources/bootstrap-3.3.7/css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
         <script src="<c:url value="/resources/js/jquery-3.2.1.js"/>"></script>
         <script src="<c:url value="/resources/bootstrap-3.3.7/js/bootstrap.js"/>" rel="script" type="text/javascript" ></script>
         <script src="<c:url value="/resources/js/login.js"/>" rel="script" type="text/javascript" ></script>

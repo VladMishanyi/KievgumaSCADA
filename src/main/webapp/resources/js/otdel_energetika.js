@@ -227,6 +227,9 @@ var config = {
                     fontFamily: 'sans-sherif',
                     fontSize: 22,
                     fontStyle: 'bold',
+                    min: 0,
+                    max: 150,
+                    stepSize: 5
 //                            stacked: true //Line charts can be configured into stacked area charts by changing the settings on the y axis to enable stacking
                 },
                 gridLines: {
@@ -240,7 +243,7 @@ var config = {
                     fontColor: '#985f0d',
                     fontFamily: 'sans-sherif',
                     fontSize: 22,
-                    fontStyle: 'bold',
+                    fontStyle: 'bold'
 //                            stacked: true //Line charts can be configured into stacked area charts by changing the settings on the y axis to enable stacking
                 },
                 gridLines: {

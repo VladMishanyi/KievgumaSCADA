@@ -10,9 +10,10 @@
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>
-    <title>Admin panel</title>
     <meta charset="UTF-8"/>
-    <%--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin panel</title>
+    <link href="<c:url value="/resources/img/favicons.png"/>" rel="icon" type="image/png" >
     <link href="<c:url value="/resources/css/index.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/bootstrap-3.3.7/css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
     <script src="<c:url value="/resources/js/jquery-3.2.1.js"/>" rel="script" type="text/javascript" ></script>
