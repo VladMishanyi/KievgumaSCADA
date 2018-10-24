@@ -5,6 +5,7 @@ import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel4KMSF1;
 import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.modbus.ModbusInteger;
 import com.vk.modbus.ModbusShort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -25,22 +26,22 @@ public class ModbusRepositoryImplFirstCehSmesitel4KMSF1 implements ModbusReposit
 
     private BatchRead batchRead;
 
-    private ModbusShort modbusShort;
+    private ModbusInteger modbusInteger;
 
     @Autowired
     public ModbusRepositoryImplFirstCehSmesitel4KMSF1(ModbusMaster modbusMasterSerialThird,
                                                       DeviceModelFirstCehSmesitel4KMSF1 deviceModelFirstCehSmesitel4KMSF1,
                                                       BatchRead batchRead,
-                                                      ModbusShort modbusShort){
+                                                      ModbusInteger modbusInteger){
         this.modbusMasterSerialThird = modbusMasterSerialThird;
         this.deviceModelFirstCehSmesitel4KMSF1 = deviceModelFirstCehSmesitel4KMSF1;
         this.batchRead = batchRead;
-        this.modbusShort = modbusShort;
+        this.modbusInteger = modbusInteger;
     }
 
     @Override
     public DeviceModelFirstCehSmesitel4KMSF1 getDeviceModel(final boolean enableBatch){
-        final List<Short> list =  modbusShort.readDataFromModBus(modbusMasterSerialThird,
+        final List<Integer> list =  modbusInteger.readDataFromModBus(modbusMasterSerialThird,
                 deviceModelFirstCehSmesitel4KMSF1.getDeviceAddress(),
                 batchRead,
                 enableBatch,

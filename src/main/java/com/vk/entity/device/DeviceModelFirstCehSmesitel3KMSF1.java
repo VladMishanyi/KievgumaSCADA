@@ -18,9 +18,9 @@ public class DeviceModelFirstCehSmesitel3KMSF1 implements DeviceModel{
     private static final int deviceRegisterRange0 = RegisterRange.HOLDING_REGISTER;
     private static final int deviceRegisterOffset0 = 28;
     private static final int deviceRegisterDataType0 = DataType.FOUR_BYTE_INT_SIGNED;
-    private static final short hysteresis0 = 1;
-    private static short deviceValuesRegister0 = 0;
-    private static short hisDeviceValuesRegisters0 = 0;
+    private static final int hysteresis0 = 1;
+    private static int deviceValuesRegister0 = 0;
+    private static int hisDeviceValuesRegisters0 = 0;
     private static final ModbusLocator modbusLocator0 =
             new ModbusLocator(deviceAddress,
                     deviceRegisterRange0,
@@ -46,23 +46,23 @@ public class DeviceModelFirstCehSmesitel3KMSF1 implements DeviceModel{
         return deviceRegisterDataType0;
     }
 
-    public short getHysteresis0() {
+    public int getHysteresis0() {
         return hysteresis0;
     }
 
-    public short getDeviceValuesRegister0() {
+    public int getDeviceValuesRegister0() {
         return deviceValuesRegister0;
     }
 
-    public void setDeviceValuesRegister0(short deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(int deviceValuesRegister0) {
         DeviceModelFirstCehSmesitel3KMSF1.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
-    public short getHisDeviceValuesRegisters0() {
+    public int getHisDeviceValuesRegisters0() {
         return hisDeviceValuesRegisters0;
     }
 
-    public void setHisDeviceValuesRegisters0(short hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(int hisDeviceValuesRegisters0) {
         DeviceModelFirstCehSmesitel3KMSF1.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 
