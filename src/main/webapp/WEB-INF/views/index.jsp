@@ -21,6 +21,7 @@
 </head>
 <body>
 <div id="main">
+    <jsp:include page="/WEB-INF/views/navbar.jsp"/>
     <img src="resources/img/kievguma_3d.jpg" alt="kievguma_3d">
     <svg height="1160" width="2000">
         <a id="firstDepartment" class="item" data-toggle="modal" data-target=".img-firstCeh-modal">

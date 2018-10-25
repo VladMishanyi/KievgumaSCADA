@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.*;
 
 import org.apache.log4j.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 
 /**
  * Created by User on 2017-05-22.
@@ -86,6 +90,26 @@ public class WebController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex(){
         return "index";
+    }
+
+    @RequestMapping(value = "/service-desk")
+    public void redirectToServiceDesk(HttpServletRequest request, HttpServletResponse response){
+        try {
+            response.sendRedirect("http://192.168.10.7:3040");
+        }
+        catch (IOException ex){
+            LOGGER.error("Can't parse redirect address -> "+ ex.getClass());
+        }
+    }
+
+    @RequestMapping(value = "/contact-desk")
+    public void redirectToContactDesk(HttpServletRequest request, HttpServletResponse response){
+        try {
+            response.sendRedirect("http://192.168.10.20:3040");
+        }
+        catch (IOException ex){
+            LOGGER.error("Can't parse redirect address -> "+ ex.getClass());
+        }
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)

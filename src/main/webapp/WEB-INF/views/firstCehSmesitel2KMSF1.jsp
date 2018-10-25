@@ -105,7 +105,7 @@
     </div>
 
     <div id="graph-container">
-        <canvas id="myChart" width="500" height="210"></canvas>
+        <canvas id="myChart" width="500" height="320"></canvas>
     </div>
 </div>
 

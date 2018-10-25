@@ -228,7 +228,7 @@ var config = {
                     fontSize: 22,
                     fontStyle: 'bold',
                     min: 0,
-                    max: 150,
+                    max: 300,
                     stepSize: 5
 //                            stacked: true //Line charts can be configured into stacked area charts by changing the settings on the y axis to enable stacking
                 },
