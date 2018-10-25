@@ -21,7 +21,7 @@ public class DeviceToTableImplSevenCehAutoclavSPK107
         TableModelSevenCehAutoclavSPK107> implements DeviceToTableSevenCehAutoclavSPK107 {
 
     @Override
-    public TableModelSevenCehAutoclavSPK107 convert(DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107){
+    public TableModelSevenCehAutoclavSPK107 convert(final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107){
         TableModelSevenCehAutoclavSPK107 tableModelSevenCehAutoclavSPK107 = null;
         if (ObjectValidator.isNotNull(deviceModelSevenCehAutoclavSPK107)){
             tableModelSevenCehAutoclavSPK107 = new TableModelSevenCehAutoclavSPK107();

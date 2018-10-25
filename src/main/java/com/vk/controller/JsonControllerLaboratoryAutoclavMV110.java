@@ -22,13 +22,13 @@ public class JsonControllerLaboratoryAutoclavMV110 extends JsonController {
 
     private Logger LOGGER = Logger.getLogger(JsonControllerLaboratoryAutoclavMV110.class);
 
-    private LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData;
+    private final LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerLaboratoryAutoclavMV110(LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData,
-                                                SimpleDateFormat simpleDateFormat){
+    public JsonControllerLaboratoryAutoclavMV110(final LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData,
+                                                 final SimpleDateFormat simpleDateFormat){
         this.laboratoryAutoclavMV110ServiceData = laboratoryAutoclavMV110ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

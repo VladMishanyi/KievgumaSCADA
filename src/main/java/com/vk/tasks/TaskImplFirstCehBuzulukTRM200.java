@@ -28,18 +28,18 @@ public class TaskImplFirstCehBuzulukTRM200
         TableModelFirstCehBuzulukTRM200,
         DeviceToTableFirstCehBuzulukTRM200> implements TaskFirstCehBuzulukTRM200{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200;
+    private final DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200;
 
-    private FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData;
+    private final FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData;
 
     private final String messageFirstCehBuzulukTRM200 = "/topic/firstCehBuzuluk";
 
     @Autowired
-    public TaskImplFirstCehBuzulukTRM200(MessageSendingOperations<String> messageSendingOperations,
-                                          DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200,
-                                         FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData){
+    public TaskImplFirstCehBuzulukTRM200(final MessageSendingOperations<String> messageSendingOperations,
+                                         final DeviceToTableFirstCehBuzulukTRM200 deviceToTableFirstCehBuzulukTRM200,
+                                         final FirstCehBuzulukTRM200ServiceData firstCehBuzulukTRM200ServiceData){
         super(messageSendingOperations, deviceToTableFirstCehBuzulukTRM200, firstCehBuzulukTRM200ServiceData);
         super.setMessage(messageFirstCehBuzulukTRM200);
         this.messageSendingOperations = messageSendingOperations;

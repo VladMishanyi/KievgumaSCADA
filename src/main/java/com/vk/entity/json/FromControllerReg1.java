@@ -8,7 +8,7 @@ public class FromControllerReg1 {
 
     public FromControllerReg1(){}
 
-    public FromControllerReg1(String fromReg1){
+    public FromControllerReg1(final String fromReg1){
         this.fromReg1 = fromReg1;
     }
 
@@ -16,7 +16,7 @@ public class FromControllerReg1 {
         return fromReg1;
     }
 
-    public void setFromReg1(String fromReg1) {
+    public void setFromReg1(final String fromReg1) {
         this.fromReg1 = fromReg1;
     }
 }

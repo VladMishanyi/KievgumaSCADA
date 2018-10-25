@@ -33,7 +33,7 @@ public class DeviceToTableImplThirdCehAutoclavTRM202
 //    }
 
     @Override
-    public TableModelThirdCehAutoclavTRM202 convert(DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202){
+    public TableModelThirdCehAutoclavTRM202 convert(final DeviceModelThirdCehAutoclavTRM202 deviceModelThirdCehAutoclavTRM202){
 
         TableModelThirdCehAutoclavTRM202 tableModelThirdCehAutoclavTRM202 = null;
         if (ObjectValidator.isNotNull(deviceModelThirdCehAutoclavTRM202)){

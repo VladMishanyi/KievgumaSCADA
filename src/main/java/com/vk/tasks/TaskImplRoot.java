@@ -36,18 +36,18 @@ public class TaskImplRoot<I extends Number,
 
     public TaskImplRoot(){}
 
-    public TaskImplRoot(MessageSendingOperations<String> messageSendingOperations,
-                        E deviceToTable1,
-                        T serviceData1){
+    public TaskImplRoot(final MessageSendingOperations<String> messageSendingOperations,
+                        final E deviceToTable1,
+                        final T serviceData1){
         this.messageSendingOperations = messageSendingOperations;
         this.deviceToTable1 = deviceToTable1;
         this.serviceData1 = serviceData1;
     }
 
-    public TaskImplRoot(MessageSendingOperations<String> messageSendingOperations,
-                        E deviceToTable1,
-                        T serviceData1,
-                        G serviceData2){
+    public TaskImplRoot(final MessageSendingOperations<String> messageSendingOperations,
+                        final E deviceToTable1,
+                        final T serviceData1,
+                        final G serviceData2){
         this.messageSendingOperations = messageSendingOperations;
         this.deviceToTable1 = deviceToTable1;
         this.serviceData1 = serviceData1;
@@ -59,7 +59,7 @@ public class TaskImplRoot<I extends Number,
         return messageSendingOperations;
     }
 
-    public void setMessageSendingOperations(MessageSendingOperations<String> messageSendingOperations) {
+    public void setMessageSendingOperations(final MessageSendingOperations<String> messageSendingOperations) {
         this.messageSendingOperations = messageSendingOperations;
     }
 
@@ -67,7 +67,7 @@ public class TaskImplRoot<I extends Number,
         return serviceData1;
     }
 
-    public void setServiceData1(T serviceData1) {
+    public void setServiceData1(final T serviceData1) {
         this.serviceData1 = serviceData1;
     }
 
@@ -75,7 +75,7 @@ public class TaskImplRoot<I extends Number,
         return serviceData2;
     }
 
-    public void setServiceData2(G serviceData2) {
+    public void setServiceData2(final G serviceData2) {
         this.serviceData2 = serviceData2;
     }
 
@@ -83,7 +83,7 @@ public class TaskImplRoot<I extends Number,
         return deviceToTable1;
     }
 
-    public void setDeviceToTable1(E deviceToTable1) {
+    public void setDeviceToTable1(final E deviceToTable1) {
         this.deviceToTable1 = deviceToTable1;
     }
 
@@ -91,14 +91,14 @@ public class TaskImplRoot<I extends Number,
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(final String message) {
         this.message = message;
     }
 
     @Override
     public void work1() {
-        K deviceModel1 = (K) serviceData1.getModbusDevice();
-        A tableModel = deviceToTable1.convert(deviceModel1);
+        final K deviceModel1 = (K) serviceData1.getModbusDevice();
+        final A tableModel = deviceToTable1.convert(deviceModel1);
         messageSendingOperations.convertAndSend(message, tableModel);
         if (deviceModel1.hysteresis()){
             serviceData1.addTabeDevice(tableModel);
@@ -107,9 +107,9 @@ public class TaskImplRoot<I extends Number,
 
     @Override
     public void work2() {
-        K deviceModel1 = (K) serviceData1.getModbusDevice();
-        F deviceModel2 = (F) serviceData2.getModbusDevice();
-        A tableModel = deviceToTable1.convert(deviceModel1, deviceModel2);
+        final K deviceModel1 = (K) serviceData1.getModbusDevice();
+        final F deviceModel2 = (F) serviceData2.getModbusDevice();
+        final A tableModel = deviceToTable1.convert(deviceModel1, deviceModel2);
         messageSendingOperations.convertAndSend(message, tableModel);
         if (deviceModel1.hysteresis() || deviceModel2.hysteresis()){
             serviceData1.addTabeDevice(tableModel);

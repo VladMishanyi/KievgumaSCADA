@@ -13,12 +13,11 @@ public class SlaveTCP_RTU {
 
     public static void main(String[] args) throws Exception{
 
-        ModbusFactory factory = new ModbusFactory();
+        final ModbusFactory factory = new ModbusFactory();
 
-        ModbusSlaveSet slave = factory.createTcpSlave(true);
+        final ModbusSlaveSet slave = factory.createTcpSlave(true);
 
-
-        BasicProcessImage processImage = new BasicProcessImage(1);//slave addres
+        final BasicProcessImage processImage = new BasicProcessImage(1);//slave addres
         processImage.setHoldingRegister(0, DataType.TWO_BYTE_INT_UNSIGNED, 65535);
 
         try {
@@ -31,7 +30,6 @@ public class SlaveTCP_RTU {
 
         try {
             slave.addProcessImage(processImage);
-
         }
         finally {
             slave.stop();

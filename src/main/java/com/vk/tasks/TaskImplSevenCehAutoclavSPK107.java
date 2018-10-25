@@ -27,18 +27,18 @@ public class TaskImplSevenCehAutoclavSPK107
         TableModelSevenCehAutoclavSPK107,
         DeviceToTableSevenCehAutoclavSPK107> implements TaskSevenCehAutoclavSPK107{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107;
+    private final DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107;
 
-    private SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
+    private final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
 
     private final String messageSevenCehAutoclavSPK107 = "/topic/sevenCehAutoclav";
 
     @Autowired
-    public TaskImplSevenCehAutoclavSPK107(MessageSendingOperations<String> messageSendingOperations,
-                                           DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107,
-                                           SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData){
+    public TaskImplSevenCehAutoclavSPK107(final MessageSendingOperations<String> messageSendingOperations,
+                                          final DeviceToTableSevenCehAutoclavSPK107 deviceToTableSevenCehAutoclavSPK107,
+                                          final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData){
         super(messageSendingOperations, deviceToTableSevenCehAutoclavSPK107, sevenCehAutoclavSPK107ServiceData);
         super.setMessage(messageSevenCehAutoclavSPK107);
         this.messageSendingOperations = messageSendingOperations;

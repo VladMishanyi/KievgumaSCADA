@@ -21,7 +21,7 @@ public class DeviceToTableImplFirstCehBuzulukTRM200
         TableModelFirstCehBuzulukTRM200> implements DeviceToTableFirstCehBuzulukTRM200 {
 
     @Override
-    public TableModelFirstCehBuzulukTRM200 convert(DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200){
+    public TableModelFirstCehBuzulukTRM200 convert(final DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200){
         TableModelFirstCehBuzulukTRM200 tableModelFirstCehBuzulukTRM200 = null;
         if (ObjectValidator.isNotNull(deviceModelFirstCehBuzulukTRM200)){
             tableModelFirstCehBuzulukTRM200 = new TableModelFirstCehBuzulukTRM200();

@@ -19,13 +19,13 @@ public class JsonControllerFirstCehKameraDozrevanyaMPR51 extends JsonController 
 
     private Logger LOGGER = Logger.getLogger(JsonControllerFirstCehKameraDozrevanyaMPR51.class);
 
-    private KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
+    private final KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerFirstCehKameraDozrevanyaMPR51(KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
-                                               SimpleDateFormat simpleDateFormat){
+    public JsonControllerFirstCehKameraDozrevanyaMPR51(final KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
+                                                       final SimpleDateFormat simpleDateFormat){
         this.kameraDozrevanyaMPR51ServiceData = kameraDozrevanyaMPR51ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

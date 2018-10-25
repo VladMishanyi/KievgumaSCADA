@@ -20,19 +20,19 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplFirstCehSmesitel1KMSF1 implements ModbusRepositoryFirstCehSmesitel1KMSF1 {
 
-    private ModbusMaster modbusMasterSerialThird;
+    private final ModbusMaster modbusMasterSerialThird;
 
-    private DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1;
+    private final DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1;
 
-    private BatchRead batchRead;
+    private final BatchRead batchRead;
 
-    private ModbusInteger modbusInteger;
+    private final ModbusInteger modbusInteger;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehSmesitel1KMSF1(ModbusMaster modbusMasterSerialThird,
-                                                      DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1,
-                                                      BatchRead batchRead,
-                                                      ModbusInteger modbusInteger){
+    public ModbusRepositoryImplFirstCehSmesitel1KMSF1(final ModbusMaster modbusMasterSerialThird,
+                                                      final DeviceModelFirstCehSmesitel1KMSF1 deviceModelFirstCehSmesitel1KMSF1,
+                                                      final BatchRead batchRead,
+                                                      final ModbusInteger modbusInteger){
         this.modbusMasterSerialThird = modbusMasterSerialThird;
         this.deviceModelFirstCehSmesitel1KMSF1 = deviceModelFirstCehSmesitel1KMSF1;
         this.batchRead = batchRead;

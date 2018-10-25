@@ -13,18 +13,18 @@ import com.serotonin.modbus4j.exception.ModbusInitException;
 public class SlaveSerialRTU {
     public static void main(String[] args) throws Exception{
 
-        ModbusFactory factory = new ModbusFactory();
+        final ModbusFactory factory = new ModbusFactory();
 
-        SerialParameters params = new SerialParameters();
+        final SerialParameters params = new SerialParameters();
         params.setCommPortId("COM4");
         params.setBaudRate(15200);
         params.setDataBits(8);
         params.setStopBits(1);
         params.setParity(0);
 
-        ModbusSlaveSet slave = factory.createRtuSlave(params);
+        final ModbusSlaveSet slave = factory.createRtuSlave(params);
 
-        BasicProcessImage processImage = new BasicProcessImage(1);//slave addres
+        final BasicProcessImage processImage = new BasicProcessImage(1);//slave addres
         processImage.setHoldingRegister(0, DataType.TWO_BYTE_INT_UNSIGNED, 65535);
 
 

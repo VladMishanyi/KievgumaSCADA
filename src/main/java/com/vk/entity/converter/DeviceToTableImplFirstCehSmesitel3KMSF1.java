@@ -21,8 +21,8 @@ public class DeviceToTableImplFirstCehSmesitel3KMSF1
         TableModelFirstCehSmesitel3KMSF1> implements DeviceToTableFirstCehSmesitel3KMSF1 {
 
     @Override
-    public TableModelFirstCehSmesitel3KMSF1 convert(DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1,
-                                                    DeviceModelFirstCehSmesitel3MB110 deviceModelFirstCehSmesitel3MB110){
+    public TableModelFirstCehSmesitel3KMSF1 convert(final DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1,
+                                                    final DeviceModelFirstCehSmesitel3MB110 deviceModelFirstCehSmesitel3MB110){
         TableModelFirstCehSmesitel3KMSF1 tableModelFirstCehSmesitel3KMSF1 = null;
         if (ObjectValidator.isNotNull(deviceModelFirstCehSmesitel3KMSF1)){
             tableModelFirstCehSmesitel3KMSF1 = new TableModelFirstCehSmesitel3KMSF1();

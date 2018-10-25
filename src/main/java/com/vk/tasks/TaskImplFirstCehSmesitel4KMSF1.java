@@ -32,21 +32,21 @@ public class TaskImplFirstCehSmesitel4KMSF1
         TableModelFirstCehSmesitel4KMSF1,
         DeviceToTableFirstCehSmesitel4KMSF1> implements TaskFirstCehSmesitel4KMSF1{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1;
+    private final DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1;
 
-    private FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData;
+    private final FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData;
 
-    private FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData;
+    private final FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData;
 
     private final String messageFirstCehSmesitel4KMSF1 = "/topic/firstCehSmesitel4KMSF1";
 
     @Autowired
-    public TaskImplFirstCehSmesitel4KMSF1(MessageSendingOperations<String> messageSendingOperations,
-                                          DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1,
-                                          FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData,
-                                          FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData){
+    public TaskImplFirstCehSmesitel4KMSF1(final MessageSendingOperations<String> messageSendingOperations,
+                                          final DeviceToTableFirstCehSmesitel4KMSF1 deviceToTableFirstCehSmesitel4KMSF1,
+                                          final FirstCehSmesitel4KMSF1ServiceData firstCehSmesitel4KMSF1ServiceData,
+                                          final FirstCehSmesitel4MB110ServiceData firstCehSmesitel4MB110ServiceData){
         super(messageSendingOperations, deviceToTableFirstCehSmesitel4KMSF1, firstCehSmesitel4KMSF1ServiceData, firstCehSmesitel4MB110ServiceData);
         super.setMessage(messageFirstCehSmesitel4KMSF1);
         this.messageSendingOperations = messageSendingOperations;

@@ -22,16 +22,16 @@ import javax.jws.soap.SOAPBinding;
 @ComponentScan(basePackages = {"com.vk.repository"})
 public class UserServiceImpl implements UserDetailsService, UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository){
+    public UserServiceImpl(final UserRepository userRepository){
         this.userRepository = userRepository;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String s) throws UsernameNotFoundException {
         User user = null;
         try {
             if (ObjectValidator.isNotNull(s)){
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     @Transactional
-    public void add(User user) {
+    public void add(final User user) {
         if (ObjectValidator.isNotNull(user)){
             userRepository.save(user);
         }
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     @Transactional
-    public void update(User user) {
+    public void update(final User user) {
         if (ObjectValidator.isNotNull(user)){
             userRepository.save(user);
         }
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     public User getAuthenticatedUser(){
         User user;
         try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             user = (User) authentication.getPrincipal();
         } catch (Exception e){
             user = null;
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User getByLogin(String login){
+    public User getByLogin(final String login){
         User user = null;
         try {
             if (ObjectValidator.isNotNull(login)){
@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     @Transactional
-    public boolean removeByLogin(String login){
+    public boolean removeByLogin(final String login){
         User user;
         boolean chaker = false;
         try {

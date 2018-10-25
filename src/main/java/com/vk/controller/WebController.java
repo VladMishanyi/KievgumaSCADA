@@ -30,47 +30,47 @@ public class WebController {
 
     private final Logger LOGGER = Logger.getLogger(WebController.class);
 
-    private TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
+    private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
-    private TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202;
+    private final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202;
 
-    private TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200;
+    private final TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200;
 
-    private TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51;
+    private final TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51;
 
-    private TaskFirstCehSmesitel1KMSF1 taskFirstCehSmesitel1KMSF1;
+    private final TaskFirstCehSmesitel1KMSF1 taskFirstCehSmesitel1KMSF1;
 
-    private TaskFirstCehSmesitel2KMSF1 taskFirstCehSmesitel2KMSF1;
+    private final TaskFirstCehSmesitel2KMSF1 taskFirstCehSmesitel2KMSF1;
 
-    private TaskFirstCehSmesitel3KMSF1 taskFirstCehSmesitel3KMSF1;
+    private final TaskFirstCehSmesitel3KMSF1 taskFirstCehSmesitel3KMSF1;
 
-    private TaskFirstCehSmesitel4KMSF1 taskFirstCehSmesitel4KMSF1;
+    private final TaskFirstCehSmesitel4KMSF1 taskFirstCehSmesitel4KMSF1;
 
-    private TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1;
+    private final TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1;
 
-    private TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202;
+    private final TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202;
 
-    private TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107;
+    private final TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107;
 
-    private TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110;
+    private final TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110;
 
-    private TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
+    private final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
 
     @Autowired
     public WebController(
-            TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
-            TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202,
-            TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200,
-            TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51,
-            TaskFirstCehSmesitel1KMSF1 taskFirstCehSmesitel1KMSF1,
-            TaskFirstCehSmesitel2KMSF1 taskFirstCehSmesitel2KMSF1,
-            TaskFirstCehSmesitel3KMSF1 taskFirstCehSmesitel3KMSF1,
-            TaskFirstCehSmesitel4KMSF1 taskFirstCehSmesitel4KMSF1,
-            TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1,
-            TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107,
-            TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202,
-            TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110,
-            TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4
+            final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
+            final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202,
+            final TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200,
+            final TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51,
+            final TaskFirstCehSmesitel1KMSF1 taskFirstCehSmesitel1KMSF1,
+            final TaskFirstCehSmesitel2KMSF1 taskFirstCehSmesitel2KMSF1,
+            final TaskFirstCehSmesitel3KMSF1 taskFirstCehSmesitel3KMSF1,
+            final TaskFirstCehSmesitel4KMSF1 taskFirstCehSmesitel4KMSF1,
+            final TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1,
+            final TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107,
+            final TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202,
+            final TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110,
+            final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4
     ){
         this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;
         this.taskFirstCehAutoclavTRM202 = taskFirstCehAutoclavTRM202;
@@ -93,7 +93,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/service-desk")
-    public void redirectToServiceDesk(HttpServletRequest request, HttpServletResponse response){
+    public void redirectToServiceDesk(final HttpServletRequest request, final HttpServletResponse response){
         try {
             response.sendRedirect("http://192.168.10.7:3040");
         }
@@ -103,7 +103,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/contact-desk")
-    public void redirectToContactDesk(HttpServletRequest request, HttpServletResponse response){
+    public void redirectToContactDesk(final HttpServletRequest request, final HttpServletResponse response){
         try {
             response.sendRedirect("http://192.168.10.20:3040");
         }

@@ -28,10 +28,6 @@ public class TableModelKotelnyaParMikrolITM4 extends TableModel{
 
     public TableModelKotelnyaParMikrolITM4(){}
 
-    public float getChannel1() {
-        return channel1;
-    }
-
     @Override
     public String toString() {
         return "TableModelKotelnyaParMikrolITM4{"
@@ -43,7 +39,7 @@ public class TableModelKotelnyaParMikrolITM4 extends TableModel{
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         boolean result = super.equals(object);
         if (result){
             TableModelKotelnyaParMikrolITM4 tableModelKotelnyaParMikrolITM4 = (TableModelKotelnyaParMikrolITM4) object;
@@ -70,7 +66,11 @@ public class TableModelKotelnyaParMikrolITM4 extends TableModel{
                 Float.hashCode(this.channel4);
     }
 
-    public void setChannel1(float channel1) {
+    public float getChannel1() {
+        return channel1;
+    }
+
+    public void setChannel1(final float channel1) {
         this.channel1 = channel1;
     }
 
@@ -78,7 +78,7 @@ public class TableModelKotelnyaParMikrolITM4 extends TableModel{
         return channel2;
     }
 
-    public void setChannel2(float channel2) {
+    public void setChannel2(final float channel2) {
         this.channel2 = channel2;
     }
 
@@ -86,7 +86,7 @@ public class TableModelKotelnyaParMikrolITM4 extends TableModel{
         return channel3;
     }
 
-    public void setChannel3(float channel3) {
+    public void setChannel3(final float channel3) {
         this.channel3 = channel3;
     }
 
@@ -94,7 +94,7 @@ public class TableModelKotelnyaParMikrolITM4 extends TableModel{
         return channel4;
     }
 
-    public void setChannel4(float channel4) {
+    public void setChannel4(final float channel4) {
         this.channel4 = channel4;
     }
 }

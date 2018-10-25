@@ -40,7 +40,7 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
     }
 
     @Override
-    public boolean equals(Object object){
+    public boolean equals(final Object object){
         boolean result = super.equals(object);
         if (result){
             TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = (TableModelEnergeticRoomTRM201) object;
@@ -71,7 +71,7 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
         return value1;
     }
 
-    public void setValue1(int value1) {
+    public void setValue1(final int value1) {
         this.value1 = value1;
     }
 
@@ -79,7 +79,7 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
         return value2;
     }
 
-    public void setValue2(int value2) {
+    public void setValue2(final int value2) {
         this.value2 = value2;
     }
 
@@ -87,7 +87,7 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
         return value3;
     }
 
-    public void setValue3(float value3) {
+    public void setValue3(final float value3) {
         this.value3 = value3;
     }
 
@@ -95,7 +95,7 @@ public class TableModelEnergeticRoomTRM201 extends TableModel {
         return value4;
     }
 
-    public void setValue4(float value4) {
+    public void setValue4(final float value4) {
         this.value4 = value4;
     }
 }

@@ -31,7 +31,7 @@ public class TableModelFirstCehBuzulukTRM200 extends TableModel{
     }
 
     @Override
-    public boolean equals(Object object){
+    public boolean equals(final Object object){
         boolean result = super.equals(object);
         if (result){
             TableModelFirstCehBuzulukTRM200 tableModelFirstCehBuzulukTRM200 = (TableModelFirstCehBuzulukTRM200) object;
@@ -58,7 +58,7 @@ public class TableModelFirstCehBuzulukTRM200 extends TableModel{
         return channel1;
     }
 
-    public void setChannel1(float channel1) {
+    public void setChannel1(final float channel1) {
         this.channel1 = channel1;
     }
 
@@ -66,7 +66,7 @@ public class TableModelFirstCehBuzulukTRM200 extends TableModel{
         return channel2;
     }
 
-    public void setChannel2(float channel2) {
+    public void setChannel2(final float channel2) {
         this.channel2 = channel2;
     }
 }

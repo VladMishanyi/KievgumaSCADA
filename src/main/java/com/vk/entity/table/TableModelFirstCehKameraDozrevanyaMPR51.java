@@ -56,7 +56,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
     }
 
     @Override
-    public boolean equals(Object object){
+    public boolean equals(final Object object){
         boolean result = super.equals(object);
         if (result){
             TableModelFirstCehKameraDozrevanyaMPR51 tableModelFirstCehKameraDozrevanyaMPR51 = (TableModelFirstCehKameraDozrevanyaMPR51) object;
@@ -99,7 +99,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel1;
     }
 
-    public void setChannel1(float channel1) {
+    public void setChannel1(final float channel1) {
         this.channel1 = channel1;
     }
 
@@ -107,7 +107,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel2;
     }
 
-    public void setChannel2(float channel2) {
+    public void setChannel2(final float channel2) {
         this.channel2 = channel2;
     }
 
@@ -115,7 +115,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel3;
     }
 
-    public void setChannel3(float channel3) {
+    public void setChannel3(final float channel3) {
         this.channel3 = channel3;
     }
 
@@ -123,7 +123,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel4;
     }
 
-    public void setChannel4(float channel4) {
+    public void setChannel4(final float channel4) {
         this.channel4 = channel4;
     }
 
@@ -131,7 +131,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel5;
     }
 
-    public void setChannel5(float channel5) {
+    public void setChannel5(final float channel5) {
         this.channel5 = channel5;
     }
 
@@ -139,7 +139,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel6;
     }
 
-    public void setChannel6(float channel6) {
+    public void setChannel6(final float channel6) {
         this.channel6 = channel6;
     }
 
@@ -147,7 +147,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel7;
     }
 
-    public void setChannel7(float channel7) {
+    public void setChannel7(final float channel7) {
         this.channel7 = channel7;
     }
 
@@ -155,7 +155,7 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
         return channel8;
     }
 
-    public void setChannel8(float channel8) {
+    public void setChannel8(final float channel8) {
         this.channel8 = channel8;
     }
 }

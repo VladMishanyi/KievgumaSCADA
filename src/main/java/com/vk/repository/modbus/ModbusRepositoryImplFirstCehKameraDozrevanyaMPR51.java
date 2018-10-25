@@ -19,19 +19,19 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51 implements ModbusRepositoryFirstCehKameraDozrevanyaMPR51 {
 
-    private ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMaster modbusMasterSerialFirst;
 
-    private DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51;
+    private final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51;
 
-    private BatchRead batchRead;
+    private final BatchRead batchRead;
 
-    private ModbusFloat modbusFloat;
+    private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51(ModbusMaster modbusMasterSerialFirst,
-                                                             DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
-                                                             BatchRead batchRead,
-                                                             ModbusFloat modbusFloat){
+    public ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51(final ModbusMaster modbusMasterSerialFirst,
+                                                             final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
+                                                             final BatchRead batchRead,
+                                                             final ModbusFloat modbusFloat){
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehKameraDozrevanyaMPR51 = deviceModelFirstCehKameraDozrevanyaMPR51;
         this.batchRead = batchRead;

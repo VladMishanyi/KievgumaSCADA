@@ -16,13 +16,13 @@ import org.springframework.stereotype.Service;
 @ComponentScan(basePackages = {"com.vk.repository"})
 public class KameraDozrevanyaTRM138ServiceDataImpl extends RootServiceDataImpl<Float, TableModelFirstCehKameraDozrevanyaMPR51, DeviceModelFirstCehKameraDozrevanyaTRM138> implements KameraDozrevanyaTRM138ServiceData {
 
-    private RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData;
+    private final RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository;
 
     @Autowired
-    public KameraDozrevanyaTRM138ServiceDataImpl(RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData,
-                                                RootModbusRepository<DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository){
+    public KameraDozrevanyaTRM138ServiceDataImpl(final RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData,
+                                                 final RootModbusRepository<DeviceModelFirstCehKameraDozrevanyaTRM138> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

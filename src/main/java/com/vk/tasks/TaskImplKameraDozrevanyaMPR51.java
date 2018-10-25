@@ -30,21 +30,21 @@ public class TaskImplKameraDozrevanyaMPR51
         TableModelFirstCehKameraDozrevanyaMPR51,
         DeviceToTableFirstCehKameraDozrevanyaMPR51> implements TaskKameraDozrevanyaMPR51{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51;
+    private final DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51;
 
-    private KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
+    private final KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData;
 
-    private KameraDozrevanyaTRM138ServiceData kameraDozrevanyaTRM138ServiceData;
+    private final KameraDozrevanyaTRM138ServiceData kameraDozrevanyaTRM138ServiceData;
 
     private final String messageKameraDozrevanyaMPR51 = "/topic/firstCehKameraDozrevanya";
 
     @Autowired
-    public TaskImplKameraDozrevanyaMPR51(MessageSendingOperations<String> messageSendingOperations,
-                                         DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51,
-                                         KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
-                                         KameraDozrevanyaTRM138ServiceData kameraDozrevanyaTRM138ServiceData){
+    public TaskImplKameraDozrevanyaMPR51(final MessageSendingOperations<String> messageSendingOperations,
+                                         final DeviceToTableFirstCehKameraDozrevanyaMPR51 deviceToTableFirstCehKameraDozrevanyaMPR51,
+                                         final KameraDozrevanyaMPR51ServiceData kameraDozrevanyaMPR51ServiceData,
+                                         final KameraDozrevanyaTRM138ServiceData kameraDozrevanyaTRM138ServiceData){
         super(messageSendingOperations, deviceToTableFirstCehKameraDozrevanyaMPR51, kameraDozrevanyaMPR51ServiceData, kameraDozrevanyaTRM138ServiceData);
         super.setMessage(messageKameraDozrevanyaMPR51);
         this.messageSendingOperations = messageSendingOperations;

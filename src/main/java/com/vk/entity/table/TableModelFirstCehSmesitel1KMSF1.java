@@ -35,7 +35,7 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
     }
 
     @Override
-    public boolean equals(Object object){
+    public boolean equals(final Object object){
         boolean result = super.equals(object);
         if (result){
             TableModelFirstCehSmesitel1KMSF1 tableModelFirstCehSmesitel1KMSF1 = (TableModelFirstCehSmesitel1KMSF1) object;
@@ -64,7 +64,7 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
         return channel1;
     }
 
-    public void setChannel1(int channel1) {
+    public void setChannel1(final int channel1) {
         this.channel1 = channel1;
     }
 
@@ -72,7 +72,7 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
         return channel2;
     }
 
-    public void setChannel2(float channel2) {
+    public void setChannel2(final float channel2) {
         this.channel2 = channel2;
     }
 
@@ -80,7 +80,7 @@ public class TableModelFirstCehSmesitel1KMSF1 extends TableModel{
         return channel3;
     }
 
-    public void setChannel3(float channel3) {
+    public void setChannel3(final float channel3) {
         this.channel3 = channel3;
     }
 }

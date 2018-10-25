@@ -18,13 +18,13 @@ import org.springframework.stereotype.Service;
 public class KotelnyaParMikrolITM4ServiceDataImpl extends RootServiceDataImpl<Float, TableModelKotelnyaParMikrolITM4, DeviceModelKotelnyaParMikrolITM4> implements KotelnyaParMikrolITM4ServiceData{
 
 
-    private RootRepositoryData<TableModelKotelnyaParMikrolITM4> rootRepositoryData;
+    private final RootRepositoryData<TableModelKotelnyaParMikrolITM4> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelKotelnyaParMikrolITM4> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelKotelnyaParMikrolITM4> rootModbusRepository;
 
     @Autowired
-    public KotelnyaParMikrolITM4ServiceDataImpl(RootRepositoryData<TableModelKotelnyaParMikrolITM4> rootRepositoryData,
-                                                RootModbusRepository<DeviceModelKotelnyaParMikrolITM4> rootModbusRepository){
+    public KotelnyaParMikrolITM4ServiceDataImpl(final RootRepositoryData<TableModelKotelnyaParMikrolITM4> rootRepositoryData,
+                                                final RootModbusRepository<DeviceModelKotelnyaParMikrolITM4> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

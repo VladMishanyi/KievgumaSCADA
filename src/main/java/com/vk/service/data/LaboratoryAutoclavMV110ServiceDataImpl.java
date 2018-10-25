@@ -18,13 +18,13 @@ import org.springframework.stereotype.Service;
 public class LaboratoryAutoclavMV110ServiceDataImpl extends RootServiceDataImpl<Float, TableModelLaboratoryAutoclavMV110, DeviceModelLaboratoryAutoclavMV110> implements LaboratoryAutoclavMV110ServiceData{
 
 
-    private RootRepositoryData<TableModelLaboratoryAutoclavMV110> rootRepositoryData;
+    private final RootRepositoryData<TableModelLaboratoryAutoclavMV110> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelLaboratoryAutoclavMV110> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelLaboratoryAutoclavMV110> rootModbusRepository;
 
     @Autowired
-    public LaboratoryAutoclavMV110ServiceDataImpl(RootRepositoryData<TableModelLaboratoryAutoclavMV110> rootRepositoryData,
-                                              RootModbusRepository<DeviceModelLaboratoryAutoclavMV110> rootModbusRepository){
+    public LaboratoryAutoclavMV110ServiceDataImpl(final RootRepositoryData<TableModelLaboratoryAutoclavMV110> rootRepositoryData,
+                                                  final RootModbusRepository<DeviceModelLaboratoryAutoclavMV110> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

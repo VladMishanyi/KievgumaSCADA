@@ -21,19 +21,19 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplEnergeticRoomTRM201 implements ModbusRepositoryEnergeticRoomTRM201 {
 
-    private ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMaster modbusMasterSerialFirst;
 
-    private DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201;
+    private final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201;
 
-    private BatchRead batchRead;
+    private final BatchRead batchRead;
 
-    private ModbusFloat modbusFloat;
+    private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplEnergeticRoomTRM201(ModbusMaster modbusMasterSerialFirst,
-                                                   DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201,
-                                                   BatchRead batchRead,
-                                                   ModbusFloat modbusFloat){
+    public ModbusRepositoryImplEnergeticRoomTRM201(final ModbusMaster modbusMasterSerialFirst,
+                                                   final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201,
+                                                   final BatchRead batchRead,
+                                                   final ModbusFloat modbusFloat){
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelEnergeticRoomTRM201 = deviceModelEnergeticRoomTRM201;
         this.batchRead = batchRead;

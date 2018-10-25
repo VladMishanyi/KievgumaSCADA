@@ -18,15 +18,17 @@ public class JsonController<E extends RootServiceData, T extends TableModel> {
 
     private Logger LOGGER = Logger.getLogger(JsonController.class);
 
-    public List<E> generateTimeObject(E serviceData, DateFromChart dateFromChart, SimpleDateFormat simpleDateFormat){
+    public List<E> generateTimeObject(final E serviceData,
+                                      final DateFromChart dateFromChart,
+                                      final SimpleDateFormat simpleDateFormat){
         List<E> tableModel = null;
-        String start = dateFromChart.getStart();
-        String end = dateFromChart.getEnd();
-        String[] startTokens = start.split("T");
-        String[] endTokens = end.split("T");
+        final String start = dateFromChart.getStart();
+        final String end = dateFromChart.getEnd();
+        final String[] startTokens = start.split("T");
+        final String[] endTokens = end.split("T");
         try {
-            Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
-            Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
+            final Date date1 = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
+            final Date date2 = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
             tableModel = serviceData.rangeTimestamp(date1, date2);
         }catch (ParseException e){
             LOGGER.error("can't parse range of date: "+e.getClass());

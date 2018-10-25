@@ -28,18 +28,18 @@ public class TaskImplLaboratoryAutoclavMV110
         TableModelLaboratoryAutoclavMV110,
         DeviceToTableLaboratoryAutoclavMV110> implements TaskLaboratoryAutoclavMV110{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110;
+    private final DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110;
 
-    private LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData;
+    private final LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData;
 
     private final String messageLaboratoryAutoclavMV110 = "/topic/laboratoryAvtoclav";
 
     @Autowired
-    public TaskImplLaboratoryAutoclavMV110(MessageSendingOperations<String> messageSendingOperations,
-                                         DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110,
-                                         LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData){
+    public TaskImplLaboratoryAutoclavMV110(final MessageSendingOperations<String> messageSendingOperations,
+                                           final DeviceToTableLaboratoryAutoclavMV110 deviceToTableLaboratoryAutoclavMV110,
+                                           final LaboratoryAutoclavMV110ServiceData laboratoryAutoclavMV110ServiceData){
         super(messageSendingOperations, deviceToTableLaboratoryAutoclavMV110, laboratoryAutoclavMV110ServiceData);
         super.setMessage(messageLaboratoryAutoclavMV110);
         this.messageSendingOperations = messageSendingOperations;

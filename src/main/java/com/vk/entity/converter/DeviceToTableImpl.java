@@ -8,11 +8,11 @@ import com.vk.entity.table.TableModel;
  */
 public class DeviceToTableImpl<T extends DeviceModel, K extends DeviceModel, E extends TableModel> {
 
-    public E convert(T device){
+    public E convert(final T device){
         return null;
     }
 
-    public E convert(T device1, K device2){
+    public E convert(final T device1, final K device2){
         return null;
     }
 

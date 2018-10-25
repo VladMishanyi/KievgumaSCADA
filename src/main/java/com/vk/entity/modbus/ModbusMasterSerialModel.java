@@ -22,9 +22,13 @@ public class ModbusMasterSerialModel {
 
     public ModbusMasterSerialModel(){}
 
-    public ModbusMasterSerialModel(String port, int baduRate, int dataBits,
-                                   int stopBits, int parity, int timeout,
-                                   int retries){
+    public ModbusMasterSerialModel(final String port,
+                                   final int baduRate,
+                                   final int dataBits,
+                                   final int stopBits,
+                                   final int parity,
+                                   final int timeout,
+                                   final int retries){
         this.port = port;
         this.baduRate = baduRate;
         this.dataBits = dataBits;
@@ -53,7 +57,7 @@ public class ModbusMasterSerialModel {
         return port;
     }
 
-    public void setPort(String port) {
+    public void setPort(final String port) {
         this.port = port;
     }
 
@@ -61,7 +65,7 @@ public class ModbusMasterSerialModel {
         return baduRate;
     }
 
-    public void setBaduRate(int baduRate) {
+    public void setBaduRate(final int baduRate) {
         this.baduRate = baduRate;
     }
 
@@ -69,7 +73,7 @@ public class ModbusMasterSerialModel {
         return dataBits;
     }
 
-    public void setDataBits(int dataBits) {
+    public void setDataBits(final int dataBits) {
         this.dataBits = dataBits;
     }
 
@@ -77,7 +81,7 @@ public class ModbusMasterSerialModel {
         return stopBits;
     }
 
-    public void setStopBits(int stopBits) {
+    public void setStopBits(final int stopBits) {
         this.stopBits = stopBits;
     }
 
@@ -85,7 +89,7 @@ public class ModbusMasterSerialModel {
         return parity;
     }
 
-    public void setParity(int parity) {
+    public void setParity(final int parity) {
         this.parity = parity;
     }
 
@@ -93,7 +97,7 @@ public class ModbusMasterSerialModel {
         return timeout;
     }
 
-    public void setTimeout(int timeout) {
+    public void setTimeout(final int timeout) {
         this.timeout = timeout;
     }
 
@@ -101,7 +105,7 @@ public class ModbusMasterSerialModel {
         return retries;
     }
 
-    public void setRetries(int retries) {
+    public void setRetries(final int retries) {
         this.retries = retries;
     }
 }

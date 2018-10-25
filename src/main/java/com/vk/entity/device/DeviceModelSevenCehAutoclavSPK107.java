@@ -78,7 +78,7 @@ public class DeviceModelSevenCehAutoclavSPK107 implements DeviceModel{
         return deviceValuesRegister0;
     }
 
-    public void setDeviceValuesRegister0(float deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(final float deviceValuesRegister0) {
         DeviceModelSevenCehAutoclavSPK107.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
@@ -86,7 +86,7 @@ public class DeviceModelSevenCehAutoclavSPK107 implements DeviceModel{
         return hisDeviceValuesRegisters0;
     }
 
-    public void setHisDeviceValuesRegisters0(float hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(final float hisDeviceValuesRegisters0) {
         DeviceModelSevenCehAutoclavSPK107.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 
@@ -114,7 +114,7 @@ public class DeviceModelSevenCehAutoclavSPK107 implements DeviceModel{
         return deviceValuesRegister1;
     }
 
-    public void setDeviceValuesRegister1(float deviceValuesRegister1) {
+    public void setDeviceValuesRegister1(final float deviceValuesRegister1) {
         DeviceModelSevenCehAutoclavSPK107.deviceValuesRegister1 = deviceValuesRegister1;
     }
 
@@ -122,7 +122,7 @@ public class DeviceModelSevenCehAutoclavSPK107 implements DeviceModel{
         return hisDeviceValuesRegisters1;
     }
 
-    public void setHisDeviceValuesRegisters1(float hisDeviceValuesRegisters1) {
+    public void setHisDeviceValuesRegisters1(final float hisDeviceValuesRegisters1) {
         DeviceModelSevenCehAutoclavSPK107.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
     }
 
@@ -150,7 +150,7 @@ public class DeviceModelSevenCehAutoclavSPK107 implements DeviceModel{
         return deviceValuesRegister2;
     }
 
-    public void setDeviceValuesRegister2(float deviceValuesRegister2) {
+    public void setDeviceValuesRegister2(final float deviceValuesRegister2) {
         DeviceModelSevenCehAutoclavSPK107.deviceValuesRegister2 = deviceValuesRegister2;
     }
 
@@ -158,7 +158,7 @@ public class DeviceModelSevenCehAutoclavSPK107 implements DeviceModel{
         return hisDeviceValuesRegisters2;
     }
 
-    public void setHisDeviceValuesRegisters2(float hisDeviceValuesRegisters2) {
+    public void setHisDeviceValuesRegisters2(final float hisDeviceValuesRegisters2) {
         DeviceModelSevenCehAutoclavSPK107.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
     }
 

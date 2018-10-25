@@ -12,7 +12,7 @@ public class FromSocketReg1 {
         return var;
     }
 
-    public void setVar(int var) {
+    public void setVar(final int var) {
         this.var = var;
     }
 }

@@ -54,7 +54,7 @@ public class DeviceModelFirstCehSmesitel5KMSF1 implements DeviceModel{
         return deviceValuesRegister0;
     }
 
-    public void setDeviceValuesRegister0(int deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(final int deviceValuesRegister0) {
         DeviceModelFirstCehSmesitel5KMSF1.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
@@ -62,7 +62,7 @@ public class DeviceModelFirstCehSmesitel5KMSF1 implements DeviceModel{
         return hisDeviceValuesRegisters0;
     }
 
-    public void setHisDeviceValuesRegisters0(int hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(final int hisDeviceValuesRegisters0) {
         DeviceModelFirstCehSmesitel5KMSF1.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 

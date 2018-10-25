@@ -21,7 +21,7 @@ public class DeviceToTableImplLaboratoryAutoclavMV110
         TableModelLaboratoryAutoclavMV110> implements DeviceToTableLaboratoryAutoclavMV110 {
 
     @Override
-    public TableModelLaboratoryAutoclavMV110 convert(DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110){
+    public TableModelLaboratoryAutoclavMV110 convert(final DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110){
         TableModelLaboratoryAutoclavMV110 tableModelLaboratoryAutoclavMV110 = null;
         if (ObjectValidator.isNotNull(deviceModelLaboratoryAutoclavMV110)){
             tableModelLaboratoryAutoclavMV110 = new TableModelLaboratoryAutoclavMV110();

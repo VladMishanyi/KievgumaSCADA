@@ -90,7 +90,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return deviceValuesRegister0;
     }
 
-    public void setDeviceValuesRegister0(float deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(final float deviceValuesRegister0) {
         DeviceModelKotelnyaParMikrolITM4.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
@@ -98,7 +98,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return hisDeviceValuesRegisters0;
     }
 
-    public void setHisDeviceValuesRegisters0(float hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(final float hisDeviceValuesRegisters0) {
         DeviceModelKotelnyaParMikrolITM4.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 
@@ -126,7 +126,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return deviceValuesRegister1;
     }
 
-    public void setDeviceValuesRegister1(float deviceValuesRegister1) {
+    public void setDeviceValuesRegister1(final float deviceValuesRegister1) {
         DeviceModelKotelnyaParMikrolITM4.deviceValuesRegister1 = deviceValuesRegister1;
     }
 
@@ -134,7 +134,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return hisDeviceValuesRegisters1;
     }
 
-    public void setHisDeviceValuesRegisters1(float hisDeviceValuesRegisters1) {
+    public void setHisDeviceValuesRegisters1(final float hisDeviceValuesRegisters1) {
         DeviceModelKotelnyaParMikrolITM4.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
     }
 
@@ -162,7 +162,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return deviceValuesRegister2;
     }
 
-    public void setDeviceValuesRegister2(float deviceValuesRegister2) {
+    public void setDeviceValuesRegister2(final float deviceValuesRegister2) {
         DeviceModelKotelnyaParMikrolITM4.deviceValuesRegister2 = deviceValuesRegister2;
     }
 
@@ -170,7 +170,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return hisDeviceValuesRegisters2;
     }
 
-    public void setHisDeviceValuesRegisters2(float hisDeviceValuesRegisters2) {
+    public void setHisDeviceValuesRegisters2(final float hisDeviceValuesRegisters2) {
         DeviceModelKotelnyaParMikrolITM4.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
     }
 
@@ -198,7 +198,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return deviceValuesRegister3;
     }
 
-    public void setDeviceValuesRegister3(float deviceValuesRegister3) {
+    public void setDeviceValuesRegister3(final float deviceValuesRegister3) {
         DeviceModelKotelnyaParMikrolITM4.deviceValuesRegister3 = deviceValuesRegister3;
     }
 
@@ -206,7 +206,7 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return hisDeviceValuesRegisters3;
     }
 
-    public void setHisDeviceValuesRegisters3(float hisDeviceValuesRegisters3) {
+    public void setHisDeviceValuesRegisters3(final float hisDeviceValuesRegisters3) {
         DeviceModelKotelnyaParMikrolITM4.hisDeviceValuesRegisters3 = hisDeviceValuesRegisters3;
     }
 

@@ -33,7 +33,7 @@ public class TableModelLaboratoryAutoclavMV110 extends TableModel{
     }
 
     @Override
-    public boolean equals(Object object){
+    public boolean equals(final Object object){
         boolean result = super.equals(object);
         if (result){
             TableModelLaboratoryAutoclavMV110 tableModelLaboratoryAutoclavMV110 = (TableModelLaboratoryAutoclavMV110) object;
@@ -60,7 +60,7 @@ public class TableModelLaboratoryAutoclavMV110 extends TableModel{
         return channel1;
     }
 
-    public void setChannel1(float channel1) {
+    public void setChannel1(final float channel1) {
         this.channel1 = channel1;
     }
 
@@ -68,7 +68,7 @@ public class TableModelLaboratoryAutoclavMV110 extends TableModel{
         return channel2;
     }
 
-    public void setChannel2(float channel2) {
+    public void setChannel2(final float channel2) {
         this.channel2 = channel2;
     }
 }

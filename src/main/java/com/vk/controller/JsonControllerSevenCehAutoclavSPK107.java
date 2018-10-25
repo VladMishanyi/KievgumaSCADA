@@ -22,13 +22,13 @@ public class JsonControllerSevenCehAutoclavSPK107 extends JsonController {
 
     private Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
 
-    private SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
+    private final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerSevenCehAutoclavSPK107(SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData,
-                                                 SimpleDateFormat simpleDateFormat){
+    public JsonControllerSevenCehAutoclavSPK107(final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData,
+                                                final SimpleDateFormat simpleDateFormat){
         this.sevenCehAutoclavSPK107ServiceData = sevenCehAutoclavSPK107ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

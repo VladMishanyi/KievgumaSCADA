@@ -13,7 +13,7 @@ public class JsonFloatBody {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(final float value) {
         this.value = value;
     }
 }

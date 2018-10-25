@@ -38,16 +38,6 @@ public class MasterTCP_RTU {
         }
 
         try {
-//            long startSet = System.currentTimeMillis();
-//        master.setValue(loc, 1800);
-//            master.setValue(1, RegisterRange.HOLDING_REGISTER, 1, DataType.TWO_BYTE_INT_UNSIGNED, 18);
-//            master.setValue(1, RegisterRange.HOLDING_REGISTER, 2, DataType.FOUR_BYTE_FLOAT_SWAPPED, 18.88);
-//            master.setValue(1, RegisterRange.HOLDING_REGISTER, 4, DataType.FOUR_BYTE_INT_UNSIGNED_SWAPPED, 8888);
-//            System.out.println("----------------------------------------------------------------------------------------");
-//            System.out.println("Time elapsed: " + (System.currentTimeMillis() - startSet) + "ms");
-
-            // Get the point value
-//            for (int i=0; i < 5; i++){
             while (true){
                 long start = System.currentTimeMillis();
                 byte in0 = 0;
@@ -67,29 +57,7 @@ public class MasterTCP_RTU {
                 byte in14 = 14;
                 byte in15 = 15;
 
-//                boolean output0 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in0);
-//                boolean output1 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in1);
-//                boolean output2 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in2);
-//                boolean output3 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in3);
-//                boolean output4 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in4);
-//                boolean output5 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in5);
-//                boolean output6 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in6);
-//                boolean output7 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in7);
-//                boolean output8 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in8);
-//                boolean output9 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in9);
-//                boolean output10 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in10);
-//                boolean output11 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in11);
-//                boolean output12 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in12);
-//                boolean output13 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in13);
-//                boolean output14 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in14);
-//                boolean output15 = master.getValue(1, RegisterRange.HOLDING_REGISTER, 0, in15);
-//
-//                int value1 = (int) master.getValue(1, RegisterRange.HOLDING_REGISTER, 1, DataType.TWO_BYTE_INT_UNSIGNED);
-//                float value2 = (float) master.getValue(1, RegisterRange.HOLDING_REGISTER, 2, DataType.FOUR_BYTE_FLOAT_SWAPPED);
-//                long value3 = (long) master.getValue(1, RegisterRange.HOLDING_REGISTER, 4, DataType.FOUR_BYTE_INT_UNSIGNED_SWAPPED);
-
-
-                BatchRead batchRead = new BatchRead();
+                final BatchRead batchRead = new BatchRead();
                 batchRead.addLocator(0.0,1, RegisterRange.HOLDING_REGISTER, 0, in0);
                 batchRead.addLocator(0.1,1, RegisterRange.HOLDING_REGISTER, 0, in1);
                 batchRead.addLocator(0.2,1, RegisterRange.HOLDING_REGISTER, 0, in2);
@@ -110,7 +78,7 @@ public class MasterTCP_RTU {
                 batchRead.addLocator(2,1, RegisterRange.HOLDING_REGISTER, 2, DataType.FOUR_BYTE_FLOAT_SWAPPED);
                 batchRead.addLocator(4,1, RegisterRange.HOLDING_REGISTER, 4, DataType.FOUR_BYTE_INT_UNSIGNED_SWAPPED);
 
-                BatchResults batchResults =  master.send(batchRead);
+                final BatchResults batchResults =  master.send(batchRead);
                 boolean output0 = (boolean) batchResults.getValue(0.0);
                 boolean output1 = (boolean) batchResults.getValue(0.1);
                 boolean output2 = (boolean) batchResults.getValue(0.2);
@@ -128,11 +96,9 @@ public class MasterTCP_RTU {
                 boolean output14 = (boolean) batchResults.getValue(0.14);
                 boolean output15 = (boolean) batchResults.getValue(0.15);
 
-                int value1 = (int) batchResults.getValue(1);
-                float value2 = (float) batchResults.getValue(2);
-                long value3 = (long) batchResults.getValue(4);
-
-
+                final int value1 = (int) batchResults.getValue(1);
+                final float value2 = (float) batchResults.getValue(2);
+                final long value3 = (long) batchResults.getValue(4);
 
                 System.out.println("output0 :" + output0);
                 System.out.println("output1 :" + output1);
@@ -155,10 +121,9 @@ public class MasterTCP_RTU {
                 System.out.println("value2 :" + value2);
                 System.out.println("value3 :" + value3);
 
-
                 System.out.println("----------------------------------------------------------------------------------------");
                 System.out.println("Time elapsed: " + (System.currentTimeMillis() - start) + "ms");
-                Thread.sleep(100);
+                Thread.sleep(1000);
             }
         }
         finally {

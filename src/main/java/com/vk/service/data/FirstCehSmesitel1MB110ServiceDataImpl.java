@@ -18,13 +18,13 @@ import org.springframework.stereotype.Service;
 public class FirstCehSmesitel1MB110ServiceDataImpl extends RootServiceDataImpl<Float, TableModelFirstCehSmesitel1KMSF1, DeviceModelFirstCehSmesitel1MB110> implements FirstCehSmesitel1MB110ServiceData{
 
 
-    private RootRepositoryData<TableModelFirstCehSmesitel1KMSF1> rootRepositoryData;
+    private final RootRepositoryData<TableModelFirstCehSmesitel1KMSF1> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelFirstCehSmesitel1MB110> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelFirstCehSmesitel1MB110> rootModbusRepository;
 
     @Autowired
-    public FirstCehSmesitel1MB110ServiceDataImpl(RootRepositoryData<TableModelFirstCehSmesitel1KMSF1> rootRepositoryData,
-                                              RootModbusRepository<DeviceModelFirstCehSmesitel1MB110> rootModbusRepository){
+    public FirstCehSmesitel1MB110ServiceDataImpl(final RootRepositoryData<TableModelFirstCehSmesitel1KMSF1> rootRepositoryData,
+                                                 final RootModbusRepository<DeviceModelFirstCehSmesitel1MB110> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

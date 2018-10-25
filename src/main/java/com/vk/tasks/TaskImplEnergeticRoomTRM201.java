@@ -26,18 +26,18 @@ public class TaskImplEnergeticRoomTRM201
         TableModelEnergeticRoomTRM201,
         DeviceToTableEnergeticRoomTRM201> implements TaskEnergeticRoomTRM201{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201;
+    private final DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201;
 
-    private EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
 
     private final String messageThirdCehAutoclavTRM202 = "/topic/trm201";
 
     @Autowired
-    public TaskImplEnergeticRoomTRM201(MessageSendingOperations<String> messageSendingOperations,
-                                       DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201,
-                                       EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData){
+    public TaskImplEnergeticRoomTRM201(final MessageSendingOperations<String> messageSendingOperations,
+                                       final DeviceToTableEnergeticRoomTRM201 deviceToTableEnergeticRoomTRM201,
+                                       final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData){
         super(messageSendingOperations, deviceToTableEnergeticRoomTRM201, energeticRoomTRM201ServiceData);
         super.setMessage(messageThirdCehAutoclavTRM202);
         this.messageSendingOperations = messageSendingOperations;

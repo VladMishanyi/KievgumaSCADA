@@ -22,8 +22,8 @@ public class DeviceToTableImplFirstCehKameraDozrevanyaMPR51
         TableModelFirstCehKameraDozrevanyaMPR51> implements DeviceToTableFirstCehKameraDozrevanyaMPR51 {
 
     @Override
-    public TableModelFirstCehKameraDozrevanyaMPR51 convert(DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
-                                                           DeviceModelFirstCehKameraDozrevanyaTRM138 deviceModelFirstCehKameraDozrevanyaTRM138){
+    public TableModelFirstCehKameraDozrevanyaMPR51 convert(final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
+                                                           final DeviceModelFirstCehKameraDozrevanyaTRM138 deviceModelFirstCehKameraDozrevanyaTRM138){
         TableModelFirstCehKameraDozrevanyaMPR51 tableModelFirstCehKameraDozrevanyaMPR51 = null;
         if (ObjectValidator.isNotNull(deviceModelFirstCehKameraDozrevanyaMPR51) && ObjectValidator.isNotNull(deviceModelFirstCehKameraDozrevanyaTRM138)){
             tableModelFirstCehKameraDozrevanyaMPR51 = new TableModelFirstCehKameraDozrevanyaMPR51();

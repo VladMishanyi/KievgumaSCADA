@@ -13,7 +13,7 @@ public class JsonShortBody {
         return value;
     }
 
-    public void setValue(short value) {
+    public void setValue(final short value) {
         this.value = value;
     }
 }

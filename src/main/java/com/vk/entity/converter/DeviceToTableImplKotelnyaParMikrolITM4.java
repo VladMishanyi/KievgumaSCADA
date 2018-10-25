@@ -22,7 +22,7 @@ public class DeviceToTableImplKotelnyaParMikrolITM4
         TableModelKotelnyaParMikrolITM4> implements DeviceToTableKotelnyaParMikrolITM4 {
 
     @Override
-    public TableModelKotelnyaParMikrolITM4 convert(DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4){
+    public TableModelKotelnyaParMikrolITM4 convert(final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4){
         TableModelKotelnyaParMikrolITM4 tableModelKotelnyaParMikrolITM4 = null;
         if (ObjectValidator.isNotNull(deviceModelKotelnyaParMikrolITM4)){
             tableModelKotelnyaParMikrolITM4 = new TableModelKotelnyaParMikrolITM4();

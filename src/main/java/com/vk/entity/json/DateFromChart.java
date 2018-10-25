@@ -13,7 +13,7 @@ public class DateFromChart {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(final String start) {
         this.start = start;
     }
 
@@ -21,7 +21,7 @@ public class DateFromChart {
         return end;
     }
 
-    public void setEnd(String end) {
+    public void setEnd(final String end) {
         this.end = end;
     }
 }

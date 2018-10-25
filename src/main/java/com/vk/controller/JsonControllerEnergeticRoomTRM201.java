@@ -23,13 +23,13 @@ public class JsonControllerEnergeticRoomTRM201 extends JsonController{
 
     private Logger LOGGER = Logger.getLogger(JsonControllerEnergeticRoomTRM201.class);
 
-    private EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerEnergeticRoomTRM201(EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData,
-                                             SimpleDateFormat simpleDateFormat){
+    public JsonControllerEnergeticRoomTRM201(final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData,
+                                             final SimpleDateFormat simpleDateFormat){
         this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

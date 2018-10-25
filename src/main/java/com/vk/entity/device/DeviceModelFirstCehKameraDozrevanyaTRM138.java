@@ -138,7 +138,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister0;
     }
 
-    public void setDeviceValuesRegister0(float deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(final float deviceValuesRegister0) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
@@ -146,7 +146,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters0;
     }
 
-    public void setHisDeviceValuesRegisters0(float hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(final float hisDeviceValuesRegisters0) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 
@@ -174,7 +174,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister1;
     }
 
-    public void setDeviceValuesRegister1(float deviceValuesRegister1) {
+    public void setDeviceValuesRegister1(final float deviceValuesRegister1) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister1 = deviceValuesRegister1;
     }
 
@@ -182,7 +182,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters1;
     }
 
-    public void setHisDeviceValuesRegisters1(float hisDeviceValuesRegisters1) {
+    public void setHisDeviceValuesRegisters1(final float hisDeviceValuesRegisters1) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
     }
 
@@ -210,7 +210,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister2;
     }
 
-    public void setDeviceValuesRegister2(float deviceValuesRegister2) {
+    public void setDeviceValuesRegister2(final float deviceValuesRegister2) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister2 = deviceValuesRegister2;
     }
 
@@ -218,7 +218,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters2;
     }
 
-    public void setHisDeviceValuesRegisters2(float hisDeviceValuesRegisters2) {
+    public void setHisDeviceValuesRegisters2(final float hisDeviceValuesRegisters2) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
     }
 
@@ -246,7 +246,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister3;
     }
 
-    public void setDeviceValuesRegister3(float deviceValuesRegister3) {
+    public void setDeviceValuesRegister3(final float deviceValuesRegister3) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister3 = deviceValuesRegister3;
     }
 
@@ -254,7 +254,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters3;
     }
 
-    public void setHisDeviceValuesRegisters3(float hisDeviceValuesRegisters3) {
+    public void setHisDeviceValuesRegisters3(final float hisDeviceValuesRegisters3) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters3 = hisDeviceValuesRegisters3;
     }
 
@@ -282,7 +282,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister4;
     }
 
-    public void setDeviceValuesRegister4(float deviceValuesRegister4) {
+    public void setDeviceValuesRegister4(final float deviceValuesRegister4) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister4 = deviceValuesRegister4;
     }
 
@@ -290,7 +290,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters4;
     }
 
-    public void setHisDeviceValuesRegisters4(float hisDeviceValuesRegisters4) {
+    public void setHisDeviceValuesRegisters4(final float hisDeviceValuesRegisters4) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters4 = hisDeviceValuesRegisters4;
     }
 
@@ -318,7 +318,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister5;
     }
 
-    public void setDeviceValuesRegister5(float deviceValuesRegister5) {
+    public void setDeviceValuesRegister5(final float deviceValuesRegister5) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister5 = deviceValuesRegister5;
     }
 
@@ -326,7 +326,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters5;
     }
 
-    public void setHisDeviceValuesRegisters5(float hisDeviceValuesRegisters5) {
+    public void setHisDeviceValuesRegisters5(final float hisDeviceValuesRegisters5) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters5 = hisDeviceValuesRegisters5;
     }
 
@@ -354,7 +354,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister6;
     }
 
-    public void setDeviceValuesRegister6(float deviceValuesRegister6) {
+    public void setDeviceValuesRegister6(final float deviceValuesRegister6) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister6 = deviceValuesRegister6;
     }
 
@@ -362,7 +362,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters6;
     }
 
-    public void setHisDeviceValuesRegisters6(float hisDeviceValuesRegisters6) {
+    public void setHisDeviceValuesRegisters6(final float hisDeviceValuesRegisters6) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters6 = hisDeviceValuesRegisters6;
     }
 
@@ -390,7 +390,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return deviceValuesRegister7;
     }
 
-    public void setDeviceValuesRegister7(float deviceValuesRegister7) {
+    public void setDeviceValuesRegister7(final float deviceValuesRegister7) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister7 = deviceValuesRegister7;
     }
 
@@ -398,7 +398,7 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return hisDeviceValuesRegisters7;
     }
 
-    public void setHisDeviceValuesRegisters7(float hisDeviceValuesRegisters7) {
+    public void setHisDeviceValuesRegisters7(final float hisDeviceValuesRegisters7) {
         DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters7 = hisDeviceValuesRegisters7;
     }
 

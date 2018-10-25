@@ -19,19 +19,19 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplSevenCehAutoclavSPK107 implements ModbusRepositorySevenCehAutoclavSPK107 {
 
-    private ModbusMaster modbusMasterSerialSecond;
+    private final ModbusMaster modbusMasterSerialSecond;
 
-    private DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107;
+    private final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107;
 
-    private BatchRead batchRead;
+    private final BatchRead batchRead;
 
-    private ModbusFloat modbusFloat;
+    private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplSevenCehAutoclavSPK107(ModbusMaster modbusMasterSerialSecond,
-                                                      DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107,
-                                                      BatchRead batchRead,
-                                                      ModbusFloat modbusFloat){
+    public ModbusRepositoryImplSevenCehAutoclavSPK107(final ModbusMaster modbusMasterSerialSecond,
+                                                      final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107,
+                                                      final BatchRead batchRead,
+                                                      final ModbusFloat modbusFloat){
         this.modbusMasterSerialSecond = modbusMasterSerialSecond;
         this.deviceModelSevenCehAutoclavSPK107 = deviceModelSevenCehAutoclavSPK107;
         this.batchRead = batchRead;

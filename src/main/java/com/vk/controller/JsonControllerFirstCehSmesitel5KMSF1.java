@@ -19,13 +19,13 @@ public class JsonControllerFirstCehSmesitel5KMSF1 extends JsonController {
 
     private Logger LOGGER = Logger.getLogger(JsonControllerFirstCehSmesitel4KMSF1.class);
 
-    private FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData;
+    private final FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerFirstCehSmesitel5KMSF1(FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData,
-                                                SimpleDateFormat simpleDateFormat){
+    public JsonControllerFirstCehSmesitel5KMSF1(final FirstCehSmesitel5KMSF1ServiceData firstCehSmesitel5KMSF1ServiceData,
+                                                final SimpleDateFormat simpleDateFormat){
         this.firstCehSmesitel5KMSF1ServiceData = firstCehSmesitel5KMSF1ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

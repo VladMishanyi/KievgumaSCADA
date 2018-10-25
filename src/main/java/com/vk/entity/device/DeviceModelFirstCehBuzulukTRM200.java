@@ -66,7 +66,7 @@ public class DeviceModelFirstCehBuzulukTRM200 implements DeviceModel{
         return deviceValuesRegister0;
     }
 
-    public void setDeviceValuesRegister0(float deviceValuesRegister0) {
+    public void setDeviceValuesRegister0(final float deviceValuesRegister0) {
         DeviceModelFirstCehBuzulukTRM200.deviceValuesRegister0 = deviceValuesRegister0;
     }
 
@@ -74,7 +74,7 @@ public class DeviceModelFirstCehBuzulukTRM200 implements DeviceModel{
         return hisDeviceValuesRegisters0;
     }
 
-    public void setHisDeviceValuesRegisters0(float hisDeviceValuesRegisters0) {
+    public void setHisDeviceValuesRegisters0(final float hisDeviceValuesRegisters0) {
         DeviceModelFirstCehBuzulukTRM200.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
     }
 
@@ -102,7 +102,7 @@ public class DeviceModelFirstCehBuzulukTRM200 implements DeviceModel{
         return deviceValuesRegister1;
     }
 
-    public void setDeviceValuesRegister1(float deviceValuesRegister1) {
+    public void setDeviceValuesRegister1(final float deviceValuesRegister1) {
         DeviceModelFirstCehBuzulukTRM200.deviceValuesRegister1 = deviceValuesRegister1;
     }
 
@@ -110,7 +110,7 @@ public class DeviceModelFirstCehBuzulukTRM200 implements DeviceModel{
         return hisDeviceValuesRegisters1;
     }
 
-    public void setHisDeviceValuesRegisters1(float hisDeviceValuesRegisters1) {
+    public void setHisDeviceValuesRegisters1(final float hisDeviceValuesRegisters1) {
         DeviceModelFirstCehBuzulukTRM200.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
     }
 

@@ -23,12 +23,12 @@ import java.util.List;
 
 public class RootServiceDataImpl<K extends Number, E extends TableModel, T extends DeviceModel> implements RootServiceData<E, T>{
 
-    private RootRepositoryData<E> rootRepositoryData;
+    private final RootRepositoryData<E> rootRepositoryData;
 
-    private RootModbusRepository<T> rootModbusRepository;
+    private final RootModbusRepository<T> rootModbusRepository;
 
-    public RootServiceDataImpl(RootRepositoryData<E> rootRepositoryData,
-                               RootModbusRepository<T> rootModbusRepository){
+    public RootServiceDataImpl(final RootRepositoryData<E> rootRepositoryData,
+                               final RootModbusRepository<T> rootModbusRepository){
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;
     }
@@ -46,13 +46,13 @@ public class RootServiceDataImpl<K extends Number, E extends TableModel, T exten
 
     @Transactional
     @Override
-    public void addTabeDevice(E tableModel){
+    public void addTabeDevice(final E tableModel){
         rootRepositoryData.saveAndFlush(tableModel);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<E> rangeTimestamp(Date startTimestamp, Date endTimestamp){
+    public List<E> rangeTimestamp(final Date startTimestamp, final Date endTimestamp){
         return rootRepositoryData.findByDateBetween(startTimestamp, endTimestamp);
     }
 }

@@ -19,19 +19,19 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplKotelnyaParMikrolITM4 implements ModbusRepositoryKotelnyaParMikrolITM4 {
 
-    private ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMaster modbusMasterSerialFirst;
 
-    private DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4;
+    private final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4;
 
-    private BatchRead batchRead;
+    private final BatchRead batchRead;
 
-    private ModbusFloat modbusFloat;
+    private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplKotelnyaParMikrolITM4(ModbusMaster modbusMasterSerialFirst,
-                                                     DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4,
-                                                     BatchRead batchRead,
-                                                     ModbusFloat modbusFloat){
+    public ModbusRepositoryImplKotelnyaParMikrolITM4(final ModbusMaster modbusMasterSerialFirst,
+                                                     final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4,
+                                                     final BatchRead batchRead,
+                                                     final ModbusFloat modbusFloat){
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelKotelnyaParMikrolITM4 = deviceModelKotelnyaParMikrolITM4;
         this.batchRead = batchRead;

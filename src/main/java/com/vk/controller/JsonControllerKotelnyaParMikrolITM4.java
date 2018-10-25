@@ -24,13 +24,13 @@ public class JsonControllerKotelnyaParMikrolITM4 extends JsonController {
 
     private Logger LOGGER = Logger.getLogger(JsonControllerFirstCehKameraDozrevanyaMPR51.class);
 
-    private KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData;
+    private final KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerKotelnyaParMikrolITM4(KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData,
-                                                       SimpleDateFormat simpleDateFormat){
+    public JsonControllerKotelnyaParMikrolITM4(final KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData,
+                                               final SimpleDateFormat simpleDateFormat){
         this.kotelnyaParMikrolITM4ServiceData = kotelnyaParMikrolITM4ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

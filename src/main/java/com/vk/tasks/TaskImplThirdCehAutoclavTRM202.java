@@ -31,18 +31,18 @@ public class TaskImplThirdCehAutoclavTRM202
         TableModelThirdCehAutoclavTRM202,
         DeviceToTableThirdCehAutoclavTRM202> implements TaskThirdCehAutoclavTRM202{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202;
+    private final DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202;
 
-    private ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData;
+    private final ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData;
 
     private final String messageThirdCehAutoclavTRM202 = "/topic/thirdCehAvtoclav";
 
     @Autowired
-    public TaskImplThirdCehAutoclavTRM202(MessageSendingOperations<String> messageSendingOperations,
-                                          DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202,
-                                          ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData){
+    public TaskImplThirdCehAutoclavTRM202(final MessageSendingOperations<String> messageSendingOperations,
+                                          final DeviceToTableThirdCehAutoclavTRM202 deviceToTableThirdCehAutoclavTRM202,
+                                          final ThirdCehAutoclavTRM202ServiceData thirdCehAutoclavTRM202ServiceData){
         super(messageSendingOperations, deviceToTableThirdCehAutoclavTRM202, thirdCehAutoclavTRM202ServiceData);
         super.setMessage(messageThirdCehAutoclavTRM202);
         this.messageSendingOperations = messageSendingOperations;

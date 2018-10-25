@@ -43,7 +43,7 @@ public abstract class TableModel implements Serializable, Cloneable{
     }
 
     @Override
-    public boolean equals(Object object){
+    public boolean equals(final Object object){
         boolean result = ObjectValidator.isNotNull(object) &&
                 (this == object) &&
                 (this.getClass() == object.getClass());
@@ -73,7 +73,7 @@ public abstract class TableModel implements Serializable, Cloneable{
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
@@ -81,7 +81,7 @@ public abstract class TableModel implements Serializable, Cloneable{
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(final Date date) {
         this.date = date;
     }
 }

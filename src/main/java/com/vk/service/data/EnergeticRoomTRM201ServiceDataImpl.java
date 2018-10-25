@@ -19,13 +19,13 @@ import org.springframework.stereotype.Service;
 public class EnergeticRoomTRM201ServiceDataImpl extends RootServiceDataImpl<Float, TableModelEnergeticRoomTRM201, DeviceModelEnergeticRoomTRM201> implements EnergeticRoomTRM201ServiceData{
 
 
-    private RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData;
+    private final RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository;
 
     @Autowired
-    public EnergeticRoomTRM201ServiceDataImpl(RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData,
-                                              RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository){
+    public EnergeticRoomTRM201ServiceDataImpl(final RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData,
+                                              final RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

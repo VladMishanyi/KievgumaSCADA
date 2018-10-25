@@ -37,7 +37,7 @@ public class DeviceToTableImplEnergeticRoomTRM201
 //    }
 
     @Override
-    public TableModelEnergeticRoomTRM201 convert(DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201){
+    public TableModelEnergeticRoomTRM201 convert(final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201){
 
         TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = null;
         if (ObjectValidator.isNotNull(deviceModelEnergeticRoomTRM201)){

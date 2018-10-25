@@ -19,13 +19,13 @@ public class JsonControllerFirstCehAutoclavTRM202 extends JsonController {
 
     private Logger LOGGER = Logger.getLogger(JsonControllerFirstCehAutoclavTRM202.class);
 
-    private FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData;
+    private final FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData;
 
-    private SimpleDateFormat simpleDateFormat;
+    private final SimpleDateFormat simpleDateFormat;
 
     @Autowired
-    public JsonControllerFirstCehAutoclavTRM202(FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData,
-                                             SimpleDateFormat simpleDateFormat){
+    public JsonControllerFirstCehAutoclavTRM202(final FirstCehAutoclavTRM202ServiceData firstCehAutoclavTRM202ServiceData,
+                                                final SimpleDateFormat simpleDateFormat){
         this.firstCehAutoclavTRM202ServiceData = firstCehAutoclavTRM202ServiceData;
         this.simpleDateFormat = simpleDateFormat;
     }

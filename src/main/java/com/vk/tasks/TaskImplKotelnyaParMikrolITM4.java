@@ -28,18 +28,18 @@ public class TaskImplKotelnyaParMikrolITM4
         TableModelKotelnyaParMikrolITM4,
         DeviceToTableKotelnyaParMikrolITM4> implements TaskKotelnyaParMikrolITM4{
 
-    private MessageSendingOperations<String> messageSendingOperations;
+    private final MessageSendingOperations<String> messageSendingOperations;
 
-    private DeviceToTableKotelnyaParMikrolITM4 deviceToTableKotelnyaParMikrolITM4;
+    private final DeviceToTableKotelnyaParMikrolITM4 deviceToTableKotelnyaParMikrolITM4;
 
-    private KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData;
+    private final KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData;
 
     private final String messageKotelnyaParMikrolITM4 = "/topic/kotelnyaParMikrolITM4";
 
     @Autowired
-    public TaskImplKotelnyaParMikrolITM4(MessageSendingOperations<String> messageSendingOperations,
-                                         DeviceToTableKotelnyaParMikrolITM4 deviceToTableKotelnyaParMikrolITM4,
-                                         KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData){
+    public TaskImplKotelnyaParMikrolITM4(final MessageSendingOperations<String> messageSendingOperations,
+                                         final DeviceToTableKotelnyaParMikrolITM4 deviceToTableKotelnyaParMikrolITM4,
+                                         final KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData){
         super(messageSendingOperations, deviceToTableKotelnyaParMikrolITM4, kotelnyaParMikrolITM4ServiceData);
         super.setMessage(messageKotelnyaParMikrolITM4);
         this.messageSendingOperations = messageSendingOperations;

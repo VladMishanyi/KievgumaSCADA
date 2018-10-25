@@ -18,13 +18,13 @@ import org.springframework.stereotype.Service;
 public class SevenCehAutoclavSPK107ServiceDataImpl extends RootServiceDataImpl<Float, TableModelSevenCehAutoclavSPK107, DeviceModelSevenCehAutoclavSPK107> implements SevenCehAutoclavSPK107ServiceData{
 
 
-    private RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData;
+    private final RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelSevenCehAutoclavSPK107> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelSevenCehAutoclavSPK107> rootModbusRepository;
 
     @Autowired
-    public SevenCehAutoclavSPK107ServiceDataImpl(RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData,
-                                              RootModbusRepository<DeviceModelSevenCehAutoclavSPK107> rootModbusRepository){
+    public SevenCehAutoclavSPK107ServiceDataImpl(final RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData,
+                                                 final RootModbusRepository<DeviceModelSevenCehAutoclavSPK107> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

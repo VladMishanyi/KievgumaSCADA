@@ -18,13 +18,13 @@ import org.springframework.stereotype.Service;
 public class FirstCehAutoclavTRM202ServiceDataImpl extends RootServiceDataImpl<Float, TableModelFirstCehAutoclavTRM202, DeviceModelFirstCehAutoclavTRM202> implements FirstCehAutoclavTRM202ServiceData{
 
 
-    private RootRepositoryData<TableModelFirstCehAutoclavTRM202> rootRepositoryData;
+    private final RootRepositoryData<TableModelFirstCehAutoclavTRM202> rootRepositoryData;
 
-    private RootModbusRepository<DeviceModelFirstCehAutoclavTRM202> rootModbusRepository;
+    private final RootModbusRepository<DeviceModelFirstCehAutoclavTRM202> rootModbusRepository;
 
     @Autowired
-    public FirstCehAutoclavTRM202ServiceDataImpl(RootRepositoryData<TableModelFirstCehAutoclavTRM202> rootRepositoryData,
-                                              RootModbusRepository<DeviceModelFirstCehAutoclavTRM202> rootModbusRepository){
+    public FirstCehAutoclavTRM202ServiceDataImpl(final RootRepositoryData<TableModelFirstCehAutoclavTRM202> rootRepositoryData,
+                                                 final RootModbusRepository<DeviceModelFirstCehAutoclavTRM202> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;

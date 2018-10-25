@@ -19,19 +19,19 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
 public class ModbusRepositoryImplFirstCehBuzulukTRM200 implements ModbusRepositoryFirstCehBuzulukTRM200 {
 
-    private ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMaster modbusMasterSerialFirst;
 
-    private DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200;
+    private final DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200;
 
-    private BatchRead batchRead;
+    private final BatchRead batchRead;
 
-    private ModbusFloat modbusFloat;
+    private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehBuzulukTRM200(ModbusMaster modbusMasterSerialFirst,
-                                                     DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200,
-                                                     BatchRead batchRead,
-                                                     ModbusFloat modbusFloat){
+    public ModbusRepositoryImplFirstCehBuzulukTRM200(final ModbusMaster modbusMasterSerialFirst,
+                                                     final DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200,
+                                                     final BatchRead batchRead,
+                                                     final ModbusFloat modbusFloat){
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehBuzulukTRM200 = deviceModelFirstCehBuzulukTRM200;
         this.batchRead = batchRead;
