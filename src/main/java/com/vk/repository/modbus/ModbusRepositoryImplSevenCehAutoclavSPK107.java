@@ -1,10 +1,9 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,9 +16,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplSevenCehAutoclavSPK107 implements ModbusRepositorySevenCehAutoclavSPK107 {
+public class ModbusRepositoryImplSevenCehAutoclavSPK107
+        extends RootModbusRepositoryImpl<Float, ModbusFloat, DeviceModelSevenCehAutoclavSPK107>
+        implements ModbusRepositorySevenCehAutoclavSPK107 {
 
-    private final ModbusMaster modbusMasterSerialSecond;
+    private final ModbusMasterSerialModel modbusMasterSerialSecond;
 
     private final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107;
 
@@ -28,10 +29,11 @@ public class ModbusRepositoryImplSevenCehAutoclavSPK107 implements ModbusReposit
     private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplSevenCehAutoclavSPK107(final ModbusMaster modbusMasterSerialSecond,
+    public ModbusRepositoryImplSevenCehAutoclavSPK107(final ModbusMasterSerialModel modbusMasterSerialSecond,
                                                       final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107,
                                                       final BatchRead batchRead,
                                                       final ModbusFloat modbusFloat){
+        super(modbusMasterSerialSecond, modbusFloat);
         this.modbusMasterSerialSecond = modbusMasterSerialSecond;
         this.deviceModelSevenCehAutoclavSPK107 = deviceModelSevenCehAutoclavSPK107;
         this.batchRead = batchRead;
@@ -52,4 +54,14 @@ public class ModbusRepositoryImplSevenCehAutoclavSPK107 implements ModbusReposit
         deviceModelSevenCehAutoclavSPK107.setDeviceValuesRegister2(list.get(2));
         return deviceModelSevenCehAutoclavSPK107;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusFloat.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialSecond.getPort();
+//    }
 }

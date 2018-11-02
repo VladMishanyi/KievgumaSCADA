@@ -211,4 +211,11 @@ public class WebController {
 
         taskKotelnyaParMikrolITM4.work1();
     }
+
+    @Scheduled(fixedDelay = 500)//500ms
+    private void secondLoop(){
+        taskEnergeticRoomTRM201.checkMaster();
+        taskFirstCehSmesitel1KMSF1.checkMaster();
+        taskSevenCehAutoclavSPK107.checkMaster();
+    }
 }

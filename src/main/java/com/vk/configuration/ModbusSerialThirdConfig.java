@@ -1,6 +1,5 @@
 package com.vk.configuration;
 
-import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -38,9 +37,9 @@ public class ModbusSerialThirdConfig {
     private int retries;
 
     @Bean(name = "modbusMasterSerialThird")
-    public ModbusMaster modbusMasterSerialThird() {
+    public ModbusMasterSerialModel modbusMasterSerialThird() {
         ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel(commPortId,
                 baduRate, dataBits, stopBits, parity, timeout, retries);
-        return modbusMasterSerialModel.getMaster();
+        return modbusMasterSerialModel;
     }
 }

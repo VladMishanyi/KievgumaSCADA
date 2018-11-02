@@ -1,10 +1,9 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelLaboratoryAutoclavMV110;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,9 +16,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplLaboratoryAutoclavMV110 implements ModbusRepositoryLaboratoryAutoclavMV110 {
+public class ModbusRepositoryImplLaboratoryAutoclavMV110
+        extends RootModbusRepositoryImpl<Float, ModbusFloat, DeviceModelLaboratoryAutoclavMV110>
+        implements ModbusRepositoryLaboratoryAutoclavMV110 {
 
-    private final ModbusMaster modbusMasterSerialSecond;
+    private final ModbusMasterSerialModel modbusMasterSerialSecond;
 
     private final DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110;
 
@@ -28,10 +29,11 @@ public class ModbusRepositoryImplLaboratoryAutoclavMV110 implements ModbusReposi
     private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplLaboratoryAutoclavMV110(final ModbusMaster modbusMasterSerialSecond,
+    public ModbusRepositoryImplLaboratoryAutoclavMV110(final ModbusMasterSerialModel modbusMasterSerialSecond,
                                                        final DeviceModelLaboratoryAutoclavMV110 deviceModelLaboratoryAutoclavMV110,
                                                        final BatchRead batchRead,
                                                        final ModbusFloat modbusFloat){
+        super(modbusMasterSerialSecond, modbusFloat);
         this.modbusMasterSerialSecond = modbusMasterSerialSecond;
         this.deviceModelLaboratoryAutoclavMV110 = deviceModelLaboratoryAutoclavMV110;
         this.batchRead = batchRead;
@@ -50,4 +52,14 @@ public class ModbusRepositoryImplLaboratoryAutoclavMV110 implements ModbusReposi
         deviceModelLaboratoryAutoclavMV110.setDeviceValuesRegister1(list.get(1));
         return deviceModelLaboratoryAutoclavMV110;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusFloat.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialSecond.getPort();
+//    }
 }

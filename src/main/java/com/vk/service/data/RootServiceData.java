@@ -1,5 +1,6 @@
 package com.vk.service.data;
 
+import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModel;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModel;
@@ -17,6 +18,10 @@ public interface RootServiceData<E extends TableModel, T extends DeviceModel> {
     List<BigInteger> readBaseSize();
 
     T getModbusDevice();
+
+    boolean getModbusStatus();
+
+    String getBranchName();
 
     void addTabeDevice(E tableModel);
 

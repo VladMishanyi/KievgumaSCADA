@@ -1,5 +1,6 @@
 package com.vk.tasks;
 
+import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
 import com.vk.entity.converter.DeviceToTableImplEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;

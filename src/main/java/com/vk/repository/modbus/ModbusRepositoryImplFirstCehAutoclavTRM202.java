@@ -1,10 +1,9 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,9 +16,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplFirstCehAutoclavTRM202 implements ModbusRepositoryFirstCehAutoclavTRM202 {
+public class ModbusRepositoryImplFirstCehAutoclavTRM202
+        extends RootModbusRepositoryImpl<Float, ModbusFloat, DeviceModelFirstCehAutoclavTRM202>
+        implements ModbusRepositoryFirstCehAutoclavTRM202 {
 
-    private final ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMasterSerialModel modbusMasterSerialFirst;
 
     private final DeviceModelFirstCehAutoclavTRM202 deviceModelFirstCehAutoclavTRM202;
 
@@ -28,10 +29,11 @@ public class ModbusRepositoryImplFirstCehAutoclavTRM202 implements ModbusReposit
     private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehAutoclavTRM202(final ModbusMaster modbusMasterSerialFirst,
+    public ModbusRepositoryImplFirstCehAutoclavTRM202(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                       final DeviceModelFirstCehAutoclavTRM202 deviceModelFirstCehAutoclavTRM202,
                                                       final BatchRead batchRead,
                                                       final ModbusFloat modbusFloat){
+        super(modbusMasterSerialFirst, modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehAutoclavTRM202 = deviceModelFirstCehAutoclavTRM202;
         this.batchRead = batchRead;
@@ -50,4 +52,14 @@ public class ModbusRepositoryImplFirstCehAutoclavTRM202 implements ModbusReposit
         deviceModelFirstCehAutoclavTRM202.setDeviceValuesRegister1(list.get(1));
         return deviceModelFirstCehAutoclavTRM202;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusFloat.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialFirst.getPort();
+//    }
 }

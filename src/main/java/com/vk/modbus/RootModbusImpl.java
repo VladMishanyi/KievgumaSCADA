@@ -5,6 +5,7 @@ import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.ModbusLocator;
 import com.serotonin.modbus4j.ModbusMaster;
 import com.serotonin.modbus4j.exception.ModbusInitException;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -18,16 +19,20 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
 
     private Logger LOGGER = Logger.getLogger(RootModbusImpl.class);
 
+    private boolean status = false;
+
     public RootModbusImpl(){}
 
     @Override
-    public List<E> readDataFromModBus(final ModbusMaster modbusMaster,
+    public List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                       final int adr,
                                       final BatchRead batch,
                                       final boolean enableBatch,
                                       final ModbusLocator ... modbusLocator){
+        ModbusMaster modbusMaster = modbusMasterSerialModel.getMaster();
         List<E> list = new ArrayList<>();
         try {
+            status = true;
             modbusMaster.init();
             boolean test = modbusMaster.testSlaveNode(adr);
             LOGGER.info("ModBus Listen slave address №"+ adr + "--"+test);
@@ -37,8 +42,10 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
             String message = e.getMessage();
             LOGGER.error("ModBus Init problem, slave address №"+ adr+ "--"+message);
             System.out.println("ModBus Init problem, slave address №"+ adr+ "--"+message);
+            status = false;
         }
         finally {
+            status = true;
             try {
                 if (enableBatch){
                     for (int i=0; i < modbusLocator.length; i++){
@@ -59,11 +66,13 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
                 LOGGER.error("ModBus Transport problem, slave address №"+ adr+ "--"+message);
                 System.out.println("ModBus Transport problem, slave address №"+ adr+ "--"+message);
                 setValuesDefault(list, modbusLocator.length);
+                status = false;
             }
             finally {
                 LOGGER.info("ModBus Close connection, slave address №"+ adr);
                 System.out.println("ModBus Close connection, slave address №"+ adr);
                 modbusMaster.destroy();
+                status = false;
             }
             //-----------------------------------------------------------------------------
             String form = "---";
@@ -77,11 +86,13 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
     }
 
     @Override
-    public void writeDataToModBus(final ModbusMaster modbusMaster,
+    public void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                   final int adr,
                                   final E values,
                                   final ModbusLocator modbusLocator){
+        ModbusMaster modbusMaster = modbusMasterSerialModel.getMaster();
         try {
+            status = true;
             modbusMaster.init();
             boolean test = modbusMaster.testSlaveNode(adr);
             LOGGER.info("ModBus Listen slave address №"+ adr + "--"+test);
@@ -91,21 +102,30 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
             String message = e.getMessage();
             LOGGER.error("ModBus Init problem, slave address №"+ adr+ "--"+message);
             System.out.println("ModBus Init problem, slave address №"+ adr+ "--"+message);
+            status = false;
         }
         finally {
+            status = true;
             try {
                 modbusMaster.setValue(modbusLocator, values);
             }catch (Exception e){
                 String message = e.getMessage();
                 LOGGER.error("ModBus Transport problem, slave address №"+ adr+ "--"+message);
                 System.out.println("ModBus Transport problem, slave address №"+ adr+ "--"+message);
+                status = false;
             }
             finally {
                 LOGGER.info("ModBus Close connection, slave address №"+ adr);
                 System.out.println("ModBus Close connection, slave address №"+ adr);
                 modbusMaster.destroy();
+                status = false;
             }
         }
+    }
+
+    @Override
+    public boolean getModbusStatus(){
+        return status;
     }
 
     abstract void setValuesDefault(List<E> list, int length);

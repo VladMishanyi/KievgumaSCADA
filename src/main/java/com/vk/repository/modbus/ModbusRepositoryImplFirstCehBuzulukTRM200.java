@@ -1,10 +1,9 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
 import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,9 +16,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplFirstCehBuzulukTRM200 implements ModbusRepositoryFirstCehBuzulukTRM200 {
+public class ModbusRepositoryImplFirstCehBuzulukTRM200
+        extends RootModbusRepositoryImpl<Float, ModbusFloat, DeviceModelFirstCehBuzulukTRM200>
+        implements ModbusRepositoryFirstCehBuzulukTRM200 {
 
-    private final ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMasterSerialModel modbusMasterSerialFirst;
 
     private final DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200;
 
@@ -28,10 +29,11 @@ public class ModbusRepositoryImplFirstCehBuzulukTRM200 implements ModbusReposito
     private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehBuzulukTRM200(final ModbusMaster modbusMasterSerialFirst,
+    public ModbusRepositoryImplFirstCehBuzulukTRM200(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                      final DeviceModelFirstCehBuzulukTRM200 deviceModelFirstCehBuzulukTRM200,
                                                      final BatchRead batchRead,
                                                      final ModbusFloat modbusFloat){
+        super(modbusMasterSerialFirst, modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehBuzulukTRM200 = deviceModelFirstCehBuzulukTRM200;
         this.batchRead = batchRead;
@@ -50,4 +52,14 @@ public class ModbusRepositoryImplFirstCehBuzulukTRM200 implements ModbusReposito
         deviceModelFirstCehBuzulukTRM200.setDeviceValuesRegister1(list.get(1));
         return deviceModelFirstCehBuzulukTRM200;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusFloat.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialFirst.getPort();
+//    }
 }

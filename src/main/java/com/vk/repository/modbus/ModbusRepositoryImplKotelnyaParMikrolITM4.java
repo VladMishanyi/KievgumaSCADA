@@ -1,10 +1,9 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
-import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
+import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelKotelnyaParMikrolITM4;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,9 +16,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplKotelnyaParMikrolITM4 implements ModbusRepositoryKotelnyaParMikrolITM4 {
+public class ModbusRepositoryImplKotelnyaParMikrolITM4
+        extends RootModbusRepositoryImpl<Float, ModbusFloat, DeviceModelKotelnyaParMikrolITM4>
+        implements ModbusRepositoryKotelnyaParMikrolITM4 {
 
-    private final ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMasterSerialModel modbusMasterSerialFirst;
 
     private final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4;
 
@@ -28,10 +29,11 @@ public class ModbusRepositoryImplKotelnyaParMikrolITM4 implements ModbusReposito
     private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplKotelnyaParMikrolITM4(final ModbusMaster modbusMasterSerialFirst,
+    public ModbusRepositoryImplKotelnyaParMikrolITM4(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                      final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4,
                                                      final BatchRead batchRead,
                                                      final ModbusFloat modbusFloat){
+        super(modbusMasterSerialFirst, modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelKotelnyaParMikrolITM4 = deviceModelKotelnyaParMikrolITM4;
         this.batchRead = batchRead;
@@ -54,4 +56,14 @@ public class ModbusRepositoryImplKotelnyaParMikrolITM4 implements ModbusReposito
         deviceModelKotelnyaParMikrolITM4.setDeviceValuesRegister3(list.get(3));
         return deviceModelKotelnyaParMikrolITM4;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusFloat.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialFirst.getPort();
+//    }
 }

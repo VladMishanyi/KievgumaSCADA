@@ -2,7 +2,7 @@ package com.vk.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.ModbusLocator;
-import com.serotonin.modbus4j.ModbusMaster;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 
 import java.util.List;
 
@@ -11,13 +11,16 @@ import java.util.List;
  */
 public interface RootModbus<E extends Number> {
 
-    public List<E> readDataFromModBus(ModbusMaster modbusMaster,
+    public List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                       int adr, BatchRead batch,
                                       boolean enableBatch,
                                       ModbusLocator... modbusLocator);
 
-    public void writeDataToModBus(ModbusMaster modbusMaster,
+    public void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                   int adr,
                                   E values,
                                   ModbusLocator modbusLocator);
+
+    public boolean getModbusStatus();
+
 }

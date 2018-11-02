@@ -1,12 +1,11 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel3KMSF1;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
+import com.vk.modbus.ModbusFloat;
 import com.vk.modbus.ModbusInteger;
-import com.vk.modbus.ModbusShort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
@@ -18,9 +17,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplFirstCehSmesitel3KMSF1 implements ModbusRepositoryFirstCehSmesitel3KMSF1 {
+public class ModbusRepositoryImplFirstCehSmesitel3KMSF1
+        extends RootModbusRepositoryImpl<Integer, ModbusInteger, DeviceModelFirstCehSmesitel3KMSF1>
+        implements ModbusRepositoryFirstCehSmesitel3KMSF1 {
 
-    private final ModbusMaster modbusMasterSerialThird;
+    private final ModbusMasterSerialModel modbusMasterSerialThird;
 
     private final DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1;
 
@@ -29,10 +30,11 @@ public class ModbusRepositoryImplFirstCehSmesitel3KMSF1 implements ModbusReposit
     private final ModbusInteger modbusInteger;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehSmesitel3KMSF1(final ModbusMaster modbusMasterSerialThird,
+    public ModbusRepositoryImplFirstCehSmesitel3KMSF1(final ModbusMasterSerialModel modbusMasterSerialThird,
                                                       final DeviceModelFirstCehSmesitel3KMSF1 deviceModelFirstCehSmesitel3KMSF1,
                                                       final BatchRead batchRead,
                                                       final ModbusInteger modbusInteger){
+        super(modbusMasterSerialThird, modbusInteger);
         this.modbusMasterSerialThird = modbusMasterSerialThird;
         this.deviceModelFirstCehSmesitel3KMSF1 = deviceModelFirstCehSmesitel3KMSF1;
         this.batchRead = batchRead;
@@ -49,4 +51,14 @@ public class ModbusRepositoryImplFirstCehSmesitel3KMSF1 implements ModbusReposit
         deviceModelFirstCehSmesitel3KMSF1.setDeviceValuesRegister0(list.get(0));
         return deviceModelFirstCehSmesitel3KMSF1;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusInteger.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialThird.getPort();
+//    }
 }

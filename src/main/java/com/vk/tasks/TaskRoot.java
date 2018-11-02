@@ -8,4 +8,6 @@ public interface TaskRoot {
     public void work1();
 
     public void work2();
+
+    public void checkMaster();
 }

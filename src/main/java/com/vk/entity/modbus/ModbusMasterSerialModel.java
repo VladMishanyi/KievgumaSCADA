@@ -47,7 +47,6 @@ public class ModbusMasterSerialModel {
         params.setDataBits(dataBits);
         params.setStopBits(stopBits);
         params.setParity(parity);
-
         master.setTimeout(timeout);
         master.setRetries(retries);
         return master;

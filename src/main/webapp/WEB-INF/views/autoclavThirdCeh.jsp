@@ -73,7 +73,7 @@
         <div class="row" style="margin-top: 10px">
             <div class="col-md-4 col-lg-4 col-">
                 <div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="bufferChartMark">Буффер графика</span>
+                    <span class="input-group-addon" id="bufferChartMark">Буфер графика</span>
                     <input type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="1000">
                 </div>
             </div>

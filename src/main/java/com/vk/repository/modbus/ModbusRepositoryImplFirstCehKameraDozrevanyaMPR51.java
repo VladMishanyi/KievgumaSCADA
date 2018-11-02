@@ -1,10 +1,9 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.serotonin.modbus4j.ModbusMaster;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
-import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,9 +16,11 @@ import java.util.List;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51 implements ModbusRepositoryFirstCehKameraDozrevanyaMPR51 {
+public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51
+        extends RootModbusRepositoryImpl<Float, ModbusFloat, DeviceModelFirstCehKameraDozrevanyaMPR51>
+        implements ModbusRepositoryFirstCehKameraDozrevanyaMPR51 {
 
-    private final ModbusMaster modbusMasterSerialFirst;
+    private final ModbusMasterSerialModel modbusMasterSerialFirst;
 
     private final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51;
 
@@ -28,10 +29,11 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51 implements Modbus
     private final ModbusFloat modbusFloat;
 
     @Autowired
-    public ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51(final ModbusMaster modbusMasterSerialFirst,
+    public ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                              final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
                                                              final BatchRead batchRead,
                                                              final ModbusFloat modbusFloat){
+        super(modbusMasterSerialFirst, modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehKameraDozrevanyaMPR51 = deviceModelFirstCehKameraDozrevanyaMPR51;
         this.batchRead = batchRead;
@@ -52,4 +54,14 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51 implements Modbus
         deviceModelFirstCehKameraDozrevanyaMPR51.setDeviceValuesRegister2(list.get(2));
         return deviceModelFirstCehKameraDozrevanyaMPR51;
     }
+
+//    @Override
+//    public boolean getModbusStatus() {
+//        return modbusFloat.getModbusStatus();
+//    }
+//
+//    @Override
+//    public String getMasterName(){
+//        return modbusMasterSerialFirst.getPort();
+//    }
 }

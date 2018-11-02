@@ -1,10 +1,9 @@
 package com.vk.ModbusSerial;
 
-import com.serotonin.io.serial.SerialParameters;
 import com.serotonin.modbus4j.*;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
-import com.serotonin.modbus4j.exception.ModbusInitException;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.*;
 
 import java.util.List;
@@ -17,23 +16,24 @@ public class MasterSerialRTU {
 
     public static void main(String[] args) throws Exception {
 
-        final ModbusFactory factory = new ModbusFactory();
-
-        final SerialParameters params = new SerialParameters();
+//        final ModbusFactory factory = new ModbusFactory();
+//
+//        final SerialParameters params = new SerialParameters();
 //        params.setCommPortId("/dev/ttyUSB0");
 //        params.setCommPortId("COM3");
 //        params.setCommPortId("COM4");
-        params.setCommPortId("COM7");
+//        params.setCommPortId("COM7");
         //for windows use COM0
         //for ubuntu use /dev/ttyUSB0
-        params.setBaudRate(115200);
-        params.setDataBits(8);
-        params.setStopBits(1);
-        params.setParity(0);
-
-        final ModbusMaster master = factory.createRtuMaster(params);
-        master.setTimeout(1000);//1s timeout
-        master.setRetries(1);// 1 repeats
+//        params.setBaudRate(115200);
+//        params.setDataBits(8);
+//        params.setStopBits(1);
+//        params.setParity(0);
+        final ModbusMasterSerialModel modbusMasterSerialModel =
+                new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 1000, 1);
+//        final ModbusMaster master = factory.createRtuMaster(params);
+//        master.setTimeout(1000);//1s timeout
+//        master.setRetries(1);// 1 repeats
         long startTime = 0;
 
         final ModbusFloat modbusFloat = new ModbusFloatImpl();
@@ -57,15 +57,7 @@ public class MasterSerialRTU {
             int index = 0;
             startTime = System.currentTimeMillis();
             BatchRead batch = new BatchRead();
-            List<Integer> list = modbusInteger.readDataFromModBus(master, 24, batch,false,
-                    /*modbusLocator0,
-                    modbusLocator1,
-                    modbusLocator2,
-                    modbusLocator3,
-                    modbusLocator4,
-                    modbusLocator5,
-                    modbusLocator6,
-                    modbusLocator7*/
+            List<Integer> list = modbusInteger.readDataFromModBus(modbusMasterSerialModel, 24, batch,false,
                     modbusLocator8);
 
             for (Integer x: list){
@@ -74,7 +66,7 @@ public class MasterSerialRTU {
             }
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
             System.out.println("----------------------------------------------------------------------------------------");
-            Thread.sleep(2000);
+            Thread.sleep(500);
         }
     }
 }

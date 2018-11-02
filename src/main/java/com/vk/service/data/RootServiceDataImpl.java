@@ -1,5 +1,6 @@
 package com.vk.service.data;
 
+import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModel;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModel;
@@ -42,6 +43,16 @@ public class RootServiceDataImpl<K extends Number, E extends TableModel, T exten
     @Override
     public T getModbusDevice(){
         return rootModbusRepository.getDeviceModel(false);
+    }
+
+    @Override
+    public synchronized boolean getModbusStatus() {
+        return rootModbusRepository.getModbusStatus();
+    }
+
+    @Override
+    public synchronized String getBranchName(){
+        return rootModbusRepository.getBranchName();
     }
 
     @Transactional
