@@ -1,5 +1,8 @@
 package com.vk.controller;
 
+import com.vk.chain.Chain1;
+import com.vk.chain.Chain2;
+import com.vk.chain.Chain3;
 import com.vk.entity.converter.*;
 import com.vk.entity.device.*;
 import com.vk.entity.table.*;
@@ -25,66 +28,26 @@ import java.io.IOException;
  */
 @Controller
 @EnableScheduling
-@ComponentScan(basePackages = {"com.vk.service"})
+@ComponentScan(basePackages = {"com.vk.service", "com.vk.chain"})
 public class WebController {
 
     private final Logger LOGGER = Logger.getLogger(WebController.class);
 
-    private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
+    private Chain1 chain1;
 
-    private final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202;
+    private Chain2 chain2;
 
-    private final TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200;
-
-    private final TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51;
-
-    private final TaskFirstCehSmesitel1KMSF1 taskFirstCehSmesitel1KMSF1;
-
-    private final TaskFirstCehSmesitel2KMSF1 taskFirstCehSmesitel2KMSF1;
-
-    private final TaskFirstCehSmesitel3KMSF1 taskFirstCehSmesitel3KMSF1;
-
-    private final TaskFirstCehSmesitel4KMSF1 taskFirstCehSmesitel4KMSF1;
-
-    private final TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1;
-
-    private final TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202;
-
-    private final TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107;
-
-    private final TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110;
-
-    private final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
+    private Chain3 chain3;
 
     @Autowired
     public WebController(
-            final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
-            final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202,
-            final TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200,
-            final TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51,
-            final TaskFirstCehSmesitel1KMSF1 taskFirstCehSmesitel1KMSF1,
-            final TaskFirstCehSmesitel2KMSF1 taskFirstCehSmesitel2KMSF1,
-            final TaskFirstCehSmesitel3KMSF1 taskFirstCehSmesitel3KMSF1,
-            final TaskFirstCehSmesitel4KMSF1 taskFirstCehSmesitel4KMSF1,
-            final TaskFirstCehSmesitel5KMSF1 taskFirstCehSmesitel5KMSF1,
-            final TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107,
-            final TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202,
-            final TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110,
-            final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4
+            final Chain1 chain1,
+            final Chain2 chain2,
+            final Chain3 chain3
     ){
-        this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;
-        this.taskFirstCehAutoclavTRM202 = taskFirstCehAutoclavTRM202;
-        this.taskFirstCehBuzulukTRM200 = taskFirstCehBuzulukTRM200;
-        this.taskKameraDozrevanyaMPR51 = taskKameraDozrevanyaMPR51;
-        this.taskFirstCehSmesitel1KMSF1 = taskFirstCehSmesitel1KMSF1;
-        this.taskFirstCehSmesitel2KMSF1 = taskFirstCehSmesitel2KMSF1;
-        this.taskFirstCehSmesitel3KMSF1 = taskFirstCehSmesitel3KMSF1;
-        this.taskFirstCehSmesitel4KMSF1 = taskFirstCehSmesitel4KMSF1;
-        this.taskFirstCehSmesitel5KMSF1 = taskFirstCehSmesitel5KMSF1;
-        this.taskSevenCehAutoclavSPK107 = taskSevenCehAutoclavSPK107;
-        this.taskThirdCehAutoclavTRM202 = taskThirdCehAutoclavTRM202;
-        this.taskLaboratoryAutoclavMV110 = taskLaboratoryAutoclavMV110;
-        this.taskKotelnyaParMikrolITM4 = taskKotelnyaParMikrolITM4;
+        this.chain1 = chain1;
+        this.chain2 = chain2;
+        this.chain3 = chain3;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -110,11 +73,6 @@ public class WebController {
         catch (IOException ex){
             LOGGER.error("Can't parse redirect address -> "+ ex.getClass());
         }
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String getText(){
-        return "test";
     }
 
     @RequestMapping(value = "/energetics", method = RequestMethod.GET)
@@ -185,37 +143,17 @@ public class WebController {
     @Scheduled(fixedDelay = 10000)//10000ms
     private void loopSerialLisener(){
 
-        taskEnergeticRoomTRM201.work1();
+        chain1.start();
 
-        taskFirstCehAutoclavTRM202.work1();
+        chain2.start();
 
-        taskFirstCehBuzulukTRM200.work1();
-
-        taskKameraDozrevanyaMPR51.work2();
-
-        taskFirstCehSmesitel1KMSF1.work2();
-
-        taskFirstCehSmesitel2KMSF1.work2();
-
-        taskFirstCehSmesitel3KMSF1.work2();
-
-        taskFirstCehSmesitel4KMSF1.work2();
-
-        taskFirstCehSmesitel5KMSF1.work2();
-
-        taskSevenCehAutoclavSPK107.work1();
-
-        taskThirdCehAutoclavTRM202.work1();
-
-        taskLaboratoryAutoclavMV110.work1();
-
-        taskKotelnyaParMikrolITM4.work1();
+        chain3.start();
     }
 
-    @Scheduled(fixedDelay = 500)//500ms
-    private void secondLoop(){
-        taskEnergeticRoomTRM201.checkMaster();
-        taskFirstCehSmesitel1KMSF1.checkMaster();
-        taskSevenCehAutoclavSPK107.checkMaster();
-    }
+//    @Scheduled(fixedDelay = 500)//500ms
+//    private void secondLoop(){
+//        taskEnergeticRoomTRM201.checkMaster();
+//        taskFirstCehSmesitel1KMSF1.checkMaster();
+//        taskSevenCehAutoclavSPK107.checkMaster();
+//    }
 }
