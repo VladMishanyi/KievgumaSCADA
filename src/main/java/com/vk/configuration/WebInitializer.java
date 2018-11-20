@@ -47,6 +47,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
                 ModbusSerialFirstConfig.class,
                 ModbusSerialSecondConfig.class,
                 ModbusSerialThirdConfig.class,
+                ModbusSerialFourthConfig.class,
                 DatabaseFirstConfig.class,
                 SecurityConfig.class
         };

@@ -198,4 +198,43 @@ CREATE TABLE users (
   DEFAULT CHARSET = utf8;
 
 /*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS SecondCehKameraVulcan1;
+CREATE TABLE SecondCehKameraVulcan1 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 FLOAT        NOT NULL DEFAULT 0,
+  channel2 FLOAT        NOT NULL DEFAULT 0,
+  channel3 FLOAT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS SecondCehKameraVulcan2;
+CREATE TABLE SecondCehKameraVulcan2 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 FLOAT        NOT NULL DEFAULT 0,
+  channel2 FLOAT        NOT NULL DEFAULT 0,
+  channel3 FLOAT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS SecondCehKameraVulcan3;
+CREATE TABLE SecondCehKameraVulcan3 (
+  id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  date   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  channel1 FLOAT        NOT NULL DEFAULT 0,
+  channel2 FLOAT        NOT NULL DEFAULT 0,
+  channel3 FLOAT        NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
 INSERT INTO users (id, date, role, name, login, password, description, locked) VALUES (1, CURRENT_TIMESTAMP, 'ADMIN', 'ad', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'new', FALSE);

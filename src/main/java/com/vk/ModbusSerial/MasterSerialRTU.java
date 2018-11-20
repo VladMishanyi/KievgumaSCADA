@@ -30,7 +30,7 @@ public class MasterSerialRTU {
 //        params.setStopBits(1);
 //        params.setParity(0);
         final ModbusMasterSerialModel modbusMasterSerialModel =
-                new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 1000, 1);
+                new ModbusMasterSerialModel("COM11", 9600, 8, 1, 0, 1000, 1);
 //        final ModbusMaster master = factory.createRtuMaster(params);
 //        master.setTimeout(1000);//1s timeout
 //        master.setRetries(1);// 1 repeats
@@ -52,15 +52,16 @@ public class MasterSerialRTU {
         final ModbusLocator modbusLocator10 = new ModbusLocator(72, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
         final ModbusLocator modbusLocator11 = new ModbusLocator(64, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
         final ModbusLocator modbusLocator12 = new ModbusLocator(48, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator13 = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, 0, DataType.TWO_BYTE_INT_SIGNED);
 
         while (true){
             int index = 0;
             startTime = System.currentTimeMillis();
             BatchRead batch = new BatchRead();
-            List<Integer> list = modbusInteger.readDataFromModBus(modbusMasterSerialModel, 24, batch,false,
-                    modbusLocator8);
+            List<Short> list = modbusShort.readDataFromModBus(modbusMasterSerialModel, 1, batch,false,
+                    modbusLocator13);
 
-            for (Integer x: list){
+            for (Short x: list){
                 System.out.println("--"+index+"--" +x);
                 index++;
             }

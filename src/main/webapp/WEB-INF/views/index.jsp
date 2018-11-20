@@ -60,7 +60,7 @@
             <polygon points="1173,206 1513,285 1509,299 1539,307 1485,359 1087,259"/>
             Sorry, your browser does not support inline SVG.
         </a>
-        <a id="secondceh" class="item" href="#">
+        <a id="secondceh" class="item" data-toggle="modal" data-target=".img-secondceh-modal">
             <polygon points="1250,162 1610,240 1567,279 1529,269 1522,275 1185,198"/>
             Sorry, your browser does not support inline SVG.
         </a>
@@ -208,6 +208,61 @@
             <svg height="669" width="1000">
                 <a id="KotelnyaParMikrolITM4" class="item" href="/kotelnyaParMikrolITM4">
                     <polygon points="20,363 75,363 75,457 20,457"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+            </svg>
+        </div>
+    </div>
+    <div class="modal fade img-secondceh-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
+        <div class="modal-dialog modal-lg" role="document">
+            <img src="resources/img/kievguma_zone_2_crop_700px.jpg">
+            <svg height="1724" width="700">
+                <a id="secondcehDielKamVulcan1" class="item" href="/secondcehDielKamVulcan1">
+                    <polygon points="423,480 525,480 525,535 423,535"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamVulcan2" class="item" href="/secondcehDielKamVulcan2">
+                    <polygon points="423,540 525,540 525,595 423,595"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamVulcan3" class="item" href="/secondcehDielKamVulcan3">
+                    <polygon points="423,605 525,605 525,660 423,660"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamVody1" class="item" href="/secondcehDielKamVody1">
+                    <polygon points="423,667 525,667 525,722 423,722"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamVody2" class="item" href="/secondcehDielKamVody2">
+                    <polygon points="423,735 525,735 525,790 423,790"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamVody3" class="item" href="/secondcehDielKamVody3">
+                    <polygon points="423,795 525,795 525,850 423,850"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamLateks" class="item" href="/secondcehDielKamLateks">
+                    <polygon points="423,857 525,857 525,912 423,912"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamKoagulant" class="item" href="/secondcehDielKamKoagulant">
+                    <polygon points="423,920 525,920 525,975 423,975"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamSushka" class="item" href="/secondcehDielKamSushka">
+                    <polygon points="423,982 525,982 525,1037 423,1037"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehDielKamDushirovanie" class="item" href="/secondcehDielKamDushirovanie">
+                    <polygon points="423,1045 525,1045 525,1100 423,1100"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehLineBalon" class="item" href="/secondcehLineBalon">
+                    <polygon points="223,480 310,480 310,715 223,715"/>
+                    Sorry, your browser does not support inline SVG.
+                </a>
+                <a id="secondcehLineNapal" class="item" href="/secondcehLineNapal">
+                    <polygon points="545,485 627,485 627,1100 545,1100"/>
                     Sorry, your browser does not support inline SVG.
                 </a>
             </svg>

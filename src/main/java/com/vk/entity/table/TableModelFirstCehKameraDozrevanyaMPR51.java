@@ -63,11 +63,11 @@ public class TableModelFirstCehKameraDozrevanyaMPR51 extends TableModel{
             result = (this.channel1 == tableModelFirstCehKameraDozrevanyaMPR51.channel1) &&
                     (this.channel2 == tableModelFirstCehKameraDozrevanyaMPR51.channel2) &&
                     (this.channel3 == tableModelFirstCehKameraDozrevanyaMPR51.channel3) &&
-                    (this.channel3 == tableModelFirstCehKameraDozrevanyaMPR51.channel4) &&
-                    (this.channel3 == tableModelFirstCehKameraDozrevanyaMPR51.channel5) &&
-                    (this.channel3 == tableModelFirstCehKameraDozrevanyaMPR51.channel6) &&
-                    (this.channel3 == tableModelFirstCehKameraDozrevanyaMPR51.channel7) &&
-                    (this.channel3 == tableModelFirstCehKameraDozrevanyaMPR51.channel8);
+                    (this.channel4 == tableModelFirstCehKameraDozrevanyaMPR51.channel4) &&
+                    (this.channel5 == tableModelFirstCehKameraDozrevanyaMPR51.channel5) &&
+                    (this.channel6 == tableModelFirstCehKameraDozrevanyaMPR51.channel6) &&
+                    (this.channel7 == tableModelFirstCehKameraDozrevanyaMPR51.channel7) &&
+                    (this.channel8 == tableModelFirstCehKameraDozrevanyaMPR51.channel8);
         }
         return result;
     }
