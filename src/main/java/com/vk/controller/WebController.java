@@ -3,6 +3,7 @@ package com.vk.controller;
 import com.vk.chain.Chain1;
 import com.vk.chain.Chain2;
 import com.vk.chain.Chain3;
+import com.vk.chain.Chain4;
 import com.vk.entity.converter.*;
 import com.vk.entity.device.*;
 import com.vk.entity.table.*;
@@ -39,15 +40,19 @@ public class WebController {
 
     private Chain3 chain3;
 
+    private Chain4 chain4;
+
     @Autowired
     public WebController(
             final Chain1 chain1,
             final Chain2 chain2,
-            final Chain3 chain3
+            final Chain3 chain3,
+            final Chain4 chain4
     ){
         this.chain1 = chain1;
         this.chain2 = chain2;
         this.chain3 = chain3;
+        this.chain4 = chain4;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -140,6 +145,21 @@ public class WebController {
         return "taskKotelnyaParMikrolITM4";
     }
 
+    @RequestMapping(value = "/secondcehDielKamVulcan1", method = RequestMethod.GET)
+    public String getTaskSecondCehKameraVulcan1MPR51(){
+        return "secondCehKameraVulcan1MPR51";
+    }
+
+    @RequestMapping(value = "/secondcehDielKamVulcan2", method = RequestMethod.GET)
+    public String getTaskSecondCehKameraVulcan2MPR51(){
+        return "secondCehKameraVulcan2MPR51";
+    }
+
+    @RequestMapping(value = "/secondcehDielKamVulcan3", method = RequestMethod.GET)
+    public String getTaskSecondCehKameraVulcan3MPR51(){
+        return "secondCehKameraVulcan3MPR51";
+    }
+
     @Scheduled(fixedDelay = 10000)//10000ms
     private void loopSerialLisener(){
 
@@ -148,6 +168,8 @@ public class WebController {
         chain2.start();
 
         chain3.start();
+
+        chain4.start();
     }
 
 //    @Scheduled(fixedDelay = 500)//500ms
