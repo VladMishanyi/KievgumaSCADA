@@ -34,7 +34,7 @@ public class TaskImplSecondCehKameraVulcan2MPR51
 
     private final SecondCehKameraVulcan2MPR51ServiceData secondCehKameraVulcan2MPR51ServiceData;
 
-    private final String messageSecondCehKameraVulcan2MPR51ServiceData = "/topic/secondCehKameraVulcan2MPR51ServiceData";
+    private final String messageSecondCehKameraVulcan2MPR51ServiceData = "/topic/secondCehKameraVulcan2MPR51";
 
     @Autowired
     public TaskImplSecondCehKameraVulcan2MPR51(final MessageSendingOperations<String> messageSendingOperations,

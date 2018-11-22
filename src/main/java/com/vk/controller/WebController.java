@@ -160,7 +160,7 @@ public class WebController {
         return "secondCehKameraVulcan3MPR51";
     }
 
-    @Scheduled(fixedDelay = 10000)//10000ms
+    @Scheduled(fixedDelay = 5000)//5000ms
     private void loopSerialLisener(){
 
         chain1.start();

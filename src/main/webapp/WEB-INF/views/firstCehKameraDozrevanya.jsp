@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Kamera Dozrevanya First Departmnt</title>
+    <title>Kamera Dozrevanya First Department</title>
     <link rel="icon" type="image/png" href="resources/img/favicons.png">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.7/css/bootstrap.css"/>
