@@ -30,7 +30,7 @@ public class MasterSerialRTU {
 //        params.setStopBits(1);
 //        params.setParity(0);
         final ModbusMasterSerialModel modbusMasterSerialModel =
-                new ModbusMasterSerialModel("COM11", 9600, 8, 1, 0, 1000, 1);
+                new ModbusMasterSerialModel("COM10", 9600, 8, 1, 0, 1000, 1);
 //        final ModbusMaster master = factory.createRtuMaster(params);
 //        master.setTimeout(1000);//1s timeout
 //        master.setRetries(1);// 1 repeats

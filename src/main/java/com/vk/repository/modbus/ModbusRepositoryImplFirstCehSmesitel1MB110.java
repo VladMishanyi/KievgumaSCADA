@@ -52,14 +52,4 @@ public class ModbusRepositoryImplFirstCehSmesitel1MB110
         deviceModelFirstCehSmesitel1MB110.setDeviceValuesRegister1(list.get(1));
         return deviceModelFirstCehSmesitel1MB110;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialThird.getPort();
-//    }
 }

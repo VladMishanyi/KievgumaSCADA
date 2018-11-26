@@ -45,4 +45,9 @@ public class TaskImplEnergeticRoomTRM201
         this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
         this.deviceToTableEnergeticRoomTRM201 = deviceToTableEnergeticRoomTRM201;
     }
+
+    @Override
+    public EnergeticRoomTRM201ServiceData getEnergeticRoomTRM201ServiceData() {
+        return energeticRoomTRM201ServiceData;
+    }
 }

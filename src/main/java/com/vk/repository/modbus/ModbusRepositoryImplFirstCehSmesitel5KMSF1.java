@@ -51,14 +51,4 @@ public class ModbusRepositoryImplFirstCehSmesitel5KMSF1
         deviceModelFirstCehSmesitel5KMSF1.setDeviceValuesRegister0(list.get(0));
         return deviceModelFirstCehSmesitel5KMSF1;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusInteger.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialThird.getPort();
-//    }
 }

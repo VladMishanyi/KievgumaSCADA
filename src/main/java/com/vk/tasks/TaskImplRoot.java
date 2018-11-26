@@ -115,12 +115,4 @@ public class TaskImplRoot<I extends Number,
             serviceData1.addTabeDevice(tableModel);
         }
     }
-
-    @Override
-    public void checkMaster(){
-        String master = serviceData1.getBranchName();
-        boolean stasus = serviceData1.getModbusStatus();
-        System.out.println("Master is init --->"+master+"--->"+stasus);
-
-    }
 }

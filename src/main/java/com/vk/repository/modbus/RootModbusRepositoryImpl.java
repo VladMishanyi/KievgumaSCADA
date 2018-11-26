@@ -26,14 +26,4 @@ public abstract class RootModbusRepositoryImpl<N extends Number, T extends RootM
     }
 
     public abstract D getDeviceModel(final boolean enableBatch);
-
-    @Override
-    public boolean getModbusStatus(){
-        return modbus.getModbusStatus();
-    }
-
-    @Override
-    public String getBranchName(){
-        return modbusMasterSerial.getPort();
-    }
 }

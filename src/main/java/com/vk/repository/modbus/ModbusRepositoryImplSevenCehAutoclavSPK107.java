@@ -54,14 +54,4 @@ public class ModbusRepositoryImplSevenCehAutoclavSPK107
         deviceModelSevenCehAutoclavSPK107.setDeviceValuesRegister2(list.get(2));
         return deviceModelSevenCehAutoclavSPK107;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialSecond.getPort();
-//    }
 }

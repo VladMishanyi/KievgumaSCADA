@@ -12,4 +12,7 @@ import java.util.List;
  */
 public interface EnergeticRoomTRM201ServiceData extends RootServiceData<TableModelEnergeticRoomTRM201, DeviceModelEnergeticRoomTRM201> {
 
+    public void writeValueFirstChanel(int value);
+
+    public void writeValueFirstChane2(int value);
 }

@@ -52,14 +52,4 @@ public class ModbusRepositoryImplFirstCehBuzulukTRM200
         deviceModelFirstCehBuzulukTRM200.setDeviceValuesRegister1(list.get(1));
         return deviceModelFirstCehBuzulukTRM200;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFirst.getPort();
-//    }
 }

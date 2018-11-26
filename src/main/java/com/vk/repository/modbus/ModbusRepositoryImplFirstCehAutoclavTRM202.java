@@ -52,14 +52,4 @@ public class ModbusRepositoryImplFirstCehAutoclavTRM202
         deviceModelFirstCehAutoclavTRM202.setDeviceValuesRegister1(list.get(1));
         return deviceModelFirstCehAutoclavTRM202;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFirst.getPort();
-//    }
 }

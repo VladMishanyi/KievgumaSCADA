@@ -1,6 +1,7 @@
 package com.vk.chain;
 
 import com.vk.controller.WebController;
+import com.vk.entity.modbus.ModbusBodyQuery;
 import com.vk.tasks.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +10,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.Queue;
+import java.util.concurrent.PriorityBlockingQueue;
+
 /**
  * Created by KIP-PC99 on 05.11.2018.
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.service"})
-public class Chain1/* extends Thread */{
+public class Chain1 extends Thread {
 
-    private Logger LOGGER = Logger.getLogger(WebController.class);
+    private Logger LOGGER = Logger.getLogger(Chain1.class);
+
+    public static Queue<ModbusBodyQuery> bodyQuery = new PriorityBlockingQueue<>();
 
     private TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
@@ -43,44 +49,45 @@ public class Chain1/* extends Thread */{
         this.taskKameraDozrevanyaMPR51 = taskKameraDozrevanyaMPR51;
         this.taskThirdCehAutoclavTRM202 = taskThirdCehAutoclavTRM202;
         this.taskKotelnyaParMikrolITM4 = taskKotelnyaParMikrolITM4;
+        this.start();
     }
 
-//    @Override
-    public void start() {
-        taskEnergeticRoomTRM201.work1();
+    @Override
+    public void run(){
+        while (!this.isInterrupted()){
+            try {
+                System.out.println("-----------------------------------------------------START FIRST CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+                taskEnergeticRoomTRM201.work1();
 
-        taskFirstCehAutoclavTRM202.work1();
+                taskFirstCehAutoclavTRM202.work1();
 
-        taskFirstCehBuzulukTRM200.work1();
+                taskFirstCehBuzulukTRM200.work1();
 
-        taskKameraDozrevanyaMPR51.work2();
+                taskKameraDozrevanyaMPR51.work2();
 
-        taskThirdCehAutoclavTRM202.work1();
+                taskThirdCehAutoclavTRM202.work1();
 
-        taskKotelnyaParMikrolITM4.work1();
+                taskKotelnyaParMikrolITM4.work1();
+                System.out.println("-----------------------------------------------------END FIRS CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+                this.sleep(5000);
+            }catch (InterruptedException e){
+                String message = e.getMessage();
+                LOGGER.error("Interrupted chain1 thread --"+message);
+                System.out.println("Interrupted chain1 thread --"+message);
+            }
+        }
     }
 
-    public TaskEnergeticRoomTRM201 getTaskEnergeticRoomTRM201() {
-        return taskEnergeticRoomTRM201;
-    }
-
-    public TaskFirstCehAutoclavTRM202 getTaskFirstCehAutoclavTRM202() {
-        return taskFirstCehAutoclavTRM202;
-    }
-
-    public TaskFirstCehBuzulukTRM200 getTaskFirstCehBuzulukTRM200() {
-        return taskFirstCehBuzulukTRM200;
-    }
-
-    public TaskKameraDozrevanyaMPR51 getTaskKameraDozrevanyaMPR51() {
-        return taskKameraDozrevanyaMPR51;
-    }
-
-    public TaskThirdCehAutoclavTRM202 getTaskThirdCehAutoclavTRM202() {
-        return taskThirdCehAutoclavTRM202;
-    }
-
-    public TaskKotelnyaParMikrolITM4 getTaskKotelnyaParMikrolITM4() {
-        return taskKotelnyaParMikrolITM4;
+    public void checkQueryQueue(){
+        if (bodyQuery.size() > 0){
+            while (bodyQuery.isEmpty()){
+                ModbusBodyQuery body = bodyQuery.poll();
+                switch (body.getQueryNumber()){
+                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel(body.getValue());
+                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2(body.getValue());
+                    default: LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
+                }
+            }
+        }
     }
 }

@@ -58,14 +58,4 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaTRM138
         deviceModelFirstCehKameraDozrevanyaTRM138.setDeviceValuesRegister4(list.get(4));
         return deviceModelFirstCehKameraDozrevanyaTRM138;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFirst.getPort();
-//    }
 }

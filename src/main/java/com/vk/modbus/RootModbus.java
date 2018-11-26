@@ -20,7 +20,4 @@ public interface RootModbus<E extends Number> {
                                   int adr,
                                   E values,
                                   ModbusLocator modbusLocator);
-
-    public boolean getModbusStatus();
-
 }

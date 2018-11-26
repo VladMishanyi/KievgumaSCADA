@@ -45,16 +45,6 @@ public class RootServiceDataImpl<K extends Number, E extends TableModel, T exten
         return rootModbusRepository.getDeviceModel(false);
     }
 
-    @Override
-    public synchronized boolean getModbusStatus() {
-        return rootModbusRepository.getModbusStatus();
-    }
-
-    @Override
-    public synchronized String getBranchName(){
-        return rootModbusRepository.getBranchName();
-    }
-
     @Transactional
     @Override
     public void addTabeDevice(final E tableModel){

@@ -52,14 +52,4 @@ public class ModbusRepositoryImplLaboratoryAutoclavMV110
         deviceModelLaboratoryAutoclavMV110.setDeviceValuesRegister1(list.get(1));
         return deviceModelLaboratoryAutoclavMV110;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialSecond.getPort();
-//    }
 }

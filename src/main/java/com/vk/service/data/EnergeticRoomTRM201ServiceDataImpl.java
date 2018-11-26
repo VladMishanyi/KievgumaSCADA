@@ -5,6 +5,7 @@ import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 //import com.vk.repository.BaseRepositoryEnergeticRoomTRM201;
 import com.vk.repository.data.EnergeticRoomTRM201RepositoryData;
 import com.vk.repository.data.RootRepositoryData;
+import com.vk.repository.modbus.ModbusRepositoryEnergeticRoomTRM201;
 import com.vk.repository.modbus.RootModbusRepository;
 //import com.vk.repository.old_modbus.ModbusRepositoryEnergeticRoomTRM201;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,25 @@ public class EnergeticRoomTRM201ServiceDataImpl extends RootServiceDataImpl<Floa
 
     private final RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository;
 
+    private final ModbusRepositoryEnergeticRoomTRM201 modbusRepositoryEnergeticRoomTRM201;
+
     @Autowired
     public EnergeticRoomTRM201ServiceDataImpl(final RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData,
-                                              final RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository){
+                                              final RootModbusRepository<DeviceModelEnergeticRoomTRM201> rootModbusRepository,
+                                              final ModbusRepositoryEnergeticRoomTRM201 modbusRepositoryEnergeticRoomTRM201){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;
+        this.modbusRepositoryEnergeticRoomTRM201 = modbusRepositoryEnergeticRoomTRM201;
+    }
+
+    @Override
+    public void writeValueFirstChanel(int value){
+        modbusRepositoryEnergeticRoomTRM201.writeValueFirstChanel(value);
+    }
+
+    @Override
+    public void writeValueFirstChane2(int value){
+        modbusRepositoryEnergeticRoomTRM201.writeValueFirstChane2(value);
     }
 }

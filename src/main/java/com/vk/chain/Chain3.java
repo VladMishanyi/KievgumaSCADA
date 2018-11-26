@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.service"})
-public class Chain3/* extends Thread*/ {
+public class Chain3 extends Thread{
 
-    private final Logger LOGGER = Logger.getLogger(WebController.class);
+    private final Logger LOGGER = Logger.getLogger(Chain3.class);
 
     private final TaskSevenCehAutoclavSPK107 taskSevenCehAutoclavSPK107;
 
@@ -28,20 +28,24 @@ public class Chain3/* extends Thread*/ {
                  final TaskLaboratoryAutoclavMV110 taskLaboratoryAutoclavMV110){
         this.taskSevenCehAutoclavSPK107 = taskSevenCehAutoclavSPK107;
         this.taskLaboratoryAutoclavMV110 = taskLaboratoryAutoclavMV110;
+        this.start();
     }
 
-//    @Override
-    public void start() {
-        taskSevenCehAutoclavSPK107.work1();
+    @Override
+    public void run() {
+        while (!this.isInterrupted()){
+            try {
+                System.out.println("-----------------------------------------------------START THIRD CHAIN3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333");
+                taskSevenCehAutoclavSPK107.work1();
 
-        taskLaboratoryAutoclavMV110.work1();
-    }
-
-    public TaskSevenCehAutoclavSPK107 getTaskSevenCehAutoclavSPK107() {
-        return taskSevenCehAutoclavSPK107;
-    }
-
-    public TaskLaboratoryAutoclavMV110 getTaskLaboratoryAutoclavMV110() {
-        return taskLaboratoryAutoclavMV110;
+                taskLaboratoryAutoclavMV110.work1();
+                System.out.println("-----------------------------------------------------END THIRD CHAIN3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333");
+                this.sleep(5000);
+            }catch (InterruptedException e){
+                String message = e.getMessage();
+                LOGGER.error("Interrupted chain3 thread --"+message);
+                System.out.println("Interrupted chain3 thread --"+message);
+            }
+        }
     }
 }

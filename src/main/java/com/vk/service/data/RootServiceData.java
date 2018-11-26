@@ -19,10 +19,6 @@ public interface RootServiceData<E extends TableModel, T extends DeviceModel> {
 
     T getModbusDevice();
 
-    boolean getModbusStatus();
-
-    String getBranchName();
-
     void addTabeDevice(E tableModel);
 
     List<E> rangeTimestamp(Date startTimestamp, Date endTimestamp);

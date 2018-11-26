@@ -9,8 +9,4 @@ import com.vk.entity.device.DeviceModel;
 public interface RootModbusRepository<T extends DeviceModel> {
 
     public T getDeviceModel(final boolean enableBatch);
-
-    public boolean getModbusStatus();
-
-    public String getBranchName();
 }

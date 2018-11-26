@@ -56,14 +56,4 @@ public class ModbusRepositoryImplKotelnyaParMikrolITM4
         deviceModelKotelnyaParMikrolITM4.setDeviceValuesRegister3(list.get(3));
         return deviceModelKotelnyaParMikrolITM4;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFirst.getPort();
-//    }
 }

@@ -5,6 +5,7 @@ import com.vk.entity.device.DeviceModel;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
+import com.vk.modbus.ModbusInteger;
 import com.vk.modbus.RootModbus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,16 +30,20 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
 
     private final ModbusFloat modbusFloat;
 
+    private final ModbusInteger modbusInteger;
+
     @Autowired
     public ModbusRepositoryImplEnergeticRoomTRM201(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                    final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201,
                                                    final BatchRead batchRead,
-                                                   final ModbusFloat modbusFloat){
+                                                   final ModbusFloat modbusFloat,
+                                                   final ModbusInteger modbusInteger){
         super(modbusMasterSerialFirst, modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelEnergeticRoomTRM201 = deviceModelEnergeticRoomTRM201;
         this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
+        this.modbusInteger = modbusInteger;
     }
 
     @Override
@@ -54,13 +59,21 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
         return deviceModelEnergeticRoomTRM201;
     }
 
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFirst.getPort();
-//    }
+    @Override
+    public void writeValueFirstChanel(int value){
+        modbusInteger.writeDataToModBus(modbusMasterSerialFirst,
+                deviceModelEnergeticRoomTRM201.getDeviceAddress(),
+                value,
+                deviceModelEnergeticRoomTRM201.getModbusLocator2());
+        deviceModelEnergeticRoomTRM201.setDeviceValuesRegister2(value);
+    }
+
+    @Override
+    public void writeValueFirstChane2(int value){
+        modbusInteger.writeDataToModBus(modbusMasterSerialFirst,
+                deviceModelEnergeticRoomTRM201.getDeviceAddress(),
+                value,
+                deviceModelEnergeticRoomTRM201.getModbusLocator3());
+        deviceModelEnergeticRoomTRM201.setDeviceValuesRegister3(value);
+    }
 }

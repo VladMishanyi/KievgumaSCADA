@@ -54,14 +54,4 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51
         deviceModelFirstCehKameraDozrevanyaMPR51.setDeviceValuesRegister2(list.get(2));
         return deviceModelFirstCehKameraDozrevanyaMPR51;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFirst.getPort();
-//    }
 }

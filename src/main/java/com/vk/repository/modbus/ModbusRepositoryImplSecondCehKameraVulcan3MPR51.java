@@ -55,14 +55,4 @@ public class ModbusRepositoryImplSecondCehKameraVulcan3MPR51
         deviceModelSecondCehKameraVulcan3MPR51.setDeviceValuesRegister2(list.get(2));
         return deviceModelSecondCehKameraVulcan3MPR51;
     }
-
-//    @Override
-//    public boolean getModbusStatus() {
-//        return modbusFloat.getModbusStatus();
-//    }
-//
-//    @Override
-//    public String getMasterName(){
-//        return modbusMasterSerialFourth.getPort();
-//    }
 }

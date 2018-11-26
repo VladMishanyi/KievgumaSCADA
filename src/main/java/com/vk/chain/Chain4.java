@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.service"})
-public class Chain4/* extends Thread*/ {
+public class Chain4 extends Thread {
 
-    private final Logger LOGGER = Logger.getLogger(WebController.class);
+    private final Logger LOGGER = Logger.getLogger(Chain4.class);
 
     private final TaskSecondCehKameraVulcan1MPR51 taskSecondCehKameraVulcan1MPR51;
 
@@ -29,14 +29,26 @@ public class Chain4/* extends Thread*/ {
         this.taskSecondCehKameraVulcan1MPR51 = taskSecondCehKameraVulcan1MPR51;
         this.taskSecondCehKameraVulcan2MPR51 = taskSecondCehKameraVulcan2MPR51;
         this.taskSecondCehKameraVulcan3MPR51 = taskSecondCehKameraVulcan3MPR51;
+        this.start();
     }
 
-    //    @Override
-    public void start() {
-        taskSecondCehKameraVulcan1MPR51.work1();
+    @Override
+    public void run() {
+        while (!this.isInterrupted()){
+            try {
+                System.out.println("-----------------------------------------------------START FOURTH CHAIN444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444");
+                taskSecondCehKameraVulcan1MPR51.work1();
 
-        taskSecondCehKameraVulcan2MPR51.work1();
+                taskSecondCehKameraVulcan2MPR51.work1();
 
-        taskSecondCehKameraVulcan3MPR51.work1();
+                taskSecondCehKameraVulcan3MPR51.work1();
+                System.out.println("-----------------------------------------------------END FOURTH CHAIN444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444");
+                this.sleep(5000);
+            }catch (InterruptedException e){
+                String message = e.getMessage();
+                LOGGER.error("Interrupted chain4 thread --"+message);
+                System.out.println("Interrupted chain4 thread --"+message);
+            }
+        }
     }
 }
