@@ -11,6 +11,11 @@ public class ModbusBodyQuery {
 
     public ModbusBodyQuery(){}
 
+    public ModbusBodyQuery(int queryNumber, int value){
+        this.queryNumber = queryNumber;
+        this.value = value;
+    }
+
     public int getQueryNumber() {
         return queryNumber;
     }

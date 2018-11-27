@@ -10,6 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -22,7 +24,7 @@ public class Chain1 extends Thread {
 
     private Logger LOGGER = Logger.getLogger(Chain1.class);
 
-    public static Queue<ModbusBodyQuery> bodyQuery = new PriorityBlockingQueue<>();
+    public static Queue<ModbusBodyQuery> bodyQuery = new LinkedList<>();
 
     private TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
@@ -68,6 +70,8 @@ public class Chain1 extends Thread {
                 taskThirdCehAutoclavTRM202.work1();
 
                 taskKotelnyaParMikrolITM4.work1();
+
+                checkQueryQueue();
                 System.out.println("-----------------------------------------------------END FIRS CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
                 this.sleep(5000);
             }catch (InterruptedException e){
@@ -80,12 +84,16 @@ public class Chain1 extends Thread {
 
     public void checkQueryQueue(){
         if (bodyQuery.size() > 0){
-            while (bodyQuery.isEmpty()){
+            while (!bodyQuery.isEmpty()){
                 ModbusBodyQuery body = bodyQuery.poll();
                 switch (body.getQueryNumber()){
-                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel(body.getValue());
-                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2(body.getValue());
-                    default: LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
+                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel(body.getValue()); break;
+                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2(body.getValue()); break;
+                    default: {
+                        LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
+                        System.out.println("Wrong command in Chain1 --"+body.getQueryNumber());
+                        break;
+                    }
                 }
             }
         }

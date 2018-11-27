@@ -28,32 +28,10 @@ import java.io.IOException;
  * Created by User on 2017-05-22.
  */
 @Controller
-//@EnableScheduling
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.chain"})
 public class WebController {
 
     private final Logger LOGGER = Logger.getLogger(WebController.class);
-
-//    private Chain1 chain1;
-//
-//    private Chain2 chain2;
-//
-//    private Chain3 chain3;
-//
-//    private Chain4 chain4;
-
-    @Autowired
-    public WebController(
-//            final Chain1 chain1,
-//            final Chain2 chain2,
-//            final Chain3 chain3,
-//            final Chain4 chain4
-    ){
-//        this.chain1 = chain1;
-//        this.chain2 = chain2;
-//        this.chain3 = chain3;
-//        this.chain4 = chain4;
-    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex(){
@@ -159,16 +137,4 @@ public class WebController {
     public String getTaskSecondCehKameraVulcan3MPR51(){
         return "secondCehKameraVulcan3MPR51";
     }
-
-//    @Scheduled(fixedDelay = 5000)//5000ms
-//    private void loopSerialLisener(){
-//
-//        chain1.start();
-//
-//        chain2.start();
-//
-//        chain3.start();
-//
-//        chain4.start();
-//    }
 }

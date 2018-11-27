@@ -29,16 +29,17 @@ public class MasterSerialRTU {
 //        params.setDataBits(8);
 //        params.setStopBits(1);
 //        params.setParity(0);
-        final ModbusMasterSerialModel modbusMasterSerialModel =
-                new ModbusMasterSerialModel("COM10", 9600, 8, 1, 0, 1000, 1);
 //        final ModbusMaster master = factory.createRtuMaster(params);
 //        master.setTimeout(1000);//1s timeout
 //        master.setRetries(1);// 1 repeats
         long startTime = 0;
-
-        final ModbusFloat modbusFloat = new ModbusFloatImpl();
+        final ModbusMasterSerialModel modbusMasterSerialModel =
+                new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 500, 1);
         final ModbusShort modbusShort = new ModbusShortImpl();
         final ModbusInteger modbusInteger = new ModbusIntegerImpl();
+        final ModbusLong modbusLong = new ModbusLongImpl();
+        final ModbusFloat modbusFloat = new ModbusFloatImpl();
+
         final ModbusLocator modbusLocator0 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 21, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator modbusLocator1 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 29, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator modbusLocator2 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 37, DataType.FOUR_BYTE_FLOAT);
@@ -53,21 +54,25 @@ public class MasterSerialRTU {
         final ModbusLocator modbusLocator11 = new ModbusLocator(64, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
         final ModbusLocator modbusLocator12 = new ModbusLocator(48, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
         final ModbusLocator modbusLocator13 = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, 0, DataType.TWO_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator14 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 5, DataType.TWO_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator15 = new ModbusLocator(17, RegisterRange.HOLDING_REGISTER, 128, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator16 = new ModbusLocator(17, RegisterRange.HOLDING_REGISTER, 130, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator17 = new ModbusLocator(17, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
 
         while (true){
-            int index = 0;
             startTime = System.currentTimeMillis();
-            BatchRead batch = new BatchRead();
-            List<Short> list = modbusShort.readDataFromModBus(modbusMasterSerialModel, 1, batch,false,
-                    modbusLocator13);
 
-            for (Short x: list){
-                System.out.println("--"+index+"--" +x);
-                index++;
-            }
+//            BatchRead batch = new BatchRead();
+//            modbusFloat.readDataFromModBus(modbusMasterSerialModel, 17, batch,false,
+//                    modbusLocator15,
+//                    modbusLocator16,
+//                    modbusLocator17);
+
+            modbusInteger.writeDataToModBus(modbusMasterSerialModel, 16, 20, modbusLocator14);
+
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
             System.out.println("----------------------------------------------------------------------------------------");
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }
     }
 }

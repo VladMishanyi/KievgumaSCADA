@@ -4,11 +4,13 @@ import com.vk.chain.Chain1;
 import com.vk.chain.Chain2;
 import com.vk.chain.Chain3;
 import com.vk.chain.Chain4;
+import com.vk.entity.modbus.ModbusBodyQuery;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -20,29 +22,14 @@ public class ModbusController {
 
     private final Logger LOGGER = Logger.getLogger(ModbusController.class);
 
-    private Chain1 chain1;
+    @RequestMapping(value = "/energeticRoomTRM201", method = RequestMethod.GET)
+    public String setValue1EnergeticRoomTRM201(@RequestParam(value = "query", defaultValue = "0") int query,
+                                               @RequestParam(value = "value", defaultValue = "0") int value){
 
-    private Chain2 chain2;
+                System.out.println("THIS IS A QUERY :"+query+" AND VALUE :"+value+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-    private Chain3 chain3;
-
-    private Chain4 chain4;
-
-    @Autowired
-    public ModbusController(
-            final Chain1 chain1,
-            final Chain2 chain2,
-            final Chain3 chain3,
-            final Chain4 chain4
-    ){
-        this.chain1 = chain1;
-        this.chain2 = chain2;
-        this.chain3 = chain3;
-        this.chain4 = chain4;
-    }
-
-    @RequestMapping(value = )
-    public void setValue1EnergeticRoomTRM201(@RequestParam(name = "value", defaultValue = "0") int value){
-
+                ModbusBodyQuery modbusBodyQuery = new ModbusBodyQuery(query, value);
+                Chain1.bodyQuery.add(modbusBodyQuery);
+                return "index";
     }
 }
