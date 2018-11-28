@@ -41,12 +41,13 @@ public class ModbusMasterSerialModel {
     public ModbusMaster getMaster(){
         factory = new ModbusFactory();
         params = new SerialParameters();
-        master = factory.createRtuMaster(params);
         params.setCommPortId(port);
         params.setBaudRate(baduRate);
         params.setDataBits(dataBits);
         params.setStopBits(stopBits);
         params.setParity(parity);
+
+        master = factory.createRtuMaster(params);
         master.setTimeout(timeout);
         master.setRetries(retries);
         return master;
