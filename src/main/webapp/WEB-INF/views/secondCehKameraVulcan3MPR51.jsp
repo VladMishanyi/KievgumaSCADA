@@ -40,18 +40,18 @@
             </div>
         </div>
         <table class="table">
+            <%--<tr>--%>
+                <%--<th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на канал1</span></th>--%>
+                <%--<th><span id="secondCehKameraVulcan3MPR51Kanal1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>--%>
+            <%--</tr>--%>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на канал1</span></th>
-                <th><span id="secondCehKameraVulcan3MPR51Kanal1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
-            </tr>
-            <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на канал2</span></th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры</span></th>
                 <th><span id="secondCehKameraVulcan3MPR51Kanal2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
-            <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на канал3</span></th>
-                <th><span id="secondCehKameraVulcan3MPR51Kanal3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
-            </tr>
+            <%--<tr>--%>
+                <%--<th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на канал3</span></th>--%>
+                <%--<th><span id="secondCehKameraVulcan3MPR51Kanal3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>--%>
+            <%--</tr>--%>
 
 
         </table>

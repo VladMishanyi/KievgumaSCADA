@@ -53,12 +53,12 @@ function disconnect() {
 }
 
 function showBody(body){
-    var channel1 = body.channel1;
+    // var channel1 = body.channel1;
     var channel2 = body.channel2;
-    var channel3 = body.channel3;
-    $("#secondCehKameraVulcan3MPR51Kanal1").text(channel1);
+    // var channel3 = body.channel3;
+    // $("#secondCehKameraVulcan3MPR51Kanal1").text(channel1);
     $("#secondCehKameraVulcan3MPR51Kanal2").text(channel2);
-    $("#secondCehKameraVulcan3MPR51Kanal3").text(channel3);
+    // $("#secondCehKameraVulcan3MPR51Kanal3").text(channel3);
 }
 
 var vTitle = 'Объект/Киевгума/2й Цех/Камера вулканизации3'+' с '+vStart.toString()+' по '+vEnd.toString();
@@ -67,33 +67,33 @@ var config = {
     data: {
         labels: [0],
         datasets: [
+            // {
+            //     label: 'Температура на канал1',
+            //     backgroundColor: '#00b3ee',
+            //     borderColor: '#00b3ee',
+            //     borderWidth: 5,
+            //     borderDash: [],
+            //     borderDashOffset: 0.0,
+            //     borderCapStyle: 'butt',
+            //     borderJoinStyle: 'miter',
+            //     fill: false,
+            //     lineTension: 0.1,
+            //     pointBackgroundColor: '#000000',
+            //     pointBorderColor: '#FF0000',
+            //     pointBorderWidth: 0,
+            //     pointRadius: 0,
+            //     pointHitRadius: 10,
+            //     pointHoverBackgroundColor: '#000000',
+            //     pointHoverBorderColor: '#FF0000',
+            //     pointHoverBorderWidth: 2,
+            //     pointHoverRadius: 5,
+            //     showLine: true,
+            //     spanGaps: false,
+            //     steppedLine: false,
+            //     data: [0]
+            // },
             {
-                label: 'Температура на канал1',
-                backgroundColor: '#00b3ee',
-                borderColor: '#00b3ee',
-                borderWidth: 5,
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderCapStyle: 'butt',
-                borderJoinStyle: 'miter',
-                fill: false,
-                lineTension: 0.1,
-                pointBackgroundColor: '#000000',
-                pointBorderColor: '#FF0000',
-                pointBorderWidth: 0,
-                pointRadius: 0,
-                pointHitRadius: 10,
-                pointHoverBackgroundColor: '#000000',
-                pointHoverBorderColor: '#FF0000',
-                pointHoverBorderWidth: 2,
-                pointHoverRadius: 5,
-                showLine: true,
-                spanGaps: false,
-                steppedLine: false,
-                data: [0]
-            },
-            {
-                label: 'Температура на канал2',
+                label: 'Температура',
                 backgroundColor: '#ffff00',
                 borderColor: '#ffff00',
                 borderWidth: 5,
@@ -116,32 +116,33 @@ var config = {
                 spanGaps: false,
                 steppedLine: false,
                 data: [0]
-            },
-            {
-                label: 'Температура на канал3',
-                backgroundColor: '#3C510C',
-                borderColor: '#3C510C',
-                borderWidth: 5,
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderCapStyle: 'butt',
-                borderJoinStyle: 'miter',
-                fill: false,
-                lineTension: 0.1,
-                pointBackgroundColor: '#000000',
-                pointBorderColor: '#FF0000',
-                pointBorderWidth: 0,
-                pointRadius: 0,
-                pointHitRadius: 10,
-                pointHoverBackgroundColor: '#000000',
-                pointHoverBorderColor: '#FF0000',
-                pointHoverBorderWidth: 2,
-                pointHoverRadius: 5,
-                showLine: true,
-                spanGaps: false,
-                steppedLine: false,
-                data: [0]
             }
+            // ,
+            // {
+            //     label: 'Температура на канал3',
+            //     backgroundColor: '#3C510C',
+            //     borderColor: '#3C510C',
+            //     borderWidth: 5,
+            //     borderDash: [],
+            //     borderDashOffset: 0.0,
+            //     borderCapStyle: 'butt',
+            //     borderJoinStyle: 'miter',
+            //     fill: false,
+            //     lineTension: 0.1,
+            //     pointBackgroundColor: '#000000',
+            //     pointBorderColor: '#FF0000',
+            //     pointBorderWidth: 0,
+            //     pointRadius: 0,
+            //     pointHitRadius: 10,
+            //     pointHoverBackgroundColor: '#000000',
+            //     pointHoverBorderColor: '#FF0000',
+            //     pointHoverBorderWidth: 2,
+            //     pointHoverRadius: 5,
+            //     showLine: true,
+            //     spanGaps: false,
+            //     steppedLine: false,
+            //     data: [0]
+            // }
         ]
     },
     options: {
@@ -299,23 +300,23 @@ var config = {
 }
 
 var globalX = new Array();
-var globalY1 = new Array();
+// var globalY1 = new Array();
 var globalY2 = new Array();
-var globalY3 = new Array();
+// var globalY3 = new Array();
 function genChart(data) {
     var x = new Array();
-    var y1 = new Array();
+    // var y1 = new Array();
     var y2 = new Array();
-    var y3 = new Array();
+    // var y3 = new Array();
 
 
     for (var i in data){
         if (data.hasOwnProperty(i)){
             try {
                 x[i] = moment(data[i]["date"]).utc().format("YYYY-MM-DD HH:mm:ss");
-                y1[i] = data[i]["channel1"];
+                // y1[i] = data[i]["channel1"];
                 y2[i] = data[i]["channel2"];
-                y3[i] = data[i]["channel3"];
+                // y3[i] = data[i]["channel3"];
 
             }catch (err){
                 console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
@@ -323,20 +324,20 @@ function genChart(data) {
         }
     }
     globalX = x;
-    globalY1 = y1;
+    // globalY1 = y1;
     globalY2 = y2;
-    globalY3 = y3;
+    // globalY3 = y3;
 
     increaseDecriaseZoom = 0;
     leftRightPosition = 0;
-    buildChart(x, y1, y2, y3);
+    buildChart(x, /*y1,*/ y2/*, y3*/);
 }
 
-function buildChart(x, y1, y2, y3) {
+function buildChart(x, /*y1,*/ y2/*, y3*/) {
     config.data.labels = x;
-    config.data.datasets[0].data = y1;
-    config.data.datasets[1].data = y2;
-    config.data.datasets[2].data = y3;
+    // config.data.datasets[0].data = y1;
+    config.data.datasets[0].data = y2;
+    // config.data.datasets[2].data = y3;
     window.myLine.update();
 }
 
@@ -344,9 +345,9 @@ function clearChart(){
     // $('#myChart').remove(); // this is my <canvas> element
     // $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
     globalX = new Array();
-    globalY1 = new Array();
+    // globalY1 = new Array();
     globalY2 = new Array();
-    globalY3 = new Array();
+    // globalY3 = new Array();
     config.data.labels = new Array();
     config.data.datasets.forEach(function(dataset) {
         dataset.data = new Array;
@@ -354,23 +355,23 @@ function clearChart(){
     window.myLine.update();
 }
 
-function addLastElementToChart(X1, Y1, Y2, Y3) {
+function addLastElementToChart(X1, /*Y1,*/ Y2/*, Y3*/) {
     globalX.push(X1);
-    globalY1.push(Y1);
+    // globalY1.push(Y1);
     globalY2.push(Y2);
-    globalY3.push(Y3);
+    // globalY3.push(Y3);
     config.data.labels.push(X1);
-    config.data.datasets[0].data.push(Y1);
-    config.data.datasets[1].data.push(Y2);
-    config.data.datasets[2].data.push(Y3);
+    // config.data.datasets[0].data.push(Y1);
+    config.data.datasets[0].data.push(Y2);
+    // config.data.datasets[2].data.push(Y3);
     window.myLine.update();
 }
 
 function removeFirstElementFromChart() {
     globalX.shift();
-    globalY1.shift();
+    // globalY1.shift();
     globalY2.shift();
-    globalY3.shift();
+    // globalY3.shift();
     config.data.labels.shift();
     config.data.datasets.forEach(function(dataset) {
         dataset.data.shift();
@@ -381,11 +382,11 @@ function removeFirstElementFromChart() {
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
     var x = moment(parsed.date).utc().format("YYYY-MM-DD HH:mm:ss");
-    var y1 = parsed.channel1;
+    // var y1 = parsed.channel1;
     var y2 = parsed.channel2;
-    var y3 = parsed.channel3;
+    // var y3 = parsed.channel3;
     if (config.data.labels.length < buffer){
-        addLastElementToChart(x, y1, y2, y3);
+        addLastElementToChart(x, /*y1,*/ y2/*, y3*/);
     }
     if (config.data.labels.length >= buffer){
         removeFirstElementFromChart();
@@ -395,84 +396,84 @@ function drawInRealTime(parsed) {
 function increaseChart() {
     var increaseZoom = document.getElementById("zoom-chart").value;
     var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
+    // var increaseArrayY1 = new Array();
     var increaseArrayY2 = new Array();
-    var increaseArrayY3 = new Array();
+    // var increaseArrayY3 = new Array();
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         increaseDecriaseZoom = increaseDecriaseZoom + Number(increaseZoom);
         var from = increaseDecriaseZoom - leftRightPosition;
         var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
-        increaseArrayY1 = globalY1.slice(from,to);
+        // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
-        increaseArrayY3 = globalY3.slice(from,to);
+        // increaseArrayY3 = globalY3.slice(from,to);
         buildChart(increaseArrayX,
-            increaseArrayY1,
-            increaseArrayY2,
-            increaseArrayY3);
+            // increaseArrayY1,
+            increaseArrayY2/*,
+            increaseArrayY3*/);
     }
 }
 
 function decreaseChart() {
     var increaseZoom = document.getElementById("zoom-chart").value;
     var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
+    // var increaseArrayY1 = new Array();
     var increaseArrayY2 = new Array();
-    var increaseArrayY3 = new Array();
+    // var increaseArrayY3 = new Array();
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         increaseDecriaseZoom = increaseDecriaseZoom - Number(increaseZoom);
         var from = increaseDecriaseZoom - leftRightPosition;
         var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
-        increaseArrayY1 = globalY1.slice(from,to);
+        // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
-        increaseArrayY3 = globalY3.slice(from,to);
+        // increaseArrayY3 = globalY3.slice(from,to);
         buildChart(increaseArrayX,
-            increaseArrayY1,
-            increaseArrayY2,
-            increaseArrayY3);
+            // increaseArrayY1,
+            increaseArrayY2/*,
+            increaseArrayY3*/);
     }
 }
 
 function leftChart() {
     var increaseZoom = document.getElementById("zoom-chart").value;
     var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
+    // var increaseArrayY1 = new Array();
     var increaseArrayY2 = new Array();
-    var increaseArrayY3 = new Array();
+    // var increaseArrayY3 = new Array();
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         leftRightPosition = leftRightPosition + Number(increaseZoom);
         var from = increaseDecriaseZoom - leftRightPosition;
         var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
-        increaseArrayY1 = globalY1.slice(from,to);
+        // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
-        increaseArrayY3 = globalY3.slice(from,to);
+        // increaseArrayY3 = globalY3.slice(from,to);
         buildChart(increaseArrayX,
-            increaseArrayY1,
-            increaseArrayY2,
-            increaseArrayY3);
+            // increaseArrayY1,
+            increaseArrayY2/*,
+            increaseArrayY3*/);
     }
 }
 
 function rightChart() {
     var increaseZoom = document.getElementById("zoom-chart").value;
     var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
+    // var increaseArrayY1 = new Array();
     var increaseArrayY2 = new Array();
-    var increaseArrayY3 = new Array();
+    // var increaseArrayY3 = new Array();
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         leftRightPosition  = leftRightPosition  - Number(increaseZoom);
         var from = increaseDecriaseZoom - leftRightPosition;
         var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
-        increaseArrayY1 = globalY1.slice(from,to);
+        // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
-        increaseArrayY3 = globalY3.slice(from,to);
+        // increaseArrayY3 = globalY3.slice(from,to);
         buildChart(increaseArrayX,
-            increaseArrayY1,
-            increaseArrayY2,
-            increaseArrayY3);
+            // increaseArrayY1,
+            increaseArrayY2/*,
+            increaseArrayY3*/);
     }
 }
 
