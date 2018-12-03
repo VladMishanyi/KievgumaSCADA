@@ -13,7 +13,9 @@ import com.vk.service.data.FirstCehSmesitel3MB110ServiceData;
 import com.vk.service.data.FirstCehSmesitel5KMSF1ServiceData;
 import com.vk.service.data.FirstCehSmesitel5MB110ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

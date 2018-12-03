@@ -20,23 +20,23 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.service"})
-public class Chain1 extends Thread {
+public class Chain1/* extends Thread */{
 
     private Logger LOGGER = Logger.getLogger(Chain1.class);
 
     public static Queue<ModbusBodyQuery> bodyQuery = new LinkedList<>();
 
-    private TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
+    private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
-    private TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202;
+    private final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202;
 
-    private TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200;
+    private final TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200;
 
-    private TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51;
+    private final TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51;
 
-    private TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202;
+    private final TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202;
 
-    private TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
+    private final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
 
     @Autowired
     public Chain1(final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
@@ -51,13 +51,13 @@ public class Chain1 extends Thread {
         this.taskKameraDozrevanyaMPR51 = taskKameraDozrevanyaMPR51;
         this.taskThirdCehAutoclavTRM202 = taskThirdCehAutoclavTRM202;
         this.taskKotelnyaParMikrolITM4 = taskKotelnyaParMikrolITM4;
-        this.start();
+//        this.start();
     }
 
-    @Override
+//    @Override
     public void run(){
-        while (!this.isInterrupted()){
-            try {
+//        while (!this.isInterrupted()){
+//            try {
                 System.out.println("-----------------------------------------------------START FIRST CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
                 taskEnergeticRoomTRM201.work1();
 
@@ -73,13 +73,13 @@ public class Chain1 extends Thread {
 
                 checkQueryQueue();
                 System.out.println("-----------------------------------------------------END FIRS CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
-                this.sleep(5000);
-            }catch (InterruptedException e){
-                String message = e.getMessage();
-                LOGGER.error("Interrupted chain1 thread --"+message);
-                System.out.println("Interrupted chain1 thread --"+message);
-            }
-        }
+//                this.sleep(5000);
+//            }catch (InterruptedException e){
+//                String message = e.getMessage();
+//                LOGGER.error("Interrupted chain1 thread --"+message);
+//                System.out.println("Interrupted chain1 thread --"+message);
+//            }
+//        }
     }
 
     public void checkQueryQueue(){

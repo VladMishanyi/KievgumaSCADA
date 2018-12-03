@@ -1,19 +1,7 @@
 package com.vk.controller;
 
-import com.vk.chain.Chain1;
-import com.vk.chain.Chain2;
-import com.vk.chain.Chain3;
-import com.vk.chain.Chain4;
-import com.vk.entity.converter.*;
-import com.vk.entity.device.*;
-import com.vk.entity.table.*;
-import com.vk.service.data.*;
-import com.vk.tasks.*;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.messaging.core.MessageSendingOperations;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

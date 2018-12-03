@@ -11,7 +11,7 @@ import java.util.List;
 public class ModbusIntegerImpl extends RootModbusImpl<Integer> implements ModbusInteger {
 
     @Override
-    void setValuesDefault(final List<Integer> list, final int length) {
+    synchronized void setValuesDefault(final List<Integer> list, final int length) {
         for (int i=0; i<=length; i++){
             list.add(0);
         }

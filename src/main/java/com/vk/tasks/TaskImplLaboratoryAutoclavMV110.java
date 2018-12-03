@@ -8,8 +8,11 @@ import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
 import com.vk.service.data.KameraDozrevanyaMPR51ServiceData;
 import com.vk.service.data.LaboratoryAutoclavMV110ServiceData;
+import com.vk.service.data.LaboratoryAutoclavMV110ServiceDataImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

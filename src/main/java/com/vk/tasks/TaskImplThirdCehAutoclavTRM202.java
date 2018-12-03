@@ -12,7 +12,9 @@ import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import com.vk.service.data.ThirdCehAutoclavTRM202ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

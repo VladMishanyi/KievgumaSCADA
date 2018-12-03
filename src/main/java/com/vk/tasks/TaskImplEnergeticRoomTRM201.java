@@ -8,7 +8,9 @@ import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 
@@ -47,7 +49,7 @@ public class TaskImplEnergeticRoomTRM201
     }
 
     @Override
-    public EnergeticRoomTRM201ServiceData getEnergeticRoomTRM201ServiceData() {
+    public synchronized EnergeticRoomTRM201ServiceData getEnergeticRoomTRM201ServiceData() {
         return energeticRoomTRM201ServiceData;
     }
 }

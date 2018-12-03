@@ -33,8 +33,14 @@ public class MasterSerialRTU {
 //        master.setTimeout(1000);//1s timeout
 //        master.setRetries(1);// 1 repeats
         long startTime = 0;
-        final ModbusMasterSerialModel modbusMasterSerialModel =
+        final ModbusMasterSerialModel modbusMasterSerialModel3 =
                 new ModbusMasterSerialModel("COM3", 9600, 8, 1, 0, 500, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel4 =
+                new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 500, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel6 =
+                new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 500, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel7 =
+                new ModbusMasterSerialModel("COM7", 9600, 8, 1, 0, 500, 1);
         final ModbusShort modbusShort = new ModbusShortImpl();
         final ModbusInteger modbusInteger = new ModbusIntegerImpl();
         final ModbusLong modbusLong = new ModbusLongImpl();
@@ -59,20 +65,22 @@ public class MasterSerialRTU {
         final ModbusLocator modbusLocator16 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 130, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator modbusLocator17 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
 
-        while (true){
-            startTime = System.currentTimeMillis();
-
-            BatchRead batch = new BatchRead();
-            modbusFloat.readDataFromModBus(modbusMasterSerialModel, 18, batch,false,
-                    modbusLocator15,
-                    modbusLocator16,
-                    modbusLocator17);
-
-//            modbusInteger.writeDataToModBus(modbusMasterSerialModel, 16, 20, modbusLocator14);
-
-            System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
-            System.out.println("----------------------------------------------------------------------------------------");
-            Thread.sleep(1000);
-        }
+        Serial3 serial3 = new Serial3();
+        Serial4 serial4 = new Serial4();
+//        while (true){
+//            startTime = System.currentTimeMillis();
+//
+//            BatchRead batch = new BatchRead();
+//            modbusFloat.readDataFromModBus(modbusMasterSerialModel3, 18, batch,false,
+//                    modbusLocator15,
+//                    modbusLocator16,
+//                    modbusLocator17);
+//
+////            modbusInteger.writeDataToModBus(modbusMasterSerialModel, 16, 20, modbusLocator14);
+//
+//            System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
+//            System.out.println("----------------------------------------------------------------------------------------");
+//            Thread.sleep(1000);
+//        }
     }
 }

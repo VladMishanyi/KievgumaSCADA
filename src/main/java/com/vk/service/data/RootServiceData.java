@@ -17,7 +17,7 @@ public interface RootServiceData<E extends TableModel, T extends DeviceModel> {
 
     List<BigInteger> readBaseSize();
 
-    T getModbusDevice();
+     T getModbusDevice();
 
     void addTabeDevice(E tableModel);
 

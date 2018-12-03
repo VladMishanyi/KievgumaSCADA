@@ -22,7 +22,7 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
     public RootModbusImpl(){}
 
     @Override
-    public List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
+    public synchronized List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                       final int adr,
                                       final BatchRead batch,
                                       final boolean enableBatch,
@@ -79,7 +79,7 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
     }
 
     @Override
-    public void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
+    public synchronized void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                   final int adr,
                                   final E values,
                                   final ModbusLocator modbusLocator){

@@ -11,7 +11,7 @@ import java.util.List;
 public class ModbusFloatImpl extends RootModbusImpl<Float> implements ModbusFloat {
 
     @Override
-    void setValuesDefault(final List<Float> list, final int length) {
+    synchronized void setValuesDefault(final List<Float> list, final int length) {
         for (int i=0; i<=length; i++){
             list.add(0F);
         }

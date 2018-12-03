@@ -11,7 +11,7 @@ import java.util.List;
 public class ModbusShortImpl extends RootModbusImpl<Short> implements ModbusShort{
 
     @Override
-    void setValuesDefault(final List<Short> list, final int length) {
+    synchronized void setValuesDefault(final List<Short> list, final int length) {
         for (int i=0; i<=length; i++){
             list.add((short) 0);
         }

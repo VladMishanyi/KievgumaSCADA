@@ -9,7 +9,9 @@ import com.vk.repository.modbus.RootModbusRepository;
 import com.vk.service.data.FirstCehBuzulukTRM200ServiceData;
 import com.vk.service.data.RootServiceDataImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**

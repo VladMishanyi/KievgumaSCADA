@@ -9,6 +9,7 @@ import com.vk.entity.table.TableModel;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import com.vk.service.data.RootServiceData;
+import com.vk.service.data.RootServiceDataImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.core.MessageSendingOperations;
 
@@ -55,48 +56,48 @@ public class TaskImplRoot<I extends Number,
 
     }
 
-    public MessageSendingOperations<String> getMessageSendingOperations() {
+    public synchronized MessageSendingOperations<String> getMessageSendingOperations() {
         return messageSendingOperations;
     }
 
-    public void setMessageSendingOperations(final MessageSendingOperations<String> messageSendingOperations) {
+    public synchronized void setMessageSendingOperations(final MessageSendingOperations<String> messageSendingOperations) {
         this.messageSendingOperations = messageSendingOperations;
     }
 
-    public T getServiceData1() {
+    public synchronized T getServiceData1() {
         return serviceData1;
     }
 
-    public void setServiceData1(final T serviceData1) {
+    public synchronized void setServiceData1(final T serviceData1) {
         this.serviceData1 = serviceData1;
     }
 
-    public G getServiceData2() {
+    public synchronized G getServiceData2() {
         return serviceData2;
     }
 
-    public void setServiceData2(final G serviceData2) {
+    public synchronized void setServiceData2(final G serviceData2) {
         this.serviceData2 = serviceData2;
     }
 
-    public E getDeviceToTable1() {
+    public synchronized E getDeviceToTable1() {
         return deviceToTable1;
     }
 
-    public void setDeviceToTable1(final E deviceToTable1) {
+    public synchronized void setDeviceToTable1(final E deviceToTable1) {
         this.deviceToTable1 = deviceToTable1;
     }
 
-    public String getMessage() {
+    public synchronized String getMessage() {
         return message;
     }
 
-    public void setMessage(final String message) {
+    public synchronized void setMessage(final String message) {
         this.message = message;
     }
 
     @Override
-    public void work1() {
+    public synchronized void work1() {
         final K deviceModel1 = (K) serviceData1.getModbusDevice();
         final A tableModel = deviceToTable1.convert(deviceModel1);
         messageSendingOperations.convertAndSend(message, tableModel);
@@ -106,7 +107,7 @@ public class TaskImplRoot<I extends Number,
     }
 
     @Override
-    public void work2() {
+    public synchronized void work2() {
         final K deviceModel1 = (K) serviceData1.getModbusDevice();
         final F deviceModel2 = (F) serviceData2.getModbusDevice();
         final A tableModel = deviceToTable1.convert(deviceModel1, deviceModel2);
