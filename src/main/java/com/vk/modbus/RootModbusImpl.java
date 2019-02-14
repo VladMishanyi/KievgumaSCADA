@@ -6,6 +6,7 @@ import com.serotonin.modbus4j.ModbusLocator;
 import com.serotonin.modbus4j.ModbusMaster;
 import com.serotonin.modbus4j.exception.ModbusInitException;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
+import com.vk.entity.modbus.ModbusMasterTcpModel;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -28,6 +29,24 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
                                       final boolean enableBatch,
                                       final ModbusLocator ... modbusLocator){
         ModbusMaster modbusMaster = modbusMasterSerialModel.getMaster();
+        return readData(modbusMaster, adr, batch, enableBatch, modbusLocator);
+    }
+
+    @Override
+    public synchronized List<E> readDataFromModBus(ModbusMasterTcpModel modbusMasterTcpModel,
+                                                   final int adr,
+                                                   final BatchRead batch,
+                                                   final boolean enableBatch,
+                                                   final ModbusLocator ... modbusLocator){
+        ModbusMaster modbusMaster = modbusMasterTcpModel.getMaster();
+        return readData(modbusMaster, adr, batch, enableBatch, modbusLocator);
+    }
+
+    private synchronized List<E> readData(ModbusMaster modbusMaster,
+                                         final int adr,
+                                         final BatchRead batch,
+                                         final boolean enableBatch,
+                                         final ModbusLocator ... modbusLocator){
         List<E> list = new ArrayList<>();
         try {
             modbusMaster.init();
@@ -44,7 +63,7 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
             try {
                 if (enableBatch){
                     for (int i=0; i < modbusLocator.length; i++){
-                    batch.addLocator(i,modbusLocator[i]);
+                        batch.addLocator(i,modbusLocator[i]);
                     }
                     BatchResults batchResults = modbusMaster.send(batch);
                     for (int i=0; i < modbusLocator.length; i++){
@@ -84,6 +103,21 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
                                   final E values,
                                   final ModbusLocator modbusLocator){
         ModbusMaster modbusMaster = modbusMasterSerialModel.getMaster();
+        writeData(modbusMaster, adr, values, modbusLocator);
+    }
+
+    @Override
+    public synchronized void writeDataToModBus(ModbusMasterTcpModel modbusMasterTcpModel,
+                                               final int adr,
+                                               final E values,
+                                               final ModbusLocator modbusLocator){
+        ModbusMaster modbusMaster = modbusMasterTcpModel.getMaster();
+        writeData(modbusMaster, adr, values, modbusLocator);
+    }
+
+    private synchronized void writeData(ModbusMaster modbusMaster, final int adr,
+                                       final E values,
+                                       final ModbusLocator modbusLocator){
         try {
             modbusMaster.init();
             boolean test = modbusMaster.testSlaveNode(adr);

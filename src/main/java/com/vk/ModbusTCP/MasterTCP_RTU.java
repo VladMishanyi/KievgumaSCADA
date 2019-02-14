@@ -6,6 +6,9 @@ import com.serotonin.modbus4j.code.RegisterRange;
 import com.serotonin.modbus4j.exception.ModbusInitException;
 import com.serotonin.modbus4j.ip.IpParameters;
 import com.serotonin.modbus4j.msg.ModbusRequest;
+import com.vk.entity.modbus.ModbusMasterSerialModel;
+import com.vk.entity.modbus.ModbusMasterTcpModel;
+import com.vk.modbus.*;
 
 
 /**
@@ -15,119 +18,55 @@ public class MasterTCP_RTU {
 
     public static void main(String[] args) throws Exception{
 
-        ModbusFactory factory = new ModbusFactory();
+        long startTime = 0;
+        final ModbusMasterTcpModel modbusMasterTcpModel =
+                new ModbusMasterTcpModel("192.168.0.11", 502, 100, 1);
 
-        IpParameters params = new IpParameters();
-        params.setHost("192.168.9.9");
-        params.setPort(1991);
+        final ModbusShort modbusShort = new ModbusShortImpl();
+        final ModbusInteger modbusInteger = new ModbusIntegerImpl();
+        final ModbusLong modbusLong = new ModbusLongImpl();
+        final ModbusFloat modbusFloat = new ModbusFloatImpl();
 
-        ModbusMaster master = factory.createTcpMaster(params, true);
-        master.setTimeout(1000);
-        master.setRetries(0);
+        final ModbusLocator modbusLocator0 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 21, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator1 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 29, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator2 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 37, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator3 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 70, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator4 = new ModbusLocator(16, RegisterRange.INPUT_REGISTER, 23, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator5 = new ModbusLocator(16, RegisterRange.INPUT_REGISTER, 28, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator6 = new ModbusLocator(16, RegisterRange.INPUT_REGISTER, 33, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator7 = new ModbusLocator(16, RegisterRange.INPUT_REGISTER, 38, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator8 = new ModbusLocator(24, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator9 = new ModbusLocator(40, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator10 = new ModbusLocator(72, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator11 = new ModbusLocator(64, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator12 = new ModbusLocator(48, RegisterRange.HOLDING_REGISTER, 28, DataType.FOUR_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator13 = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, 0, DataType.TWO_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator14 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 5, DataType.TWO_BYTE_INT_SIGNED);
+        final ModbusLocator modbusLocator15 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 128, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator16 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 130, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator17 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator18 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 0, DataType.FOUR_BYTE_FLOAT_SWAPPED);
+        final ModbusLocator modbusLocator19 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 2, DataType.FOUR_BYTE_FLOAT_SWAPPED);
+        final ModbusLocator modbusLocator20 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 4, DataType.FOUR_BYTE_FLOAT_SWAPPED);
+        final ModbusLocator modbusLocator21 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 6, DataType.FOUR_BYTE_FLOAT_SWAPPED);
+        final ModbusLocator modbusLocator22 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 8, DataType.TWO_BYTE_INT_UNSIGNED);
+        final ModbusLocator modbusLocator23 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 9, DataType.TWO_BYTE_INT_UNSIGNED);
 
-
-
-        // Don't start if the RTU master can't be initialized.
-        try {
-            master.init();
-            System.out.println(master.testSlaveNode(1));
-        }
-        catch (ModbusInitException e) {
-            System.out.println( "Modbus Master Init Error: " + e.getMessage());
-            return;
-        }
-
-        try {
-            while (true){
-                long start = System.currentTimeMillis();
-                byte in0 = 0;
-                byte in1 = 1;
-                byte in2 = 2;
-                byte in3 = 3;
-                byte in4 = 4;
-                byte in5 = 5;
-                byte in6 = 6;
-                byte in7 = 7;
-                byte in8 = 8;
-                byte in9 = 9;
-                byte in10 = 10;
-                byte in11 = 11;
-                byte in12 = 12;
-                byte in13 = 13;
-                byte in14 = 14;
-                byte in15 = 15;
-
-                final BatchRead batchRead = new BatchRead();
-                batchRead.addLocator(0.0,1, RegisterRange.HOLDING_REGISTER, 0, in0);
-                batchRead.addLocator(0.1,1, RegisterRange.HOLDING_REGISTER, 0, in1);
-                batchRead.addLocator(0.2,1, RegisterRange.HOLDING_REGISTER, 0, in2);
-                batchRead.addLocator(0.3,1, RegisterRange.HOLDING_REGISTER, 0, in3);
-                batchRead.addLocator(0.4,1, RegisterRange.HOLDING_REGISTER, 0, in4);
-                batchRead.addLocator(0.5,1, RegisterRange.HOLDING_REGISTER, 0, in5);
-                batchRead.addLocator(0.6,1, RegisterRange.HOLDING_REGISTER, 0, in6);
-                batchRead.addLocator(0.7,1, RegisterRange.HOLDING_REGISTER, 0, in7);
-                batchRead.addLocator(0.8,1, RegisterRange.HOLDING_REGISTER, 0, in8);
-                batchRead.addLocator(0.9,1, RegisterRange.HOLDING_REGISTER, 0, in9);
-                batchRead.addLocator(0.10,1, RegisterRange.HOLDING_REGISTER, 0, in10);
-                batchRead.addLocator(0.11,1, RegisterRange.HOLDING_REGISTER, 0, in11);
-                batchRead.addLocator(0.12,1, RegisterRange.HOLDING_REGISTER, 0, in12);
-                batchRead.addLocator(0.13,1, RegisterRange.HOLDING_REGISTER, 0, in13);
-                batchRead.addLocator(0.14,1, RegisterRange.HOLDING_REGISTER, 0, in14);
-                batchRead.addLocator(0.15,1, RegisterRange.HOLDING_REGISTER, 0, in15);
-                batchRead.addLocator(1,1, RegisterRange.HOLDING_REGISTER, 1, DataType.TWO_BYTE_INT_UNSIGNED);
-                batchRead.addLocator(2,1, RegisterRange.HOLDING_REGISTER, 2, DataType.FOUR_BYTE_FLOAT_SWAPPED);
-                batchRead.addLocator(4,1, RegisterRange.HOLDING_REGISTER, 4, DataType.FOUR_BYTE_INT_UNSIGNED_SWAPPED);
-
-                final BatchResults batchResults =  master.send(batchRead);
-                boolean output0 = (boolean) batchResults.getValue(0.0);
-                boolean output1 = (boolean) batchResults.getValue(0.1);
-                boolean output2 = (boolean) batchResults.getValue(0.2);
-                boolean output3 = (boolean) batchResults.getValue(0.3);
-                boolean output4 = (boolean) batchResults.getValue(0.4);
-                boolean output5 = (boolean) batchResults.getValue(0.5);
-                boolean output6 = (boolean) batchResults.getValue(0.6);
-                boolean output7 = (boolean) batchResults.getValue(0.7);
-                boolean output8 = (boolean) batchResults.getValue(0.8);
-                boolean output9 = (boolean) batchResults.getValue(0.9);
-                boolean output10 = (boolean) batchResults.getValue(0.10);
-                boolean output11 = (boolean) batchResults.getValue(0.11);
-                boolean output12 = (boolean) batchResults.getValue(0.12);
-                boolean output13 = (boolean) batchResults.getValue(0.13);
-                boolean output14 = (boolean) batchResults.getValue(0.14);
-                boolean output15 = (boolean) batchResults.getValue(0.15);
-
-                final int value1 = (int) batchResults.getValue(1);
-                final float value2 = (float) batchResults.getValue(2);
-                final long value3 = (long) batchResults.getValue(4);
-
-                System.out.println("output0 :" + output0);
-                System.out.println("output1 :" + output1);
-                System.out.println("output2 :" + output2);
-                System.out.println("output3 :" + output3);
-                System.out.println("output4 :" + output4);
-                System.out.println("output5 :" + output5);
-                System.out.println("output6 :" + output6);
-                System.out.println("output7 :" + output7);
-                System.out.println("output8 :" + output8);
-                System.out.println("output9 :" + output9);
-                System.out.println("output10 :" + output10);
-                System.out.println("output11 :" + output11);
-                System.out.println("output12 :" + output12);
-                System.out.println("output13 :" + output13);
-                System.out.println("output14" + output14);
-                System.out.println("output15" + output15);
-
-                System.out.println("value1 :" + value1);
-                System.out.println("value2 :" + value2);
-                System.out.println("value3 :" + value3);
-
-                System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("Time elapsed: " + (System.currentTimeMillis() - start) + "ms");
-                Thread.sleep(1000);
-            }
-        }
-        finally {
-            master.destroy();
+        int i = 0;
+        while (true){
+            startTime = System.currentTimeMillis();
+            BatchRead batchRead = new BatchRead();
+            modbusFloat.readDataFromModBus(modbusMasterTcpModel, 5 , batchRead, false,
+                    modbusLocator18,
+                    modbusLocator19,
+                    modbusLocator20,
+                    modbusLocator21);
+            modbusInteger.readDataFromModBus(modbusMasterTcpModel, 5 , batchRead, false,
+                    modbusLocator22,
+                    modbusLocator23);
+            System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
+            System.out.println("----------------------------------------------------------------------------------------");
+            Thread.sleep(2000);
         }
     }
 }

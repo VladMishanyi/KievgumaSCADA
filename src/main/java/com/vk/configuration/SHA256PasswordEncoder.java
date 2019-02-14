@@ -14,7 +14,6 @@ public class SHA256PasswordEncoder implements PasswordEncoder {
 
     private static final Logger LOG = LoggerFactory.getLogger(SHA256PasswordEncoder.class);
 
-
     @Override
     public String encode(CharSequence charSequence) {
         if (charSequence == null) return null;
