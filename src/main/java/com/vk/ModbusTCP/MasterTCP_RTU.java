@@ -19,8 +19,10 @@ public class MasterTCP_RTU {
     public static void main(String[] args) throws Exception{
 
         long startTime = 0;
-        final ModbusMasterTcpModel modbusMasterTcpModel =
-                new ModbusMasterTcpModel("192.168.0.11", 502, 100, 1);
+        final ModbusMasterTcpModel modbusMasterTcpModel10 =
+                new ModbusMasterTcpModel("192.168.0.10", 502, 500, 1);
+        final ModbusMasterTcpModel modbusMasterTcpModel11 =
+                new ModbusMasterTcpModel("192.168.0.11", 502, 500, 1);
 
         final ModbusShort modbusShort = new ModbusShortImpl();
         final ModbusInteger modbusInteger = new ModbusIntegerImpl();
@@ -56,14 +58,25 @@ public class MasterTCP_RTU {
         while (true){
             startTime = System.currentTimeMillis();
             BatchRead batchRead = new BatchRead();
-            modbusFloat.readDataFromModBus(modbusMasterTcpModel, 5 , batchRead, false,
+
+            modbusFloat.readDataFromModBus(modbusMasterTcpModel10, 5 , batchRead, false,
                     modbusLocator18,
                     modbusLocator19,
                     modbusLocator20,
                     modbusLocator21);
-            modbusInteger.readDataFromModBus(modbusMasterTcpModel, 5 , batchRead, false,
+            modbusInteger.readDataFromModBus(modbusMasterTcpModel10, 5 , batchRead, false,
                     modbusLocator22,
                     modbusLocator23);
+
+            modbusFloat.readDataFromModBus(modbusMasterTcpModel11, 5 , batchRead, false,
+                    modbusLocator18,
+                    modbusLocator19,
+                    modbusLocator20,
+                    modbusLocator21);
+            modbusInteger.readDataFromModBus(modbusMasterTcpModel11, 5 , batchRead, false,
+                    modbusLocator22,
+                    modbusLocator23);
+
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
             System.out.println("----------------------------------------------------------------------------------------");
             Thread.sleep(2000);

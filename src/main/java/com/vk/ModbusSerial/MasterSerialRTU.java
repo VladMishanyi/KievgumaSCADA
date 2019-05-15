@@ -17,7 +17,7 @@ public class MasterSerialRTU {
     public static void main(String[] args) throws Exception {
         long startTime = 0;
         final ModbusMasterSerialModel modbusMasterSerialModel3 =
-                new ModbusMasterSerialModel("COM3", 9600, 8, 1, 0, 200, 1);
+                new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 200, 1);
         final ModbusMasterSerialModel modbusMasterSerialModel4 =
                 new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 500, 1);
         final ModbusMasterSerialModel modbusMasterSerialModel6 =
@@ -29,8 +29,8 @@ public class MasterSerialRTU {
         final ModbusLong modbusLong = new ModbusLongImpl();
         final ModbusFloat modbusFloat = new ModbusFloatImpl();
 
-        final ModbusLocator modbusLocator0 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 21, DataType.FOUR_BYTE_FLOAT);
-        final ModbusLocator modbusLocator1 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 29, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator0 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 4105, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator modbusLocator1 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 4107, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator modbusLocator2 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 37, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator modbusLocator3 = new ModbusLocator(16, RegisterRange.HOLDING_REGISTER, 70, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator modbusLocator4 = new ModbusLocator(16, RegisterRange.INPUT_REGISTER, 23, DataType.FOUR_BYTE_FLOAT);
@@ -52,7 +52,7 @@ public class MasterSerialRTU {
         while (true){
             startTime = System.currentTimeMillis();
             BatchRead batchRead = new BatchRead();
-            modbusFloat.readDataFromModBus(modbusMasterSerialModel3, 5 , batchRead, false, modbusLocator1);
+            modbusFloat.readDataFromModBus(modbusMasterSerialModel3, 16 , batchRead, false, modbusLocator1);
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
             System.out.println("----------------------------------------------------------------------------------------");
             Thread.sleep(2000);
