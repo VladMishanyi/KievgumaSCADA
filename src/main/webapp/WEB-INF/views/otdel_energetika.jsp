@@ -48,6 +48,7 @@
                 <th><span id="realTrmValue2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
         </table>
+        <jsp:include page="/WEB-INF/views/info/info.jsp"/>
     </div>
 
     <div class="container">

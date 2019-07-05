@@ -456,7 +456,8 @@ function genChart(data) {
     for (var i in data){
         if (data.hasOwnProperty(i)){
             try {
-                x[i] = moment(data[i]["date"]).utc().format("YYYY-MM-DD HH:mm:ss");
+                x[i] = moment(data[i]["date"]).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
+                //x[i] = moment(data[i]["date"]).utc().format("YYYY-MM-DD HH:mm:ss");
                 y1[i] = data[i]["channel1"];
                 y2[i] = data[i]["channel2"];
                 y3[i] = data[i]["channel3"];

@@ -52,9 +52,8 @@
                 <%--<th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры на канал3</span></th>--%>
                 <%--<th><span id="secondCehKameraVulcan3MPR51Kanal3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>--%>
             <%--</tr>--%>
-
-
         </table>
+        <jsp:include page="/WEB-INF/views/info/info.jsp"/>
         <div class="row">
             <div class="col-md-3 col-lg-3">
                 <div class="input-group input-group-sm">
