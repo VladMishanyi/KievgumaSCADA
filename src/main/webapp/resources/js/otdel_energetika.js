@@ -238,6 +238,23 @@ var config = {
                 }
             }],
             xAxes: [{
+                type: 'time',
+                distribution: 'series',
+                time: {
+                    unit: 'hour',
+                    stepSize: 1,
+                    displayFormats: {
+                        millisecond: 'YYYY-MM-DD HH:mm:ss',
+                        second: 'YYYY-MM-DD HH:mm:ss',
+                        minute: 'YYYY-MM-DD HH:mm:ss',
+                        hour: 'YYYY-MM-DD HH:mm:ss',
+                        day: 'YYYY-MM-DD HH:mm:ss',
+                        week: 'YYYY-MM-DD HH:mm:ss',
+                        month: 'YYYY-MM-DD HH:mm:ss',
+                        quarter: 'YYYY-MM-DD HH:mm:ss',
+                        year: 'YYYY-MM-DD HH:mm:ss'
+                    }
+                },
                 ticks: {
                     beginAtZero:true, // start chart from zero point
                     fontColor: '#985f0d',
@@ -343,7 +360,7 @@ function removeFirstElementFromChart() {
 
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
-    var x = moment(parsed.date).utc().format("YYYY-MM-DD HH:mm:ss");
+    var x = moment(parsed.date).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
     var y1 = parsed.value3;
     var y2 = parsed.value4;
     if (config.data.labels.length < buffer){

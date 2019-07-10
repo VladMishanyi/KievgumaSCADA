@@ -20,8 +20,8 @@
     <script rel="script" type="text/javascript" src="resources/bootstrap-3.3.7/js/bootstrap.js"></script>
     <script rel="script" type="text/javascript" src="resources/js/sockjs-0.3.4.js"></script>
     <script rel="script" type="text/javascript" src="resources/js/stomp.js"></script>
-    <script rel="script" type="text/javascript" src="resources/js/Chart.js"></script>
     <script rel="script" type="text/javascript" src="resources/js/moment.js"></script>
+    <script rel="script" type="text/javascript" src="resources/js/Chart.js"></script>
     <script rel="script" type="text/javascript" src="resources/js/FileSaver.js"></script>
 </head>
 <body>

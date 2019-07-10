@@ -292,6 +292,23 @@ var config = {
                 }
             }],
             xAxes: [{
+                type: 'time',
+                distribution: 'series',
+                time: {
+                    unit: 'hour',
+                    stepSize: 1,
+                    displayFormats: {
+                        millisecond: 'YYYY-MM-DD HH:mm:ss',
+                        second: 'YYYY-MM-DD HH:mm:ss',
+                        minute: 'YYYY-MM-DD HH:mm:ss',
+                        hour: 'YYYY-MM-DD HH:mm:ss',
+                        day: 'YYYY-MM-DD HH:mm:ss',
+                        week: 'YYYY-MM-DD HH:mm:ss',
+                        month: 'YYYY-MM-DD HH:mm:ss',
+                        quarter: 'YYYY-MM-DD HH:mm:ss',
+                        year: 'YYYY-MM-DD HH:mm:ss'
+                    }
+                },
                 ticks: {
                     beginAtZero:true, // start chart from zero point
                     fontColor: '#985f0d',
