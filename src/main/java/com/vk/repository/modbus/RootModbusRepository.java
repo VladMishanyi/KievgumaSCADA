@@ -8,5 +8,7 @@ import com.vk.entity.device.DeviceModel;
  */
 public interface RootModbusRepository<T extends DeviceModel> {
 
+    public void setUseBorders(final boolean state);
+
     public T getDeviceModel(final boolean enableBatch);
 }

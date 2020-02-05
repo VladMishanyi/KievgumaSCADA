@@ -360,7 +360,7 @@ function removeFirstElementFromChart() {
 
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
-    var x = moment(parsed.date).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
+    var x = moment(parsed.date).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
     var y1 = parsed.value3;
     var y2 = parsed.value4;
     if (config.data.labels.length < buffer){

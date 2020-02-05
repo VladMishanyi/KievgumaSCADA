@@ -16,4 +16,11 @@ public class ModbusLongImpl extends RootModbusImpl<Long> implements ModbusLong{
             list.add((long) 0);
         }
     }
+
+    @Override
+    Long borderValue(short bMin, short bMax, Long val){
+        if (val >= (long) bMax) return (long) bMax;
+        if (val <= (long) bMin) return (long) bMin;
+        return val;
+    }
 }

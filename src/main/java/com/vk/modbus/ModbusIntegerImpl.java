@@ -16,4 +16,11 @@ public class ModbusIntegerImpl extends RootModbusImpl<Integer> implements Modbus
             list.add(0);
         }
     }
+
+    @Override
+    Integer borderValue(short bMin, short bMax, Integer val){
+        if (val >= (int) bMax) return (int) bMax;
+        if (val <= (int) bMin) return (int) bMin;
+        return val;
+    }
 }

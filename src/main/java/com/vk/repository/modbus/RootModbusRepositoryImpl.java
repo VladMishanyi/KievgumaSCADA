@@ -25,5 +25,11 @@ public abstract class RootModbusRepositoryImpl<N extends Number, T extends RootM
         this.modbus = modbus;
     }
 
+    @Override
+    public void setUseBorders(final boolean state){
+        modbus.setUseBorders(state);
+    }
+
+    @Override
     public abstract D getDeviceModel(final boolean enableBatch);
 }

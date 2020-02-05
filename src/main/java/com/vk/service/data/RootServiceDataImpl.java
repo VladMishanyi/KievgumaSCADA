@@ -42,6 +42,7 @@ public class RootServiceDataImpl<K extends Number, E extends TableModel, T exten
 
     @Override
     public T getModbusDevice(){
+        rootModbusRepository.setUseBorders(true);
         return rootModbusRepository.getDeviceModel(false);
     }
 

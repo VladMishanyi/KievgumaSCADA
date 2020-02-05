@@ -50,7 +50,6 @@ public class ModbusController {
         chain2.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
         chain3.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
         chain4.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
-
     }
 
     @RequestMapping(value = "/energeticRoomTRM201", method = RequestMethod.GET)

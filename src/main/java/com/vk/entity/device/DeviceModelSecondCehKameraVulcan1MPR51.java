@@ -15,8 +15,8 @@ import org.springframework.web.context.annotation.ApplicationScope;
 public class DeviceModelSecondCehKameraVulcan1MPR51 implements DeviceModel{
     private static final int deviceAddress = 17;
 
-    private static final int deviceRegisterRange0 = RegisterRange.HOLDING_REGISTER;
-    private static final int deviceRegisterOffset0 = 128;
+    private static final int deviceRegisterRange0 = RegisterRange.INPUT_REGISTER;
+    private static final int deviceRegisterOffset0 = 0;
     private static final int deviceRegisterDataType0 = DataType.FOUR_BYTE_FLOAT;
     private static final float hysteresis0 = 1.0F;
     private static float deviceValuesRegister0 = 0F;
@@ -27,8 +27,8 @@ public class DeviceModelSecondCehKameraVulcan1MPR51 implements DeviceModel{
                     deviceRegisterOffset0,
                     deviceRegisterDataType0);
 
-    private static final int deviceRegisterRange1 = RegisterRange.HOLDING_REGISTER;
-    private static final int deviceRegisterOffset1 = 130;
+    private static final int deviceRegisterRange1 = RegisterRange.INPUT_REGISTER;
+    private static final int deviceRegisterOffset1 = 2;
     private static final int deviceRegisterDataType1 = DataType.FOUR_BYTE_FLOAT;
     private static final float hysteresis1 = 1.0F;
     private static float deviceValuesRegister1 = 0F;
@@ -39,8 +39,8 @@ public class DeviceModelSecondCehKameraVulcan1MPR51 implements DeviceModel{
                     deviceRegisterOffset1,
                     deviceRegisterDataType1);
 
-    private static final int deviceRegisterRange2 = RegisterRange.HOLDING_REGISTER;
-    private static final int deviceRegisterOffset2 = 132;
+    private static final int deviceRegisterRange2 = RegisterRange.INPUT_REGISTER;
+    private static final int deviceRegisterOffset2 = 4;
     private static final int deviceRegisterDataType2 = DataType.FOUR_BYTE_FLOAT;
     private static final float hysteresis2 = 1.0F;
     private static float deviceValuesRegister2 = 0F;

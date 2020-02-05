@@ -16,4 +16,11 @@ public class ModbusShortImpl extends RootModbusImpl<Short> implements ModbusShor
             list.add((short) 0);
         }
     }
+
+    @Override
+    Short borderValue(short bMin, short bMax, Short val){
+        if (val >= bMax) return bMax;
+        if (val <= bMin) return bMin;
+        return val;
+    }
 }

@@ -1,5 +1,7 @@
 package com.vk.modbus;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,5 +17,12 @@ public class ModbusFloatImpl extends RootModbusImpl<Float> implements ModbusFloa
         for (int i=0; i<=length; i++){
             list.add(0F);
         }
+    }
+
+    @Override
+    Float borderValue(short bMin, short bMax, Float val){
+        if (val >= (float) bMax) return (float) bMax;
+        if (val <= (float) bMin) return (float) bMin;
+        return val;
     }
 }

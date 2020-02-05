@@ -9,6 +9,8 @@ import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.entity.modbus.ModbusMasterTcpModel;
 import org.apache.log4j.Logger;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +22,28 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
 
     private Logger LOGGER = Logger.getLogger(RootModbusImpl.class);
 
+    private boolean useBorders;
+
+    private short borderMax = 500;
+
+    private short borderMin = 0;
+
+    public void setUseBorders(final boolean useBorders) {
+        this.setUseBorders(useBorders, borderMax, borderMin);
+    }
+
+    public void setUseBorders(final boolean useBorders, final short bMax, final short bMin){
+        this.useBorders = useBorders;
+        this.borderMax = bMax;
+        this.borderMin = bMin;
+    }
+
     public RootModbusImpl(){}
 
     @Override
     public synchronized List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                       final int adr,
-                                      final BatchRead batch,
+                                      final BatchRead<Integer> batch,
                                       final boolean enableBatch,
                                       final ModbusLocator ... modbusLocator){
         ModbusMaster modbusMaster = modbusMasterSerialModel.getMaster();
@@ -35,16 +53,17 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
     @Override
     public synchronized List<E> readDataFromModBus(ModbusMasterTcpModel modbusMasterTcpModel,
                                                    final int adr,
-                                                   final BatchRead batch,
+                                                   final BatchRead<Integer> batch,
                                                    final boolean enableBatch,
                                                    final ModbusLocator ... modbusLocator){
         ModbusMaster modbusMaster = modbusMasterTcpModel.getMaster();
         return readData(modbusMaster, adr, batch, enableBatch, modbusLocator);
     }
 
+    @SuppressWarnings("unchecked")
     private synchronized List<E> readData(ModbusMaster modbusMaster,
                                          final int adr,
-                                         final BatchRead batch,
+                                         final BatchRead<Integer> batch,
                                          final boolean enableBatch,
                                          final ModbusLocator ... modbusLocator){
         List<E> list = new ArrayList<>();
@@ -65,13 +84,25 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
                     for (int i=0; i < modbusLocator.length; i++){
                         batch.addLocator(i,modbusLocator[i]);
                     }
-                    BatchResults batchResults = modbusMaster.send(batch);
+                    BatchResults<Integer> batchResults = modbusMaster.send(batch);
                     for (int i=0; i < modbusLocator.length; i++){
-                        list.add(i, (E) batchResults.getValue(i));
+                        E val = (E) batchResults.getValue(i);
+
+                        if (useBorders){
+                            list.add(i, borderValue(borderMin, borderMax, val));
+                        }else {
+                            list.add(i, val);
+                        }
                     }
                 }else {
                     for (int i=0; i < modbusLocator.length; i++){
-                        list.add(i, (E) modbusMaster.getValue(modbusLocator[i]));
+                        E val = (E) modbusMaster.getValue(modbusLocator[i]);
+
+                        if (useBorders){
+                            list.add(i, borderValue(borderMin, borderMax, val));
+                        }else {
+                            list.add(i, val);
+                        }
                     }
                 }
 
@@ -146,4 +177,6 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
     }
 
     abstract void setValuesDefault(List<E> list, int length);
+
+    abstract E borderValue(short bMin, short bMax, E val);
 }
