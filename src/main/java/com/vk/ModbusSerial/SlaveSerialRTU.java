@@ -16,19 +16,20 @@ public class SlaveSerialRTU {
         final ModbusFactory factory = new ModbusFactory();
 
         final SerialParameters params = new SerialParameters();
-        params.setCommPortId("COM4");
-        params.setBaudRate(15200);
+        params.setCommPortId("COM7");
+        params.setBaudRate(9600);
         params.setDataBits(8);
         params.setStopBits(1);
         params.setParity(0);
 
         final ModbusSlaveSet slave = factory.createRtuSlave(params);
 
-        final BasicProcessImage processImage = new BasicProcessImage(1);//slave addres
+        final BasicProcessImage processImage = new BasicProcessImage(19);//slave addres
         processImage.setHoldingRegister(0, DataType.TWO_BYTE_INT_UNSIGNED, 65535);
 
 
         try {
+            slave.addProcessImage(processImage);
             slave.start();
         }
         catch (ModbusInitException e) {
@@ -37,11 +38,11 @@ public class SlaveSerialRTU {
         }
 
         try {
-            slave.addProcessImage(processImage);
+
 
         }
         finally {
-            slave.stop();
+//            slave.stop();
         }
     }
 }

@@ -3,6 +3,7 @@ package com.vk.chain;
 import com.vk.controller.WebController;
 import com.vk.entity.modbus.ModbusBodyQuery;
 import com.vk.tasks.*;
+import javafx.beans.binding.IntegerBinding;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -24,7 +25,7 @@ public class Chain1/* extends Thread */{
 
     private Logger LOGGER = Logger.getLogger(Chain1.class);
 
-    public static Queue<ModbusBodyQuery> bodyQuery = new LinkedList<>();
+    public static Queue<ModbusBodyQuery<Number>> bodyQuery = new LinkedList<>();
 
     private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
@@ -85,10 +86,10 @@ public class Chain1/* extends Thread */{
     public void checkQueryQueue(){
         if (bodyQuery.size() > 0){
             while (!bodyQuery.isEmpty()){
-                ModbusBodyQuery body = bodyQuery.poll();
+                ModbusBodyQuery<Number> body = bodyQuery.poll();
                 switch (body.getQueryNumber()){
-                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel(body.getValue()); break;
-                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2(body.getValue()); break;
+                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel((Integer) body.getValue()); break;
+                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2((Integer) body.getValue()); break;
                     default: {
                         LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
                         System.out.println("Wrong command in Chain1 --"+body.getQueryNumber());

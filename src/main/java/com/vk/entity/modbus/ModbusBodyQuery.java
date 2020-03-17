@@ -3,15 +3,15 @@ package com.vk.entity.modbus;
 /**
  * Created by KIP-PC99 on 26.11.2018.
  */
-public class ModbusBodyQuery {
+public class ModbusBodyQuery<T extends Number> {
 
     private int queryNumber;
 
-    private int value;
+    private T value;
 
     public ModbusBodyQuery(){}
 
-    public ModbusBodyQuery(int queryNumber, int value){
+    public ModbusBodyQuery(int queryNumber, T value){
         this.queryNumber = queryNumber;
         this.value = value;
     }
@@ -24,11 +24,11 @@ public class ModbusBodyQuery {
         this.queryNumber = queryNumber;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
     }
 }
