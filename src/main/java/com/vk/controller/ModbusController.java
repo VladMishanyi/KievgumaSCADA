@@ -46,9 +46,9 @@ public class ModbusController {
 
     @Scheduled(fixedRate = 1000)
     public void loop(){
-        chain1.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
-        chain2.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
-        chain3.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
+//        chain1.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
+//        chain2.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
+//        chain3.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
         chain4.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
     }
 

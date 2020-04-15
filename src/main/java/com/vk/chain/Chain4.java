@@ -37,9 +37,9 @@ public class Chain4/* extends Thread */{
 //        while (!this.isInterrupted()){
 //            try {
                 System.out.println("-----------------------------------------------------START FOURTH CHAIN444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444");
-                taskSecondCehKameraVulcan1MPR51.work1();
+//                taskSecondCehKameraVulcan1MPR51.work1();
 
-                taskSecondCehKameraVulcan2MPR51.work1();
+//                taskSecondCehKameraVulcan2MPR51.work1();
 
                 taskSecondCehKameraVulcan3MPR51.work1();
                 System.out.println("-----------------------------------------------------END FOURTH CHAIN444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444");

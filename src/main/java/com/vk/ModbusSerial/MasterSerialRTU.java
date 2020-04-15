@@ -4,6 +4,7 @@ import com.serotonin.modbus4j.*;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
+import com.vk.entity.modbus.ModbusMasterTcpModel;
 import com.vk.modbus.*;
 
 import java.util.List;
@@ -16,16 +17,11 @@ public class MasterSerialRTU {
 
     public static void main(String[] args) throws Exception {
         long startTime = 0;
-        final ModbusMasterSerialModel modbusMasterSerialModel3 =
-                new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 200, 1);
-        final ModbusMasterSerialModel modbusMasterSerialModel4 =
-                new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 200, 1);
-        final ModbusMasterSerialModel modbusMasterSerialModel6 =
-                new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
-        final ModbusMasterSerialModel modbusMasterSerialModel7 =
-                new ModbusMasterSerialModel("COM7", 9600, 8, 1, 0, 200, 1);
-        final ModbusMasterSerialModel modbusMasterSerialModel19 =
-                new ModbusMasterSerialModel("COM19", 9600, 8, 1, 0, 200, 1);
+//        final ModbusMasterSerialModel modbusMasterSerialModel3 = new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 200, 1);
+//        final ModbusMasterSerialModel modbusMasterSerialModel4 = new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 200, 1);
+//        final ModbusMasterSerialModel modbusMasterSerialModel6 = new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel7 = new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
+//        final ModbusMasterSerialModel modbusMasterSerialModel19 = new ModbusMasterSerialModel("COM19", 9600, 8, 1, 0, 200, 1);
 
         final ModbusShort modbusShort = new ModbusShortImpl();
         modbusShort.setUseBorders(false);
@@ -104,6 +100,8 @@ public class MasterSerialRTU {
         final ModbusLocator spk42 = new ModbusLocator(SlaveID, RegisterRange.HOLDING_REGISTER, 73, DataType.TWO_BYTE_INT_SIGNED);
         final ModbusLocator spk43 = new ModbusLocator(SlaveID, RegisterRange.HOLDING_REGISTER, 74, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator spk44 = new ModbusLocator(SlaveID, RegisterRange.HOLDING_REGISTER, 76, DataType.FOUR_BYTE_FLOAT);
+        final ModbusLocator spk45 = new ModbusLocator(SlaveID, RegisterRange.HOLDING_REGISTER, 78, DataType.TWO_BYTE_INT_SIGNED);//write number of program here
+        final ModbusLocator spk46 = new ModbusLocator(SlaveID, RegisterRange.HOLDING_REGISTER, 79, DataType.TWO_BYTE_INT_SIGNED);//write permission to save program: 2 is read, 1 is write, 0 is not.
 
 
         final ModbusLocator spk0_r = new ModbusLocator(SlaveID, RegisterRange.INPUT_REGISTER, 0, DataType.FOUR_BYTE_FLOAT);
@@ -151,7 +149,9 @@ public class MasterSerialRTU {
         final ModbusLocator spk42_r = new ModbusLocator(SlaveID, RegisterRange.INPUT_REGISTER, 73, DataType.TWO_BYTE_INT_SIGNED);
         final ModbusLocator spk43_r = new ModbusLocator(SlaveID, RegisterRange.INPUT_REGISTER, 74, DataType.FOUR_BYTE_FLOAT);
         final ModbusLocator spk44_r = new ModbusLocator(SlaveID, RegisterRange.INPUT_REGISTER, 76, DataType.FOUR_BYTE_FLOAT);
-
+        final ModbusLocator spk45_r = new ModbusLocator(SlaveID, RegisterRange.INPUT_REGISTER, 78, DataType.FOUR_BYTE_FLOAT);//read temperature
+        final ModbusLocator spk46_r = new ModbusLocator(SlaveID, RegisterRange.INPUT_REGISTER, 80, DataType.TWO_BYTE_INT_SIGNED);//get program number
+/*
         modbusFloat.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Float(10.2), spk0);
         modbusFloat.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Float(11.2), spk1);
         modbusFloat.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Float(12.2), spk2);
@@ -210,16 +210,17 @@ public class MasterSerialRTU {
         modbusFloat.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Float(53.2), spk43);
         modbusFloat.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Float(54.2), spk44);
 
-//        modbusInteger.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Integer(1111), modbusLocator18);
-//        modbusInteger.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Integer(2232), modbusLocator19);
-
+        modbusInteger.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Integer(5), spk45);
+        modbusInteger.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Integer(2), spk46);
+        modbusInteger.writeDataToModBus(modbusMasterSerialModel7, SlaveID, new Integer(0), spk46);
+*/
 
         int i = 0;
         while (true){
             System.out.println("----"+i);
             startTime = System.currentTimeMillis();
-            BatchRead batchRead = new BatchRead();
-            modbusLong.readDataFromModBus(modbusMasterSerialModel7, SlaveID, batchRead, true,
+            BatchRead<Integer> batchRead = new BatchRead<>();
+            List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialModel7, SlaveID, batchRead, false,
                     spk0_r,
                     spk1_r,
                     spk2_r,
@@ -229,46 +230,97 @@ public class MasterSerialRTU {
                     spk6_r,
                     spk7_r,
                     spk8_r,
-                    spk9_r,
+//                    spk9_r,
                     spk10_r,
                     spk11_r,
-                    spk12_r,
+//                    spk12_r,
                     spk13_r,
                     spk14_r,
-                    spk15_r,
+//                    spk15_r,
                     spk16_r,
                     spk17_r,
-                    spk18_r,
+//                    spk18_r,
                     spk19_r,
                     spk20_r,
-                    spk21_r,
+//                    spk21_r,
                     spk22_r,
                     spk23_r,
-                    spk24_r,
+//                    spk24_r,
                     spk25_r,
                     spk26_r,
-                    spk27_r,
+//                    spk27_r,
                     spk28_r,
                     spk29_r,
-                    spk30_r,
+//                    spk30_r,
                     spk31_r,
                     spk32_r,
-                    spk33_r,
+//                    spk33_r,
                     spk34_r,
                     spk35_r,
-                    spk36_r,
+//                    spk36_r,
                     spk37_r,
                     spk38_r,
-                    spk39_r,
+//                    spk39_r,
                     spk40_r,
                     spk41_r,
-                    spk42_r,
+//                    spk42_r,
                     spk43_r,
-                    spk44_r
-                    /*modbusLocator18,
-                    modbusLocator19*/
+                    spk44_r,
+                    spk45_r
+//                    spk46_r
+            );
+            List<Short> listShort = modbusShort.readDataFromModBus(modbusMasterSerialModel7, SlaveID, batchRead, false,
+//                    spk0_r,
+//                    spk1_r,
+//                    spk2_r,
+//                    spk3_r,
+//                    spk4_r,
+//                    spk5_r,
+//                    spk6_r,
+//                    spk7_r,
+//                    spk8_r,
+                    spk9_r,
+//                    spk10_r,
+//                    spk11_r,
+                    spk12_r,
+//                    spk13_r,
+//                    spk14_r,
+                    spk15_r,
+//                    spk16_r,
+//                    spk17_r,
+                    spk18_r,
+//                    spk19_r,
+//                    spk20_r,
+                    spk21_r,
+//                    spk22_r,
+//                    spk23_r,
+                    spk24_r,
+//                    spk25_r,
+//                    spk26_r,
+                    spk27_r,
+//                    spk28_r,
+//                    spk29_r,
+                    spk30_r,
+//                    spk31_r,
+//                    spk32_r,
+                    spk33_r,
+//                    spk34_r,
+//                    spk35_r,
+                    spk36_r,
+//                    spk37_r,
+//                    spk38_r,
+                    spk39_r,
+//                    spk40_r,
+//                    spk41_r,
+                    spk42_r,
+//                    spk43_r,
+//                    spk44_r,
+//                    spk45_r
+                    spk46_r
             );
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
+            listFloat.stream().forEachOrdered(System.out::println);
+            listShort.stream().forEachOrdered(System.out::println);
             System.out.println("----------------------------------------------------------------------------------------");
             Thread.sleep(5000);
             i++;

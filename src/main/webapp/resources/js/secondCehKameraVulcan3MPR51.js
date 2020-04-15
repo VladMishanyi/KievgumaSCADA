@@ -22,7 +22,8 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/secondCehKameraVulcan3MPR51', function(resultTrm){
+
+        stompClient.subscribe('/topic/secondCehKameraVulcan3MPR51_table', function(resultTrm){
             var parsed = JSON.parse(resultTrm.body);
             showBody(parsed);
             if (onDraw){
@@ -32,6 +33,12 @@ function connect() {
 
         stompClient.subscribe('/topic/generateChartSecondCehKameraVulcan3MPR51', function(result){
             genChart(JSON.parse(result.body));
+        });
+
+        stompClient.subscribe('/topic/secondCehKameraVulcan3MPR51_device1', function(result){
+            var parsed = JSON.parse(result.body);
+            var register0 = parsed.inputRegister0;
+            document.getElementById("read_steam_pwm").setAttribute('value', register0);
         });
     });
 }

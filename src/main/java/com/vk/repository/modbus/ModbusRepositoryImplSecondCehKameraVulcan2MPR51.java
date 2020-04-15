@@ -25,14 +25,14 @@ public class ModbusRepositoryImplSecondCehKameraVulcan2MPR51
 
     private final DeviceModelSecondCehKameraVulcan2MPR51 deviceModelSecondCehKameraVulcan2MPR51;
 
-    private final BatchRead batchRead;
+    private final BatchRead<Integer> batchRead;
 
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplSecondCehKameraVulcan2MPR51(final ModbusMasterSerialModel modbusMasterSerialFourth,
                                                            final DeviceModelSecondCehKameraVulcan2MPR51 deviceModelSecondCehKameraVulcan2MPR51,
-                                                           final BatchRead batchRead,
+                                                           final BatchRead<Integer> batchRead,
                                                            final ModbusFloat modbusFloat) {
         super(modbusMasterSerialFourth, modbusFloat);
         this.modbusMasterSerialFourth = modbusMasterSerialFourth;

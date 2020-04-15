@@ -33,7 +33,11 @@ public class TaskImplRoot<I extends Number,
 
     private E deviceToTable1;
 
-    private String message;
+    private String message = "/table";
+
+    private String message1 = "/device1";
+
+    private String message2 = "/device2";
 
     public TaskImplRoot(){}
 
@@ -96,11 +100,28 @@ public class TaskImplRoot<I extends Number,
         this.message = message;
     }
 
+    public String getMessage1() {
+        return message1;
+    }
+
+    public void setMessage1(String message1) {
+        this.message1 = message1;
+    }
+
+    public String getMessage2() {
+        return message2;
+    }
+
+    public void setMessage2(String message2) {
+        this.message2 = message2;
+    }
+
     @Override
     public synchronized void work1() {
         final K deviceModel1 = (K) serviceData1.getModbusDevice();
         final A tableModel = deviceToTable1.convert(deviceModel1);
         messageSendingOperations.convertAndSend(message, tableModel);
+        messageSendingOperations.convertAndSend(message1, deviceModel1);
         if (deviceModel1.hysteresis()){
             serviceData1.addTabeDevice(tableModel);
         }
@@ -112,6 +133,8 @@ public class TaskImplRoot<I extends Number,
         final F deviceModel2 = (F) serviceData2.getModbusDevice();
         final A tableModel = deviceToTable1.convert(deviceModel1, deviceModel2);
         messageSendingOperations.convertAndSend(message, tableModel);
+        messageSendingOperations.convertAndSend(message1, deviceModel1);
+        messageSendingOperations.convertAndSend(message2, deviceModel2);
         if (deviceModel1.hysteresis() || deviceModel2.hysteresis()){
             serviceData1.addTabeDevice(tableModel);
         }
