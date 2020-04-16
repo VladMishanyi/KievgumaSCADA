@@ -25,7 +25,7 @@ public class Chain1/* extends Thread */{
 
     private Logger LOGGER = Logger.getLogger(Chain1.class);
 
-    public static Queue<ModbusBodyQuery<Number>> bodyQuery = new LinkedList<>();
+    public static Queue<ModbusBodyQuery> bodyQuery = new LinkedList<>();
 
     private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
@@ -86,10 +86,10 @@ public class Chain1/* extends Thread */{
     public void checkQueryQueue(){
         if (bodyQuery.size() > 0){
             while (!bodyQuery.isEmpty()){
-                ModbusBodyQuery<Number> body = bodyQuery.poll();
+                ModbusBodyQuery body = bodyQuery.poll();
                 switch (body.getQueryNumber()){
-                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel((Integer) body.getValue()); break;
-                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2((Integer) body.getValue()); break;
+                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel((Integer) body.getValueInt()); break;
+                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2((Integer) body.getValueInt()); break;
                     default: {
                         LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
                         System.out.println("Wrong command in Chain1 --"+body.getQueryNumber());

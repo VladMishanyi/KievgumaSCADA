@@ -55,8 +55,7 @@ public class ModbusController {
     @RequestMapping(value = "/energeticRoomTRM201", method = RequestMethod.GET)
     public String setValue1EnergeticRoomTRM201(@RequestParam(value = "query", defaultValue = "0") int query,
                                                @RequestParam(value = "value", defaultValue = "0") int value){
-                ModbusBodyQuery modbusBodyQuery = new ModbusBodyQuery(query, value);
-                Chain1.bodyQuery.add(modbusBodyQuery);
+                Chain1.bodyQuery.add(new ModbusBodyQuery(query, value));
                 return "index";
     }
 }

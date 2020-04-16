@@ -11,7 +11,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
  * Created by User on 2018-04-02.
  */
 @Component
-@ApplicationScope
 public class DeviceModelLaboratoryAutoclavMV110 implements DeviceModel{
     private static final int deviceAddress = 23;
 

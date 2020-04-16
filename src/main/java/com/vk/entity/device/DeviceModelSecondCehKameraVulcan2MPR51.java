@@ -11,7 +11,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
  * Created by KIP-PC99 on 20.11.2018.
  */
 @Component
-@ApplicationScope
 public class DeviceModelSecondCehKameraVulcan2MPR51 implements DeviceModel{
     private final int deviceAddress = 18;
     private final float hysteresisFloat = 1.0F;

@@ -5,13 +5,11 @@ import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * Created by User on 2018-02-26.
  */
 @Component
-@ApplicationScope
 public class DeviceModelEnergeticRoomTRM201 implements DeviceModel{
     private static final int deviceAddress = 16;
 

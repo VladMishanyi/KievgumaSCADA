@@ -9,7 +9,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "FirstCehAutoclav")
-//@Component
 public class TableModelFirstCehAutoclavTRM202 extends TableModel{
 
     private static final long serialVersionUID = 1L;

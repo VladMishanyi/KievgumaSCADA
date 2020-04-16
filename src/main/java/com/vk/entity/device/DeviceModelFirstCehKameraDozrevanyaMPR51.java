@@ -11,7 +11,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
  * Created by User on 2018-03-06.
  */
 @Component
-@ApplicationScope
 public class DeviceModelFirstCehKameraDozrevanyaMPR51 implements DeviceModel{
     private static final int deviceAddress = 13;
 

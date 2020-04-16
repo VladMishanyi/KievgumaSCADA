@@ -5,6 +5,7 @@ import com.vk.entity.device.DeviceModelSecondCehKameraVulcan3MPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan3MPR51;
 import com.vk.repository.data.RootRepositoryData;
+import com.vk.repository.modbus.ModbusRepositorySecondCehKameraVulcan3MPR51;
 import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -24,10 +25,23 @@ public class SecondCehKameraVulcan3MPR51ServiceDataImpl extends RootServiceDataI
     private final RootModbusRepository<DeviceModelSecondCehKameraVulcan3MPR51> rootModbusRepository;
 
     @Autowired
+    private ModbusRepositorySecondCehKameraVulcan3MPR51 modbusRepositorySecondCehKameraVulcan3MPR51;
+
+    @Autowired
     public SecondCehKameraVulcan3MPR51ServiceDataImpl(final RootRepositoryData<TableModelSecondCehKameraVulcan3MPR51> rootRepositoryData,
                                                       final RootModbusRepository<DeviceModelSecondCehKameraVulcan3MPR51> rootModbusRepository){
         super(rootRepositoryData, rootModbusRepository);
         this.rootRepositoryData = rootRepositoryData;
         this.rootModbusRepository = rootModbusRepository;
+    }
+
+    @Override
+    public void writeDataToRegister0(final float value){
+        modbusRepositorySecondCehKameraVulcan3MPR51.writeDataToRegister0(value);
+    }
+
+    @Override
+    public void readDataFromRegister0(){
+        modbusRepositorySecondCehKameraVulcan3MPR51.readDataFromRegister0(false);
     }
 }

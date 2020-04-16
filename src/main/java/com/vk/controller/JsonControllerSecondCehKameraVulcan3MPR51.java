@@ -1,6 +1,9 @@
 package com.vk.controller;
 
+import com.vk.chain.Chain4;
 import com.vk.entity.json.DateFromChart;
+import com.vk.entity.json.JsonBodyFloat;
+import com.vk.entity.modbus.ModbusBodyQuery;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan3MPR51;
 import com.vk.service.data.SecondCehKameraVulcan1MPR51ServiceData;
@@ -39,5 +42,17 @@ public class JsonControllerSecondCehKameraVulcan3MPR51 extends JsonController {
     @SendTo("/topic/generateChartSecondCehKameraVulcan3MPR51")
     public List<TableModelSecondCehKameraVulcan3MPR51> generateChartSecondCehKameraVulcan3MPR51(final DateFromChart dateFromChart){
         return this.generateTimeObject(secondCehKameraVulcan3MPR51ServiceData, dateFromChart, simpleDateFormat);
+    }
+
+    @MessageMapping(value = "/write_steam_pwm")
+    public void writeSteamPwm(final JsonBodyFloat jsonBodyFloat){
+        float val = jsonBodyFloat.getValue();
+
+        if ( (val >= 0F) && (val <= 65000F) ){
+            Chain4.modbusBodyQueryQueue.add(new ModbusBodyQuery(0, val));
+        } else{
+            LOGGER.error("/write_steam_pwm  - out of bound length :"+val);
+            System.out.println("/write_steam_pwm - out of bound length :"+val);
+        }
     }
 }

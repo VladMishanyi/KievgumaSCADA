@@ -11,7 +11,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "LaboratoryAutoclavMV110")
-//@Component
 public class TableModelLaboratoryAutoclavMV110 extends TableModel{
 
     private static final long serialVersionUID = 1L;

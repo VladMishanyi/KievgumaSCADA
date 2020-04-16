@@ -11,7 +11,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
  * Created by KIP-PC99 on 20.11.2018.
  */
 @Component
-@ApplicationScope
 public class DeviceModelSecondCehKameraVulcan3MPR51 implements DeviceModel{
     private final int deviceAddress = 19;
     private final float hysteresisFloat = 1.0F;
@@ -2291,12 +2290,12 @@ public class DeviceModelSecondCehKameraVulcan3MPR51 implements DeviceModel{
 
     @Override
     public boolean hysteresis(){
-        boolean inner = HysComparator.compare(oldInputRegister1,
-                inputRegister1,
+        boolean inner = HysComparator.compare(oldInputRegister45,
+                inputRegister45,
                 hysteresisFloat);
 
         if (inner){
-            oldInputRegister1 = inputRegister1;
+            oldInputRegister45 = inputRegister45;
         }
         return inner;
     }

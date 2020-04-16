@@ -1,13 +1,20 @@
 package com.vk.entity.json;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by KIP-PC99 on 19.09.2018.
  */
-public class JsonShortBody {
+@Component
+public class JsonBodyShort {
 
     private short value;
 
-    private JsonShortBody(){}
+    public JsonBodyShort(){}
+
+    public JsonBodyShort(short value) {
+        this.value = value;
+    }
 
     public short getValue() {
         return value;

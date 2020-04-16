@@ -11,7 +11,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
  * Created by KIP-PC99 on 20.09.2018.
  */
 @Component
-@ApplicationScope
 public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
     private static final int deviceAddress = 80;//80-88 reserved for this device
 

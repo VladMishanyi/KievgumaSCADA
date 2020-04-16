@@ -11,7 +11,6 @@ import org.springframework.web.context.annotation.ApplicationScope;
  * Created by KIP-PC99 on 08.08.2018.
  */
 @Component
-@ApplicationScope
 public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
     private static final int deviceAddress = 20;
 
