@@ -400,13 +400,13 @@ document.getElementById("write_program").addEventListener("change", function sen
     stompClient.send("/app/write_program", {}, data);
 });
 
-document.getElementById("write_program_read").addEventListener("change", function send() {
+document.getElementById("write_program_read").addEventListener("click", function send() {
     // var some = document.getElementById("write_program_read").selectedIndex;
     var data = JSON.stringify({'value' : 2});//command 2 is a read
     stompClient.send("/app/write_program_read", {}, data);
 });
 
-document.getElementById("write_program_write").addEventListener("change", function send() {
+document.getElementById("write_program_write").addEventListener("click", function send() {
     // var some = document.getElementById("write_program_write").selectedIndex;
     var data = JSON.stringify({'value' : 1});//command 1 is a write
     stompClient.send("/app/write_program_write", {}, data);

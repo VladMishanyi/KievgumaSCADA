@@ -23,9 +23,9 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
 
     private Logger LOGGER = Logger.getLogger(RootModbusImpl.class);
 
-    private boolean useBorders;
+    private boolean useBorders = false;
 
-    private short borderMax = 500;
+    private short borderMax = 10000;
 
     private short borderMin = 0;
 

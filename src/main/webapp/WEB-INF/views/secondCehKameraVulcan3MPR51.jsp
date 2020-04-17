@@ -6,7 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%--<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>--%>
+<%--<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>--%>
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>
@@ -21,11 +24,12 @@
     <script rel="script" type="text/javascript" src="resources/js/sockjs-0.3.4.js"></script>
     <script rel="script" type="text/javascript" src="resources/js/stomp.js"></script>
     <script rel="script" type="text/javascript" src="resources/js/moment.js"></script>
-    <script rel="script" type="text/javascript" src="resources/js/Chart.js"></script>
+    <script rel="script" type="text/javascript" src="<c:url value="/resources/js/Chart.js"/>"></script>
     <script rel="script" type="text/javascript" src="resources/js/FileSaver.js"></script>
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
     <div class="container">
 
@@ -74,9 +78,9 @@
                         <option value="0">----</option>
                         <option value="1">Program_1</option>
                         <option value="2">Program_2</option>
-                        <option value="3">Program_1</option>
-                        <option value="4">Program_2</option>
-                        <option value="5">Program_2</option>
+                        <option value="3">Program_3</option>
+                        <option value="4">Program_4</option>
+                        <option value="5">Program_5</option>
                     </select>
                 </td>
                 <td><button type="button" disabled id="read_program_write" name="read_program_write" class="btn btn-danger" style="width: 100%;">Сохранить</button></td>
@@ -251,6 +255,8 @@
 
 
 
+
+        <security:authorize access="isAuthenticated()">
         <table class="table">
             <tr>
                 <th></th>
@@ -269,20 +275,20 @@
                         <option value="0">----</option>
                         <option value="1">Program_1</option>
                         <option value="2">Program_2</option>
-                        <option value="3">Program_1</option>
-                        <option value="4">Program_2</option>
-                        <option value="5">Program_2</option>
+                        <option value="3">Program_3</option>
+                        <option value="4">Program_4</option>
+                        <option value="5">Program_5</option>
                     </select>
                 </td>
-                <td><button type="button" id="write_program_write" name="write_program_write" class="btn btn-danger" style="width: 100%;">Сохранить</button></td>
+                <td><button type="button"  class="btn btn-danger" style="width: 100%;" data-toggle="modal" data-target="#myModal">Сохранить</button></td>
                 <td style="padding: 15px 0px 15px 20px; font-size: 18px; color: red;">1</td>
                 <td><select class="form-control" id="write_regim1" name="write_regim1">
                     <option value="0">----</option>
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp1" name="write_temp1" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press1" name="write_press1" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp1" name="write_temp1" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press1" name="write_press1" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
@@ -295,8 +301,8 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp2" name="write_temp2" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press2" name="write_press2" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp2" name="write_temp2" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press2" name="write_press2" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
@@ -309,69 +315,69 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp3" name="write_temp3" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press3" name="write_press3" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp3" name="write_temp3" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press3" name="write_press3" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
                 <td style="padding: 15px 0px 15px 80px; font-size: 18px; color: black; font-variant: small-caps">PWM</td>
-                <td><input type="number" id="write_steam_pwm" name="write_steam_pwm" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_electric_pwm" name="write_electric_pwm" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_steam_pwm" name="write_steam_pwm" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_electric_pwm" name="write_electric_pwm" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
                 <td style="padding: 15px 0px 15px 20px; font-size: 18px; color: red;">4</td>
                 <td><select class="form-control" id="write_regim4" name="write_regim4">
                     <option value="0">----</option>
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp4" name="write_temp4" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press4" name="write_press4" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp4" name="write_temp4" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press4" name="write_press4" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
                 <td style="padding: 15px 0px 15px 80px; font-size: 18px; color: black; font-variant: small-caps">Ki</td>
-                <td><input type="number" id="write_steam_ki" name="write_steam_ki" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_electric_ki" name="write_electric_ki" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_steam_ki" name="write_steam_ki" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_electric_ki" name="write_electric_ki" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
                 <td style="padding: 15px 0px 15px 20px; font-size: 18px; color: red;">5</td>
                 <td><select class="form-control" id="write_regim5" name="write_regim5">
                     <option value="0">----</option>
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp5" name="write_temp5" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press5" name="write_press5" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp5" name="write_temp5" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press5" name="write_press5" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
                 <td style="padding: 15px 0px 15px 80px; font-size: 18px; color: black; font-variant: small-caps">Kp</td>
-                <td><input type="number" id="write_steam_kp" name="write_steam_kp" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_electric_kp" name="write_electric_kp" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_steam_kp" name="write_steam_kp" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_electric_kp" name="write_electric_kp" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
                 <td style="padding: 15px 0px 15px 20px; font-size: 18px; color: red;">6</td>
                 <td><select class="form-control" id="write_regim6" name="write_regim6">
                     <option value="0">----</option>
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp6" name="write_temp6" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press6" name="write_press6" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp6" name="write_temp6" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press6" name="write_press6" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
                 <td style="padding: 15px 0px 15px 80px; font-size: 18px; color: black; font-variant: small-caps">Kd</td>
-                <td><input type="number" id="write_steam_kd" name="write_steam_kd" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_electric_kd" name="write_electric_kd" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_steam_kd" name="write_steam_kd" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_electric_kd" name="write_electric_kd" class="form-control" min="0" max="1000" value="0" style="width: 120px;"></td>
                 <td style="padding: 15px 0px 15px 20px; font-size: 18px; color: red;">7</td>
                 <td><select class="form-control" id="write_regim7" name="write_regim7">
                     <option value="0">----</option>
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp7" name="write_temp7" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press7" name="write_press7" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp7" name="write_temp7" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press7" name="write_press7" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
                 <td style="padding: 15px 0px 15px 10px; font-size: 18px; color: black; font-variant: small-caps">Общее время авария</td>
-                <td><input type="number" id="write_alarm" name="write_alarm" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_alarm" name="write_alarm" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
                 <td></td>
                 <td style="padding: 15px 0px 15px 20px; font-size: 18px; color: red;">8</td>
                 <td><select class="form-control" id="write_regim8" name="write_regim8">
@@ -379,8 +385,8 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp8" name="write_temp8" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press8" name="write_press8" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp8" name="write_temp8" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press8" name="write_press8" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
@@ -393,8 +399,8 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp9" name="write_temp9" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press9" name="write_press9" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp9" name="write_temp9" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press9" name="write_press9" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
@@ -407,8 +413,8 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp10" name="write_temp10" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press10" name="write_press10" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp10" name="write_temp10" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press10" name="write_press10" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
@@ -421,8 +427,8 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp11" name="write_temp11" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press11" name="write_press11" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp11" name="write_temp11" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press11" name="write_press11" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
             <tr>
@@ -435,11 +441,34 @@
                     <option value="1">Набор Темп.</option>
                     <option value="2">Удержание Темп</option>
                 </select></td>
-                <td><input type="number" id="write_temp12" name="write_temp12" class="form-control" value="0" style="width: 120px;"></td>
-                <td><input type="number" id="write_press12" name="write_press12" class="form-control" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_temp12" name="write_temp12" class="form-control" min="0" max="200" value="0" style="width: 120px;"></td>
+                <td><input type="number" id="write_press12" name="write_press12" class="form-control" min="0" max="32000" value="0" style="width: 120px;"></td>
             </tr>
 
         </table>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-sm">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p style="font-size: 28px; font-variant: small-caps; color: red">Записать рецепт ?</p>
+<%--                        <h4 class="modal-title">Внимание !</h4>--%>
+                    </div>
+<%--                    <div class="modal-body">--%>
+<%--                        <p style="font-size: 28px; font-variant: small-caps; color: red">Записать рецепт ?</p>--%>
+<%--                    </div>--%>
+                    <div class="modal-footer">
+                        <button type="button" id="write_program_write" name="write_program_write" class="btn btn-danger" data-dismiss="modal">Сохранить</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </security:authorize>
 
 
 

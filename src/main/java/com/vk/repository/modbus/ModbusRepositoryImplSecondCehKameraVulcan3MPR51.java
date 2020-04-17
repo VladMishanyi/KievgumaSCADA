@@ -501,6 +501,315 @@ public void readDataFromRegister18(final boolean enableBatch){
         }
     }
 //--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister21(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator21r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister21(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister22(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator22r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister22(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister23(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator23r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister23(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister24(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator24r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister24(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister25(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator25r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister25(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister26(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator26r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister26(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister27(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator27r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister27(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister28(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator28r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister28(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister29(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator29r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister29(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister30(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator30r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister30(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister31(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator31r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister31(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister32(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator32r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister32(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister33(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator33r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister33(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister34(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator34r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister34(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister35(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator35r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister35(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister36(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator36r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister36(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister37(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator37r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister37(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister38(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator38r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister38(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister39(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator39r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister39(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister40(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator40r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister40(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister41(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator41r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister41(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void readDataFromRegister42(final boolean enableBatch){
+    if (Objects.nonNull(modbusShort)){
+        final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                batchRead,
+                enableBatch,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator42r());
+        deviceModelSecondCehKameraVulcan3MPR51.setInputRegister42(listShort.get(0));
+    }
+}
+    @Override
+    public void readDataFromRegister43(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator43r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister43(listFloat.get(0));
+        }
+    }
+    @Override
+    public void readDataFromRegister44(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator44r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister44(listFloat.get(0));
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public void readDataFromRegister45(final boolean enableBatch){
+        if (Objects.nonNull(modbusFloat)){
+            final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator45r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister45(listFloat.get(0));
+        }
+    }
+
+    @Override
+    public void readDataFromRegister46(final boolean enableBatch){
+        if (Objects.nonNull(modbusShort)){
+            final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator46r());
+            deviceModelSecondCehKameraVulcan3MPR51.setInputRegister46(listShort.get(0));
+        }
+    }
+
+
+
+
+
 
     @Override
     public void writeDataToRegister0(final float value){
@@ -511,7 +820,500 @@ public void readDataFromRegister18(final boolean enableBatch){
                     deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator0());
             deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister0(value);
         }
-
     }
 
+    @Override
+    public void writeDataToRegister1(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator1());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister1(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister2(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator2());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister2(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister3(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator3());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister3(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister4(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator4());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister4(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister5(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator5());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister5(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister6(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator6());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister6(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister7(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator7());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister7(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister8(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator8());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister8(value);
+        }
+    }
+
+//--------------------------------------------------------------------------------------------------------------------
+    @Override
+    public void writeDataToRegister9(final short value){
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator9());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister9(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister10(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator10());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister10(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister11(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator11());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister11(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister12(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator12());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister12(value);
+    }
+}
+    @Override
+    public void writeDataToRegister13(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator13());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister13(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister14(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator14());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister14(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister15(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator15());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister15(value);
+    }
+}
+    @Override
+    public void writeDataToRegister16(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator16());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister16(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister17(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator17());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister17(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister18(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator18());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister18(value);
+    }
+}
+    @Override
+    public void writeDataToRegister19(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator19());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister19(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister20(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator20());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister20(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister21(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator21());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister21(value);
+    }
+}
+    @Override
+    public void writeDataToRegister22(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator22());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister22(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister23(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator23());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister23(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister24(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator24());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister24(value);
+    }
+}
+    @Override
+    public void writeDataToRegister25(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator25());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister25(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister26(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator26());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister26(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister27(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator27());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister27(value);
+    }
+}
+    @Override
+    public void writeDataToRegister28(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator28());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister28(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister29(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator29());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister29(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister30(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator30());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister30(value);
+    }
+}
+    @Override
+    public void writeDataToRegister31(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator31());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister31(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister32(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator32());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister32(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister33(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator33());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister33(value);
+    }
+}
+    @Override
+    public void writeDataToRegister34(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator34());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister34(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister35(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator35());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister35(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister36(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator36());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister36(value);
+    }
+}
+    @Override
+    public void writeDataToRegister37(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator37());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister37(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister38(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator38());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister38(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister39(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator39());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister39(value);
+    }
+}
+    @Override
+    public void writeDataToRegister40(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator40());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister40(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister41(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator41());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister41(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+@Override
+public void writeDataToRegister42(final short value){
+    if (Objects.nonNull(modbusShort)){
+        modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                value,
+                deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator42());
+        deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister42(value);
+    }
+}
+    @Override
+    public void writeDataToRegister43(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator43());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister43(value);
+        }
+    }
+    @Override
+    public void writeDataToRegister44(final float value){
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator44());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister44(value);
+        }
+    }
+//--------------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public void writeDataToRegister45(final short value){
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator45());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister45(value);
+        }
+    }
+
+    @Override
+    public void writeDataToRegister46(final short value){
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.writeDataToModBus(modbusMasterSerialFourth,
+                    deviceModelSecondCehKameraVulcan3MPR51.getDeviceAddress(),
+                    value,
+                    deviceModelSecondCehKameraVulcan3MPR51.getModbusLocator46());
+            deviceModelSecondCehKameraVulcan3MPR51.setHoldingRegister46(value);
+        }
+    }
 }
