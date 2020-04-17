@@ -237,4 +237,16 @@ CREATE TABLE SecondCehKameraVulcan3 (
   DEFAULT CHARSET = utf8;
 
 /*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS logger;
+CREATE TABLE logger (
+    id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    date        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name        VARCHAR(255) NOT NULL DEFAULT '',
+    information TEXT         NOT NULL,
+    PRIMARY KEY (id)
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
 INSERT INTO users (id, date, role, name, login, password, description, locked) VALUES (1, CURRENT_TIMESTAMP, 'ADMIN', 'ad', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'new', FALSE);
