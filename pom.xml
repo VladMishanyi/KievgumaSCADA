@@ -66,6 +66,11 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>4.2.1.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-messaging</artifactId>
+            <version>4.2.1.RELEASE</version>
+        </dependency>
 
 
         <!-- Data -->
