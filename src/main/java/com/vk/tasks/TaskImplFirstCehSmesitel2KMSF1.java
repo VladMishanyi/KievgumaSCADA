@@ -1,21 +1,13 @@
 package com.vk.tasks;
 
-import com.vk.entity.converter.DeviceToTableFirstCehSmesitel1KMSF1;
 import com.vk.entity.converter.DeviceToTableFirstCehSmesitel2KMSF1;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1KMSF1;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel2KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel2MB110;
-import com.vk.entity.table.TableModelFirstCehSmesitel1KMSF1;
 import com.vk.entity.table.TableModelFirstCehSmesitel2KMSF1;
-import com.vk.service.data.FirstCehSmesitel1KMSF1ServiceData;
-import com.vk.service.data.FirstCehSmesitel1MB110ServiceData;
 import com.vk.service.data.FirstCehSmesitel2KMSF1ServiceData;
 import com.vk.service.data.FirstCehSmesitel2MB110ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

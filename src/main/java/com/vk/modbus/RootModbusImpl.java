@@ -9,10 +9,7 @@ import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.entity.modbus.ModbusMasterTcpModel;
 import org.apache.log4j.Logger;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

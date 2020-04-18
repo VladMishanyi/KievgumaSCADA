@@ -1,15 +1,11 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class KameraDozrevanyaMPR51ServiceDataImpl extends RootServiceDataImpl<Float, TableModelFirstCehKameraDozrevanyaMPR51, DeviceModelFirstCehKameraDozrevanyaMPR51> implements KameraDozrevanyaMPR51ServiceData{
+public class KameraDozrevanyaMPR51ServiceDataImpl extends RootServiceDataImpl<TableModelFirstCehKameraDozrevanyaMPR51, DeviceModelFirstCehKameraDozrevanyaMPR51> implements KameraDozrevanyaMPR51ServiceData{
 
     private final RootRepositoryData<TableModelFirstCehKameraDozrevanyaMPR51> rootRepositoryData;
 

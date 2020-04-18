@@ -1,19 +1,13 @@
 package com.vk.tasks;
 
-import com.vk.entity.converter.DeviceToTableFirstCehBuzulukTRM200;
 import com.vk.entity.converter.DeviceToTableFirstCehKameraDozrevanyaMPR51;
-import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaTRM138;
-import com.vk.entity.table.TableModelFirstCehBuzulukTRM200;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
-import com.vk.service.data.FirstCehBuzulukTRM200ServiceData;
 import com.vk.service.data.KameraDozrevanyaMPR51ServiceData;
 import com.vk.service.data.KameraDozrevanyaTRM138ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

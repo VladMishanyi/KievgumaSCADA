@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 
 /**

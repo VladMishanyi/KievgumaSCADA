@@ -1,8 +1,6 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan3MPR51;
-import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan3MPR51;
 
 /**

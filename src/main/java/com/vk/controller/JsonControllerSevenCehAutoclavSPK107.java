@@ -1,9 +1,9 @@
 package com.vk.controller;
 
+import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.service.data.SevenCehAutoclavSPK107ServiceData;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -18,9 +18,7 @@ import java.util.List;
  */
 @RestController
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
-public class JsonControllerSevenCehAutoclavSPK107 extends JsonController {
-
-    private Logger LOGGER = Logger.getLogger(JsonControllerSevenCehAutoclavSPK107.class);
+public class JsonControllerSevenCehAutoclavSPK107 extends JsonController<DeviceModelSevenCehAutoclavSPK107, SevenCehAutoclavSPK107ServiceData, TableModelSevenCehAutoclavSPK107> {
 
     private final SevenCehAutoclavSPK107ServiceData sevenCehAutoclavSPK107ServiceData;
 

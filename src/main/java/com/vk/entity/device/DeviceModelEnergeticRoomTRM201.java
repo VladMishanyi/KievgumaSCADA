@@ -63,163 +63,163 @@ public class DeviceModelEnergeticRoomTRM201 implements DeviceModel{
 
     public DeviceModelEnergeticRoomTRM201(){}
 
+    public static int getDeviceRegisterRange0() {
+        return deviceRegisterRange0;
+    }
+
+    public static int getDeviceRegisterOffset0() {
+        return deviceRegisterOffset0;
+    }
+
+    public static int getDeviceRegisterDataType0() {
+        return deviceRegisterDataType0;
+    }
+
+    public static float getHysteresis0() {
+        return hysteresis0;
+    }
+
+    public static float getDeviceValuesRegister0() {
+        return deviceValuesRegister0;
+    }
+
+    public static void setDeviceValuesRegister0(float deviceValuesRegister0) {
+        DeviceModelEnergeticRoomTRM201.deviceValuesRegister0 = deviceValuesRegister0;
+    }
+
+    public static float getHisDeviceValuesRegisters0() {
+        return hisDeviceValuesRegisters0;
+    }
+
+    public static void setHisDeviceValuesRegisters0(float hisDeviceValuesRegisters0) {
+        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
+    }
+
+    public static ModbusLocator getModbusLocator0() {
+        return modbusLocator0;
+    }
+
+    public static int getDeviceRegisterRange1() {
+        return deviceRegisterRange1;
+    }
+
+    public static int getDeviceRegisterOffset1() {
+        return deviceRegisterOffset1;
+    }
+
+    public static int getDeviceRegisterDataType1() {
+        return deviceRegisterDataType1;
+    }
+
+    public static float getHysteresis1() {
+        return hysteresis1;
+    }
+
+    public static float getDeviceValuesRegister1() {
+        return deviceValuesRegister1;
+    }
+
+    public static void setDeviceValuesRegister1(float deviceValuesRegister1) {
+        DeviceModelEnergeticRoomTRM201.deviceValuesRegister1 = deviceValuesRegister1;
+    }
+
+    public static float getHisDeviceValuesRegisters1() {
+        return hisDeviceValuesRegisters1;
+    }
+
+    public static void setHisDeviceValuesRegisters1(float hisDeviceValuesRegisters1) {
+        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
+    }
+
+    public static ModbusLocator getModbusLocator1() {
+        return modbusLocator1;
+    }
+
+    public static int getDeviceRegisterRange2() {
+        return deviceRegisterRange2;
+    }
+
+    public static int getDeviceRegisterOffset2() {
+        return deviceRegisterOffset2;
+    }
+
+    public static int getDeviceRegisterDataType2() {
+        return deviceRegisterDataType2;
+    }
+
+    public static int getHysteresis2() {
+        return hysteresis2;
+    }
+
+    public static int getDeviceValuesRegister2() {
+        return deviceValuesRegister2;
+    }
+
+    public static void setDeviceValuesRegister2(int deviceValuesRegister2) {
+        DeviceModelEnergeticRoomTRM201.deviceValuesRegister2 = deviceValuesRegister2;
+    }
+
+    public static int getHisDeviceValuesRegisters2() {
+        return hisDeviceValuesRegisters2;
+    }
+
+    public static void setHisDeviceValuesRegisters2(int hisDeviceValuesRegisters2) {
+        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
+    }
+
+    public static ModbusLocator getModbusLocator2() {
+        return modbusLocator2;
+    }
+
+    public static int getDeviceRegisterRange3() {
+        return deviceRegisterRange3;
+    }
+
+    public static int getDeviceRegisterOffset3() {
+        return deviceRegisterOffset3;
+    }
+
+    public static int getDeviceRegisterDataType3() {
+        return deviceRegisterDataType3;
+    }
+
+    public static int getHysteresis3() {
+        return hysteresis3;
+    }
+
+    public static int getDeviceValuesRegister3() {
+        return deviceValuesRegister3;
+    }
+
+    public static void setDeviceValuesRegister3(int deviceValuesRegister3) {
+        DeviceModelEnergeticRoomTRM201.deviceValuesRegister3 = deviceValuesRegister3;
+    }
+
+    public static int getHisDeviceValuesRegisters3() {
+        return hisDeviceValuesRegisters3;
+    }
+
+    public static void setHisDeviceValuesRegisters3(int hisDeviceValuesRegisters3) {
+        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters3 = hisDeviceValuesRegisters3;
+    }
+
+    public static ModbusLocator getModbusLocator3() {
+        return modbusLocator3;
+    }
+
     @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    public int getDeviceRegisterRange0() {
-        return deviceRegisterRange0;
-    }
-
-    public int getDeviceRegisterOffset0() {
-        return deviceRegisterOffset0;
-    }
-
-    public int getDeviceRegisterDataType0() {
-        return deviceRegisterDataType0;
-    }
-
-    public float getHysteresis0() {
-        return hysteresis0;
-    }
-
-    public float getDeviceValuesRegister0() {
-        return deviceValuesRegister0;
-    }
-
-    public void setDeviceValuesRegister0(final float deviceValuesRegister0) {
-        DeviceModelEnergeticRoomTRM201.deviceValuesRegister0 = deviceValuesRegister0;
-    }
-
-    public float getHisDeviceValuesRegisters0() {
-        return hisDeviceValuesRegisters0;
-    }
-
-    public void setHisDeviceValuesRegisters0(final float hisDeviceValuesRegisters0) {
-        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
-    }
-
-    public ModbusLocator getModbusLocator0() {
-        return modbusLocator0;
-    }
-
-    public int getDeviceRegisterRange1() {
-        return deviceRegisterRange1;
-    }
-
-    public int getDeviceRegisterOffset1() {
-        return deviceRegisterOffset1;
-    }
-
-    public int getDeviceRegisterDataType1() {
-        return deviceRegisterDataType1;
-    }
-
-    public float getHysteresis1() {
-        return hysteresis1;
-    }
-
-    public float getDeviceValuesRegister1() {
-        return deviceValuesRegister1;
-    }
-
-    public void setDeviceValuesRegister1(final float deviceValuesRegister1) {
-        DeviceModelEnergeticRoomTRM201.deviceValuesRegister1 = deviceValuesRegister1;
-    }
-
-    public float getHisDeviceValuesRegisters1() {
-        return hisDeviceValuesRegisters1;
-    }
-
-    public void setHisDeviceValuesRegisters1(final float hisDeviceValuesRegisters1) {
-        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
-    }
-
-    public ModbusLocator getModbusLocator1() {
-        return modbusLocator1;
-    }
-
-    public int getDeviceRegisterRange2() {
-        return deviceRegisterRange2;
-    }
-
-    public int getDeviceRegisterOffset2() {
-        return deviceRegisterOffset2;
-    }
-
-    public int getDeviceRegisterDataType2() {
-        return deviceRegisterDataType2;
-    }
-
-    public int getHysteresis2() {
-        return hysteresis2;
-    }
-
-    public int getDeviceValuesRegister2() {
-        return deviceValuesRegister2;
-    }
-
-    public void setDeviceValuesRegister2(int deviceValuesRegister2) {
-        DeviceModelEnergeticRoomTRM201.deviceValuesRegister2 = deviceValuesRegister2;
-    }
-
-    public int getHisDeviceValuesRegisters2() {
-        return hisDeviceValuesRegisters2;
-    }
-
-    public void setHisDeviceValuesRegisters2(int hisDeviceValuesRegisters2) {
-        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
-    }
-
-    public ModbusLocator getModbusLocator2() {
-        return modbusLocator2;
-    }
-
-    public int getDeviceRegisterRange3() {
-        return deviceRegisterRange3;
-    }
-
-    public int getDeviceRegisterOffset3() {
-        return deviceRegisterOffset3;
-    }
-
-    public int getDeviceRegisterDataType3() {
-        return deviceRegisterDataType3;
-    }
-
-    public int getHysteresis3() {
-        return hysteresis3;
-    }
-
-    public int getDeviceValuesRegister3() {
-        return deviceValuesRegister3;
-    }
-
-    public void setDeviceValuesRegister3(int deviceValuesRegister3) {
-        DeviceModelEnergeticRoomTRM201.deviceValuesRegister3 = deviceValuesRegister3;
-    }
-
-    public int getHisDeviceValuesRegisters3() {
-        return hisDeviceValuesRegisters3;
-    }
-
-    public void setHisDeviceValuesRegisters3(int hisDeviceValuesRegisters3) {
-        DeviceModelEnergeticRoomTRM201.hisDeviceValuesRegisters3 = hisDeviceValuesRegisters3;
-    }
-
-    public ModbusLocator getModbusLocator3() {
-        return modbusLocator3;
-    }
-
     @Override
     public boolean hysteresis(){
-        boolean inner = HysComparator.compare(getHisDeviceValuesRegisters0(),
-                getDeviceValuesRegister0(),
-                getHysteresis0());
-        inner |= HysComparator.compare(getHisDeviceValuesRegisters1(),
-                getDeviceValuesRegister1(),
-                getHysteresis1());
+        boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
+                deviceValuesRegister0,
+                hysteresis0);
+        inner |= HysComparator.compare(hisDeviceValuesRegisters1,
+                deviceValuesRegister1,
+                hysteresis1);
         if (inner){
             hisDeviceValuesRegisters0 = deviceValuesRegister0;
             hisDeviceValuesRegisters1 = deviceValuesRegister1;

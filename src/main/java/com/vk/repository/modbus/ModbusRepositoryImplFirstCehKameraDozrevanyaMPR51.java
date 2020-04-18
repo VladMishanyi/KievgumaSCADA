@@ -1,7 +1,6 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -24,16 +23,16 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51
 
     private final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51;
 
-    private final BatchRead batchRead;
+    private final BatchRead<Integer> batchRead;
 
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                              final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
-                                                             final BatchRead batchRead,
+                                                             final BatchRead<Integer> batchRead,
                                                              final ModbusFloat modbusFloat){
-        super(modbusMasterSerialFirst, modbusFloat);
+        super(modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehKameraDozrevanyaMPR51 = deviceModelFirstCehKameraDozrevanyaMPR51;
         this.batchRead = batchRead;

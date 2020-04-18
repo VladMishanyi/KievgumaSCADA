@@ -1,8 +1,5 @@
 package com.vk.aspect;
 
-/**
- * Created by KIP on 21.12.2017.
- */
 import org.apache.log4j.Logger;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;

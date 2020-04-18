@@ -1,10 +1,7 @@
 package com.vk.service.data;
 
-import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModel;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModel;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 
 import java.math.BigInteger;
 import java.util.Date;

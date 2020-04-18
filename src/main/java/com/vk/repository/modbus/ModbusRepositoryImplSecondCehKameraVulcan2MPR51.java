@@ -1,8 +1,6 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
-import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan2MPR51;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -34,7 +32,7 @@ public class ModbusRepositoryImplSecondCehKameraVulcan2MPR51
                                                            final DeviceModelSecondCehKameraVulcan2MPR51 deviceModelSecondCehKameraVulcan2MPR51,
                                                            final BatchRead<Integer> batchRead,
                                                            final ModbusFloat modbusFloat) {
-        super(modbusMasterSerialFourth, modbusFloat);
+        super(modbusFloat);
         this.modbusMasterSerialFourth = modbusMasterSerialFourth;
         this.deviceModelSecondCehKameraVulcan2MPR51 = deviceModelSecondCehKameraVulcan2MPR51;
         this.batchRead = batchRead;

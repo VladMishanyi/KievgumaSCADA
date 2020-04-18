@@ -1,6 +1,5 @@
 package com.vk.service.data;
 
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.user.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -9,15 +8,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 public interface UserService extends UserDetailsService {
 
-    public void add(User user);
+    void add(User user);
 
-    public void update(User user);
+    void update(User user);
 
-    public User getAuthenticatedUser();
+    User getAuthenticatedUser();
 
-    public boolean isAuthenticatedUser();
+    boolean isAuthenticatedUser();
 
-    public User getByLogin(String login);
+    User getByLogin(String login);
 
-    public boolean removeByLogin(String login);
+    boolean removeByLogin(String login);
 }

@@ -1,7 +1,6 @@
 package com.vk.entity.converter;
 
 import com.vk.entity.device.*;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehSmesitel4KMSF1;
 
 /**

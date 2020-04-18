@@ -1,19 +1,14 @@
 package com.vk.entity.converter;
 
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 
 import java.util.Date;
 
-import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
-
-import javax.inject.Inject;
 
 /**
  * Created by User on 2018-02-28.

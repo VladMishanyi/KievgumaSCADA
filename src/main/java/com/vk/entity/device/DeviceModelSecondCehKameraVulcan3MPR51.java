@@ -5,7 +5,6 @@ import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * Created by KIP-PC99 on 20.11.2018.

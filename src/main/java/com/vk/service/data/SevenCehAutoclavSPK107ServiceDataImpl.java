@@ -1,15 +1,11 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class SevenCehAutoclavSPK107ServiceDataImpl extends RootServiceDataImpl<Float, TableModelSevenCehAutoclavSPK107, DeviceModelSevenCehAutoclavSPK107> implements SevenCehAutoclavSPK107ServiceData{
+public class SevenCehAutoclavSPK107ServiceDataImpl extends RootServiceDataImpl<TableModelSevenCehAutoclavSPK107, DeviceModelSevenCehAutoclavSPK107> implements SevenCehAutoclavSPK107ServiceData{
 
 
     private final RootRepositoryData<TableModelSevenCehAutoclavSPK107> rootRepositoryData;

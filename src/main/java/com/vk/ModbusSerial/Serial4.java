@@ -13,17 +13,17 @@ import com.vk.modbus.ModbusFloatImpl;
  */
 public class Serial4 extends Thread {
 
+    final ModbusMasterSerialModel modbusMasterSerialModel3 = new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 500, 1);
+    final ModbusLocator modbusLocator17 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
+    final ModbusFloat modbusFloat = new ModbusFloatImpl();
+
     public Serial4(){
         this.start();
     }
     @Override
     public void run(){
         while (!this.isInterrupted()){
-            final ModbusMasterSerialModel modbusMasterSerialModel3 =
-                    new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 500, 1);
-            final ModbusFloatImpl modbusFloat = new ModbusFloatImpl();
-            final ModbusLocator modbusLocator17 = new ModbusLocator(18, RegisterRange.HOLDING_REGISTER, 132, DataType.FOUR_BYTE_FLOAT);
-            BatchRead batch = new BatchRead();
+            BatchRead<Integer> batch = new BatchRead<>();
             modbusFloat.readDataFromModBus(modbusMasterSerialModel3, 18, batch,false, modbusLocator17);
             try {
                 Thread.sleep(500);

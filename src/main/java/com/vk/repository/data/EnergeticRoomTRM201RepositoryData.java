@@ -1,14 +1,7 @@
 package com.vk.repository.data;
 
-        import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-        import org.springframework.data.jpa.repository.JpaRepository;
-        import org.springframework.data.jpa.repository.Query;
-        import org.springframework.data.jpa.repository.Temporal;
-        import org.springframework.data.repository.query.Param;
+import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 
-        import javax.persistence.TemporalType;
-        import java.util.Date;
-        import java.util.List;
 
 /**
  * Created by KIP-PC99 on 11.06.2018.

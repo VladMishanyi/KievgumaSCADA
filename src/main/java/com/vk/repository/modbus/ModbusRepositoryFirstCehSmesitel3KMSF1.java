@@ -1,7 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel2KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel3KMSF1;
 
 /**

@@ -5,7 +5,6 @@ import com.vk.chain.Chain2;
 import com.vk.chain.Chain3;
 import com.vk.chain.Chain4;
 import com.vk.entity.modbus.ModbusBodyQuery;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -22,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @EnableScheduling
 @ComponentScan(basePackages = {"com.vk.chain"})
 public class ModbusController {
-
-    private final Logger LOGGER = Logger.getLogger(ModbusController.class);
 
     private final Chain1 chain1;
 

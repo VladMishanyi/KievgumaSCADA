@@ -4,7 +4,6 @@ import com.serotonin.modbus4j.*;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
-import com.vk.entity.modbus.ModbusMasterTcpModel;
 import com.vk.modbus.*;
 
 import java.util.List;

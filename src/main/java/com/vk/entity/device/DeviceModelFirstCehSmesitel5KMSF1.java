@@ -5,7 +5,6 @@ import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * Created by User on 2018-03-06.
@@ -28,52 +27,52 @@ public class DeviceModelFirstCehSmesitel5KMSF1 implements DeviceModel{
 
     public DeviceModelFirstCehSmesitel5KMSF1(){}
 
+    public static int getDeviceRegisterRange0() {
+        return deviceRegisterRange0;
+    }
+
+    public static int getDeviceRegisterOffset0() {
+        return deviceRegisterOffset0;
+    }
+
+    public static int getDeviceRegisterDataType0() {
+        return deviceRegisterDataType0;
+    }
+
+    public static int getHysteresis0() {
+        return hysteresis0;
+    }
+
+    public static int getDeviceValuesRegister0() {
+        return deviceValuesRegister0;
+    }
+
+    public static void setDeviceValuesRegister0(int deviceValuesRegister0) {
+        DeviceModelFirstCehSmesitel5KMSF1.deviceValuesRegister0 = deviceValuesRegister0;
+    }
+
+    public static int getHisDeviceValuesRegisters0() {
+        return hisDeviceValuesRegisters0;
+    }
+
+    public static void setHisDeviceValuesRegisters0(int hisDeviceValuesRegisters0) {
+        DeviceModelFirstCehSmesitel5KMSF1.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
+    }
+
+    public static ModbusLocator getModbusLocator0() {
+        return modbusLocator0;
+    }
+
     @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    public int getDeviceRegisterRange0() {
-        return deviceRegisterRange0;
-    }
-
-    public int getDeviceRegisterOffset0() {
-        return deviceRegisterOffset0;
-    }
-
-    public int getDeviceRegisterDataType0() {
-        return deviceRegisterDataType0;
-    }
-
-    public int getHysteresis0() {
-        return hysteresis0;
-    }
-
-    public int getDeviceValuesRegister0() {
-        return deviceValuesRegister0;
-    }
-
-    public void setDeviceValuesRegister0(final int deviceValuesRegister0) {
-        DeviceModelFirstCehSmesitel5KMSF1.deviceValuesRegister0 = deviceValuesRegister0;
-    }
-
-    public int getHisDeviceValuesRegisters0() {
-        return hisDeviceValuesRegisters0;
-    }
-
-    public void setHisDeviceValuesRegisters0(final int hisDeviceValuesRegisters0) {
-        DeviceModelFirstCehSmesitel5KMSF1.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
-    }
-
-    public ModbusLocator getModbusLocator0() {
-        return modbusLocator0;
-    }
-
     @Override
     public boolean hysteresis(){
-        boolean inner = HysComparator.compare(getHisDeviceValuesRegisters0(),
-                getDeviceValuesRegister0(),
-                getHysteresis0());
+        boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
+                deviceValuesRegister0,
+                hysteresis0);
         if (inner){
             hisDeviceValuesRegisters0 = deviceValuesRegister0;
         }

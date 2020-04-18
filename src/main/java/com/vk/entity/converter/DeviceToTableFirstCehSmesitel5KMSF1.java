@@ -1,10 +1,7 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel5KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel5MB110;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehSmesitel5KMSF1;
 
 /**

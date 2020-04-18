@@ -1,16 +1,11 @@
 package com.vk.tasks;
 
-import com.vk.entity.converter.DeviceToTableLaboratoryAutoclavMV110;
 import com.vk.entity.converter.DeviceToTableSevenCehAutoclavSPK107;
-import com.vk.entity.device.DeviceModelLaboratoryAutoclavMV110;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
-import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.service.data.SevenCehAutoclavSPK107ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

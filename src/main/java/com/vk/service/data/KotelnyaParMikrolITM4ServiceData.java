@@ -1,8 +1,6 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelKotelnyaParMikrolITM4;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelKotelnyaParMikrolITM4;
 
 /**

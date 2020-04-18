@@ -26,8 +26,8 @@ public class RootConfig {
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public BatchRead batchRead(){
-        return new BatchRead();
+    public BatchRead<Integer> batchRead(){
+        return new BatchRead<>();
     }
 
     @Bean

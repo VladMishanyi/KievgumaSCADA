@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "logger")
@@ -21,6 +22,12 @@ public class TableModelLogger extends TableModel{
     private String information;
 
     public TableModelLogger() {
+    }
+
+    public TableModelLogger(Date date, String name, String information) {
+        this.setDate(date);
+        this.name = name;
+        this.information = information;
     }
 
     @Override

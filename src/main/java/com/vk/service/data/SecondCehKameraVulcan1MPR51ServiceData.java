@@ -1,8 +1,6 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 
 /**

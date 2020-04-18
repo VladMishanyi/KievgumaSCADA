@@ -1,6 +1,5 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaTRM138;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 

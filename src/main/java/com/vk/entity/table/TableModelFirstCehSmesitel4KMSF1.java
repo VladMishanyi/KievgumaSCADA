@@ -1,7 +1,5 @@
 package com.vk.entity.table;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

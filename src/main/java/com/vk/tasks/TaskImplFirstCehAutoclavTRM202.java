@@ -1,18 +1,11 @@
 package com.vk.tasks;
 
-import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
 import com.vk.entity.converter.DeviceToTableFirstCehAutoclavTRM202;
-import com.vk.entity.converter.DeviceToTableImplEnergeticRoomTRM201;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
-import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import com.vk.service.data.FirstCehAutoclavTRM202ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

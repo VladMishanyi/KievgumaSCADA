@@ -7,5 +7,5 @@ import com.vk.service.data.EnergeticRoomTRM201ServiceData;
  */
 public interface TaskEnergeticRoomTRM201 extends TaskRoot{
 
-    public EnergeticRoomTRM201ServiceData getEnergeticRoomTRM201ServiceData();
+    EnergeticRoomTRM201ServiceData getEnergeticRoomTRM201ServiceData();
 }

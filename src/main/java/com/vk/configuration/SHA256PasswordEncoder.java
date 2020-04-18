@@ -1,6 +1,5 @@
 package com.vk.configuration;
 
-//import org.h2.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,7 +38,7 @@ public class SHA256PasswordEncoder implements PasswordEncoder {
         byte[] byteData = md.digest();
 
         //convert byte to hex format
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (byte aByteData : byteData) {
             sb.append(Integer.toString((aByteData & 0xff) + 0x100, 16).substring(1));
         }

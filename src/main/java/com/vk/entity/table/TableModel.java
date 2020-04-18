@@ -1,6 +1,5 @@
 package com.vk.entity.table;
 
-import javafx.scene.control.Tab;
 import org.apache.log4j.Logger;
 
 import javax.persistence.*;

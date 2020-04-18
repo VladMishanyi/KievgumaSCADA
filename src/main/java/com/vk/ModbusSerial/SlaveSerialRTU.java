@@ -11,7 +11,7 @@ import com.serotonin.modbus4j.exception.ModbusInitException;
  * Created by vlad on 19.05.17.
  */
 public class SlaveSerialRTU {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
 
         final ModbusFactory factory = new ModbusFactory();
 
@@ -34,15 +34,6 @@ public class SlaveSerialRTU {
         }
         catch (ModbusInitException e) {
             System.out.println( "Modbus Master Init Error: " + e.getMessage());
-            return;
-        }
-
-        try {
-
-
-        }
-        finally {
-//            slave.stop();
         }
     }
 }

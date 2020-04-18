@@ -1,17 +1,11 @@
-package com.vk.repository;
+package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel1KMSF1;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehSmesitel1KMSF1;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
-import com.vk.service.data.FirstCehSmesitel1KMSF1ServiceData;
-import com.vk.service.data.RootServiceDataImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class FirstCehSmesitel1KMSF1ServiceDataImpl extends RootServiceDataImpl<Integer, TableModelFirstCehSmesitel1KMSF1, DeviceModelFirstCehSmesitel1KMSF1> implements FirstCehSmesitel1KMSF1ServiceData {
+public class FirstCehSmesitel1KMSF1ServiceDataImpl extends RootServiceDataImpl<TableModelFirstCehSmesitel1KMSF1, DeviceModelFirstCehSmesitel1KMSF1> implements FirstCehSmesitel1KMSF1ServiceData {
 
 
     private final RootRepositoryData<TableModelFirstCehSmesitel1KMSF1> rootRepositoryData;

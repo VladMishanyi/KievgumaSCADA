@@ -1,9 +1,6 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
-import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaTRM138;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
-import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;

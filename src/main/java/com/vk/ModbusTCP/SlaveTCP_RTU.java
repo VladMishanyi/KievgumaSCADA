@@ -11,7 +11,7 @@ import com.serotonin.modbus4j.exception.ModbusInitException;
  */
 public class SlaveTCP_RTU {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
 
         final ModbusFactory factory = new ModbusFactory();
 

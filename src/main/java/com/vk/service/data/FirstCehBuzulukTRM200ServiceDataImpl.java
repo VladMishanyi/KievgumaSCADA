@@ -1,17 +1,11 @@
-package com.vk.repository;
+package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehBuzulukTRM200;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
-import com.vk.service.data.FirstCehBuzulukTRM200ServiceData;
-import com.vk.service.data.RootServiceDataImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class FirstCehBuzulukTRM200ServiceDataImpl extends RootServiceDataImpl<Float, TableModelFirstCehBuzulukTRM200, DeviceModelFirstCehBuzulukTRM200> implements FirstCehBuzulukTRM200ServiceData {
+public class FirstCehBuzulukTRM200ServiceDataImpl extends RootServiceDataImpl<TableModelFirstCehBuzulukTRM200, DeviceModelFirstCehBuzulukTRM200> implements FirstCehBuzulukTRM200ServiceData {
 
 
     private final RootRepositoryData<TableModelFirstCehBuzulukTRM200> rootRepositoryData;

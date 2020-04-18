@@ -1,17 +1,9 @@
 package com.vk.service.data;
 
-import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModel;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModel;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-import com.vk.repository.data.EnergeticRoomTRM201RepositoryData;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
-//import com.vk.repository.old_jpql.BaseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
@@ -22,7 +14,7 @@ import java.util.List;
  * Created by KIP-PC99 on 15.06.2018.
  */
 
-public class RootServiceDataImpl<K extends Number, E extends TableModel, T extends DeviceModel> implements RootServiceData<E, T>{
+public class RootServiceDataImpl<E extends TableModel, T extends DeviceModel> implements RootServiceData<E, T>{
 
     private final RootRepositoryData<E> rootRepositoryData;
 

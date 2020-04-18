@@ -7,7 +7,7 @@ import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
  */
 public interface ModbusRepositoryEnergeticRoomTRM201 extends RootModbusRepository<DeviceModelEnergeticRoomTRM201>{
 
-    public void writeValueFirstChanel(int value);
+    void writeValueFirstChanel(int value);
 
-    public void writeValueFirstChane2(int value);
+    void writeValueFirstChane2(int value);
 }

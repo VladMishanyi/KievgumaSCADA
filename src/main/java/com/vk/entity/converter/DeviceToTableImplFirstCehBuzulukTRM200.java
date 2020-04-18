@@ -1,7 +1,6 @@
 package com.vk.entity.converter;
 
 import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelFirstCehBuzulukTRM200;
 import com.vk.lib.FloatCut;
 import com.vk.lib.ObjectValidator;

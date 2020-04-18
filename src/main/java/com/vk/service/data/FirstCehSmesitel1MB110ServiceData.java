@@ -1,6 +1,5 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1KMSF1;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.table.TableModelFirstCehSmesitel1KMSF1;
 

@@ -2,16 +2,11 @@ package com.vk.service.data;
 
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-//import com.vk.repository.BaseRepositoryEnergeticRoomTRM201;
-import com.vk.repository.data.EnergeticRoomTRM201RepositoryData;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.ModbusRepositoryEnergeticRoomTRM201;
 import com.vk.repository.modbus.RootModbusRepository;
-//import com.vk.repository.old_modbus.ModbusRepositoryEnergeticRoomTRM201;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,7 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class EnergeticRoomTRM201ServiceDataImpl extends RootServiceDataImpl<Float, TableModelEnergeticRoomTRM201, DeviceModelEnergeticRoomTRM201> implements EnergeticRoomTRM201ServiceData{
+public class EnergeticRoomTRM201ServiceDataImpl extends RootServiceDataImpl<TableModelEnergeticRoomTRM201, DeviceModelEnergeticRoomTRM201> implements EnergeticRoomTRM201ServiceData{
 
 
     private final RootRepositoryData<TableModelEnergeticRoomTRM201> rootRepositoryData;

@@ -1,17 +1,11 @@
 package com.vk.tasks;
 
-import com.vk.entity.converter.DeviceToTableSecondCehKameraVulcan2MPR51;
 import com.vk.entity.converter.DeviceToTableSecondCehKameraVulcan3MPR51;
-import com.vk.entity.device.DeviceModelSecondCehKameraVulcan2MPR51;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan3MPR51;
-import com.vk.entity.table.TableModelSecondCehKameraVulcan2MPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan3MPR51;
-import com.vk.service.data.SecondCehKameraVulcan2MPR51ServiceData;
 import com.vk.service.data.SecondCehKameraVulcan3MPR51ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Component;
 

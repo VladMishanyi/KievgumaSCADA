@@ -12,24 +12,24 @@ import java.util.List;
  */
 public interface RootModbus<E extends Number> {
 
-    public void setUseBorders(boolean useBorders);
+    void setUseBorders(boolean useBorders);
 
-    public List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
+    List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                       int adr, BatchRead<Integer> batch,
                                       boolean enableBatch,
                                       ModbusLocator... modbusLocator);
 
-    public List<E> readDataFromModBus(ModbusMasterTcpModel modbusMasterTcpModel,
+    List<E> readDataFromModBus(ModbusMasterTcpModel modbusMasterTcpModel,
                                       int adr, BatchRead<Integer> batch,
                                       boolean enableBatch,
                                       ModbusLocator... modbusLocator);
 
-    public void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
+    void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                   int adr,
                                   E values,
                                   ModbusLocator modbusLocator);
 
-    public void writeDataToModBus(ModbusMasterTcpModel modbusMasterTcpModel,
+    void writeDataToModBus(ModbusMasterTcpModel modbusMasterTcpModel,
                                   int adr,
                                   E values,
                                   ModbusLocator modbusLocator);

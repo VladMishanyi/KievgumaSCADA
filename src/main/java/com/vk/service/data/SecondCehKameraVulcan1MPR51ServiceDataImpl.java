@@ -1,15 +1,11 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
-import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class SecondCehKameraVulcan1MPR51ServiceDataImpl extends RootServiceDataImpl<Float, TableModelSecondCehKameraVulcan1MPR51, DeviceModelSecondCehKameraVulcan1MPR51> implements SecondCehKameraVulcan1MPR51ServiceData{
+public class SecondCehKameraVulcan1MPR51ServiceDataImpl extends RootServiceDataImpl<TableModelSecondCehKameraVulcan1MPR51, DeviceModelSecondCehKameraVulcan1MPR51> implements SecondCehKameraVulcan1MPR51ServiceData{
 
     private final RootRepositoryData<TableModelSecondCehKameraVulcan1MPR51> rootRepositoryData;
 

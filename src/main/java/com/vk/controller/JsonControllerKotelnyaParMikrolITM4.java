@@ -1,11 +1,9 @@
 package com.vk.controller;
 
+import com.vk.entity.device.DeviceModelKotelnyaParMikrolITM4;
 import com.vk.entity.json.DateFromChart;
-import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.table.TableModelKotelnyaParMikrolITM4;
-import com.vk.service.data.KameraDozrevanyaMPR51ServiceData;
 import com.vk.service.data.KotelnyaParMikrolITM4ServiceData;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -20,9 +18,7 @@ import java.util.List;
  */
 @RestController
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
-public class JsonControllerKotelnyaParMikrolITM4 extends JsonController {
-
-    private Logger LOGGER = Logger.getLogger(JsonControllerFirstCehKameraDozrevanyaMPR51.class);
+public class JsonControllerKotelnyaParMikrolITM4 extends JsonController<DeviceModelKotelnyaParMikrolITM4, KotelnyaParMikrolITM4ServiceData, TableModelKotelnyaParMikrolITM4> {
 
     private final KotelnyaParMikrolITM4ServiceData kotelnyaParMikrolITM4ServiceData;
 

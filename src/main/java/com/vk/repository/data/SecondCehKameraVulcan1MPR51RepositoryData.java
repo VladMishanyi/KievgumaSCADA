@@ -1,6 +1,5 @@
 package com.vk.repository.data;
 
-import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.table.TableModelSecondCehKameraVulcan1MPR51;
 
 /**

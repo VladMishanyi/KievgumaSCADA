@@ -1,12 +1,8 @@
 package com.vk.chain;
 
-import com.vk.controller.WebController;
 import com.vk.tasks.*;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,8 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 @ComponentScan(basePackages = {"com.vk.service"})
 public class Chain2/* extends Thread */{
-
-    private final Logger LOGGER = Logger.getLogger(Chain2.class);
 
     private final TaskImplFirstCehSmesitel1KMSF1 taskImplFirstCehSmesitel1KMSF1;
 

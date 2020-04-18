@@ -1,9 +1,9 @@
 package com.vk.controller;
 
+import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.service.data.EnergeticRoomTRM201ServiceData;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -19,9 +19,7 @@ import java.util.List;
  */
 @RestController
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
-public class JsonControllerEnergeticRoomTRM201 extends JsonController{
-
-    private Logger LOGGER = Logger.getLogger(JsonControllerEnergeticRoomTRM201.class);
+public class JsonControllerEnergeticRoomTRM201 extends JsonController<DeviceModelEnergeticRoomTRM201, EnergeticRoomTRM201ServiceData, TableModelEnergeticRoomTRM201>{
 
     private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
 

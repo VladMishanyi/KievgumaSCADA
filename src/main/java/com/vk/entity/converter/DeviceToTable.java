@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public interface DeviceToTable<T extends DeviceModel, K extends DeviceModel, E extends TableModel> extends Serializable, Cloneable {
 
-    public E convert(T device);
+    E convert(T device);
 
-    public E convert(T device1, K device2);
+    E convert(T device1, K device2);
 }

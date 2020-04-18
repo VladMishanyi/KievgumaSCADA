@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import org.apache.log4j.Logger;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -27,7 +26,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/service-desk")
-    public void redirectToServiceDesk(final HttpServletRequest request, final HttpServletResponse response){
+    public void redirectToServiceDesk(final HttpServletResponse response){
         try {
             response.sendRedirect("http://192.168.10.7:3040");
         }
@@ -37,7 +36,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/contact-desk")
-    public void redirectToContactDesk(final HttpServletRequest request, final HttpServletResponse response){
+    public void redirectToContactDesk(final HttpServletResponse response){
         try {
             response.sendRedirect("http://192.168.10.20:3040");
         }

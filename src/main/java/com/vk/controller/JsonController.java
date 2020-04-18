@@ -1,5 +1,6 @@
 package com.vk.controller;
 
+import com.vk.entity.device.DeviceModel;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.table.TableModel;
 import com.vk.service.data.RootServiceData;
@@ -14,14 +15,14 @@ import java.util.List;
  * Created by User on 2017-07-20.
  */
 
-public class JsonController<E extends RootServiceData, T extends TableModel> {
+public class JsonController<D extends DeviceModel, E extends RootServiceData<T, D>, T extends TableModel> {
 
     private Logger LOGGER = Logger.getLogger(JsonController.class);
 
-    public List<E> generateTimeObject(final E serviceData,
+    public List<T> generateTimeObject(final E serviceData,
                                       final DateFromChart dateFromChart,
                                       final SimpleDateFormat simpleDateFormat){
-        List<E> tableModel = null;
+        List<T> tableModel = null;
         final String start = dateFromChart.getStart();
         final String end = dateFromChart.getEnd();
         final String[] startTokens = start.split("T");

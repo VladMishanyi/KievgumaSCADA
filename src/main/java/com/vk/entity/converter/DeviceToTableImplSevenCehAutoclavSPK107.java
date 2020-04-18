@@ -1,6 +1,5 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.lib.FloatCut;

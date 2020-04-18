@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 import com.vk.lib.ObjectValidator;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.jws.soap.SOAPBinding;
-
 /**
  * Created by KIP-PC99 on 18.07.2018.
  */

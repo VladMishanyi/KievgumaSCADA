@@ -38,8 +38,6 @@ public class ModbusSerialThirdConfig {
 
     @Bean(name = "modbusMasterSerialThird")
     public ModbusMasterSerialModel modbusMasterSerialThird() {
-        ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel(commPortId,
-                baduRate, dataBits, stopBits, parity, timeout, retries);
-        return modbusMasterSerialModel;
+        return new ModbusMasterSerialModel(commPortId, baduRate, dataBits, stopBits, parity, timeout, retries);
     }
 }

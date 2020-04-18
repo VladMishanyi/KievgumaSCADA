@@ -1,7 +1,6 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -24,16 +23,16 @@ public class ModbusRepositoryImplSevenCehAutoclavSPK107
 
     private final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107;
 
-    private final BatchRead batchRead;
+    private final BatchRead<Integer> batchRead;
 
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplSevenCehAutoclavSPK107(final ModbusMasterSerialModel modbusMasterSerialSecond,
                                                       final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107,
-                                                      final BatchRead batchRead,
+                                                      final BatchRead<Integer> batchRead,
                                                       final ModbusFloat modbusFloat){
-        super(modbusMasterSerialSecond, modbusFloat);
+        super(modbusFloat);
         this.modbusMasterSerialSecond = modbusMasterSerialSecond;
         this.deviceModelSevenCehAutoclavSPK107 = deviceModelSevenCehAutoclavSPK107;
         this.batchRead = batchRead;

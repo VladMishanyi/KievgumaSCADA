@@ -3,10 +3,6 @@ package com.vk.ModbusTCP;
 import com.serotonin.modbus4j.*;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
-import com.serotonin.modbus4j.exception.ModbusInitException;
-import com.serotonin.modbus4j.ip.IpParameters;
-import com.serotonin.modbus4j.msg.ModbusRequest;
-import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.entity.modbus.ModbusMasterTcpModel;
 import com.vk.modbus.*;
 
@@ -57,7 +53,7 @@ public class MasterTCP_RTU {
         int i = 0;
         while (true){
             startTime = System.currentTimeMillis();
-            BatchRead batchRead = new BatchRead();
+            BatchRead<Integer> batchRead = new BatchRead<>();
 
             modbusFloat.readDataFromModBus(modbusMasterTcpModel10, 5 , batchRead, false,
                     modbusLocator18,

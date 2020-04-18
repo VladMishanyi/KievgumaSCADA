@@ -5,7 +5,6 @@ import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * Created by KIP-PC99 on 20.09.2018.
@@ -112,316 +111,316 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
 
     public DeviceModelFirstCehKameraDozrevanyaTRM138(){}
 
+    public static int getDeviceRegisterRange0() {
+        return deviceRegisterRange0;
+    }
+
+    public static int getDeviceRegisterOffset0() {
+        return deviceRegisterOffset0;
+    }
+
+    public static int getDeviceRegisterDataType0() {
+        return deviceRegisterDataType0;
+    }
+
+    public static float getHysteresis0() {
+        return hysteresis0;
+    }
+
+    public static float getDeviceValuesRegister0() {
+        return deviceValuesRegister0;
+    }
+
+    public static void setDeviceValuesRegister0(float deviceValuesRegister0) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister0 = deviceValuesRegister0;
+    }
+
+    public static float getHisDeviceValuesRegisters0() {
+        return hisDeviceValuesRegisters0;
+    }
+
+    public static void setHisDeviceValuesRegisters0(float hisDeviceValuesRegisters0) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
+    }
+
+    public static ModbusLocator getModbusLocator0() {
+        return modbusLocator0;
+    }
+
+    public static int getDeviceRegisterRange1() {
+        return deviceRegisterRange1;
+    }
+
+    public static int getDeviceRegisterOffset1() {
+        return deviceRegisterOffset1;
+    }
+
+    public static int getDeviceRegisterDataType1() {
+        return deviceRegisterDataType1;
+    }
+
+    public static float getHysteresis1() {
+        return hysteresis1;
+    }
+
+    public static float getDeviceValuesRegister1() {
+        return deviceValuesRegister1;
+    }
+
+    public static void setDeviceValuesRegister1(float deviceValuesRegister1) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister1 = deviceValuesRegister1;
+    }
+
+    public static float getHisDeviceValuesRegisters1() {
+        return hisDeviceValuesRegisters1;
+    }
+
+    public static void setHisDeviceValuesRegisters1(float hisDeviceValuesRegisters1) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
+    }
+
+    public static ModbusLocator getModbusLocator1() {
+        return modbusLocator1;
+    }
+
+    public static int getDeviceRegisterRange2() {
+        return deviceRegisterRange2;
+    }
+
+    public static int getDeviceRegisterOffset2() {
+        return deviceRegisterOffset2;
+    }
+
+    public static int getDeviceRegisterDataType2() {
+        return deviceRegisterDataType2;
+    }
+
+    public static float getHysteresis2() {
+        return hysteresis2;
+    }
+
+    public static float getDeviceValuesRegister2() {
+        return deviceValuesRegister2;
+    }
+
+    public static void setDeviceValuesRegister2(float deviceValuesRegister2) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister2 = deviceValuesRegister2;
+    }
+
+    public static float getHisDeviceValuesRegisters2() {
+        return hisDeviceValuesRegisters2;
+    }
+
+    public static void setHisDeviceValuesRegisters2(float hisDeviceValuesRegisters2) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
+    }
+
+    public static ModbusLocator getModbusLocator2() {
+        return modbusLocator2;
+    }
+
+    public static int getDeviceRegisterRange3() {
+        return deviceRegisterRange3;
+    }
+
+    public static int getDeviceRegisterOffset3() {
+        return deviceRegisterOffset3;
+    }
+
+    public static int getDeviceRegisterDataType3() {
+        return deviceRegisterDataType3;
+    }
+
+    public static float getHysteresis3() {
+        return hysteresis3;
+    }
+
+    public static float getDeviceValuesRegister3() {
+        return deviceValuesRegister3;
+    }
+
+    public static void setDeviceValuesRegister3(float deviceValuesRegister3) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister3 = deviceValuesRegister3;
+    }
+
+    public static float getHisDeviceValuesRegisters3() {
+        return hisDeviceValuesRegisters3;
+    }
+
+    public static void setHisDeviceValuesRegisters3(float hisDeviceValuesRegisters3) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters3 = hisDeviceValuesRegisters3;
+    }
+
+    public static ModbusLocator getModbusLocator3() {
+        return modbusLocator3;
+    }
+
+    public static int getDeviceRegisterRange4() {
+        return deviceRegisterRange4;
+    }
+
+    public static int getDeviceRegisterOffset4() {
+        return deviceRegisterOffset4;
+    }
+
+    public static int getDeviceRegisterDataType4() {
+        return deviceRegisterDataType4;
+    }
+
+    public static float getHysteresis4() {
+        return hysteresis4;
+    }
+
+    public static float getDeviceValuesRegister4() {
+        return deviceValuesRegister4;
+    }
+
+    public static void setDeviceValuesRegister4(float deviceValuesRegister4) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister4 = deviceValuesRegister4;
+    }
+
+    public static float getHisDeviceValuesRegisters4() {
+        return hisDeviceValuesRegisters4;
+    }
+
+    public static void setHisDeviceValuesRegisters4(float hisDeviceValuesRegisters4) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters4 = hisDeviceValuesRegisters4;
+    }
+
+    public static ModbusLocator getModbusLocator4() {
+        return modbusLocator4;
+    }
+
+    public static int getDeviceRegisterRange5() {
+        return deviceRegisterRange5;
+    }
+
+    public static int getDeviceRegisterOffset5() {
+        return deviceRegisterOffset5;
+    }
+
+    public static int getDeviceRegisterDataType5() {
+        return deviceRegisterDataType5;
+    }
+
+    public static float getHysteresis5() {
+        return hysteresis5;
+    }
+
+    public static float getDeviceValuesRegister5() {
+        return deviceValuesRegister5;
+    }
+
+    public static void setDeviceValuesRegister5(float deviceValuesRegister5) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister5 = deviceValuesRegister5;
+    }
+
+    public static float getHisDeviceValuesRegisters5() {
+        return hisDeviceValuesRegisters5;
+    }
+
+    public static void setHisDeviceValuesRegisters5(float hisDeviceValuesRegisters5) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters5 = hisDeviceValuesRegisters5;
+    }
+
+    public static ModbusLocator getModbusLocator5() {
+        return modbusLocator5;
+    }
+
+    public static int getDeviceRegisterRange6() {
+        return deviceRegisterRange6;
+    }
+
+    public static int getDeviceRegisterOffset6() {
+        return deviceRegisterOffset6;
+    }
+
+    public static int getDeviceRegisterDataType6() {
+        return deviceRegisterDataType6;
+    }
+
+    public static float getHysteresis6() {
+        return hysteresis6;
+    }
+
+    public static float getDeviceValuesRegister6() {
+        return deviceValuesRegister6;
+    }
+
+    public static void setDeviceValuesRegister6(float deviceValuesRegister6) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister6 = deviceValuesRegister6;
+    }
+
+    public static float getHisDeviceValuesRegisters6() {
+        return hisDeviceValuesRegisters6;
+    }
+
+    public static void setHisDeviceValuesRegisters6(float hisDeviceValuesRegisters6) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters6 = hisDeviceValuesRegisters6;
+    }
+
+    public static ModbusLocator getModbusLocator6() {
+        return modbusLocator6;
+    }
+
+    public static int getDeviceRegisterRange7() {
+        return deviceRegisterRange7;
+    }
+
+    public static int getDeviceRegisterOffset7() {
+        return deviceRegisterOffset7;
+    }
+
+    public static int getDeviceRegisterDataType7() {
+        return deviceRegisterDataType7;
+    }
+
+    public static float getHysteresis7() {
+        return hysteresis7;
+    }
+
+    public static float getDeviceValuesRegister7() {
+        return deviceValuesRegister7;
+    }
+
+    public static void setDeviceValuesRegister7(float deviceValuesRegister7) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister7 = deviceValuesRegister7;
+    }
+
+    public static float getHisDeviceValuesRegisters7() {
+        return hisDeviceValuesRegisters7;
+    }
+
+    public static void setHisDeviceValuesRegisters7(float hisDeviceValuesRegisters7) {
+        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters7 = hisDeviceValuesRegisters7;
+    }
+
+    public static ModbusLocator getModbusLocator7() {
+        return modbusLocator7;
+    }
+
     @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    public int getDeviceRegisterRange0() {
-        return deviceRegisterRange0;
-    }
-
-    public int getDeviceRegisterOffset0() {
-        return deviceRegisterOffset0;
-    }
-
-    public int getDeviceRegisterDataType0() {
-        return deviceRegisterDataType0;
-    }
-
-    public float getHysteresis0() {
-        return hysteresis0;
-    }
-
-    public float getDeviceValuesRegister0() {
-        return deviceValuesRegister0;
-    }
-
-    public void setDeviceValuesRegister0(final float deviceValuesRegister0) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister0 = deviceValuesRegister0;
-    }
-
-    public float getHisDeviceValuesRegisters0() {
-        return hisDeviceValuesRegisters0;
-    }
-
-    public void setHisDeviceValuesRegisters0(final float hisDeviceValuesRegisters0) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters0 = hisDeviceValuesRegisters0;
-    }
-
-    public ModbusLocator getModbusLocator0() {
-        return modbusLocator0;
-    }
-
-    public int getDeviceRegisterRange1() {
-        return deviceRegisterRange1;
-    }
-
-    public int getDeviceRegisterOffset1() {
-        return deviceRegisterOffset1;
-    }
-
-    public int getDeviceRegisterDataType1() {
-        return deviceRegisterDataType1;
-    }
-
-    public float getHysteresis1() {
-        return hysteresis1;
-    }
-
-    public float getDeviceValuesRegister1() {
-        return deviceValuesRegister1;
-    }
-
-    public void setDeviceValuesRegister1(final float deviceValuesRegister1) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister1 = deviceValuesRegister1;
-    }
-
-    public float getHisDeviceValuesRegisters1() {
-        return hisDeviceValuesRegisters1;
-    }
-
-    public void setHisDeviceValuesRegisters1(final float hisDeviceValuesRegisters1) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters1 = hisDeviceValuesRegisters1;
-    }
-
-    public ModbusLocator getModbusLocator1() {
-        return modbusLocator1;
-    }
-
-    public int getDeviceRegisterRange2() {
-        return deviceRegisterRange2;
-    }
-
-    public int getDeviceRegisterOffset2() {
-        return deviceRegisterOffset2;
-    }
-
-    public int getDeviceRegisterDataType2() {
-        return deviceRegisterDataType2;
-    }
-
-    public float getHysteresis2() {
-        return hysteresis2;
-    }
-
-    public float getDeviceValuesRegister2() {
-        return deviceValuesRegister2;
-    }
-
-    public void setDeviceValuesRegister2(final float deviceValuesRegister2) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister2 = deviceValuesRegister2;
-    }
-
-    public float getHisDeviceValuesRegisters2() {
-        return hisDeviceValuesRegisters2;
-    }
-
-    public void setHisDeviceValuesRegisters2(final float hisDeviceValuesRegisters2) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters2 = hisDeviceValuesRegisters2;
-    }
-
-    public ModbusLocator getModbusLocator2() {
-        return modbusLocator2;
-    }
-
-    public int getDeviceRegisterRange3() {
-        return deviceRegisterRange3;
-    }
-
-    public int getDeviceRegisterOffset3() {
-        return deviceRegisterOffset3;
-    }
-
-    public int getDeviceRegisterDataType3() {
-        return deviceRegisterDataType3;
-    }
-
-    public float getHysteresis3() {
-        return hysteresis3;
-    }
-
-    public float getDeviceValuesRegister3() {
-        return deviceValuesRegister3;
-    }
-
-    public void setDeviceValuesRegister3(final float deviceValuesRegister3) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister3 = deviceValuesRegister3;
-    }
-
-    public float getHisDeviceValuesRegisters3() {
-        return hisDeviceValuesRegisters3;
-    }
-
-    public void setHisDeviceValuesRegisters3(final float hisDeviceValuesRegisters3) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters3 = hisDeviceValuesRegisters3;
-    }
-
-    public ModbusLocator getModbusLocator3() {
-        return modbusLocator3;
-    }
-
-    public int getDeviceRegisterRange4() {
-        return deviceRegisterRange4;
-    }
-
-    public int getDeviceRegisterOffset4() {
-        return deviceRegisterOffset4;
-    }
-
-    public int getDeviceRegisterDataType4() {
-        return deviceRegisterDataType4;
-    }
-
-    public float getHysteresis4() {
-        return hysteresis4;
-    }
-
-    public float getDeviceValuesRegister4() {
-        return deviceValuesRegister4;
-    }
-
-    public void setDeviceValuesRegister4(final float deviceValuesRegister4) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister4 = deviceValuesRegister4;
-    }
-
-    public float getHisDeviceValuesRegisters4() {
-        return hisDeviceValuesRegisters4;
-    }
-
-    public void setHisDeviceValuesRegisters4(final float hisDeviceValuesRegisters4) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters4 = hisDeviceValuesRegisters4;
-    }
-
-    public ModbusLocator getModbusLocator4() {
-        return modbusLocator4;
-    }
-
-    public int getDeviceRegisterRange5() {
-        return deviceRegisterRange5;
-    }
-
-    public int getDeviceRegisterOffset5() {
-        return deviceRegisterOffset5;
-    }
-
-    public int getDeviceRegisterDataType5() {
-        return deviceRegisterDataType5;
-    }
-
-    public float getHysteresis5() {
-        return hysteresis5;
-    }
-
-    public float getDeviceValuesRegister5() {
-        return deviceValuesRegister5;
-    }
-
-    public void setDeviceValuesRegister5(final float deviceValuesRegister5) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister5 = deviceValuesRegister5;
-    }
-
-    public float getHisDeviceValuesRegisters5() {
-        return hisDeviceValuesRegisters5;
-    }
-
-    public void setHisDeviceValuesRegisters5(final float hisDeviceValuesRegisters5) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters5 = hisDeviceValuesRegisters5;
-    }
-
-    public ModbusLocator getModbusLocator5() {
-        return modbusLocator5;
-    }
-
-    public int getDeviceRegisterRange6() {
-        return deviceRegisterRange6;
-    }
-
-    public int getDeviceRegisterOffset6() {
-        return deviceRegisterOffset6;
-    }
-
-    public int getDeviceRegisterDataType6() {
-        return deviceRegisterDataType6;
-    }
-
-    public float getHysteresis6() {
-        return hysteresis6;
-    }
-
-    public float getDeviceValuesRegister6() {
-        return deviceValuesRegister6;
-    }
-
-    public void setDeviceValuesRegister6(final float deviceValuesRegister6) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister6 = deviceValuesRegister6;
-    }
-
-    public float getHisDeviceValuesRegisters6() {
-        return hisDeviceValuesRegisters6;
-    }
-
-    public void setHisDeviceValuesRegisters6(final float hisDeviceValuesRegisters6) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters6 = hisDeviceValuesRegisters6;
-    }
-
-    public ModbusLocator getModbusLocator6() {
-        return modbusLocator6;
-    }
-
-    public int getDeviceRegisterRange7() {
-        return deviceRegisterRange7;
-    }
-
-    public int getDeviceRegisterOffset7() {
-        return deviceRegisterOffset7;
-    }
-
-    public int getDeviceRegisterDataType7() {
-        return deviceRegisterDataType7;
-    }
-
-    public float getHysteresis7() {
-        return hysteresis7;
-    }
-
-    public float getDeviceValuesRegister7() {
-        return deviceValuesRegister7;
-    }
-
-    public void setDeviceValuesRegister7(final float deviceValuesRegister7) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.deviceValuesRegister7 = deviceValuesRegister7;
-    }
-
-    public float getHisDeviceValuesRegisters7() {
-        return hisDeviceValuesRegisters7;
-    }
-
-    public void setHisDeviceValuesRegisters7(final float hisDeviceValuesRegisters7) {
-        DeviceModelFirstCehKameraDozrevanyaTRM138.hisDeviceValuesRegisters7 = hisDeviceValuesRegisters7;
-    }
-
-    public ModbusLocator getModbusLocator7() {
-        return modbusLocator7;
-    }
-
     @Override
     public boolean hysteresis(){
-        boolean inner = HysComparator.compare(getHisDeviceValuesRegisters0(),
-                getDeviceValuesRegister0(),
-                getHysteresis0());
-        inner |= HysComparator.compare(getHisDeviceValuesRegisters1(),
-                getDeviceValuesRegister1(),
-                getHysteresis1());
-        inner |= HysComparator.compare(getHisDeviceValuesRegisters2(),
-                getDeviceValuesRegister2(),
-                getHysteresis2());
-        inner |= HysComparator.compare(getHisDeviceValuesRegisters3(),
-                getDeviceValuesRegister3(),
-                getHysteresis3());
-        inner |= HysComparator.compare(getHisDeviceValuesRegisters4(),
-                getDeviceValuesRegister4(),
-                getHysteresis4());
+        boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
+                deviceValuesRegister0,
+                hysteresis0);
+        inner |= HysComparator.compare(hisDeviceValuesRegisters1,
+                deviceValuesRegister1,
+                hysteresis1);
+        inner |= HysComparator.compare(hisDeviceValuesRegisters2,
+                deviceValuesRegister2,
+                hysteresis2);
+        inner |= HysComparator.compare(hisDeviceValuesRegisters3,
+                deviceValuesRegister3,
+                hysteresis3);
+        inner |= HysComparator.compare(hisDeviceValuesRegisters4,
+                deviceValuesRegister4,
+                hysteresis4);
         if (inner){
             hisDeviceValuesRegisters0 = deviceValuesRegister0;
             hisDeviceValuesRegisters1 = deviceValuesRegister1;

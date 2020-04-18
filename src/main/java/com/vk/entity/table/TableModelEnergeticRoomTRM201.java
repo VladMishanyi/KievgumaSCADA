@@ -1,8 +1,5 @@
 package com.vk.entity.table;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 /**

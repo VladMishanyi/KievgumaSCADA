@@ -26,7 +26,7 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
 
     private final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201;
 
-    private final BatchRead batchRead;
+    private final BatchRead<Integer> batchRead;
 
     private final ModbusFloat modbusFloat;
 
@@ -35,10 +35,10 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
     @Autowired
     public ModbusRepositoryImplEnergeticRoomTRM201(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                    final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201,
-                                                   final BatchRead batchRead,
+                                                   final BatchRead<Integer> batchRead,
                                                    final ModbusFloat modbusFloat,
                                                    final ModbusInteger modbusInteger){
-        super(modbusMasterSerialFirst, modbusFloat);
+        super(modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelEnergeticRoomTRM201 = deviceModelEnergeticRoomTRM201;
         this.batchRead = batchRead;

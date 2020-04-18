@@ -1,15 +1,11 @@
 package com.vk.service.data;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelThirdCehAutoclavTRM202;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelThirdCehAutoclavTRM202;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @ComponentScan(basePackages = {"com.vk.repository"})
-public class ThirdCehAutoclavTRM202ServiceDataImpl extends RootServiceDataImpl<Float, TableModelThirdCehAutoclavTRM202, DeviceModelThirdCehAutoclavTRM202> implements ThirdCehAutoclavTRM202ServiceData{
+public class ThirdCehAutoclavTRM202ServiceDataImpl extends RootServiceDataImpl<TableModelThirdCehAutoclavTRM202, DeviceModelThirdCehAutoclavTRM202> implements ThirdCehAutoclavTRM202ServiceData{
 
 
     private final RootRepositoryData<TableModelThirdCehAutoclavTRM202> rootRepositoryData;

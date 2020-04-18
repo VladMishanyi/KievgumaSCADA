@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.ModbusMaster;
 import com.vk.entity.device.DeviceModel;
 
 /**
@@ -8,7 +7,7 @@ import com.vk.entity.device.DeviceModel;
  */
 public interface RootModbusRepository<T extends DeviceModel> {
 
-    public void setUseBorders(final boolean state);
+    void setUseBorders(final boolean state);
 
-    public T getDeviceModel(final boolean enableBatch);
+    T getDeviceModel(final boolean enableBatch);
 }

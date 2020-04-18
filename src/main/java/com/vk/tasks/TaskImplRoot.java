@@ -1,16 +1,9 @@
 package com.vk.tasks;
 
 import com.vk.entity.converter.DeviceToTable;
-import com.vk.entity.converter.DeviceToTableEnergeticRoomTRM201;
-import com.vk.entity.converter.DeviceToTableImplEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModel;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModel;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
-import com.vk.service.data.EnergeticRoomTRM201ServiceData;
 import com.vk.service.data.RootServiceData;
-import com.vk.service.data.RootServiceDataImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.core.MessageSendingOperations;
 
 /**
@@ -18,8 +11,8 @@ import org.springframework.messaging.core.MessageSendingOperations;
  */
 public class TaskImplRoot<I extends Number,
         S extends Number,
-        T extends RootServiceData,
-        G extends RootServiceData,
+        T extends RootServiceData<A, K>,
+        G extends RootServiceData<A, F>,
         K extends DeviceModel,
         F extends DeviceModel,
         A extends TableModel,

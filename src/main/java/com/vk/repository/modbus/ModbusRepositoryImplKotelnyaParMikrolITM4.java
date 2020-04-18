@@ -1,7 +1,6 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelKotelnyaParMikrolITM4;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -24,16 +23,16 @@ public class ModbusRepositoryImplKotelnyaParMikrolITM4
 
     private final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4;
 
-    private final BatchRead batchRead;
+    private final BatchRead<Integer> batchRead;
 
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplKotelnyaParMikrolITM4(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                      final DeviceModelKotelnyaParMikrolITM4 deviceModelKotelnyaParMikrolITM4,
-                                                     final BatchRead batchRead,
+                                                     final BatchRead<Integer> batchRead,
                                                      final ModbusFloat modbusFloat){
-        super(modbusMasterSerialFirst, modbusFloat);
+        super(modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelKotelnyaParMikrolITM4 = deviceModelKotelnyaParMikrolITM4;
         this.batchRead = batchRead;

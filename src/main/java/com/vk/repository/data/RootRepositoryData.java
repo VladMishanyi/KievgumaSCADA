@@ -1,7 +1,6 @@
 package com.vk.repository.data;
 
 import com.vk.entity.table.TableModel;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;

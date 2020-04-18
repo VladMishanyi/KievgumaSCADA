@@ -1,10 +1,7 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaTRM138;
-import com.vk.entity.device.DeviceModelFirstCehSmesitel1MB110;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelFirstCehKameraDozrevanyaMPR51;
 
 /**

@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan2MPR51;
 
 /**

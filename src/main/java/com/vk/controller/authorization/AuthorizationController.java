@@ -1,8 +1,6 @@
 package com.vk.controller.authorization;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,8 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 @ComponentScan(basePackages = "ua.com.ecoteh.service.fabrica")
 public final class AuthorizationController {
 
-    private static final Logger LOGGER = Logger.getLogger(AuthorizationController.class);
-
     private final UserService userService;
 
     @Autowired
@@ -42,7 +38,7 @@ public final class AuthorizationController {
     public ModelAndView loginPage() {
         ModelAndView modelAndView;
         if (this.userService.isAuthenticatedUser()) {
-            modelAndView = new ModelAndView("redirect:/admin/");
+            modelAndView = new ModelAndView("redirect:/");
         } else {
             modelAndView = new ModelAndView();
             modelAndView.setViewName("login/login");

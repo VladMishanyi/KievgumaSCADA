@@ -1,10 +1,8 @@
 package com.vk.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModelFirstCehBuzulukTRM200;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel4KMSF1;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
-import com.vk.modbus.ModbusFloat;
 import com.vk.modbus.ModbusInteger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -25,16 +23,16 @@ public class ModbusRepositoryImplFirstCehSmesitel4KMSF1
 
     private final DeviceModelFirstCehSmesitel4KMSF1 deviceModelFirstCehSmesitel4KMSF1;
 
-    private final BatchRead batchRead;
+    private final BatchRead<Integer> batchRead;
 
     private final ModbusInteger modbusInteger;
 
     @Autowired
     public ModbusRepositoryImplFirstCehSmesitel4KMSF1(final ModbusMasterSerialModel modbusMasterSerialThird,
                                                       final DeviceModelFirstCehSmesitel4KMSF1 deviceModelFirstCehSmesitel4KMSF1,
-                                                      final BatchRead batchRead,
+                                                      final BatchRead<Integer> batchRead,
                                                       final ModbusInteger modbusInteger){
-        super(modbusMasterSerialThird, modbusInteger);
+        super(modbusInteger);
         this.modbusMasterSerialThird = modbusMasterSerialThird;
         this.deviceModelFirstCehSmesitel4KMSF1 = deviceModelFirstCehSmesitel4KMSF1;
         this.batchRead = batchRead;

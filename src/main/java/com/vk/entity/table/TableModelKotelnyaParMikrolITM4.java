@@ -3,7 +3,6 @@ package com.vk.entity.table;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
  * Created by KIP-PC99 on 08.08.2018.
