@@ -41,6 +41,42 @@ public final class User extends TableModel implements UserDetails {
     }
 
     public User(
+            final String name,
+            final String login,
+            final String password,
+            final String description,
+            final UserRole role,
+            final boolean locked
+    ) {
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.description = description;
+        this.role = role;
+        this.locked = locked;
+
+    }
+
+    public User(
+            final Date date,
+            final String name,
+            final String login,
+            final String password,
+            final String description,
+            final UserRole role,
+            final boolean locked
+    ) {
+        this.setDate(date);
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.description = description;
+        this.role = role;
+        this.locked = locked;
+
+    }
+
+    public User(
             final long id,
             final Date date,
             final String name,

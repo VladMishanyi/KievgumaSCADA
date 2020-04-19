@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import com.vk.lib.ObjectValidator;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by KIP-PC99 on 18.07.2018.
  */
@@ -86,6 +88,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
             }
 
         } catch (Exception e){
+            e.printStackTrace();
             user =null;
         }
         return user;
@@ -97,13 +100,20 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         User user;
         boolean chaker = false;
         try {
-            user = getByLogin(login);
-            userRepository.delete(user);
+//            user = getByLogin(login);
+//            userRepository.delete(user);
+            userRepository.deleteByLogin(login);
             chaker = true;
 
         } catch (Exception e){
             chaker = false;
         }
         return chaker;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<User> findAll(){
+        return userRepository.findAll();
     }
 }

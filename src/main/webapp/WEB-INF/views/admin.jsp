@@ -37,11 +37,100 @@
     <div id="user" class="tabcontent">
         <h3>User</h3>
         <p>This service provide information about available users that could logging.</p>
+        <div class="container">
+            <form action="/admin/add_user" enctype="multipart/form-data" method="post">
+
+                <label for="role">Role</label>
+                <select id="role" name="role">
+                    <option value="SUPERADMIN">SUPERADMIN</option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="CLIENT">CLIENT</option>
+                    <option value="ANOTHER">ANOTHER</option>
+                </select>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+
+                <label for="login">Login</label>
+                <input type="text" id="login" name="login" placeholder="Login">
+
+                <label for="password_first">Password</label>
+                <input type="password" id="password_first" name="password_first" placeholder="Password">
+
+                <label for="confirm_password">Confirm password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password">
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
+
+
+                ${info}
+<%--                <input type="text" style="color: red" value="пароль уже существует !">--%>
+
+                <input type="submit" class="btn btn-success" value="Submit">
+            </form>
+
+            <table class="table">
+                <tr>
+                    <th>Login</th>
+                    <th>Role</th>
+                    <th>Manage</th>
+                </tr>
+                <c:forEach items="${users}" var="listUsers">
+                    <tr>
+                        <td>${listUsers.login}</td>
+                        <td>${listUsers.role.toString()}</td>
+                        <td><a href="/admin/delete_user?login=${listUsers.login}" class="btn btn-danger">DELETE</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </div>
 
     <div id="logger" class="tabcontent">
         <h3>Logger</h3>
         <p>This service provide information about users actions.</p>
+        <form action="/admin/get_log" enctype="multipart/form-data" method="post">
+            <table class="table">
+                <tr>
+                    <th>Период</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon" id="startMark">Начало</span>
+                            <input type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2017-12-19T07:30">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon" id="endMark">Конец</span>
+                            <input type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2017-12-19T18:00">
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="submit" class="btn btn-success" value="Submit">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <table class="table">
+            <tr>
+                <th>Date</th>
+                <th>Login</th>
+                <th>Information</th>
+            </tr>
+            <c:forEach items="${loggers}" var="listLoggers">
+                <tr>
+                    <td>${listLoggers.date}</td>
+                    <td>${listLoggers.name}</td>
+                    <td>${listLoggers.information}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </div>
 
     <div id="memory" class="tabcontent">
