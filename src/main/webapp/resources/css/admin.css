@@ -6,9 +6,10 @@ body {font-family: "Lato", sans-serif;}
     width: 200px;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 45px;
     left: 0;
-    background-color: #111;
+    border-radius: 5px;
+    background-color: #222;
     overflow-x: hidden;
     padding-top: 16px;
 }

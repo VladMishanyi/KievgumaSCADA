@@ -22,6 +22,7 @@
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/views/admin/admin_footer.jsp"/>
 <div class="sidebar">
     <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
     <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>

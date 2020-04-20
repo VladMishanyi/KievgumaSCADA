@@ -8,9 +8,15 @@ var increaseDecriaseZoom = 0;
 var leftRightPosition = 0;
 
 var onDraw = false;
-function onDrawChange() {
-    onDraw = !onDraw;
-}
+document.getElementById("id_switch_tred").addEventListener("change", function send() {
+    var checkedValue = document.getElementById("id_switch_tred").checked;
+    if (checkedValue){
+        onDraw = true;
+    }else {
+        onDraw = false;
+    }
+    console.log("------status tred: "+onDraw);
+});
 
 $(document).ready(function () {
     connect();

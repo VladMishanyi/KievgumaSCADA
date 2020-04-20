@@ -111,7 +111,7 @@
                 <td>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="bufferChartMark">Буфер графика</span>
-                        <input type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="1000">
+                        <input type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="1">
                     </div>
                 </td>
                 <td>
@@ -130,7 +130,11 @@
                     </a>
                 </td>
                 <td>
-                    <input type="button" id="goChart" name="goChart" onclick="onDrawChange();" class="btn btn-sm btn-success" value="Старт/Стоп">
+                    <h6 style="font-weight: bold;">Старт/Стоп</h6>
+                    <label class="switch">
+                        <input type="checkbox" id="id_switch_tred">
+                        <span class="slider round"></span>
+                    </label>
                     <input type="button" id="removeChart" name="removeChart" onclick="clearChart();" class="btn btn-sm btn-success" value="Стереть">
                 </td>
             </tr>
