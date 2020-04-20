@@ -31,6 +31,7 @@ public class RootConfig {
     }
 
     @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public SimpleDateFormat simpleDateFormat(){
         return new SimpleDateFormat("yyyy-MM-dd HH:mm");
     }
