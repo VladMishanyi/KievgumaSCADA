@@ -124,4 +124,9 @@ public class WebController {
     public String getTaskSecondCehKameraVulcan3MPR51(){
         return "secondCehKameraVulcan3MPR51";
     }
+
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public String getInfo(){
+        return "info_page";
+    }
 }

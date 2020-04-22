@@ -10,10 +10,11 @@
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="/admin/panel">Admin</a>
-    <a href="/service-desk">Service Desk</a>
-    <a href="/contact-desk">Contact Desk</a>
+    <a href="/info"><span class="glyphicon glyphicon-info-sign"></span>Info</a>
+    <a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+    <a href="/admin/panel"><span class="glyphicon glyphicon-user"></span>Admin</a>
+    <a href="/service-desk"><span class="glyphicon glyphicon-paperclip"></span>Service Desk</a>
+    <a href="/contact-desk"><span class="glyphicon glyphicon-book"></span>Contact Desk</a>
 </div>
 
 <!-- Use any element to open the sidenav -->

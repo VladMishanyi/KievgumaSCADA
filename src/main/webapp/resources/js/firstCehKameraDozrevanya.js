@@ -583,7 +583,8 @@ function removeFirstElementFromChart() {
 
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
-    var x = moment(parsed.date).utc().format("YYYY-MM-DD HH:mm:ss");
+    // var x = moment(parsed.date).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
+    var x = moment(parsed.date).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
     var y1 = parsed.channel1;
     var y2 = parsed.channel2;
     var y3 = parsed.channel3;

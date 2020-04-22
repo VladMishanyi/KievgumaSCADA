@@ -14,7 +14,7 @@
     </tr>
     <tr>
         <th style="text-align: center;">
-            <span style="color: red; font-family: sans-serif; font-size: 40px;">Временный ДОСТУП: логин - client, пароль - client</span>
+            <span style="color: red; font-family: sans-serif; font-size: 40px;">Временный ДОСТУП: Email - client, Password - client</span>
         </th>
     </tr>
 </table>
