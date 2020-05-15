@@ -25,16 +25,81 @@
 <table class="table">
     <tr>
         <th style="text-align: center;">
-            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Видео инструкция пользования</span>
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Как попасть в программу</span>
         </th>
     </tr>
     <tr>
         <td style="text-align: center;">
-            <video width="1024" height="768" controls>
-                <source src="<c:url value="/resources/video/info.mp4"/>" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe src="https://drive.google.com/file/d/1CBUz7WOBTqvR4p6Qmc8E5BRDqAAiXap6/preview" width="1376" height="768"></iframe>
         </td>
     </tr>
+    <tr>
+        <th style="text-align: center;">
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Как пользоваться графиком</span>
+        </th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <iframe src="https://drive.google.com/file/d/1pO4CSDTVvDXsw9MlZf9lx5qhkwerzMcu/preview" width="1376" height="768"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <th style="text-align: center;">
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Как пользоваться тредом</span>
+        </th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <iframe src="https://drive.google.com/file/d/1mWa2EIf1vsfZU70A4zgF8HcI0vGwf2Js/preview" width="1376" height="768"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <th style="text-align: center;">
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Как пользоваться рецептами с компьютера</span>
+        </th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <iframe src="https://drive.google.com/file/d/1yGaoOIO6tI9sAw01F_Ffhrr-tl0-9cs0/preview" width="1376" height="768"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <th style="text-align: center;">
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Обзор меню пользователя</span>
+        </th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <iframe src="https://drive.google.com/file/d/1wdEvxuosvT6VCDZlnnCedgwj2DcrTsAg/preview" width="1376" height="768"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <th style="text-align: center;">
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Возможные ошибки</span>
+        </th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <iframe src="https://drive.google.com/file/d/13kKpj_geP6LBZhAK6fmKV4l3xAc2n9YC/preview" width="1376" height="768"></iframe>
+        </td>
+    </tr>
+    <tr>
+        <th style="text-align: center;">
+            <span style="color: red; font-family: sans-serif; font-size: 20px; font-variant: small-caps;">Меню и функции администратора</span>
+        </th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <iframe src="https://drive.google.com/file/d/1v5EpNM7fYAPQBFmKxIa9NxBt2JoYGmZ1/preview" width="1376" height="768"></iframe>
+        </td>
+    </tr>
+<%--    <tr>--%>
+<%--        <td style="text-align: center;">--%>
+<%--            <video width="1376" height="768" controls="true">--%>
+<%--                <source src="<c:url value="/resources/video/info.mp4"/>" type="video/mp4">--%>
+<%--                Your browser does not support the video tag. Or you use HTML5 video in WebM with VP8 or MP4 with H.264.--%>
+<%--            </video>--%>
+<%--        </td>--%>
+<%--    </tr>--%>
 </table>
 </body>
