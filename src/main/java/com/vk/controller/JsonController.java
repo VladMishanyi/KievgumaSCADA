@@ -17,7 +17,7 @@ import java.util.List;
 
 public class JsonController<D extends DeviceModel, E extends RootServiceData<T, D>, T extends TableModel> {
 
-    private Logger LOGGER = Logger.getLogger(JsonController.class);
+    private final Logger LOGGER = Logger.getLogger(this.getClass());
 
     public List<T> generateTimeObject(final E serviceData,
                                       final DateFromChart dateFromChart,

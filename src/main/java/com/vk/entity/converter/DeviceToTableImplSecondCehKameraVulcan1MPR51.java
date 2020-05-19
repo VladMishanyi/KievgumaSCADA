@@ -25,9 +25,9 @@ public class DeviceToTableImplSecondCehKameraVulcan1MPR51
         if (ObjectValidator.isNotNull(deviceModelSecondCehKameraVulcan1MPR51)){
             tableModelSecondCehKameraVulcan1MPR51 = new TableModelSecondCehKameraVulcan1MPR51();
             tableModelSecondCehKameraVulcan1MPR51.setDate(new Date());
-            tableModelSecondCehKameraVulcan1MPR51.setChannel1(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getDeviceValuesRegister0()));
-            tableModelSecondCehKameraVulcan1MPR51.setChannel2(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getDeviceValuesRegister1()));
-            tableModelSecondCehKameraVulcan1MPR51.setChannel3(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getDeviceValuesRegister2()));
+            tableModelSecondCehKameraVulcan1MPR51.setChannel1(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getInputRegister45()));
+            tableModelSecondCehKameraVulcan1MPR51.setChannel2(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getInputRegister45()));
+            tableModelSecondCehKameraVulcan1MPR51.setChannel3(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getInputRegister45()));
         }
         return tableModelSecondCehKameraVulcan1MPR51;
     }

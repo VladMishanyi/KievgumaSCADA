@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 @Component
 public class SHA256PasswordEncoder implements PasswordEncoder {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SHA256PasswordEncoder.class);
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public String encode(CharSequence charSequence) {

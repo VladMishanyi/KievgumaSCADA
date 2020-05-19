@@ -30,14 +30,17 @@ public class TaskImplSecondCehKameraVulcan1MPR51
 
     private final SecondCehKameraVulcan1MPR51ServiceData secondCehKameraVulcan1MPR51ServiceData;
 
-    private final String messageSecondCehKameraVulcan1MPR51ServiceData = "/topic/secondCehKameraVulcan1MPR51";
+    private final String messageSecondCehKameraVulcan1MPR51ServiceDataTable = "/topic/secondCehKameraVulcan1MPR51_table";
+
+    private final String messageSecondCehKameraVulcan1MPR51ServiceDataDevice1 = "/topic/secondCehKameraVulcan1MPR51_device1";
 
     @Autowired
     public TaskImplSecondCehKameraVulcan1MPR51(final MessageSendingOperations<String> messageSendingOperations,
                                                final DeviceToTableSecondCehKameraVulcan1MPR51 deviceToTableSecondCehKameraVulcan1MPR51,
                                                final SecondCehKameraVulcan1MPR51ServiceData secondCehKameraVulcan1MPR51ServiceData){
         super(messageSendingOperations, deviceToTableSecondCehKameraVulcan1MPR51, secondCehKameraVulcan1MPR51ServiceData);
-        super.setMessage(messageSecondCehKameraVulcan1MPR51ServiceData);
+        super.setMessage(messageSecondCehKameraVulcan1MPR51ServiceDataTable);
+        super.setMessage1(messageSecondCehKameraVulcan1MPR51ServiceDataDevice1);
         this.messageSendingOperations = messageSendingOperations;
         this.secondCehKameraVulcan1MPR51ServiceData = secondCehKameraVulcan1MPR51ServiceData;
         this.deviceToTableSecondCehKameraVulcan1MPR51 = deviceToTableSecondCehKameraVulcan1MPR51;

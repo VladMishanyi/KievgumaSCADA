@@ -18,7 +18,7 @@ import java.io.IOException;
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.chain"})
 public class WebController {
 
-    private final Logger LOGGER = Logger.getLogger(WebController.class);
+    private final Logger LOGGER = Logger.getLogger(this.getClass());
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getIndex(){

@@ -28,7 +28,8 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/secondCehKameraVulcan2MPR51', function(resultTrm){
+
+        stompClient.subscribe('/topic/secondCehKameraVulcan2MPR51_table', function(resultTrm){
             var parsed = JSON.parse(resultTrm.body);
             showBody(parsed);
             if (onDraw){
@@ -39,8 +40,391 @@ function connect() {
         stompClient.subscribe('/topic/generateChartSecondCehKameraVulcan2MPR51', function(result){
             genChart(JSON.parse(result.body));
         });
+
+        stompClient.subscribe('/topic/secondCehKameraVulcan2MPR51_device1', function(result){
+            var parsed = JSON.parse(result.body);
+            var register0 = parsed.inputRegister0;
+            var register1 = parsed.inputRegister1;
+            var register2 = parsed.inputRegister2;
+            var register3 = parsed.inputRegister3;
+            var register4 = parsed.inputRegister4;
+            var register5 = parsed.inputRegister5;
+            var register6 = parsed.inputRegister6;
+            var register7 = parsed.inputRegister7;
+            var register8 = parsed.inputRegister8;
+            var register9 = parsed.inputRegister9;
+            var register10 = parsed.inputRegister10;
+            var register11 = parsed.inputRegister11;
+            var register12 = parsed.inputRegister12;
+            var register13 = parsed.inputRegister13;
+            var register14 = parsed.inputRegister14;
+            var register15 = parsed.inputRegister15;
+            var register16 = parsed.inputRegister16;
+            var register17 = parsed.inputRegister17;
+            var register18 = parsed.inputRegister18;
+            var register19 = parsed.inputRegister19;
+            var register20 = parsed.inputRegister20;
+            var register21 = parsed.inputRegister21;
+            var register22 = parsed.inputRegister22;
+            var register23 = parsed.inputRegister23;
+            var register24 = parsed.inputRegister24;
+            var register25 = parsed.inputRegister25;
+            var register26 = parsed.inputRegister26;
+            var register27 = parsed.inputRegister27;
+            var register28 = parsed.inputRegister28;
+            var register29 = parsed.inputRegister29;
+            var register30 = parsed.inputRegister30;
+            var register31 = parsed.inputRegister31;
+            var register32 = parsed.inputRegister32;
+            var register33 = parsed.inputRegister33;
+            var register34 = parsed.inputRegister34;
+            var register35 = parsed.inputRegister35;
+            var register36 = parsed.inputRegister36;
+            var register37 = parsed.inputRegister37;
+            var register38 = parsed.inputRegister38;
+            var register39 = parsed.inputRegister39;
+            var register40 = parsed.inputRegister40;
+            var register41 = parsed.inputRegister41;
+            var register42 = parsed.inputRegister42;
+            var register43 = parsed.inputRegister43;
+            var register44 = parsed.inputRegister44;
+            var register45 = parsed.inputRegister45;
+            var register46 = parsed.inputRegister46;
+            document.getElementById("read_steam_pwm").value = register0;
+            document.getElementById("read_steam_ki").value = register1;
+            document.getElementById("read_steam_kp").value = register2;
+            document.getElementById("read_steam_kd").value = register3;
+            document.getElementById("read_electric_pwm").value = register4;
+            document.getElementById("read_electric_ki").value = register5;
+            document.getElementById("read_electric_kp").value = register6;
+            document.getElementById("read_electric_kd").value = register7;
+            document.getElementById("read_alarm").value = register8;
+            document.getElementById("read_regim1").selectedIndex = register9;
+            document.getElementById("read_temp1").value = register10;
+            document.getElementById("read_press1").value = register11;
+            document.getElementById("read_regim2").selectedIndex = register12;
+            document.getElementById("read_temp2").value = register13;
+            document.getElementById("read_press2").value = register14;
+            document.getElementById("read_regim3").selectedIndex = register15;
+            document.getElementById("read_temp3").value = register16;
+            document.getElementById("read_press3").value = register17;
+            document.getElementById("read_regim4").selectedIndex = register18;
+            document.getElementById("read_temp4").value = register19;
+            document.getElementById("read_press4").value = register20;
+            document.getElementById("read_regim5").selectedIndex = register21;
+            document.getElementById("read_temp5").value = register22;
+            document.getElementById("read_press5").value = register23;
+            document.getElementById("read_regim6").selectedIndex = register24;
+            document.getElementById("read_temp6").value = register25;
+            document.getElementById("read_press6").value = register26;
+            document.getElementById("read_regim7").value = register27;
+            document.getElementById("read_temp7").value = register28;
+            document.getElementById("read_press7").value = register29;
+            document.getElementById("read_regim8").selectedIndex = register30;
+            document.getElementById("read_temp8").value = register31;
+            document.getElementById("read_press8").value = register32;
+            document.getElementById("read_regim9").selectedIndex = register33;
+            document.getElementById("read_temp9").value = register34;
+            document.getElementById("read_press9").value = register35;
+            document.getElementById("read_regim10").selectedIndex = register36;
+            document.getElementById("read_temp10").value = register37;
+            document.getElementById("read_press10").value = register38;
+            document.getElementById("read_regim11").selectedIndex = register39;
+            document.getElementById("read_temp11").value = register40;
+            document.getElementById("read_press11").value = register41;
+            document.getElementById("read_regim12").selectedIndex = register42;
+            document.getElementById("read_temp12").value = register43;
+            document.getElementById("read_press12").value = register44;
+            document.getElementById("secondCehKameraVulcan2MPR51Kanal2").value = register45;
+            document.getElementById("read_program").selectedIndex = register46;
+        });
     });
 }
+
+document.getElementById("write_steam_pwm").addEventListener("change", function send() {
+    var some = document.getElementById("write_steam_pwm").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_steam_pwm", {}, data);
+});
+
+document.getElementById("write_steam_ki").addEventListener("change", function send() {
+    var some = document.getElementById("write_steam_ki").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_steam_ki", {}, data);
+});
+
+document.getElementById("write_steam_kp").addEventListener("change", function send() {
+    var some = document.getElementById("write_steam_kp").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_steam_kp", {}, data);
+});
+
+document.getElementById("write_steam_kd").addEventListener("change", function send() {
+    var some = document.getElementById("write_steam_kd").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_steam_kd", {}, data);
+});
+
+document.getElementById("write_electric_pwm").addEventListener("change", function send() {
+    var some = document.getElementById("write_electric_pwm").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_electric_pwm", {}, data);
+});
+
+document.getElementById("write_electric_ki").addEventListener("change", function send() {
+    var some = document.getElementById("write_electric_ki").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_electric_ki", {}, data);
+});
+
+document.getElementById("write_electric_kp").addEventListener("change", function send() {
+    var some = document.getElementById("write_electric_kp").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_electric_kp", {}, data);
+});
+
+document.getElementById("write_electric_kd").addEventListener("change", function send() {
+    var some = document.getElementById("write_electric_kd").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_electric_kd", {}, data);
+});
+
+document.getElementById("write_alarm").addEventListener("change", function send() {
+    var some = document.getElementById("write_alarm").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_alarm", {}, data);
+});
+
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim1").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim1").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim1", {}, data);
+});
+document.getElementById("write_temp1").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp1").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp1", {}, data);
+});
+document.getElementById("write_press1").addEventListener("change", function send() {
+    var some = document.getElementById("write_press1").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press1", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim2").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim2").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim2", {}, data);
+});
+document.getElementById("write_temp2").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp2").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp2", {}, data);
+});
+document.getElementById("write_press2").addEventListener("change", function send() {
+    var some = document.getElementById("write_press2").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press2", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim3").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim3").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim3", {}, data);
+});
+document.getElementById("write_temp3").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp3").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp3", {}, data);
+});
+document.getElementById("write_press3").addEventListener("change", function send() {
+    var some = document.getElementById("write_press3").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press3", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim4").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim4").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim4", {}, data);
+});
+document.getElementById("write_temp4").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp4").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp4", {}, data);
+});
+document.getElementById("write_press4").addEventListener("change", function send() {
+    var some = document.getElementById("write_press4").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press4", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim5").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim5").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim5", {}, data);
+});
+document.getElementById("write_temp5").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp5").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp5", {}, data);
+});
+document.getElementById("write_press5").addEventListener("change", function send() {
+    var some = document.getElementById("write_press5").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press5", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim6").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim6").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim6", {}, data);
+});
+document.getElementById("write_temp6").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp6").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp6", {}, data);
+});
+document.getElementById("write_press6").addEventListener("change", function send() {
+    var some = document.getElementById("write_press6").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press6", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim7").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim7").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim7", {}, data);
+});
+document.getElementById("write_temp7").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp7").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp7", {}, data);
+});
+document.getElementById("write_press7").addEventListener("change", function send() {
+    var some = document.getElementById("write_press7").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press7", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim8").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim8").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim8", {}, data);
+});
+document.getElementById("write_temp8").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp8").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp8", {}, data);
+});
+document.getElementById("write_press8").addEventListener("change", function send() {
+    var some = document.getElementById("write_press8").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press8", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim9").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim9").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim9", {}, data);
+});
+document.getElementById("write_temp9").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp9").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp9", {}, data);
+});
+document.getElementById("write_press9").addEventListener("change", function send() {
+    var some = document.getElementById("write_press9").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press9", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim10").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim10").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim10", {}, data);
+});
+document.getElementById("write_temp10").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp10").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp10", {}, data);
+});
+document.getElementById("write_press10").addEventListener("change", function send() {
+    var some = document.getElementById("write_press10").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press10", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim11").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim11").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim11", {}, data);
+});
+document.getElementById("write_temp11").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp11").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp11", {}, data);
+});
+document.getElementById("write_press11").addEventListener("change", function send() {
+    var some = document.getElementById("write_press11").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press11", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+document.getElementById("write_regim12").addEventListener("change", function send() {
+    var some = document.getElementById("write_regim12").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_regim12", {}, data);
+});
+document.getElementById("write_temp12").addEventListener("change", function send() {
+    var some = document.getElementById("write_temp12").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_temp12", {}, data);
+});
+document.getElementById("write_press12").addEventListener("change", function send() {
+    var some = document.getElementById("write_press12").value;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_press12", {}, data);
+});
+//--------------------------------------------------------------------------------------------------
+
+document.getElementById("write_program").addEventListener("change", function send() {
+    var some = document.getElementById("write_program").selectedIndex;
+    var data = JSON.stringify({'value' : some});
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_program", {}, data);
+});
+
+document.getElementById("write_program_read").addEventListener("click", function send() {
+    // var some = document.getElementById("write_program_read").selectedIndex;
+    var data = JSON.stringify({'value' : 2});//command 2 is a read
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_program_read", {}, data);
+});
+
+document.getElementById("write_program_write").addEventListener("click", function send() {
+    // var some = document.getElementById("write_program_write").selectedIndex;
+    var data = JSON.stringify({'value' : 1});//command 1 is a write
+    stompClient.send("/app/second_ceh_kamera_vulcan2_MPR51/write_program_write", {}, data);
+});
+
+
+
+
+
+
+
+
 
 var vStart = document.getElementById("startChart").value;
 var vEnd = document.getElementById("endChart").value;
