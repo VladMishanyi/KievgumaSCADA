@@ -236,29 +236,29 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.modbus</groupId>
-            <artifactId>modbus4J</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/modbus4J.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.modbus</groupId>-->
+<!--            <artifactId>modbus4J</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/lib/modbus4J.jar</systemPath>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.modbus</groupId>
-            <artifactId>RXTXcomm</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/RXTXcomm-2.2pre2.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.modbus</groupId>-->
+<!--            <artifactId>RXTXcomm</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/lib/RXTXcomm-2.2pre2.jar</systemPath>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.modbus</groupId>
-            <artifactId>seroUtils</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/seroUtils.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.modbus</groupId>-->
+<!--            <artifactId>seroUtils</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/lib/seroUtils.jar</systemPath>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
