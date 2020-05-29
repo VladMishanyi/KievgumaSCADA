@@ -54,7 +54,7 @@
             </tr>
         </table>
 
-        <security:authorize access="isAuthenticated()">
+<%--        <security:authorize access="isAuthenticated()">--%>
             <table class="table">
                 <tr>
                     <th>Информация</th>
@@ -135,18 +135,18 @@
                     </td>
                 </tr>
             </table>
-        </security:authorize>
+<%--        </security:authorize>--%>
     </div>
 
-    <security:authorize access="isAuthenticated()">
+<%--    <security:authorize access="isAuthenticated()">--%>
         <div id="graph-container">
             <canvas id="myChart" width="500" height="320"></canvas>
         </div>
-    </security:authorize>
+<%--    </security:authorize>--%>
 
-    <security:authorize access="!isAuthenticated()">
-        <jsp:include page="/WEB-INF/views/restriction.jsp"/>
-    </security:authorize>
+<%--    <security:authorize access="!isAuthenticated()">--%>
+<%--        <jsp:include page="/WEB-INF/views/restriction.jsp"/>--%>
+<%--    </security:authorize>--%>
 </div>
 
 <script rel="script" type="text/javascript" src="<c:url value="/resources/js/firstCehAutoclav.js"/>"></script>

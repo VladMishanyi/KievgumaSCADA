@@ -11,6 +11,9 @@ Installation procedure:
 
  copy rxtxSerial.dll to %JAVA_HOME%\bin, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\bin\rxtxSerial.dll)
  copy rxtxSerial.dll to %JAVA_HOME%\bin, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\bin\rxtxSerial.dll)
+
+
+ If your maven dependency were broken, just do steps below.
  copy RXTXcomm.jar to %JAVA_HOME%\lib\ext, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\lib\ext\RXTXcomm.jar)
  copy seroUtils.jar to %JAVA_HOME%\lib\ext, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\lib\ext\seroUtils.jar)
  copy modbus4J.jar to %JAVA_HOME%\lib\ext, example for Windows_x64(C:Program Files\Java\jdk1.8.0_73\jre\lib\ext\modbus4J.jar)
@@ -21,6 +24,9 @@ In order to enable serial communication on Linux/x86 systems we recommend Trent 
 Installation procedure:
 
  copy librxtxSerial.so to %JAVA_HOME%/jre/lib/amd64, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/amd64/librxtxSerial.so)
+
+
+ If your maven dependency were broken, just do steps below.
  copy RXTXcomm.jar to %JAVA_HOME%/jre/lib/ext, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/ext/RXTXcomm.jar)
  copy seroUtils.jar to %JAVA_HOME%/jre/lib/ext, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/ext/seroUtils.jar)
  copy modbus4J.jar to %JAVA_HOME%/jre/lib/ext, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/ext/modbus4J.jar)

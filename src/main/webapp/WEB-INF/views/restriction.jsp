@@ -12,9 +12,9 @@
             <span style="color: red; font-family: sans-serif; font-size: 40px; font-variant: small-caps;">ВНИМАНИЕ ДОСТУП ОГРАНИЧЕН! АВТОРИЗИРУЙТЕСЬ</span>
         </th>
     </tr>
-    <tr>
-        <th style="text-align: center;">
-            <span style="color: red; font-family: sans-serif; font-size: 40px;">Временный ДОСТУП: Email - client, Password - client</span>
-        </th>
-    </tr>
+<%--    <tr>--%>
+<%--        <th style="text-align: center;">--%>
+<%--            <span style="color: red; font-family: sans-serif; font-size: 40px;">Временный ДОСТУП: Email - client, Password - client</span>--%>
+<%--        </th>--%>
+<%--    </tr>--%>
 </table>

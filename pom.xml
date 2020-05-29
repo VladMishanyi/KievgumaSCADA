@@ -235,6 +235,31 @@
             <version>3.0.1-b04</version>
             <scope>test</scope>
         </dependency>
+
+<!--        local library if you will shift, lib directory it will crash  -->
+<!--        <dependency>-->
+<!--            <groupId>com.modbus</groupId>-->
+<!--            <artifactId>modbus4J</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/lib/modbus4J.jar</systemPath>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.modbus</groupId>-->
+<!--            <artifactId>RXTXcomm</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/lib/RXTXcomm-2.2pre2.jar</systemPath>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.modbus</groupId>-->
+<!--            <artifactId>seroUtils</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/lib/seroUtils.jar</systemPath>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
