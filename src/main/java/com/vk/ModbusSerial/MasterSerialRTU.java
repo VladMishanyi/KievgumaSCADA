@@ -19,7 +19,7 @@ public class MasterSerialRTU {
 //        final ModbusMasterSerialModel modbusMasterSerialModel3 = new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 200, 1);
 //        final ModbusMasterSerialModel modbusMasterSerialModel4 = new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 200, 1);
 //        final ModbusMasterSerialModel modbusMasterSerialModel6 = new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
-        final ModbusMasterSerialModel modbusMasterSerialModel7 = new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel7 = new ModbusMasterSerialModel("/dev/ttyUSB1", 9600, 8, 1, 0, 200, 1);
 //        final ModbusMasterSerialModel modbusMasterSerialModel19 = new ModbusMasterSerialModel("COM19", 9600, 8, 1, 0, 200, 1);
 
         final ModbusShort modbusShort = new ModbusShortImpl();
@@ -218,8 +218,7 @@ public class MasterSerialRTU {
         while (true){
             System.out.println("----"+i);
             startTime = System.currentTimeMillis();
-            BatchRead<Integer> batchRead = new BatchRead<>();
-            List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialModel7, SlaveID, batchRead, false,
+            List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialModel7, SlaveID,false,
                     spk0_r,
                     spk1_r,
                     spk2_r,
@@ -268,7 +267,7 @@ public class MasterSerialRTU {
                     spk45_r
 //                    spk46_r
             );
-            List<Short> listShort = modbusShort.readDataFromModBus(modbusMasterSerialModel7, SlaveID, batchRead, false,
+            List<Short> listShort = modbusShort.readDataFromModBus(modbusMasterSerialModel7, SlaveID,false,
 //                    spk0_r,
 //                    spk1_r,
 //                    spk2_r,

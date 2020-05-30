@@ -41,21 +41,19 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
     @Override
     public synchronized List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
                                       final int adr,
-                                      final BatchRead<Integer> batch,
                                       final boolean enableBatch,
                                       final ModbusLocator ... modbusLocator){
         ModbusMaster modbusMaster = modbusMasterSerialModel.getMaster();
-        return readData(modbusMaster, adr, batch, enableBatch, modbusLocator);
+        return readData(modbusMaster, adr, new BatchRead<Integer>(), enableBatch, modbusLocator);
     }
 
     @Override
     public synchronized List<E> readDataFromModBus(ModbusMasterTcpModel modbusMasterTcpModel,
                                                    final int adr,
-                                                   final BatchRead<Integer> batch,
                                                    final boolean enableBatch,
                                                    final ModbusLocator ... modbusLocator){
         ModbusMaster modbusMaster = modbusMasterTcpModel.getMaster();
-        return readData(modbusMaster, adr, batch, enableBatch, modbusLocator);
+        return readData(modbusMaster, adr, new BatchRead<Integer>(), enableBatch, modbusLocator);
     }
 
     @SuppressWarnings("unchecked")

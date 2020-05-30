@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.BatchRead;
 import com.vk.entity.device.DeviceModelFirstCehKameraDozrevanyaMPR51;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -23,19 +22,15 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51
 
     private final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51;
 
-    private final BatchRead<Integer> batchRead;
-
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                              final DeviceModelFirstCehKameraDozrevanyaMPR51 deviceModelFirstCehKameraDozrevanyaMPR51,
-                                                             final BatchRead<Integer> batchRead,
                                                              final ModbusFloat modbusFloat){
         super(modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelFirstCehKameraDozrevanyaMPR51 = deviceModelFirstCehKameraDozrevanyaMPR51;
-        this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
     }
 
@@ -43,7 +38,6 @@ public class ModbusRepositoryImplFirstCehKameraDozrevanyaMPR51
     public DeviceModelFirstCehKameraDozrevanyaMPR51 getDeviceModel(final boolean enableBatch){
         final List<Float> list =  modbusFloat.readDataFromModBus(modbusMasterSerialFirst,
                 deviceModelFirstCehKameraDozrevanyaMPR51.getDeviceAddress(),
-                batchRead,
                 enableBatch,
                 deviceModelFirstCehKameraDozrevanyaMPR51.getModbusLocator0(),
                 deviceModelFirstCehKameraDozrevanyaMPR51.getModbusLocator1(),

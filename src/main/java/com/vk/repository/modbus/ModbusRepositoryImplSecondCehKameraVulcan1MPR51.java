@@ -1,7 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -26,8 +24,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
 
     private final DeviceModelSecondCehKameraVulcan1MPR51 deviceModelSecondCehKameraVulcan1MPR51;
 
-    private final BatchRead<Integer> batchRead;
-
     private final ModbusFloat modbusFloat;
 
     private final ModbusShort modbusShort;
@@ -35,13 +31,11 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
     @Autowired
     public ModbusRepositoryImplSecondCehKameraVulcan1MPR51(final ModbusMasterSerialModel modbusMasterSerialFourth,
                                                            final DeviceModelSecondCehKameraVulcan1MPR51 deviceModelSecondCehKameraVulcan1MPR51,
-                                                           final BatchRead<Integer> batchRead,
                                                            final ModbusFloat modbusFloat,
                                                            final ModbusShort modbusShort) {
         super(modbusFloat);
         this.modbusMasterSerialFourth = modbusMasterSerialFourth;
         this.deviceModelSecondCehKameraVulcan1MPR51 = deviceModelSecondCehKameraVulcan1MPR51;
-        this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
         this.modbusShort = modbusShort;
     }
@@ -51,7 +45,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
 
         final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                 deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                batchRead,
                 enableBatch,
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator0r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator1r(),
@@ -62,44 +55,31 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator6r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator7r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator8r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator9r,()
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator10r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator11r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator12r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator13r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator14r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator15r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator16r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator17r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator18r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator19r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator20r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator21r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator22r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator23r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator24r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator25r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator26r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator27r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator28r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator29r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator30r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator31r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator32r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator33r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator34r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator35r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator36r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator37r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator38r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator39r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator40r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator41r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator42r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator43r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator44r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator45r()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator46r()
         );
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister0(listFloat.get(0));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister1(listFloat.get(1));
@@ -110,143 +90,61 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister6(listFloat.get(6));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister7(listFloat.get(7));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister8(listFloat.get(8));
-        //        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister9 (istFloat.get(9)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister10(listFloat.get(9));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister11(listFloat.get(10));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister12(listFloat.get(12)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister13(listFloat.get(11));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister14(listFloat.get(12));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister15(listFloat.get(15)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister16(listFloat.get(13));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister17(listFloat.get(14));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister18(listFloat.get(18)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister19(listFloat.get(15));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister20(listFloat.get(16));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister21(listFloat.get(21)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister22(listFloat.get(17));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister23(listFloat.get(18));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister24(listFloat.get(24)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister25(listFloat.get(19));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister26(listFloat.get(20));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister27(listFloat.get(27)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister28(listFloat.get(21));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister29(listFloat.get(22));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister30(listFloat.get(30)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister31(listFloat.get(23));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister32(listFloat.get(24));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister33(listFloat.get(33)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister34(listFloat.get(25));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister35(listFloat.get(26));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister36(listFloat.get(36)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister37(listFloat.get(27));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister38(listFloat.get(28));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister39(listFloat.get(39)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister40(listFloat.get(29));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister41(listFloat.get(30));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister42(listFloat.get(42)));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister43(listFloat.get(31));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister44(listFloat.get(32));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister45(listFloat.get(33));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister46(listFloat.get(46)));
 
         final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                 deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                batchRead,
                 enableBatch,
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator0r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator1r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator2r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator3r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator4r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator5r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator6r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator7r,()
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator8r,()
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator9r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator10r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator11r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator12r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator13r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator14r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator15r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator16r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator17r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator18r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator19r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator20r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator21r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator22r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator23r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator24r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator25r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator26r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator27r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator28r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator29r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator30r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator31r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator32r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator33r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator34r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator35r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator36r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator37r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator38r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator39r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator40r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator41r(),
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator42r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator43r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator44r(),
-//                deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator45r()
                 deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator46r()
         );
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister0 (stFloat.get(0);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister1 (stFloat.get(1);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister2 (stFloat.get(2);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister3 (stFloat.get(3);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister4 (stFloat.get(4);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister5 (stFloat.get(5);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister6 (stFloat.get(6);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister7 (stFloat.get(7);
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister8 (stFloat.get(8);
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister9(listShort.get(0));
-        //        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister10(istFloat.get(10));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister11(istFloat.get(11));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister12(listShort.get(1));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister13(istFloat.get(13));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister14(istFloat.get(14));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister15(listShort.get(2));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister16(istFloat.get(16));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister17(istFloat.get(17));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister18(listShort.get(3));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister19(istFloat.get(19));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister20(istFloat.get(20));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister21(listShort.get(4));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister22(istFloat.get(22));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister23(istFloat.get(23));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister24(listShort.get(5));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister25(istFloat.get(25));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister26(istFloat.get(26));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister27(listShort.get(6));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister28(istFloat.get(28));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister29(istFloat.get(29));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister30(listShort.get(7));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister31(istFloat.get(31));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister32(istFloat.get(32));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister33(listShort.get(8));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister34(istFloat.get(34));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister35(istFloat.get(35));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister36(listShort.get(9));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister37(istFloat.get(37));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister38(istFloat.get(38));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister39(listShort.get(10));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister40(istFloat.get(40));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister41(istFloat.get(41));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister42(listShort.get(11));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister43(istFloat.get(43));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister44(istFloat.get(44));
-//        deviceModelSecondCehKameraVulcan1MPR51.setInputRegister45(istFloat.get(45));
         deviceModelSecondCehKameraVulcan1MPR51.setInputRegister46(listShort.get(12));
 
 
@@ -258,7 +156,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator0r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister0(listFloat.get(0));
@@ -270,7 +167,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator1r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister1(listFloat.get(0));
@@ -282,7 +178,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator2r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister2(listFloat.get(0));
@@ -294,7 +189,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator3r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister3(listFloat.get(0));
@@ -306,7 +200,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator4r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister4(listFloat.get(0));
@@ -318,7 +211,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator5r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister5(listFloat.get(0));
@@ -330,7 +222,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator6r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister6(listFloat.get(0));
@@ -342,7 +233,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator7r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister7(listFloat.get(0));
@@ -354,7 +244,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator8r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister8(listFloat.get(0));
@@ -367,7 +256,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator9r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister9(listShort.get(0));
@@ -378,7 +266,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator10r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister10(listFloat.get(0));
@@ -389,7 +276,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator11r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister11(listFloat.get(0));
@@ -402,7 +288,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator12r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister12(listShort.get(0));
@@ -413,7 +298,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator13r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister13(listFloat.get(0));
@@ -424,7 +308,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator14r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister14(listFloat.get(0));
@@ -437,7 +320,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator15r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister15(listShort.get(0));
@@ -448,7 +330,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator16r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister16(listFloat.get(0));
@@ -459,7 +340,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator17r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister17(listFloat.get(0));
@@ -472,7 +352,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator18r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister18(listShort.get(0));
@@ -483,7 +362,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator19r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister19(listFloat.get(0));
@@ -494,7 +372,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator20r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister20(listFloat.get(0));
@@ -507,7 +384,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator21r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister21(listShort.get(0));
@@ -518,7 +394,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator22r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister22(listFloat.get(0));
@@ -529,7 +404,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator23r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister23(listFloat.get(0));
@@ -542,7 +416,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator24r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister24(listShort.get(0));
@@ -553,7 +426,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator25r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister25(listFloat.get(0));
@@ -564,7 +436,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator26r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister26(listFloat.get(0));
@@ -577,7 +448,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator27r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister27(listShort.get(0));
@@ -588,7 +458,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator28r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister28(listFloat.get(0));
@@ -599,7 +468,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator29r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister29(listFloat.get(0));
@@ -612,7 +480,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator30r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister30(listShort.get(0));
@@ -623,7 +490,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator31r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister31(listFloat.get(0));
@@ -634,7 +500,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator32r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister32(listFloat.get(0));
@@ -647,7 +512,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator33r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister33(listShort.get(0));
@@ -658,7 +522,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator34r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister34(listFloat.get(0));
@@ -669,7 +532,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator35r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister35(listFloat.get(0));
@@ -682,7 +544,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator36r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister36(listShort.get(0));
@@ -693,7 +554,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator37r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister37(listFloat.get(0));
@@ -704,7 +564,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator38r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister38(listFloat.get(0));
@@ -717,7 +576,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator39r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister39(listShort.get(0));
@@ -728,7 +586,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator40r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister40(listFloat.get(0));
@@ -739,7 +596,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator41r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister41(listFloat.get(0));
@@ -752,7 +608,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator42r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister42(listShort.get(0));
@@ -763,7 +618,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator43r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister43(listFloat.get(0));
@@ -774,7 +628,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator44r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister44(listFloat.get(0));
@@ -787,7 +640,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusFloat)){
             final List<Float> listFloat = modbusFloat.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator45r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister45(listFloat.get(0));
@@ -799,7 +651,6 @@ public class ModbusRepositoryImplSecondCehKameraVulcan1MPR51
         if (Objects.nonNull(modbusShort)){
             final List<Short>listShort = modbusShort.readDataFromModBus(modbusMasterSerialFourth,
                     deviceModelSecondCehKameraVulcan1MPR51.getDeviceAddress(),
-                    batchRead,
                     enableBatch,
                     deviceModelSecondCehKameraVulcan1MPR51.getModbusLocator46r());
             deviceModelSecondCehKameraVulcan1MPR51.setInputRegister46(listShort.get(0));

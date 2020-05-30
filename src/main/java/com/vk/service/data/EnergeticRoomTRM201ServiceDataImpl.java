@@ -4,6 +4,7 @@ import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.table.TableModelEnergeticRoomTRM201;
 import com.vk.repository.data.RootRepositoryData;
 import com.vk.repository.modbus.ModbusRepositoryEnergeticRoomTRM201;
+import com.vk.repository.modbus.ModbusRepositoryImplEnergeticRoomTRM201;
 import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

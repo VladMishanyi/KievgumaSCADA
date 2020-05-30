@@ -50,26 +50,25 @@ public class MasterTCP_RTU {
         final ModbusLocator modbusLocator22 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 8, DataType.TWO_BYTE_INT_UNSIGNED);
         final ModbusLocator modbusLocator23 = new ModbusLocator(5, RegisterRange.HOLDING_REGISTER, 9, DataType.TWO_BYTE_INT_UNSIGNED);
 
-        int i = 0;
         while (true){
             startTime = System.currentTimeMillis();
-            BatchRead<Integer> batchRead = new BatchRead<>();
+//            BatchRead<Integer> batchRead = new BatchRead<>();
 
-            modbusFloat.readDataFromModBus(modbusMasterTcpModel10, 5 , batchRead, false,
+            modbusFloat.readDataFromModBus(modbusMasterTcpModel10, 5 ,false,
                     modbusLocator18,
                     modbusLocator19,
                     modbusLocator20,
                     modbusLocator21);
-            modbusInteger.readDataFromModBus(modbusMasterTcpModel10, 5 , batchRead, false,
+            modbusInteger.readDataFromModBus(modbusMasterTcpModel10, 5 ,false,
                     modbusLocator22,
                     modbusLocator23);
 
-            modbusFloat.readDataFromModBus(modbusMasterTcpModel11, 5 , batchRead, false,
+            modbusFloat.readDataFromModBus(modbusMasterTcpModel11, 5 ,false,
                     modbusLocator18,
                     modbusLocator19,
                     modbusLocator20,
                     modbusLocator21);
-            modbusInteger.readDataFromModBus(modbusMasterTcpModel11, 5 , batchRead, false,
+            modbusInteger.readDataFromModBus(modbusMasterTcpModel11, 5 ,false,
                     modbusLocator22,
                     modbusLocator23);
 

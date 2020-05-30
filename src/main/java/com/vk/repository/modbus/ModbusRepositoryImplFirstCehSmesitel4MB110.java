@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.BatchRead;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel4MB110;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -23,19 +22,15 @@ public class ModbusRepositoryImplFirstCehSmesitel4MB110
 
     private final DeviceModelFirstCehSmesitel4MB110 deviceModelFirstCehSmesitel4MB110;
 
-    private final BatchRead<Integer> batchRead;
-
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplFirstCehSmesitel4MB110(final ModbusMasterSerialModel modbusMasterSerialThird,
                                                       final DeviceModelFirstCehSmesitel4MB110 deviceModelFirstCehSmesitel4MB110,
-                                                      final BatchRead<Integer> batchRead,
                                                       final ModbusFloat modbusFloat){
         super(modbusFloat);
         this.modbusMasterSerialThird = modbusMasterSerialThird;
         this.deviceModelFirstCehSmesitel4MB110 = deviceModelFirstCehSmesitel4MB110;
-        this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
     }
 
@@ -43,7 +38,6 @@ public class ModbusRepositoryImplFirstCehSmesitel4MB110
     public DeviceModelFirstCehSmesitel4MB110 getDeviceModel(final boolean enableBatch){
         final List<Float> list =  modbusFloat.readDataFromModBus(modbusMasterSerialThird,
                 deviceModelFirstCehSmesitel4MB110.getDeviceAddress(),
-                batchRead,
                 enableBatch,
                 deviceModelFirstCehSmesitel4MB110.getModbusLocator0(),
                 deviceModelFirstCehSmesitel4MB110.getModbusLocator1());

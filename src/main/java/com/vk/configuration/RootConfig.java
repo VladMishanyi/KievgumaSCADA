@@ -24,11 +24,11 @@ public class RootConfig {
         return new CommonsMultipartResolver();
     }
 
-    @Bean
-    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public BatchRead<Integer> batchRead(){
-        return new BatchRead<>();
-    }
+//    @Bean
+//    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//    public BatchRead<Integer> batchRead(){
+//        return new BatchRead<>();
+//    }
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)

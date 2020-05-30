@@ -15,22 +15,24 @@ public interface RootModbus<E extends Number> {
     void setUseBorders(boolean useBorders);
 
     List<E> readDataFromModBus(ModbusMasterSerialModel modbusMasterSerialModel,
-                                      int adr, BatchRead<Integer> batch,
-                                      boolean enableBatch,
-                                      ModbusLocator... modbusLocator);
+                               int adr,
+//                               BatchRead<Integer> batch,
+                               boolean enableBatch,
+                               ModbusLocator... modbusLocator);
 
     List<E> readDataFromModBus(ModbusMasterTcpModel modbusMasterTcpModel,
-                                      int adr, BatchRead<Integer> batch,
-                                      boolean enableBatch,
-                                      ModbusLocator... modbusLocator);
+                               int adr,
+//                               BatchRead<Integer> batch,
+                               boolean enableBatch,
+                               ModbusLocator... modbusLocator);
 
     void writeDataToModBus(ModbusMasterSerialModel modbusMasterSerialModel,
-                                  int adr,
-                                  E values,
-                                  ModbusLocator modbusLocator);
+                           int adr,
+                           E values,
+                           ModbusLocator modbusLocator);
 
     void writeDataToModBus(ModbusMasterTcpModel modbusMasterTcpModel,
-                                  int adr,
-                                  E values,
-                                  ModbusLocator modbusLocator);
+                           int adr,
+                           E values,
+                           ModbusLocator modbusLocator);
 }

@@ -24,7 +24,7 @@ public class Serial4 extends Thread {
     public void run(){
         while (!this.isInterrupted()){
             BatchRead<Integer> batch = new BatchRead<>();
-            modbusFloat.readDataFromModBus(modbusMasterSerialModel3, 18, batch,false, modbusLocator17);
+            modbusFloat.readDataFromModBus(modbusMasterSerialModel3, 18,false, modbusLocator17);
             try {
                 Thread.sleep(500);
             }catch (InterruptedException e){

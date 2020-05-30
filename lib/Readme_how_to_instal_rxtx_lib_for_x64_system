@@ -24,3 +24,6 @@ Installation procedure:
  copy RXTXcomm.jar to %JAVA_HOME%/jre/lib/ext, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/ext/RXTXcomm.jar)
  copy seroUtils.jar to %JAVA_HOME%/jre/lib/ext, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/ext/seroUtils.jar)
  copy modbus4J.jar to %JAVA_HOME%/jre/lib/ext, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/ext/modbus4J.jar)
+
+ Or you could install library via linux terminal by command below:
+ sudo apt-get install librxtx-java

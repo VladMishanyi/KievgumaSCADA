@@ -3,10 +3,12 @@ package com.vk.entity.modbus;
 import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;
 import com.serotonin.modbus4j.ip.IpParameters;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by KIP-PC99 on 03.01.2019.
  */
+@Component
 public class ModbusMasterTcpModel {
     private String host;
     private int port;

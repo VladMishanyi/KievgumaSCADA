@@ -3,11 +3,13 @@ package com.vk.entity.modbus;
 import com.serotonin.io.serial.SerialParameters;
 import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;
+import org.springframework.stereotype.Component;
 
 
 /**
  * Created by User on 2018-02-22.
  */
+@Component
 public class ModbusMasterSerialModel {
     private String port;
     private int baduRate;

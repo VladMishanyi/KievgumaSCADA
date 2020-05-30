@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.BatchRead;
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
@@ -23,19 +22,15 @@ public class ModbusRepositoryImplSevenCehAutoclavSPK107
 
     private final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107;
 
-    private final BatchRead<Integer> batchRead;
-
     private final ModbusFloat modbusFloat;
 
     @Autowired
     public ModbusRepositoryImplSevenCehAutoclavSPK107(final ModbusMasterSerialModel modbusMasterSerialSecond,
                                                       final DeviceModelSevenCehAutoclavSPK107 deviceModelSevenCehAutoclavSPK107,
-                                                      final BatchRead<Integer> batchRead,
                                                       final ModbusFloat modbusFloat){
         super(modbusFloat);
         this.modbusMasterSerialSecond = modbusMasterSerialSecond;
         this.deviceModelSevenCehAutoclavSPK107 = deviceModelSevenCehAutoclavSPK107;
-        this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
     }
 
@@ -43,7 +38,6 @@ public class ModbusRepositoryImplSevenCehAutoclavSPK107
     public DeviceModelSevenCehAutoclavSPK107 getDeviceModel(final boolean enableBatch){
         final List<Float> list =  modbusFloat.readDataFromModBus(modbusMasterSerialSecond,
                 deviceModelSevenCehAutoclavSPK107.getDeviceAddress(),
-                batchRead,
                 enableBatch,
                 deviceModelSevenCehAutoclavSPK107.getModbusLocator0(),
                 deviceModelSevenCehAutoclavSPK107.getModbusLocator1(),

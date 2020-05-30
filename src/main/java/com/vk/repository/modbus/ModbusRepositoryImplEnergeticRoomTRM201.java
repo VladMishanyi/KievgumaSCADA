@@ -1,12 +1,9 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.BatchRead;
-import com.vk.entity.device.DeviceModel;
 import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusFloat;
 import com.vk.modbus.ModbusInteger;
-import com.vk.modbus.RootModbus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
@@ -26,8 +23,6 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
 
     private final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201;
 
-    private final BatchRead<Integer> batchRead;
-
     private final ModbusFloat modbusFloat;
 
     private final ModbusInteger modbusInteger;
@@ -35,13 +30,11 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
     @Autowired
     public ModbusRepositoryImplEnergeticRoomTRM201(final ModbusMasterSerialModel modbusMasterSerialFirst,
                                                    final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201,
-                                                   final BatchRead<Integer> batchRead,
                                                    final ModbusFloat modbusFloat,
                                                    final ModbusInteger modbusInteger){
         super(modbusFloat);
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelEnergeticRoomTRM201 = deviceModelEnergeticRoomTRM201;
-        this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
         this.modbusInteger = modbusInteger;
     }
@@ -50,7 +43,6 @@ public class ModbusRepositoryImplEnergeticRoomTRM201
     public DeviceModelEnergeticRoomTRM201 getDeviceModel(final boolean enableBatch){
         final List<Float> list =  modbusFloat.readDataFromModBus(modbusMasterSerialFirst,
                 deviceModelEnergeticRoomTRM201.getDeviceAddress(),
-                batchRead,
                 enableBatch,
                 deviceModelEnergeticRoomTRM201.getModbusLocator0(),
                 deviceModelEnergeticRoomTRM201.getModbusLocator1());

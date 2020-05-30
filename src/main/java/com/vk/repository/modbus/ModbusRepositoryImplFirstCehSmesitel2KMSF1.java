@@ -1,6 +1,5 @@
 package com.vk.repository.modbus;
 
-import com.serotonin.modbus4j.BatchRead;
 import com.vk.entity.device.DeviceModelFirstCehSmesitel2KMSF1;
 import com.vk.entity.modbus.ModbusMasterSerialModel;
 import com.vk.modbus.ModbusInteger;
@@ -23,19 +22,15 @@ public class ModbusRepositoryImplFirstCehSmesitel2KMSF1
 
     private final DeviceModelFirstCehSmesitel2KMSF1 deviceModelFirstCehSmesitel2KMSF1;
 
-    private final BatchRead<Integer> batchRead;
-
     private final ModbusInteger modbusInteger;
 
     @Autowired
     public ModbusRepositoryImplFirstCehSmesitel2KMSF1(final ModbusMasterSerialModel modbusMasterSerialThird,
                                                       final DeviceModelFirstCehSmesitel2KMSF1 deviceModelFirstCehSmesitel2KMSF1,
-                                                      final BatchRead<Integer> batchRead,
                                                       final ModbusInteger modbusInteger){
         super(modbusInteger);
         this.modbusMasterSerialThird = modbusMasterSerialThird;
         this.deviceModelFirstCehSmesitel2KMSF1 = deviceModelFirstCehSmesitel2KMSF1;
-        this.batchRead = batchRead;
         this.modbusInteger = modbusInteger;
     }
 
@@ -43,7 +38,6 @@ public class ModbusRepositoryImplFirstCehSmesitel2KMSF1
     public DeviceModelFirstCehSmesitel2KMSF1 getDeviceModel(final boolean enableBatch){
         final List<Integer> list =  modbusInteger.readDataFromModBus(modbusMasterSerialThird,
                 deviceModelFirstCehSmesitel2KMSF1.getDeviceAddress(),
-                batchRead,
                 enableBatch,
                 deviceModelFirstCehSmesitel2KMSF1.getModbusLocator0());
         deviceModelFirstCehSmesitel2KMSF1.setDeviceValuesRegister0(list.get(0));

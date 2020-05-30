@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  * Created by User on 2018-02-12.
  */
 @Configuration
-@ComponentScan(basePackages = {"com.vk.configuration"})
+@ComponentScan(basePackages = {"com.vk"})
 @PropertySource("classpath:modbusSerialSecond.properties")
 public class ModbusSerialSecondConfig {
 
