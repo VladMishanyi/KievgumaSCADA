@@ -18,7 +18,7 @@ import java.util.List;
 
 public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> {
 
-    private Logger LOGGER = Logger.getLogger(RootModbusImpl.class);
+    private final Logger LOGGER = Logger.getLogger(this.getClass());
 
     private boolean useBorders = false;
 
