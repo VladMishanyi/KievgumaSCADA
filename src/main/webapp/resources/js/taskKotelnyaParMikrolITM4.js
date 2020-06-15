@@ -44,9 +44,20 @@ function connect() {
 
 var vStart = document.getElementById("startChart").value;
 var vEnd = document.getElementById("endChart").value;
-function sendChartBody() {
+var vTitle = 'Объект/Киевгума/Котельня/Мониторинг пара'+' с '+vStart.toString()+' по '+vEnd.toString();
+
+function generateDataForBordersChart() {
     vStart = document.getElementById("startChart").value;
     vEnd = document.getElementById("endChart").value;
+}
+
+function generateNewChartTitle(start, end) {
+    config.options.title.text = 'Объект/Киевгума/Котельня/Мониторинг пара'+' с '+start.toString()+' по '+end.toString();
+}
+
+function sendChartBody() {
+    this.generateDataForBordersChart();
+    this.generateNewChartTitle(vStart, vEnd);
     var dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
     stompClient.send("/app/generateChartKotelnyaParMikrolITM4", {}, dataChart);
 }
@@ -69,7 +80,6 @@ function showBody(body){
     $("#kotelnyaParMikrolITM4TemperaturaKotelny").text(channel4);
 }
 
-var vTitle = 'Объект/Киевгума/Котельня/Мониторинг пара'+' с '+vStart.toString()+' по '+vEnd.toString();
 var config = {
     type: 'line',
     data: {
@@ -469,6 +479,7 @@ function increaseChart() {
         increaseArrayY2 = globalY2.slice(from,to);
         increaseArrayY3 = globalY3.slice(from,to);
         increaseArrayY4 = globalY4.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX,
             increaseArrayY1,
             increaseArrayY2,
@@ -493,6 +504,7 @@ function decreaseChart() {
         increaseArrayY2 = globalY2.slice(from,to);
         increaseArrayY3 = globalY3.slice(from,to);
         increaseArrayY4 = globalY4.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX,
             increaseArrayY1,
             increaseArrayY2,
@@ -517,6 +529,7 @@ function leftChart() {
         increaseArrayY2 = globalY2.slice(from,to);
         increaseArrayY3 = globalY3.slice(from,to);
         increaseArrayY4 = globalY4.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX,
             increaseArrayY1,
             increaseArrayY2,
@@ -541,6 +554,7 @@ function rightChart() {
         increaseArrayY2 = globalY2.slice(from,to);
         increaseArrayY3 = globalY3.slice(from,to);
         increaseArrayY4 = globalY4.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX,
             increaseArrayY1,
             increaseArrayY2,

@@ -24,7 +24,7 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
 
     private short borderMax = 10000;
 
-    private short borderMin = 0;
+    private short borderMin = -10000;
 
     public void setUseBorders(final boolean useBorders) {
         this.setUseBorders(useBorders, borderMax, borderMin);

@@ -44,9 +44,20 @@ function connect() {
 
 var vStart = document.getElementById("startChart").value;
 var vEnd = document.getElementById("endChart").value;
-function sendChartBody() {
+var vTitle = 'Объект/Киевгума/Лаборатория/Автоклав'+' с '+vStart.toString()+' по '+vEnd.toString();
+
+function generateDataForBordersChart() {
     vStart = document.getElementById("startChart").value;
     vEnd = document.getElementById("endChart").value;
+}
+
+function generateNewChartTitle(start, end) {
+    config.options.title.text = 'Объект/Киевгума/Лаборатория/Автоклав'+' с '+start.toString()+' по '+end.toString();
+}
+
+function sendChartBody() {
+    this.generateDataForBordersChart();
+    this.generateNewChartTitle(vStart, vEnd);
     var dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
     stompClient.send("/app/generateLaboratoryAutoklav", {}, dataChart);
 }
@@ -65,7 +76,6 @@ function showBody(body){
     $("#realAutoclavLaboratoryDavlenieValue").text(channel2);
 }
 
-var vTitle = 'Объект/Киевгума/Лаборатория/Автоклав'+' с '+vStart.toString()+' по '+vEnd.toString();
 var config = {
     type: 'line',
     data: {
@@ -305,8 +315,8 @@ function genChart(data) {
     for (var i in data){
         if (data.hasOwnProperty(i)){
             try {
-                x[i] = moment(data[i]["date"]).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
-                //x[i] = moment(data[i]["date"]).utc().format("YYYY-MM-DD HH:mm:ss");
+                // x[i] = moment(data[i]["date"]).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
+                x[i] = moment(data[i]["date"]).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
                 y1[i] = data[i]["channel1"];
                 y2[i] = data[i]["channel2"];
 
@@ -391,6 +401,7 @@ function increaseChart() {
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
 }
@@ -407,6 +418,7 @@ function decreaseChart() {
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
 }
@@ -423,6 +435,7 @@ function leftChart() {
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
 }
@@ -439,6 +452,7 @@ function rightChart() {
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
+        this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
         buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
 }
