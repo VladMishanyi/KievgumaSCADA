@@ -19,7 +19,7 @@ public class MasterSerialRTU {
 //        final ModbusMasterSerialModel modbusMasterSerialModel3 = new ModbusMasterSerialModel("COM3", 115200, 8, 1, 0, 200, 1);
 //        final ModbusMasterSerialModel modbusMasterSerialModel4 = new ModbusMasterSerialModel("COM4", 9600, 8, 1, 0, 200, 1);
 //        final ModbusMasterSerialModel modbusMasterSerialModel6 = new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
-        final ModbusMasterSerialModel modbusMasterSerialModel7 = new ModbusMasterSerialModel("COM6", 9600, 8, 1, 0, 200, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel7 = new ModbusMasterSerialModel("COM7", 9600, 8, 1, 0, 200, 1);
 //        final ModbusMasterSerialModel modbusMasterSerialModel19 = new ModbusMasterSerialModel("COM19", 9600, 8, 1, 0, 200, 1);
 
         final ModbusShort modbusShort = new ModbusShortImpl();

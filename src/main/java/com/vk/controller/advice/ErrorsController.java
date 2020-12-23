@@ -2,7 +2,7 @@ package com.vk.controller.advice;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.mapping.model.IllegalMappingException;
+//import org.springframework.data.mapping.model.IllegalMappingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -57,14 +57,14 @@ public class ErrorsController {
         return handleException(exception, request, HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler(IllegalMappingException.class)
-    @ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
-    public ModelAndView illegalMappingException(
-            final IllegalMappingException ex,
-            final HttpServletRequest request
-    ) {
-        return handleException(ex, request, HttpStatus.METHOD_NOT_ALLOWED);
-    }
+//    @ExceptionHandler(IllegalMappingException.class)
+//    @ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+//    public ModelAndView illegalMappingException(
+//            final IllegalMappingException ex,
+//            final HttpServletRequest request
+//    ) {
+//        return handleException(ex, request, HttpStatus.METHOD_NOT_ALLOWED);
+//    }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)

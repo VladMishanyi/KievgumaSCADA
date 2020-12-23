@@ -21,7 +21,7 @@ public class Chain1/* extends Thread */{
 
     public static Queue<ModbusBodyQuery> bodyQuery = new LinkedList<>();
 
-    private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
+    /*private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;*/
 
     private final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202;
 
@@ -34,13 +34,13 @@ public class Chain1/* extends Thread */{
     private final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4;
 
     @Autowired
-    public Chain1(final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
+    public Chain1(/*final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,*/
                   final TaskFirstCehAutoclavTRM202 taskFirstCehAutoclavTRM202,
                   final TaskFirstCehBuzulukTRM200 taskFirstCehBuzulukTRM200,
                   final TaskKameraDozrevanyaMPR51 taskKameraDozrevanyaMPR51,
                   final TaskThirdCehAutoclavTRM202 taskThirdCehAutoclavTRM202,
                   final TaskKotelnyaParMikrolITM4 taskKotelnyaParMikrolITM4){
-        this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;
+        /*this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;*/
         this.taskFirstCehAutoclavTRM202 = taskFirstCehAutoclavTRM202;
         this.taskFirstCehBuzulukTRM200 = taskFirstCehBuzulukTRM200;
         this.taskKameraDozrevanyaMPR51 = taskKameraDozrevanyaMPR51;
@@ -54,7 +54,7 @@ public class Chain1/* extends Thread */{
 //        while (!this.isInterrupted()){
 //            try {
                 System.out.println("-----------------------------------------------------START FIRST CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
-                taskEnergeticRoomTRM201.work1();
+//                taskEnergeticRoomTRM201.work1();
 
                 taskFirstCehAutoclavTRM202.work1();
 
@@ -66,7 +66,7 @@ public class Chain1/* extends Thread */{
 
                 taskKotelnyaParMikrolITM4.work1();
 
-                checkQueryQueue();
+//                checkQueryQueue();
                 System.out.println("-----------------------------------------------------END FIRS CHAIN11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
 //                this.sleep(5000);
 //            }catch (InterruptedException e){
@@ -77,20 +77,20 @@ public class Chain1/* extends Thread */{
 //        }
     }
 
-    public void checkQueryQueue(){
-        if (bodyQuery.size() > 0){
-            while (!bodyQuery.isEmpty()){
-                ModbusBodyQuery body = bodyQuery.poll();
-                switch (body.getQueryNumber()){
-                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel(body.getValueInt()); break;
-                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2(body.getValueInt()); break;
-                    default: {
-                        LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
-                        System.out.println("Wrong command in Chain1 --"+body.getQueryNumber());
-                        break;
-                    }
-                }
-            }
-        }
-    }
+//    public void checkQueryQueue(){
+//        if (bodyQuery.size() > 0){
+//            while (!bodyQuery.isEmpty()){
+//                ModbusBodyQuery body = bodyQuery.poll();
+//                switch (body.getQueryNumber()){
+//                    case 1 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChanel(body.getValueInt()); break;
+//                    case 2 : taskEnergeticRoomTRM201.getEnergeticRoomTRM201ServiceData().writeValueFirstChane2(body.getValueInt()); break;
+//                    default: {
+//                        LOGGER.error("Wrong command in Chain1 --"+body.getQueryNumber());
+//                        System.out.println("Wrong command in Chain1 --"+body.getQueryNumber());
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

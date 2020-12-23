@@ -1,13 +1,13 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelEnergeticRoomTRM202;
+import com.vk.entity.table.TableModelEnergeticRoomTRM202;
 
 /**
  * Created by KIP-PC99 on 26.06.2018.
  */
-public interface DeviceToTableEnergeticRoomTRM201
-        extends DeviceToTable<DeviceModelEnergeticRoomTRM201,
-        DeviceModelEnergeticRoomTRM201,
-        TableModelEnergeticRoomTRM201> {
+public interface DeviceToTableEnergeticRoomTRM201/*
+        extends DeviceToTable<DeviceModelEnergeticRoomTRM202,
+        DeviceModelEnergeticRoomTRM202,
+        TableModelEnergeticRoomTRM202>*/ {
 }

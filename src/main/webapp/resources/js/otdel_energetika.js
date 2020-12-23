@@ -1,6 +1,3 @@
-/**
- * Created by KIP-PC99 on 22.10.2018.
- */
 var currentDateTime = moment().format("YYYY-MM-DDTHH:mm");
 $("#startChart").val(currentDateTime);
 $("#endChart").val(currentDateTime);
@@ -70,10 +67,10 @@ function disconnect() {
 }
 
 function showBody(body){
-    var channel3 = body.value3;
-    var channel4 = body.value4;
-    $("#realTrmValue").text(channel3);
-    $("#realTrmValue2").text(channel4);
+    var channel0 = body.holdingRegister0;
+    var channel1 = body.holdingRegister1;
+    $("#realTrmValue").text(channel0);
+    $("#realTrmValue2").text(channel1);
 }
 
 var config = {
@@ -311,14 +308,14 @@ function genChart(data) {
     var x = new Array();
     var y1 = new Array();
     var y2 = new Array();
-
+    let utcLocalDateTimeOffset = getUtcOffset(data[0]["date"]);
     for (var i in data){
         if (data.hasOwnProperty(i)){
             try {
                 // x[i] = moment(data[i]["date"]).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
-                x[i] = moment(data[i]["date"]).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
-                y1[i] = data[i]["value3"];
-                y2[i] = data[i]["value4"];
+                x[i] = moment(data[i]["date"], "YYYY,MM,DD,HH,mm,ss").utcOffset(utcLocalDateTimeOffset);
+                y1[i] = data[i]["holdingRegister0"];
+                y2[i] = data[i]["holdingRegister1"];
 
             }catch (err){
                 console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
@@ -376,10 +373,11 @@ function removeFirstElementFromChart() {
 
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
+    // let utcLocalDateTimeOffset = getUtcOffset(parsed.date);
     // var x = moment(parsed.date).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
-    var x = moment(parsed.date).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
-    var y1 = parsed.value3;
-    var y2 = parsed.value4;
+    var x = moment(new Date(), "YYYY-MM-DD HH:mm:ss")/*.utcOffset(utcLocalDateTimeOffset)*/;
+    var y1 = parsed.holdingRegister0;
+    var y2 = parsed.holdingRegister1;
     if (config.data.labels.length < buffer){
         addLastElementToChart(x, y1, y2);
     }
@@ -470,4 +468,10 @@ window.onload = function() {
 
 function getNewChart(ctx, config) {
     return new Chart(ctx, config);
+}
+
+function getUtcOffset(date) {
+    let minutesOffset = moment(date, "YYYY,MM,DD,HH,mm,ss").parseZone().utcOffset();
+    let hoursOffset = minutesOffset/60;
+    return minutesOffset;
 }

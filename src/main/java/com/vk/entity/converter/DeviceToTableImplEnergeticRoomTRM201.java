@@ -1,7 +1,7 @@
 package com.vk.entity.converter;
 
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM201;
-import com.vk.entity.table.TableModelEnergeticRoomTRM201;
+import com.vk.entity.device.DeviceModelEnergeticRoomTRM202;
+import com.vk.entity.table.TableModelEnergeticRoomTRM202;
 
 import java.util.Date;
 
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ComponentScan(basePackages = {"com.vk.configuration", "com.vk.entity"})
-public class DeviceToTableImplEnergeticRoomTRM201
-        extends DeviceToTableImpl<DeviceModelEnergeticRoomTRM201,
-        DeviceModelEnergeticRoomTRM201,
-        TableModelEnergeticRoomTRM201> implements DeviceToTableEnergeticRoomTRM201{
+public class DeviceToTableImplEnergeticRoomTRM201/*
+        extends DeviceToTableImpl<DeviceModelEnergeticRoomTRM202,
+        DeviceModelEnergeticRoomTRM202,
+        TableModelEnergeticRoomTRM202> implements DeviceToTableEnergeticRoomTRM201*/{
 
 //    private TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201;
 
@@ -31,18 +31,18 @@ public class DeviceToTableImplEnergeticRoomTRM201
 //        this.date = date;
 //    }
 
-    @Override
-    public TableModelEnergeticRoomTRM201 convert(final DeviceModelEnergeticRoomTRM201 deviceModelEnergeticRoomTRM201){
-
-        TableModelEnergeticRoomTRM201 tableModelEnergeticRoomTRM201 = null;
-        if (ObjectValidator.isNotNull(deviceModelEnergeticRoomTRM201)){
-            tableModelEnergeticRoomTRM201 = new TableModelEnergeticRoomTRM201();
-            tableModelEnergeticRoomTRM201.setDate(new Date());
-            tableModelEnergeticRoomTRM201.setValue1(0);
-            tableModelEnergeticRoomTRM201.setValue2(0);
-            tableModelEnergeticRoomTRM201.setValue3(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM201.getDeviceValuesRegister0()));
-            tableModelEnergeticRoomTRM201.setValue4(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM201.getDeviceValuesRegister1()));
-        }
-        return tableModelEnergeticRoomTRM201;
-    }
+//    @Override
+//    public TableModelEnergeticRoomTRM202 convert(final DeviceModelEnergeticRoomTRM202 deviceModelEnergeticRoomTRM202){
+//
+//        TableModelEnergeticRoomTRM202 tableModelEnergeticRoomTRM202 = null;
+//        if (ObjectValidator.isNotNull(deviceModelEnergeticRoomTRM202)){
+//            tableModelEnergeticRoomTRM202 = new TableModelEnergeticRoomTRM202();
+//            tableModelEnergeticRoomTRM202.setDate(new Date());
+//            tableModelEnergeticRoomTRM202.setValue1(0);
+//            tableModelEnergeticRoomTRM202.setValue2(0);
+//            tableModelEnergeticRoomTRM202.setValue3(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM202.getDeviceValuesRegister0()));
+//            tableModelEnergeticRoomTRM202.setValue4(FloatCut.floatTwoDigs(deviceModelEnergeticRoomTRM202.getDeviceValuesRegister1()));
+//        }
+//        return tableModelEnergeticRoomTRM202;
+//    }
 }

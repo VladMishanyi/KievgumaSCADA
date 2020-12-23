@@ -48,6 +48,6 @@ public class LoggerServiceImpl implements LoggerService{
     @Transactional
     @Override
     public void deleteById(long id) {
-        loggerRepository.delete(id);
+        loggerRepository.deleteById(id);
     }
 }

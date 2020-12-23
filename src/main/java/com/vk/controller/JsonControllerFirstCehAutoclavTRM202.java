@@ -10,6 +10,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -32,5 +33,15 @@ public class JsonControllerFirstCehAutoclavTRM202 extends JsonController<DeviceM
     @SendTo("/topic/generateChartFirstCehAutoklav")
     public List<TableModelFirstCehAutoclavTRM202> generateChartFirstCehAutoclavTRM202(final DateFromChart dateFromChart){
         return this.generateTimeObject(firstCehAutoclavTRM202ServiceData, dateFromChart, simpleDateFormat);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/generateAmountSizeTableByte", method = RequestMethod.POST)
+    public long generateAmountSizeTableByte(/*@RequestBody DateFromChart dateFromChart*/){
+        long som = 0;
+        for (BigInteger bigInteger : firstCehAutoclavTRM202ServiceData.readBaseSize()){
+            som += bigInteger.longValue();
+        }
+        return som;
     }
 }

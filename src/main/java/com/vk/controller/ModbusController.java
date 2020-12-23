@@ -41,7 +41,7 @@ public class ModbusController {
         this.chain4 = chain4;
     }
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 5000)
     public void loop(){
         chain1.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.
         chain2.run();//native modbus v1.0.1 library can't work with multithreading! Maybe it will provide in future version.

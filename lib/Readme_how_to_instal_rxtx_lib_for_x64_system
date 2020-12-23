@@ -23,7 +23,10 @@ Linux:
 In order to enable serial communication on Linux/x86 systems we recommend Trent Jarvi's RXTX package which can be downloaded from http://www.rxtx.org for free. We have assembled a rxtx linux binary distribution for your convenience, you may download from the JControl Download Section.
 Installation procedure:
 
- copy librxtxSerial.so to %JAVA_HOME%/jre/lib/amd64, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/amd64/librxtxSerial.so)
+copy librxtxSerial.so to %JAVA_HOME%/jre/lib/amd64, example for Ubuntu_x64(/usr/lib/jvm/java-8-oracle/jre/lib/amd64/librxtxSerial.so)
+
+But best way just install this library from linux repository, go throw nex command:
+sudo apt-get install librxtx-java
 
 
  If your maven dependency were broken, just do steps below.
