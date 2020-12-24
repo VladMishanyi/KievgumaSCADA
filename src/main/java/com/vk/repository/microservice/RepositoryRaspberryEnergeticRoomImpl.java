@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,11 +24,15 @@ public class RepositoryRaspberryEnergeticRoomImpl implements RepositoryRaspberry
 
     private final RestTemplate restTemplate;
 
+    private DeviceModelEnergeticRoomTRM202 deviceModelEnergeticRoomTRM202;
+
     @Autowired
     public RepositoryRaspberryEnergeticRoomImpl(final DeviceModelEnergeticRoomRaspberry deviceModelRaspberry,
-                                                final RestTemplate restTemplate) {
+                                                final RestTemplate restTemplate,
+                                                final DeviceModelEnergeticRoomTRM202 deviceModelEnergeticRoomTRM202) {
         this.deviceModelRaspberry = deviceModelRaspberry;
         this.restTemplate = restTemplate;
+        this.deviceModelEnergeticRoomTRM202 = deviceModelEnergeticRoomTRM202;
     }
 
     @Override
@@ -44,7 +47,13 @@ public class RepositoryRaspberryEnergeticRoomImpl implements RepositoryRaspberry
 
     @Override
     public DeviceModelEnergeticRoomTRM202 jsonReadDeviceModelTRM202allRegisters(){
-        return restTemplate.getForObject(createUrlAdress()+"/modbus/read-all", DeviceModelEnergeticRoomTRM202.class);
+        try {
+            deviceModelEnergeticRoomTRM202 = restTemplate.getForObject(createUrlAdress()+"/modbus/read-all", DeviceModelEnergeticRoomTRM202.class);
+        }catch (Exception e){
+            deviceModelEnergeticRoomTRM202.setHoldingRegister0(0F);
+            deviceModelEnergeticRoomTRM202.setHoldingRegister1(0F);
+        }
+        return deviceModelEnergeticRoomTRM202;
     }
 
     private HttpHeaders createHttpHeaders(){
@@ -69,6 +78,6 @@ public class RepositoryRaspberryEnergeticRoomImpl implements RepositoryRaspberry
     }
 
     private HttpEntity<String> createHttpEntity(LocalDateTime from, LocalDateTime to){
-        return new HttpEntity<String>(createJSONObject(from, to), createHttpHeaders());
+        return new HttpEntity<>(createJSONObject(from, to), createHttpHeaders());
     }
 }
