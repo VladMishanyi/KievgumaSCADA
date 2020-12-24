@@ -3,6 +3,7 @@ package com.vk.controller;
 import com.vk.entity.device.DeviceModel;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.json.JsonBodyDateFromChart;
+import com.vk.entity.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.entity.table.TableModel;
 import com.vk.service.data.RootServiceData;
 import org.apache.log4j.Logger;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 
 /**
@@ -25,7 +28,7 @@ public class JsonController<D extends DeviceModel, E extends RootServiceData<T, 
     private final Logger LOGGER = Logger.getLogger(this.getClass());
 
     public List<T> generateTimeObject(final E serviceData,
-                                      final JsonBodyDateFromChart jsonBodyDateFromChart,
+                                      final JsonBodyLocalDateTimeFromChart jsonBodyDateFromChart,
                                       final SimpleDateFormat simpleDateFormat){
         List<T> tableModel = null;
 //        final String start = dateFromChart.getStart();
@@ -40,5 +43,12 @@ public class JsonController<D extends DeviceModel, E extends RootServiceData<T, 
             LOGGER.error("can't parse range of date: "+e.getClass());
         }
         return tableModel;
+    }
+
+    private static Date parseTimeZone(SimpleDateFormat simpleDateFormat, Date date) throws ParseException{
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+4:00");
+        Calendar calendar = Calendar.getInstance(timeZone);
+        calendar.setTime(date);
+        return calendar.getTime();
     }
 }

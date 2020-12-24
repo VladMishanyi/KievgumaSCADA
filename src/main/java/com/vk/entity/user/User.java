@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -58,7 +59,7 @@ public final class User extends TableModel implements UserDetails {
     }
 
     public User(
-            final Date date,
+            final LocalDateTime date,
             final String name,
             final String login,
             final String password,
@@ -78,7 +79,7 @@ public final class User extends TableModel implements UserDetails {
 
     public User(
             final long id,
-            final Date date,
+            final LocalDateTime date,
             final String name,
             final String login,
             final String password,

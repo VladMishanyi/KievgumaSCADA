@@ -3,6 +3,7 @@ package com.vk.controller;
 import com.vk.entity.device.DeviceModelFirstCehAutoclavTRM202;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.json.JsonBodyDateFromChart;
+import com.vk.entity.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.entity.table.TableModelFirstCehAutoclavTRM202;
 import com.vk.service.data.FirstCehAutoclavTRM202ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class JsonControllerFirstCehAutoclavTRM202 extends JsonController<DeviceM
 
     @MessageMapping(value="/generateChartFirstCehAutoklav")
     @SendTo("/topic/generateChartFirstCehAutoklav")
-    public List<TableModelFirstCehAutoclavTRM202> generateChartFirstCehAutoclavTRM202(final JsonBodyDateFromChart jsonBodyDateFromChart){
+    public List<TableModelFirstCehAutoclavTRM202> generateChartFirstCehAutoclavTRM202(final JsonBodyLocalDateTimeFromChart jsonBodyDateFromChart){
         return this.generateTimeObject(firstCehAutoclavTRM202ServiceData, jsonBodyDateFromChart, simpleDateFormat);
     }
 

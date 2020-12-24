@@ -3,6 +3,7 @@ package com.vk.controller;
 import com.vk.entity.device.DeviceModelKotelnyaParMikrolITM4;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.json.JsonBodyDateFromChart;
+import com.vk.entity.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.entity.table.TableModelKotelnyaParMikrolITM4;
 import com.vk.service.data.KotelnyaParMikrolITM4ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class JsonControllerKotelnyaParMikrolITM4 extends JsonController<DeviceMo
 
     @MessageMapping(value="/generateChartKotelnyaParMikrolITM4")
     @SendTo("/topic/generateChartKotelnyaParMikrolITM4")
-    public List<TableModelKotelnyaParMikrolITM4> generateChartKotelnyaParMikrolITM4(final JsonBodyDateFromChart dateFromChart){
+    public List<TableModelKotelnyaParMikrolITM4> generateChartKotelnyaParMikrolITM4(final JsonBodyLocalDateTimeFromChart dateFromChart){
         return this.generateTimeObject(kotelnyaParMikrolITM4ServiceData, dateFromChart, simpleDateFormat);
     }
 }

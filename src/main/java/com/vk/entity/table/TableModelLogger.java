@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -24,7 +25,7 @@ public class TableModelLogger extends TableModel{
     public TableModelLogger() {
     }
 
-    public TableModelLogger(Date date, String name, String information) {
+    public TableModelLogger(LocalDateTime date, String name, String information) {
         this.setDate(date);
         this.name = name;
         this.information = information;

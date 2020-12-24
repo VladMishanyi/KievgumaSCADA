@@ -7,6 +7,7 @@ import com.vk.lib.ObjectValidator;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -24,7 +25,7 @@ public class DeviceToTableImplSecondCehKameraVulcan1MPR51
         TableModelSecondCehKameraVulcan1MPR51 tableModelSecondCehKameraVulcan1MPR51 = null;
         if (ObjectValidator.isNotNull(deviceModelSecondCehKameraVulcan1MPR51)){
             tableModelSecondCehKameraVulcan1MPR51 = new TableModelSecondCehKameraVulcan1MPR51();
-            tableModelSecondCehKameraVulcan1MPR51.setDate(new Date());
+            tableModelSecondCehKameraVulcan1MPR51.setDate(LocalDateTime.now());
             tableModelSecondCehKameraVulcan1MPR51.setChannel1(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getInputRegister45()));
             tableModelSecondCehKameraVulcan1MPR51.setChannel2(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getInputRegister45()));
             tableModelSecondCehKameraVulcan1MPR51.setChannel3(FloatCut.floatTwoDigs(deviceModelSecondCehKameraVulcan1MPR51.getInputRegister45()));

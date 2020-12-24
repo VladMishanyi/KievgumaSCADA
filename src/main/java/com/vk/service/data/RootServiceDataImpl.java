@@ -7,6 +7,7 @@ import com.vk.repository.modbus.RootModbusRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class RootServiceDataImpl<E extends TableModel, T extends DeviceModel> im
 
     @Transactional(readOnly = true)
     @Override
-    public List<E> rangeTimestamp(final Date startTimestamp, final Date endTimestamp){
+    public List<E> rangeTimestamp(final LocalDateTime startTimestamp, final LocalDateTime endTimestamp){
         return rootRepositoryData.findByDateBetween(startTimestamp, endTimestamp);
     }
 }

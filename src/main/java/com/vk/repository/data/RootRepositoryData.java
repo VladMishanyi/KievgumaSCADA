@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,6 @@ public interface RootRepositoryData<E extends TableModel> extends JpaRepository<
     @Query(value = "SELECT (data_length+index_length) tablesize FROM information_schema.tables WHERE table_schema='KievgumaBase'", nativeQuery = true)
     List<BigInteger> readBaseSize();
 
-    List<E> findByDateBetween (Date start, Date end);
+    List<E> findByDateBetween (LocalDateTime start, LocalDateTime end);
 
 }

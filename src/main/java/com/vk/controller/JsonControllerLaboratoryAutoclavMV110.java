@@ -3,6 +3,7 @@ package com.vk.controller;
 import com.vk.entity.device.DeviceModelLaboratoryAutoclavMV110;
 import com.vk.entity.json.DateFromChart;
 import com.vk.entity.json.JsonBodyDateFromChart;
+import com.vk.entity.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.entity.table.TableModelLaboratoryAutoclavMV110;
 import com.vk.service.data.LaboratoryAutoclavMV110ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class JsonControllerLaboratoryAutoclavMV110 extends JsonController<Device
 
     @MessageMapping(value="/generateLaboratoryAutoklav")
     @SendTo("/topic/generateLaboratoryAutoklav")
-    public List<TableModelLaboratoryAutoclavMV110> generateChartLaboratoryAutoclavMV110(final JsonBodyDateFromChart dateFromChart){
+    public List<TableModelLaboratoryAutoclavMV110> generateChartLaboratoryAutoclavMV110(final JsonBodyLocalDateTimeFromChart dateFromChart){
         return this.generateTimeObject(laboratoryAutoclavMV110ServiceData, dateFromChart, simpleDateFormat);
     }
 }

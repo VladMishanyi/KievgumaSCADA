@@ -9,6 +9,7 @@ import com.vk.service.data.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -104,7 +106,7 @@ public class MainStatisticsController {
 
         if (validator){
             String encodedPassword = sha256PasswordEncoder.encode(confirmPassword);
-            User user = new User(new Date(), name, login, encodedPassword, description, UserRole.valueOf(role), false);
+            User user = new User(LocalDateTime.now(), name, login, encodedPassword, description, UserRole.valueOf(role), false);
             userService.add(user);
             info = "ПОЗДРАВЛЯЕМ вы успешно зарегистрированы ";
         }
@@ -122,8 +124,8 @@ public class MainStatisticsController {
     }
 
     @RequestMapping(value = "/get_log", method = RequestMethod.POST)
-    public String getLogger(@RequestParam(value = "startChart"/*, defaultValue = "ANOTHER"*/) String startChart,
-                          @RequestParam(value = "endChart"/*, defaultValue = "default_name"*/) String endChart,
+    public String getLogger(@RequestParam(value = "startChart"/*, defaultValue = "ANOTHER"*/) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startChart,
+                          @RequestParam(value = "endChart"/*, defaultValue = "default_name"*/) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endChart,
                           Model model){
 
         model.addAttribute("users", userService.findAll());
@@ -139,15 +141,15 @@ public class MainStatisticsController {
         return v;
     }
 
-    private List<TableModelLogger> parseDate(String start, String end, LoggerService loggerService){
+    private List<TableModelLogger> parseDate(LocalDateTime start, LocalDateTime end, LoggerService loggerService){
         List<TableModelLogger> tableModel = null;
-        final String[] startTokens = start.split("T");
-        final String[] endTokens = end.split("T");
+//        final String[] startTokens = start.split("T");
+//        final String[] endTokens = end.split("T");
         try {
-            final Date startDate = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
-            final Date endDate = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
-            tableModel = loggerService.findByDateBetween(startDate, endDate);
-        }catch (ParseException e){
+//            final Date startDate = simpleDateFormat.parse(startTokens[0] +" "+ startTokens[1]);
+//            final Date endDate = simpleDateFormat.parse(endTokens[0] +" "+ endTokens[1]);
+            tableModel = loggerService.findByDateBetween(start, end);
+        }catch (Exception e){
             LOGGER.error("can't parse range of date: "+e.getClass());
         }
         return tableModel;

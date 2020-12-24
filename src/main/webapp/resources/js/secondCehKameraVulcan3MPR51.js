@@ -725,13 +725,13 @@ function genChart(data) {
     // var y1 = new Array();
     var y2 = new Array();
     // var y3 = new Array();
+    let utcLocalDateTimeOffset = getUtcOffset(data[0]["date"]);
 
 
     for (var i in data){
         if (data.hasOwnProperty(i)){
             try {
-                // x[i] = moment(data[i]["date"]).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
-                x[i] = moment(data[i]["date"]).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
+                x[i] = moment(data[i]["date"], "YYYY,MM,DD,HH,mm,ss").utcOffset(utcLocalDateTimeOffset);
                 // y1[i] = data[i]["channel1"];
                 y2[i] = data[i]["channel2"];
                 // y3[i] = data[i]["channel3"];
@@ -799,8 +799,7 @@ function removeFirstElementFromChart() {
 
 function drawInRealTime(parsed) {
     var buffer = document.getElementById("bufferChart").value;
-    // var x = moment(parsed.date).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
-    var x = moment(parsed.date).zone("+03:00").format("YYYY-MM-DD HH:mm:ss");
+    let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss");
     // var y1 = parsed.channel1;
     var y2 = parsed.channel2;
     // var y3 = parsed.channel3;
@@ -914,4 +913,10 @@ window.onload = function() {
 
 function getNewChart(ctx, config) {
     return new Chart(ctx, config);
+}
+
+function getUtcOffset(date) {
+    let minutesOffset = moment(date, "YYYY-MM-DD HH:mm:ss").parseZone().utcOffset();
+    let hoursOffset = minutesOffset/60;
+    return minutesOffset;
 }

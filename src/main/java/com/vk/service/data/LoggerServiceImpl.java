@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class LoggerServiceImpl implements LoggerService{
 
     @Transactional(readOnly = true)
     @Override
-    public List<TableModelLogger> findByDateBetween(final Date start, final Date end) {
+    public List<TableModelLogger> findByDateBetween(final LocalDateTime start, final LocalDateTime end) {
         return loggerRepository.findByDateBetween(start, end);
     }
 

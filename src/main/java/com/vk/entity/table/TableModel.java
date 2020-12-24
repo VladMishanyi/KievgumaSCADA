@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.vk.lib.ObjectValidator;
@@ -23,13 +24,13 @@ public abstract class TableModel implements Serializable, Cloneable{
     @Column(name = "id")
     private long id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "date", columnDefinition="DATETIME")
-    private Date date;
+//    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date", columnDefinition = "TIMESTAMP")
+    private LocalDateTime date;
 
     public TableModel(){}
 
-    public TableModel(long id, Date date){
+    public TableModel(long id, LocalDateTime date){
         this.id = id;
         this.date = date;
     }
@@ -76,11 +77,11 @@ public abstract class TableModel implements Serializable, Cloneable{
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(final Date date) {
+    public void setDate(final LocalDateTime date) {
         this.date = date;
     }
 }

@@ -7,6 +7,7 @@ import com.vk.lib.ObjectValidator;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -24,7 +25,7 @@ public class DeviceToTableImplFirstCehAutoclavTRM202
         TableModelFirstCehAutoclavTRM202 tableModelFirstCehAutoclavTRM202 = null;
         if (ObjectValidator.isNotNull(deviceModelFirstCehAutoclavTRM202)){
             tableModelFirstCehAutoclavTRM202 = new TableModelFirstCehAutoclavTRM202();
-            tableModelFirstCehAutoclavTRM202.setDate(new Date());
+            tableModelFirstCehAutoclavTRM202.setDate(LocalDateTime.now());
             tableModelFirstCehAutoclavTRM202.setChannel1(FloatCut.floatTwoDigs(deviceModelFirstCehAutoclavTRM202.getDeviceValuesRegister0()));
             tableModelFirstCehAutoclavTRM202.setChannel2(FloatCut.floatTwoDigs(deviceModelFirstCehAutoclavTRM202.getDeviceValuesRegister1()));
         }

@@ -4,6 +4,7 @@ import com.vk.entity.device.DeviceModel;
 import com.vk.entity.table.TableModel;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,5 +19,5 @@ public interface RootServiceData<E extends TableModel, T extends DeviceModel> {
 
     void addTabeDevice(E tableModel);
 
-    List<E> rangeTimestamp(Date startTimestamp, Date endTimestamp);
+    List<E> rangeTimestamp(LocalDateTime startTimestamp, LocalDateTime endTimestamp);
 }
