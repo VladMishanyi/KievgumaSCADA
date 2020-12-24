@@ -20,6 +20,7 @@ document.getElementById("id_switch_tred").addEventListener("change", function se
 
 $(document).ready(function () {
     connect();
+    clearChart();
 });
 
 var stompClient = null;

@@ -17,6 +17,7 @@ document.getElementById("id_switch_tred").addEventListener("change", function se
 
 $(document).ready(function () {
     connect();
+    clearChart();
 });
 
 var stompClient = null;
@@ -312,7 +313,6 @@ function genChart(data) {
     for (var i in data){
         if (data.hasOwnProperty(i)){
             try {
-                // x[i] = moment(data[i]["date"]).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
                 x[i] = moment(data[i]["date"], "YYYY,MM,DD,HH,mm,ss").utcOffset(utcLocalDateTimeOffset);
                 y1[i] = data[i]["holdingRegister0"];
                 y2[i] = data[i]["holdingRegister1"];
@@ -372,12 +372,10 @@ function removeFirstElementFromChart() {
 }
 
 function drawInRealTime(parsed) {
-    var buffer = document.getElementById("bufferChart").value;
-    // let utcLocalDateTimeOffset = getUtcOffset(parsed.date);
-    // var x = moment(parsed.date).zone("+02:00").format("YYYY-MM-DD HH:mm:ss");
-    var x = moment(new Date(), "YYYY-MM-DD HH:mm:ss")/*.utcOffset(utcLocalDateTimeOffset)*/;
-    var y1 = parsed.holdingRegister0;
-    var y2 = parsed.holdingRegister1;
+    let buffer = document.getElementById("bufferChart").value;
+    let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss");
+    let y1 = parsed.holdingRegister0;
+    let y2 = parsed.holdingRegister1;
     if (config.data.labels.length < buffer){
         addLastElementToChart(x, y1, y2);
     }

@@ -107,7 +107,7 @@
                     <td>
                         <div class="input-group input-group-sm">
                             <span class="input-group-addon" id="bufferChartMark">Буфер графика</span>
-                            <input type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="1">
+                            <input type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="10000">
                         </div>
                     </td>
                     <td>
