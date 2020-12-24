@@ -2,6 +2,7 @@ package com.vk.controller;
 
 import com.vk.entity.device.DeviceModelSevenCehAutoclavSPK107;
 import com.vk.entity.json.DateFromChart;
+import com.vk.entity.json.JsonBodyDateFromChart;
 import com.vk.entity.table.TableModelSevenCehAutoclavSPK107;
 import com.vk.service.data.SevenCehAutoclavSPK107ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class JsonControllerSevenCehAutoclavSPK107 extends JsonController<DeviceM
 
     @MessageMapping(value="/generateChartSevenCehAutoclav")
     @SendTo("/topic/generateChartSevenCehAutoclav")
-    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclavSPK107(final DateFromChart dateFromChart){
+    public List<TableModelSevenCehAutoclavSPK107> generateChartSevenCehAutoclavSPK107(final JsonBodyDateFromChart dateFromChart){
         return this.generateTimeObject(sevenCehAutoclavSPK107ServiceData, dateFromChart, simpleDateFormat);
     }
 }

@@ -3,6 +3,7 @@ package com.vk.controller;
 import com.vk.chain.Chain4;
 import com.vk.entity.device.DeviceModelSecondCehKameraVulcan1MPR51;
 import com.vk.entity.json.DateFromChart;
+import com.vk.entity.json.JsonBodyDateFromChart;
 import com.vk.entity.json.JsonBodyFloat;
 import com.vk.entity.json.JsonBodyShort;
 import com.vk.entity.modbus.ModbusBodyQuery;
@@ -48,7 +49,7 @@ public class JsonControllerSecondCehKameraVulcan1MPR51 extends JsonController<De
 
     @MessageMapping(value="/generateChartSecondCehKameraVulcan1MPR51")
     @SendTo("/topic/generateChartSecondCehKameraVulcan1MPR51")
-    public List<TableModelSecondCehKameraVulcan1MPR51> generateChartSecondCehKameraVulcan1MPR51(final DateFromChart dateFromChart){
+    public List<TableModelSecondCehKameraVulcan1MPR51> generateChartSecondCehKameraVulcan1MPR51(final JsonBodyDateFromChart dateFromChart){
         return this.generateTimeObject(secondCehKameraVulcan1MPR51ServiceData, dateFromChart, simpleDateFormat);
     }
 
