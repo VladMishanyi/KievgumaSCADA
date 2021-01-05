@@ -7,6 +7,8 @@ import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 /**
  * Created by User on 2018-02-26.
  */
@@ -156,5 +158,44 @@ public class DeviceModelEnergeticRoomTRM202 implements DeviceModel{
             oldHoldingRegister1 = holdingRegister1;
         }
         return inner;
+    }
+
+    @Override
+    public String toString() {
+        return "DeviceModelEnergeticRoomTRM202{" +
+                "deviceAddress=" + deviceAddress +
+                ", hysteresisFloat=" + hysteresisFloat +
+                ", hysteresisInt=" + hysteresisInt +
+                ", holdingRegister0=" + holdingRegister0 +
+                ", oldHoldingRegister0=" + oldHoldingRegister0 +
+                ", modbusLocator0h=" + modbusLocator0h +
+                ", holdingRegister1=" + holdingRegister1 +
+                ", oldHoldingRegister1=" + oldHoldingRegister1 +
+                ", modbusLocator1h=" + modbusLocator1h +
+                ", holdingRegister2=" + holdingRegister2 +
+                ", oldHoldingRegister2=" + oldHoldingRegister2 +
+                ", modbusLocator2h=" + modbusLocator2h +
+                ", holdingRegister3=" + holdingRegister3 +
+                ", oldHoldingRegister3=" + oldHoldingRegister3 +
+                ", modbusLocator3h=" + modbusLocator3h +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DeviceModelEnergeticRoomTRM202 that = (DeviceModelEnergeticRoomTRM202) o;
+        return deviceAddress == that.deviceAddress && Float.compare(that.hysteresisFloat, hysteresisFloat) == 0 && hysteresisInt == that.hysteresisInt && Float.compare(that.holdingRegister0, holdingRegister0) == 0 && Float.compare(that.oldHoldingRegister0, oldHoldingRegister0) == 0 && Float.compare(that.holdingRegister1, holdingRegister1) == 0 && Float.compare(that.oldHoldingRegister1, oldHoldingRegister1) == 0 && Float.compare(that.holdingRegister2, holdingRegister2) == 0 && Float.compare(that.oldHoldingRegister2, oldHoldingRegister2) == 0 && Float.compare(that.holdingRegister3, holdingRegister3) == 0 && Float.compare(that.oldHoldingRegister3, oldHoldingRegister3) == 0 && Objects.equals(modbusLocator0h, that.modbusLocator0h) && Objects.equals(modbusLocator1h, that.modbusLocator1h) && Objects.equals(modbusLocator2h, that.modbusLocator2h) && Objects.equals(modbusLocator3h, that.modbusLocator3h);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(deviceAddress, hysteresisFloat, hysteresisInt, holdingRegister0, oldHoldingRegister0, modbusLocator0h, holdingRegister1, oldHoldingRegister1, modbusLocator1h, holdingRegister2, oldHoldingRegister2, modbusLocator2h, holdingRegister3, oldHoldingRegister3, modbusLocator3h);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

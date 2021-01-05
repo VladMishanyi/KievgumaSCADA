@@ -14,20 +14,20 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "trm202")
-@Component
-@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class TableModelEnergeticRoomTRM202 implements Serializable, Cloneable {
+//@Component
+//@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class TableModelEnergeticRoomTRM202  extends TableModel {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
-
-    //    @Temporal(value = TemporalType.TIMESTAMP)
-    @Column(name = "date", columnDefinition = "TIMESTAMP")
-    private LocalDateTime date;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
+//    private long id;
+//
+//    //    @Temporal(value = TemporalType.TIMESTAMP)
+//    @Column(name = "date", columnDefinition = "TIMESTAMP")
+//    private LocalDateTime date;
 
     @Column(name = "holdingRegister0")
     private float holdingRegister0 = 0F;
@@ -41,21 +41,21 @@ public class TableModelEnergeticRoomTRM202 implements Serializable, Cloneable {
         return serialVersionUID;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+//
+//    public LocalDateTime getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(LocalDateTime date) {
+//        this.date = date;
+//    }
 
     public float getHoldingRegister0() {
         return holdingRegister0;
@@ -74,33 +74,33 @@ public class TableModelEnergeticRoomTRM202 implements Serializable, Cloneable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TableModelEnergeticRoomTRM202 that = (TableModelEnergeticRoomTRM202) o;
-        return id == that.id &&
-                Float.compare(that.holdingRegister0, holdingRegister0) == 0 &&
-                Float.compare(that.holdingRegister1, holdingRegister1) == 0 &&
-                date.equals(that.date);
+    public boolean equals(Object object) {
+        boolean result = super.equals(object);
+        if (result){
+            TableModelEnergeticRoomTRM202 that = (TableModelEnergeticRoomTRM202) object;
+            result = Float.compare(that.holdingRegister0, holdingRegister0) == 0 &&
+                    Float.compare(that.holdingRegister1, holdingRegister1) == 0;
+        }
+        return result;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, holdingRegister0, holdingRegister1);
+        return Objects.hash(this.getId(), this.getDate(), holdingRegister0, holdingRegister1);
     }
 
     @Override
     public String toString() {
         return "TableModelEnergeticRoomTRM201{" +
-                "id=" + id +
-                ", date=" + date +
+                super.toString()+
                 ", holdingRegister0=" + holdingRegister0 +
                 ", holdingRegister1=" + holdingRegister1 +
                 '}';
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public TableModelEnergeticRoomTRM202 clone() {
+        return (TableModelEnergeticRoomTRM202) super.clone();
     }
 }

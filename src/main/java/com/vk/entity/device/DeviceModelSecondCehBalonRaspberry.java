@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 @Component
-@PropertySource(value = "classpath:raspberry-energetic-room.properties")
-public class DeviceModelEnergeticRoomRaspberry  implements DeviceModel{
+@PropertySource(value = "classpath:second-ceh-balon-raspberry.properties")
+public class DeviceModelSecondCehBalonRaspberry implements DeviceModel{
 
     @Value("${raspberry.ip}")
     private String ip;
@@ -16,7 +16,7 @@ public class DeviceModelEnergeticRoomRaspberry  implements DeviceModel{
     @Value("${raspberry.tomcat-port}")
     private String tomcatPort;
 
-    public DeviceModelEnergeticRoomRaspberry() {
+    public DeviceModelSecondCehBalonRaspberry() {
     }
 
     public String getIp() {
@@ -37,7 +37,7 @@ public class DeviceModelEnergeticRoomRaspberry  implements DeviceModel{
 
     @Override
     public String toString() {
-        return "DeviceModelRaspberry{" +
+        return "DeviceModelSecondCehBalonRaspberry{" +
                 "ip='" + ip + '\'' +
                 ", tomcatPort='" + tomcatPort + '\'' +
                 '}';
@@ -47,7 +47,7 @@ public class DeviceModelEnergeticRoomRaspberry  implements DeviceModel{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DeviceModelEnergeticRoomRaspberry that = (DeviceModelEnergeticRoomRaspberry) o;
+        DeviceModelSecondCehBalonRaspberry that = (DeviceModelSecondCehBalonRaspberry) o;
         return Objects.equals(ip, that.ip) && Objects.equals(tomcatPort, that.tomcatPort);
     }
 

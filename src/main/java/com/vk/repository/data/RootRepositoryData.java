@@ -1,6 +1,7 @@
 package com.vk.repository.data;
 
 import com.vk.entity.table.TableModel;
+import com.vk.entity.table.TableModelEnergeticRoomTRM202;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;
@@ -20,5 +21,4 @@ public interface RootRepositoryData<E extends TableModel> extends JpaRepository<
     List<BigInteger> readBaseSize();
 
     List<E> findByDateBetween (LocalDateTime start, LocalDateTime end);
-
 }

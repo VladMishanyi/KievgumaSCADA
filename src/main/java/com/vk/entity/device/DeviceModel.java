@@ -7,7 +7,4 @@ import java.io.Serializable;
  */
 public interface DeviceModel extends Serializable, Cloneable {
 
-    int getDeviceAddress();
-
-    boolean hysteresis();
 }

@@ -9,11 +9,11 @@ import com.vk.entity.table.TableModelSecondCehBalonTRM138;
 
 import java.time.LocalDateTime;
 
-public interface RepositoryRaspberryEnergeticRoom extends RepositoryRoot<TableModelEnergeticRoomTRM202, JsonBodyListForTableModelTRM202, DeviceModelEnergeticRoomTRM202> {
+public interface RepositorySecondCehBalonRaspberry extends RepositoryRoot<TableModelSecondCehBalonTRM138, JsonBodyListForTableModelSecondCehBalonTRM138, DeviceModelSecondCehBalonTRM138> {
+
+//    JsonBodyListForTableModelSecondCehBalonTRM138 jsonReadTableModelBetweenDate(LocalDateTime start, LocalDateTime end);
 //
-//    JsonBodyListForTableModelTRM202 jsonReadTableModelTRM202BetweenDate(LocalDateTime start, LocalDateTime end);
+//    TableModelSecondCehBalonTRM138 jsonReadTableModelLast();
 //
-//    TableModelEnergeticRoomTRM202 jsonReadTableModelTRM202Last();
-//
-//    DeviceModelEnergeticRoomTRM202 jsonReadDeviceModelTRM202allRegisters();
+//    DeviceModelSecondCehBalonTRM138 jsonReadDeviceModelAllRegisters();
 }

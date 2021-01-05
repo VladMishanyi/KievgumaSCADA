@@ -7,6 +7,8 @@ import com.vk.lib.HysComparator;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
+import java.util.Objects;
+
 /**
  * Created by KIP-PC99 on 20.11.2018.
  */
@@ -2283,12 +2285,10 @@ public class DeviceModelSecondCehKameraVulcan2MPR51 implements DeviceModel{
         return modbusLocator46r;
     }
 
-    @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(oldInputRegister45,
                 inputRegister45,
@@ -2298,5 +2298,314 @@ public class DeviceModelSecondCehKameraVulcan2MPR51 implements DeviceModel{
             oldInputRegister45 = inputRegister45;
         }
         return inner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DeviceModelSecondCehKameraVulcan2MPR51 that = (DeviceModelSecondCehKameraVulcan2MPR51) o;
+        return deviceAddress == that.deviceAddress && Float.compare(that.hysteresisFloat, hysteresisFloat) == 0 && hysteresisInt == that.hysteresisInt && Float.compare(that.holdingRegister0, holdingRegister0) == 0 && Float.compare(that.oldHoldingRegister0, oldHoldingRegister0) == 0 && Float.compare(that.holdingRegister1, holdingRegister1) == 0 && Float.compare(that.oldHoldingRegister1, oldHoldingRegister1) == 0 && Float.compare(that.holdingRegister2, holdingRegister2) == 0 && Float.compare(that.oldHoldingRegister2, oldHoldingRegister2) == 0 && Float.compare(that.holdingRegister3, holdingRegister3) == 0 && Float.compare(that.oldHoldingRegister3, oldHoldingRegister3) == 0 && Float.compare(that.holdingRegister4, holdingRegister4) == 0 && Float.compare(that.oldHoldingRegister4, oldHoldingRegister4) == 0 && Float.compare(that.holdingRegister5, holdingRegister5) == 0 && Float.compare(that.oldHoldingRegister5, oldHoldingRegister5) == 0 && Float.compare(that.holdingRegister6, holdingRegister6) == 0 && Float.compare(that.oldHoldingRegister6, oldHoldingRegister6) == 0 && Float.compare(that.holdingRegister7, holdingRegister7) == 0 && Float.compare(that.oldHoldingRegister7, oldHoldingRegister7) == 0 && Float.compare(that.holdingRegister8, holdingRegister8) == 0 && Float.compare(that.oldHoldingRegister8, oldHoldingRegister8) == 0 && holdingRegister9 == that.holdingRegister9 && oldHoldingRegister9 == that.oldHoldingRegister9 && Float.compare(that.holdingRegister10, holdingRegister10) == 0 && Float.compare(that.oldHoldingRegister10, oldHoldingRegister10) == 0 && Float.compare(that.holdingRegister11, holdingRegister11) == 0 && Float.compare(that.oldHoldingRegister11, oldHoldingRegister11) == 0 && holdingRegister12 == that.holdingRegister12 && oldHoldingRegister12 == that.oldHoldingRegister12 && Float.compare(that.holdingRegister13, holdingRegister13) == 0 && Float.compare(that.oldHoldingRegister13, oldHoldingRegister13) == 0 && Float.compare(that.holdingRegister14, holdingRegister14) == 0 && Float.compare(that.oldHoldingRegister14, oldHoldingRegister14) == 0 && holdingRegister15 == that.holdingRegister15 && oldHoldingRegister15 == that.oldHoldingRegister15 && Float.compare(that.holdingRegister16, holdingRegister16) == 0 && Float.compare(that.oldHoldingRegister16, oldHoldingRegister16) == 0 && Float.compare(that.holdingRegister17, holdingRegister17) == 0 && Float.compare(that.oldHoldingRegister17, oldHoldingRegister17) == 0 && holdingRegister18 == that.holdingRegister18 && oldHoldingRegister18 == that.oldHoldingRegister18 && Float.compare(that.holdingRegister19, holdingRegister19) == 0 && Float.compare(that.oldHoldingRegister19, oldHoldingRegister19) == 0 && Float.compare(that.holdingRegister20, holdingRegister20) == 0 && Float.compare(that.oldHoldingRegister20, oldHoldingRegister20) == 0 && holdingRegister21 == that.holdingRegister21 && oldHoldingRegister21 == that.oldHoldingRegister21 && Float.compare(that.holdingRegister22, holdingRegister22) == 0 && Float.compare(that.oldHoldingRegister22, oldHoldingRegister22) == 0 && Float.compare(that.holdingRegister23, holdingRegister23) == 0 && Float.compare(that.oldHoldingRegister23, oldHoldingRegister23) == 0 && holdingRegister24 == that.holdingRegister24 && oldHoldingRegister24 == that.oldHoldingRegister24 && Float.compare(that.holdingRegister25, holdingRegister25) == 0 && Float.compare(that.oldHoldingRegister25, oldHoldingRegister25) == 0 && Float.compare(that.holdingRegister26, holdingRegister26) == 0 && Float.compare(that.oldHoldingRegister26, oldHoldingRegister26) == 0 && holdingRegister27 == that.holdingRegister27 && oldHoldingRegister27 == that.oldHoldingRegister27 && Float.compare(that.holdingRegister28, holdingRegister28) == 0 && Float.compare(that.oldHoldingRegister28, oldHoldingRegister28) == 0 && Float.compare(that.holdingRegister29, holdingRegister29) == 0 && Float.compare(that.oldHoldingRegister29, oldHoldingRegister29) == 0 && holdingRegister30 == that.holdingRegister30 && oldHoldingRegister30 == that.oldHoldingRegister30 && Float.compare(that.holdingRegister31, holdingRegister31) == 0 && Float.compare(that.oldHoldingRegister31, oldHoldingRegister31) == 0 && Float.compare(that.holdingRegister32, holdingRegister32) == 0 && Float.compare(that.oldHoldingRegister32, oldHoldingRegister32) == 0 && holdingRegister33 == that.holdingRegister33 && oldHoldingRegister33 == that.oldHoldingRegister33 && Float.compare(that.holdingRegister34, holdingRegister34) == 0 && Float.compare(that.oldHoldingRegister34, oldHoldingRegister34) == 0 && Float.compare(that.holdingRegister35, holdingRegister35) == 0 && Float.compare(that.oldHoldingRegister35, oldHoldingRegister35) == 0 && holdingRegister36 == that.holdingRegister36 && oldHoldingRegister36 == that.oldHoldingRegister36 && Float.compare(that.holdingRegister37, holdingRegister37) == 0 && Float.compare(that.oldHoldingRegister37, oldHoldingRegister37) == 0 && Float.compare(that.holdingRegister38, holdingRegister38) == 0 && Float.compare(that.oldHoldingRegister38, oldHoldingRegister38) == 0 && holdingRegister39 == that.holdingRegister39 && oldHoldingRegister39 == that.oldHoldingRegister39 && Float.compare(that.holdingRegister40, holdingRegister40) == 0 && Float.compare(that.oldHoldingRegister40, oldHoldingRegister40) == 0 && Float.compare(that.holdingRegister41, holdingRegister41) == 0 && Float.compare(that.oldHoldingRegister41, oldHoldingRegister41) == 0 && holdingRegister42 == that.holdingRegister42 && oldHoldingRegister42 == that.oldHoldingRegister42 && Float.compare(that.holdingRegister43, holdingRegister43) == 0 && Float.compare(that.oldHoldingRegister43, oldHoldingRegister43) == 0 && Float.compare(that.holdingRegister44, holdingRegister44) == 0 && Float.compare(that.oldHoldingRegister44, oldHoldingRegister44) == 0 && holdingRegister45 == that.holdingRegister45 && oldHoldingRegister45 == that.oldHoldingRegister45 && holdingRegister46 == that.holdingRegister46 && oldHoldingRegister46 == that.oldHoldingRegister46 && Float.compare(that.inputRegister0, inputRegister0) == 0 && Float.compare(that.oldInputRegister0, oldInputRegister0) == 0 && Float.compare(that.inputRegister1, inputRegister1) == 0 && Float.compare(that.oldInputRegister1, oldInputRegister1) == 0 && Float.compare(that.inputRegister2, inputRegister2) == 0 && Float.compare(that.oldInputRegister2, oldInputRegister2) == 0 && Float.compare(that.inputRegister3, inputRegister3) == 0 && Float.compare(that.oldInputRegister3, oldInputRegister3) == 0 && Float.compare(that.inputRegister4, inputRegister4) == 0 && Float.compare(that.oldInputRegister4, oldInputRegister4) == 0 && Float.compare(that.inputRegister5, inputRegister5) == 0 && Float.compare(that.oldInputRegister5, oldInputRegister5) == 0 && Float.compare(that.inputRegister6, inputRegister6) == 0 && Float.compare(that.oldInputRegister6, oldInputRegister6) == 0 && Float.compare(that.inputRegister7, inputRegister7) == 0 && Float.compare(that.oldInputRegister7, oldInputRegister7) == 0 && Float.compare(that.inputRegister8, inputRegister8) == 0 && Float.compare(that.oldInputRegister8, oldInputRegister8) == 0 && inputRegister9 == that.inputRegister9 && oldInputRegister9 == that.oldInputRegister9 && Float.compare(that.inputRegister10, inputRegister10) == 0 && Float.compare(that.oldInputRegister10, oldInputRegister10) == 0 && Float.compare(that.inputRegister11, inputRegister11) == 0 && Float.compare(that.oldInputRegister11, oldInputRegister11) == 0 && inputRegister12 == that.inputRegister12 && oldInputRegister12 == that.oldInputRegister12 && Float.compare(that.inputRegister13, inputRegister13) == 0 && Float.compare(that.oldInputRegister13, oldInputRegister13) == 0 && Float.compare(that.inputRegister14, inputRegister14) == 0 && Float.compare(that.oldInputRegister14, oldInputRegister14) == 0 && inputRegister15 == that.inputRegister15 && oldInputRegister15 == that.oldInputRegister15 && Float.compare(that.inputRegister16, inputRegister16) == 0 && Float.compare(that.oldInputRegister16, oldInputRegister16) == 0 && Float.compare(that.inputRegister17, inputRegister17) == 0 && Float.compare(that.oldInputRegister17, oldInputRegister17) == 0 && inputRegister18 == that.inputRegister18 && oldInputRegister18 == that.oldInputRegister18 && Float.compare(that.inputRegister19, inputRegister19) == 0 && Float.compare(that.oldInputRegister19, oldInputRegister19) == 0 && Float.compare(that.inputRegister20, inputRegister20) == 0 && Float.compare(that.oldInputRegister20, oldInputRegister20) == 0 && inputRegister21 == that.inputRegister21 && oldInputRegister21 == that.oldInputRegister21 && Float.compare(that.inputRegister22, inputRegister22) == 0 && Float.compare(that.oldInputRegister22, oldInputRegister22) == 0 && Float.compare(that.inputRegister23, inputRegister23) == 0 && Float.compare(that.oldInputRegister23, oldInputRegister23) == 0 && inputRegister24 == that.inputRegister24 && oldInputRegister24 == that.oldInputRegister24 && Float.compare(that.inputRegister25, inputRegister25) == 0 && Float.compare(that.oldInputRegister25, oldInputRegister25) == 0 && Float.compare(that.inputRegister26, inputRegister26) == 0 && Float.compare(that.oldInputRegister26, oldInputRegister26) == 0 && inputRegister27 == that.inputRegister27 && oldInputRegister27 == that.oldInputRegister27 && Float.compare(that.inputRegister28, inputRegister28) == 0 && Float.compare(that.oldInputRegister28, oldInputRegister28) == 0 && Float.compare(that.inputRegister29, inputRegister29) == 0 && Float.compare(that.oldInputRegister29, oldInputRegister29) == 0 && inputRegister30 == that.inputRegister30 && oldInputRegister30 == that.oldInputRegister30 && Float.compare(that.inputRegister31, inputRegister31) == 0 && Float.compare(that.oldInputRegister31, oldInputRegister31) == 0 && Float.compare(that.inputRegister32, inputRegister32) == 0 && Float.compare(that.oldInputRegister32, oldInputRegister32) == 0 && inputRegister33 == that.inputRegister33 && oldInputRegister33 == that.oldInputRegister33 && Float.compare(that.inputRegister34, inputRegister34) == 0 && Float.compare(that.oldInputRegister34, oldInputRegister34) == 0 && Float.compare(that.inputRegister35, inputRegister35) == 0 && Float.compare(that.oldInputRegister35, oldInputRegister35) == 0 && inputRegister36 == that.inputRegister36 && oldInputRegister36 == that.oldInputRegister36 && Float.compare(that.inputRegister37, inputRegister37) == 0 && Float.compare(that.oldInputRegister37, oldInputRegister37) == 0 && Float.compare(that.inputRegister38, inputRegister38) == 0 && Float.compare(that.oldInputRegister38, oldInputRegister38) == 0 && inputRegister39 == that.inputRegister39 && oldInputRegister39 == that.oldInputRegister39 && Float.compare(that.inputRegister40, inputRegister40) == 0 && Float.compare(that.oldInputRegister40, oldInputRegister40) == 0 && Float.compare(that.inputRegister41, inputRegister41) == 0 && Float.compare(that.oldInputRegister41, oldInputRegister41) == 0 && inputRegister42 == that.inputRegister42 && oldInputRegister42 == that.oldInputRegister42 && Float.compare(that.inputRegister43, inputRegister43) == 0 && Float.compare(that.oldInputRegister43, oldInputRegister43) == 0 && Float.compare(that.inputRegister44, inputRegister44) == 0 && Float.compare(that.oldInputRegister44, oldInputRegister44) == 0 && Float.compare(that.inputRegister45, inputRegister45) == 0 && Float.compare(that.oldInputRegister45, oldInputRegister45) == 0 && inputRegister46 == that.inputRegister46 && oldInputRegister46 == that.oldInputRegister46 && Objects.equals(modbusLocator0, that.modbusLocator0) && Objects.equals(modbusLocator1, that.modbusLocator1) && Objects.equals(modbusLocator2, that.modbusLocator2) && Objects.equals(modbusLocator3, that.modbusLocator3) && Objects.equals(modbusLocator4, that.modbusLocator4) && Objects.equals(modbusLocator5, that.modbusLocator5) && Objects.equals(modbusLocator6, that.modbusLocator6) && Objects.equals(modbusLocator7, that.modbusLocator7) && Objects.equals(modbusLocator8, that.modbusLocator8) && Objects.equals(modbusLocator9, that.modbusLocator9) && Objects.equals(modbusLocator10, that.modbusLocator10) && Objects.equals(modbusLocator11, that.modbusLocator11) && Objects.equals(modbusLocator12, that.modbusLocator12) && Objects.equals(modbusLocator13, that.modbusLocator13) && Objects.equals(modbusLocator14, that.modbusLocator14) && Objects.equals(modbusLocator15, that.modbusLocator15) && Objects.equals(modbusLocator16, that.modbusLocator16) && Objects.equals(modbusLocator17, that.modbusLocator17) && Objects.equals(modbusLocator18, that.modbusLocator18) && Objects.equals(modbusLocator19, that.modbusLocator19) && Objects.equals(modbusLocator20, that.modbusLocator20) && Objects.equals(modbusLocator21, that.modbusLocator21) && Objects.equals(modbusLocator22, that.modbusLocator22) && Objects.equals(modbusLocator23, that.modbusLocator23) && Objects.equals(modbusLocator24, that.modbusLocator24) && Objects.equals(modbusLocator25, that.modbusLocator25) && Objects.equals(modbusLocator26, that.modbusLocator26) && Objects.equals(modbusLocator27, that.modbusLocator27) && Objects.equals(modbusLocator28, that.modbusLocator28) && Objects.equals(modbusLocator29, that.modbusLocator29) && Objects.equals(modbusLocator30, that.modbusLocator30) && Objects.equals(modbusLocator31, that.modbusLocator31) && Objects.equals(modbusLocator32, that.modbusLocator32) && Objects.equals(modbusLocator33, that.modbusLocator33) && Objects.equals(modbusLocator34, that.modbusLocator34) && Objects.equals(modbusLocator35, that.modbusLocator35) && Objects.equals(modbusLocator36, that.modbusLocator36) && Objects.equals(modbusLocator37, that.modbusLocator37) && Objects.equals(modbusLocator38, that.modbusLocator38) && Objects.equals(modbusLocator39, that.modbusLocator39) && Objects.equals(modbusLocator40, that.modbusLocator40) && Objects.equals(modbusLocator41, that.modbusLocator41) && Objects.equals(modbusLocator42, that.modbusLocator42) && Objects.equals(modbusLocator43, that.modbusLocator43) && Objects.equals(modbusLocator44, that.modbusLocator44) && Objects.equals(modbusLocator45, that.modbusLocator45) && Objects.equals(modbusLocator46, that.modbusLocator46) && Objects.equals(modbusLocator0r, that.modbusLocator0r) && Objects.equals(modbusLocator1r, that.modbusLocator1r) && Objects.equals(modbusLocator2r, that.modbusLocator2r) && Objects.equals(modbusLocator3r, that.modbusLocator3r) && Objects.equals(modbusLocator4r, that.modbusLocator4r) && Objects.equals(modbusLocator5r, that.modbusLocator5r) && Objects.equals(modbusLocator6r, that.modbusLocator6r) && Objects.equals(modbusLocator7r, that.modbusLocator7r) && Objects.equals(modbusLocator8r, that.modbusLocator8r) && Objects.equals(modbusLocator9r, that.modbusLocator9r) && Objects.equals(modbusLocator10r, that.modbusLocator10r) && Objects.equals(modbusLocator11r, that.modbusLocator11r) && Objects.equals(modbusLocator12r, that.modbusLocator12r) && Objects.equals(modbusLocator13r, that.modbusLocator13r) && Objects.equals(modbusLocator14r, that.modbusLocator14r) && Objects.equals(modbusLocator15r, that.modbusLocator15r) && Objects.equals(modbusLocator16r, that.modbusLocator16r) && Objects.equals(modbusLocator17r, that.modbusLocator17r) && Objects.equals(modbusLocator18r, that.modbusLocator18r) && Objects.equals(modbusLocator19r, that.modbusLocator19r) && Objects.equals(modbusLocator20r, that.modbusLocator20r) && Objects.equals(modbusLocator21r, that.modbusLocator21r) && Objects.equals(modbusLocator22r, that.modbusLocator22r) && Objects.equals(modbusLocator23r, that.modbusLocator23r) && Objects.equals(modbusLocator24r, that.modbusLocator24r) && Objects.equals(modbusLocator25r, that.modbusLocator25r) && Objects.equals(modbusLocator26r, that.modbusLocator26r) && Objects.equals(modbusLocator27r, that.modbusLocator27r) && Objects.equals(modbusLocator28r, that.modbusLocator28r) && Objects.equals(modbusLocator29r, that.modbusLocator29r) && Objects.equals(modbusLocator30r, that.modbusLocator30r) && Objects.equals(modbusLocator31r, that.modbusLocator31r) && Objects.equals(modbusLocator32r, that.modbusLocator32r) && Objects.equals(modbusLocator33r, that.modbusLocator33r) && Objects.equals(modbusLocator34r, that.modbusLocator34r) && Objects.equals(modbusLocator35r, that.modbusLocator35r) && Objects.equals(modbusLocator36r, that.modbusLocator36r) && Objects.equals(modbusLocator37r, that.modbusLocator37r) && Objects.equals(modbusLocator38r, that.modbusLocator38r) && Objects.equals(modbusLocator39r, that.modbusLocator39r) && Objects.equals(modbusLocator40r, that.modbusLocator40r) && Objects.equals(modbusLocator41r, that.modbusLocator41r) && Objects.equals(modbusLocator42r, that.modbusLocator42r) && Objects.equals(modbusLocator43r, that.modbusLocator43r) && Objects.equals(modbusLocator44r, that.modbusLocator44r) && Objects.equals(modbusLocator45r, that.modbusLocator45r) && Objects.equals(modbusLocator46r, that.modbusLocator46r);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(deviceAddress, hysteresisFloat, hysteresisInt, holdingRegister0, oldHoldingRegister0, modbusLocator0, holdingRegister1, oldHoldingRegister1, modbusLocator1, holdingRegister2, oldHoldingRegister2, modbusLocator2, holdingRegister3, oldHoldingRegister3, modbusLocator3, holdingRegister4, oldHoldingRegister4, modbusLocator4, holdingRegister5, oldHoldingRegister5, modbusLocator5, holdingRegister6, oldHoldingRegister6, modbusLocator6, holdingRegister7, oldHoldingRegister7, modbusLocator7, holdingRegister8, oldHoldingRegister8, modbusLocator8, holdingRegister9, oldHoldingRegister9, modbusLocator9, holdingRegister10, oldHoldingRegister10, modbusLocator10, holdingRegister11, oldHoldingRegister11, modbusLocator11, holdingRegister12, oldHoldingRegister12, modbusLocator12, holdingRegister13, oldHoldingRegister13, modbusLocator13, holdingRegister14, oldHoldingRegister14, modbusLocator14, holdingRegister15, oldHoldingRegister15, modbusLocator15, holdingRegister16, oldHoldingRegister16, modbusLocator16, holdingRegister17, oldHoldingRegister17, modbusLocator17, holdingRegister18, oldHoldingRegister18, modbusLocator18, holdingRegister19, oldHoldingRegister19, modbusLocator19, holdingRegister20, oldHoldingRegister20, modbusLocator20, holdingRegister21, oldHoldingRegister21, modbusLocator21, holdingRegister22, oldHoldingRegister22, modbusLocator22, holdingRegister23, oldHoldingRegister23, modbusLocator23, holdingRegister24, oldHoldingRegister24, modbusLocator24, holdingRegister25, oldHoldingRegister25, modbusLocator25, holdingRegister26, oldHoldingRegister26, modbusLocator26, holdingRegister27, oldHoldingRegister27, modbusLocator27, holdingRegister28, oldHoldingRegister28, modbusLocator28, holdingRegister29, oldHoldingRegister29, modbusLocator29, holdingRegister30, oldHoldingRegister30, modbusLocator30, holdingRegister31, oldHoldingRegister31, modbusLocator31, holdingRegister32, oldHoldingRegister32, modbusLocator32, holdingRegister33, oldHoldingRegister33, modbusLocator33, holdingRegister34, oldHoldingRegister34, modbusLocator34, holdingRegister35, oldHoldingRegister35, modbusLocator35, holdingRegister36, oldHoldingRegister36, modbusLocator36, holdingRegister37, oldHoldingRegister37, modbusLocator37, holdingRegister38, oldHoldingRegister38, modbusLocator38, holdingRegister39, oldHoldingRegister39, modbusLocator39, holdingRegister40, oldHoldingRegister40, modbusLocator40, holdingRegister41, oldHoldingRegister41, modbusLocator41, holdingRegister42, oldHoldingRegister42, modbusLocator42, holdingRegister43, oldHoldingRegister43, modbusLocator43, holdingRegister44, oldHoldingRegister44, modbusLocator44, holdingRegister45, oldHoldingRegister45, modbusLocator45, holdingRegister46, oldHoldingRegister46, modbusLocator46, inputRegister0, oldInputRegister0, modbusLocator0r, inputRegister1, oldInputRegister1, modbusLocator1r, inputRegister2, oldInputRegister2, modbusLocator2r, inputRegister3, oldInputRegister3, modbusLocator3r, inputRegister4, oldInputRegister4, modbusLocator4r, inputRegister5, oldInputRegister5, modbusLocator5r, inputRegister6, oldInputRegister6, modbusLocator6r, inputRegister7, oldInputRegister7, modbusLocator7r, inputRegister8, oldInputRegister8, modbusLocator8r, inputRegister9, oldInputRegister9, modbusLocator9r, inputRegister10, oldInputRegister10, modbusLocator10r, inputRegister11, oldInputRegister11, modbusLocator11r, inputRegister12, oldInputRegister12, modbusLocator12r, inputRegister13, oldInputRegister13, modbusLocator13r, inputRegister14, oldInputRegister14, modbusLocator14r, inputRegister15, oldInputRegister15, modbusLocator15r, inputRegister16, oldInputRegister16, modbusLocator16r, inputRegister17, oldInputRegister17, modbusLocator17r, inputRegister18, oldInputRegister18, modbusLocator18r, inputRegister19, oldInputRegister19, modbusLocator19r, inputRegister20, oldInputRegister20, modbusLocator20r, inputRegister21, oldInputRegister21, modbusLocator21r, inputRegister22, oldInputRegister22, modbusLocator22r, inputRegister23, oldInputRegister23, modbusLocator23r, inputRegister24, oldInputRegister24, modbusLocator24r, inputRegister25, oldInputRegister25, modbusLocator25r, inputRegister26, oldInputRegister26, modbusLocator26r, inputRegister27, oldInputRegister27, modbusLocator27r, inputRegister28, oldInputRegister28, modbusLocator28r, inputRegister29, oldInputRegister29, modbusLocator29r, inputRegister30, oldInputRegister30, modbusLocator30r, inputRegister31, oldInputRegister31, modbusLocator31r, inputRegister32, oldInputRegister32, modbusLocator32r, inputRegister33, oldInputRegister33, modbusLocator33r, inputRegister34, oldInputRegister34, modbusLocator34r, inputRegister35, oldInputRegister35, modbusLocator35r, inputRegister36, oldInputRegister36, modbusLocator36r, inputRegister37, oldInputRegister37, modbusLocator37r, inputRegister38, oldInputRegister38, modbusLocator38r, inputRegister39, oldInputRegister39, modbusLocator39r, inputRegister40, oldInputRegister40, modbusLocator40r, inputRegister41, oldInputRegister41, modbusLocator41r, inputRegister42, oldInputRegister42, modbusLocator42r, inputRegister43, oldInputRegister43, modbusLocator43r, inputRegister44, oldInputRegister44, modbusLocator44r, inputRegister45, oldInputRegister45, modbusLocator45r, inputRegister46, oldInputRegister46, modbusLocator46r);
+    }
+
+    @Override
+    public String toString() {
+        return "DeviceModelSecondCehKameraVulcan2MPR51{" +
+                "deviceAddress=" + deviceAddress +
+                ", hysteresisFloat=" + hysteresisFloat +
+                ", hysteresisInt=" + hysteresisInt +
+                ", holdingRegister0=" + holdingRegister0 +
+                ", oldHoldingRegister0=" + oldHoldingRegister0 +
+                ", modbusLocator0=" + modbusLocator0 +
+                ", holdingRegister1=" + holdingRegister1 +
+                ", oldHoldingRegister1=" + oldHoldingRegister1 +
+                ", modbusLocator1=" + modbusLocator1 +
+                ", holdingRegister2=" + holdingRegister2 +
+                ", oldHoldingRegister2=" + oldHoldingRegister2 +
+                ", modbusLocator2=" + modbusLocator2 +
+                ", holdingRegister3=" + holdingRegister3 +
+                ", oldHoldingRegister3=" + oldHoldingRegister3 +
+                ", modbusLocator3=" + modbusLocator3 +
+                ", holdingRegister4=" + holdingRegister4 +
+                ", oldHoldingRegister4=" + oldHoldingRegister4 +
+                ", modbusLocator4=" + modbusLocator4 +
+                ", holdingRegister5=" + holdingRegister5 +
+                ", oldHoldingRegister5=" + oldHoldingRegister5 +
+                ", modbusLocator5=" + modbusLocator5 +
+                ", holdingRegister6=" + holdingRegister6 +
+                ", oldHoldingRegister6=" + oldHoldingRegister6 +
+                ", modbusLocator6=" + modbusLocator6 +
+                ", holdingRegister7=" + holdingRegister7 +
+                ", oldHoldingRegister7=" + oldHoldingRegister7 +
+                ", modbusLocator7=" + modbusLocator7 +
+                ", holdingRegister8=" + holdingRegister8 +
+                ", oldHoldingRegister8=" + oldHoldingRegister8 +
+                ", modbusLocator8=" + modbusLocator8 +
+                ", holdingRegister9=" + holdingRegister9 +
+                ", oldHoldingRegister9=" + oldHoldingRegister9 +
+                ", modbusLocator9=" + modbusLocator9 +
+                ", holdingRegister10=" + holdingRegister10 +
+                ", oldHoldingRegister10=" + oldHoldingRegister10 +
+                ", modbusLocator10=" + modbusLocator10 +
+                ", holdingRegister11=" + holdingRegister11 +
+                ", oldHoldingRegister11=" + oldHoldingRegister11 +
+                ", modbusLocator11=" + modbusLocator11 +
+                ", holdingRegister12=" + holdingRegister12 +
+                ", oldHoldingRegister12=" + oldHoldingRegister12 +
+                ", modbusLocator12=" + modbusLocator12 +
+                ", holdingRegister13=" + holdingRegister13 +
+                ", oldHoldingRegister13=" + oldHoldingRegister13 +
+                ", modbusLocator13=" + modbusLocator13 +
+                ", holdingRegister14=" + holdingRegister14 +
+                ", oldHoldingRegister14=" + oldHoldingRegister14 +
+                ", modbusLocator14=" + modbusLocator14 +
+                ", holdingRegister15=" + holdingRegister15 +
+                ", oldHoldingRegister15=" + oldHoldingRegister15 +
+                ", modbusLocator15=" + modbusLocator15 +
+                ", holdingRegister16=" + holdingRegister16 +
+                ", oldHoldingRegister16=" + oldHoldingRegister16 +
+                ", modbusLocator16=" + modbusLocator16 +
+                ", holdingRegister17=" + holdingRegister17 +
+                ", oldHoldingRegister17=" + oldHoldingRegister17 +
+                ", modbusLocator17=" + modbusLocator17 +
+                ", holdingRegister18=" + holdingRegister18 +
+                ", oldHoldingRegister18=" + oldHoldingRegister18 +
+                ", modbusLocator18=" + modbusLocator18 +
+                ", holdingRegister19=" + holdingRegister19 +
+                ", oldHoldingRegister19=" + oldHoldingRegister19 +
+                ", modbusLocator19=" + modbusLocator19 +
+                ", holdingRegister20=" + holdingRegister20 +
+                ", oldHoldingRegister20=" + oldHoldingRegister20 +
+                ", modbusLocator20=" + modbusLocator20 +
+                ", holdingRegister21=" + holdingRegister21 +
+                ", oldHoldingRegister21=" + oldHoldingRegister21 +
+                ", modbusLocator21=" + modbusLocator21 +
+                ", holdingRegister22=" + holdingRegister22 +
+                ", oldHoldingRegister22=" + oldHoldingRegister22 +
+                ", modbusLocator22=" + modbusLocator22 +
+                ", holdingRegister23=" + holdingRegister23 +
+                ", oldHoldingRegister23=" + oldHoldingRegister23 +
+                ", modbusLocator23=" + modbusLocator23 +
+                ", holdingRegister24=" + holdingRegister24 +
+                ", oldHoldingRegister24=" + oldHoldingRegister24 +
+                ", modbusLocator24=" + modbusLocator24 +
+                ", holdingRegister25=" + holdingRegister25 +
+                ", oldHoldingRegister25=" + oldHoldingRegister25 +
+                ", modbusLocator25=" + modbusLocator25 +
+                ", holdingRegister26=" + holdingRegister26 +
+                ", oldHoldingRegister26=" + oldHoldingRegister26 +
+                ", modbusLocator26=" + modbusLocator26 +
+                ", holdingRegister27=" + holdingRegister27 +
+                ", oldHoldingRegister27=" + oldHoldingRegister27 +
+                ", modbusLocator27=" + modbusLocator27 +
+                ", holdingRegister28=" + holdingRegister28 +
+                ", oldHoldingRegister28=" + oldHoldingRegister28 +
+                ", modbusLocator28=" + modbusLocator28 +
+                ", holdingRegister29=" + holdingRegister29 +
+                ", oldHoldingRegister29=" + oldHoldingRegister29 +
+                ", modbusLocator29=" + modbusLocator29 +
+                ", holdingRegister30=" + holdingRegister30 +
+                ", oldHoldingRegister30=" + oldHoldingRegister30 +
+                ", modbusLocator30=" + modbusLocator30 +
+                ", holdingRegister31=" + holdingRegister31 +
+                ", oldHoldingRegister31=" + oldHoldingRegister31 +
+                ", modbusLocator31=" + modbusLocator31 +
+                ", holdingRegister32=" + holdingRegister32 +
+                ", oldHoldingRegister32=" + oldHoldingRegister32 +
+                ", modbusLocator32=" + modbusLocator32 +
+                ", holdingRegister33=" + holdingRegister33 +
+                ", oldHoldingRegister33=" + oldHoldingRegister33 +
+                ", modbusLocator33=" + modbusLocator33 +
+                ", holdingRegister34=" + holdingRegister34 +
+                ", oldHoldingRegister34=" + oldHoldingRegister34 +
+                ", modbusLocator34=" + modbusLocator34 +
+                ", holdingRegister35=" + holdingRegister35 +
+                ", oldHoldingRegister35=" + oldHoldingRegister35 +
+                ", modbusLocator35=" + modbusLocator35 +
+                ", holdingRegister36=" + holdingRegister36 +
+                ", oldHoldingRegister36=" + oldHoldingRegister36 +
+                ", modbusLocator36=" + modbusLocator36 +
+                ", holdingRegister37=" + holdingRegister37 +
+                ", oldHoldingRegister37=" + oldHoldingRegister37 +
+                ", modbusLocator37=" + modbusLocator37 +
+                ", holdingRegister38=" + holdingRegister38 +
+                ", oldHoldingRegister38=" + oldHoldingRegister38 +
+                ", modbusLocator38=" + modbusLocator38 +
+                ", holdingRegister39=" + holdingRegister39 +
+                ", oldHoldingRegister39=" + oldHoldingRegister39 +
+                ", modbusLocator39=" + modbusLocator39 +
+                ", holdingRegister40=" + holdingRegister40 +
+                ", oldHoldingRegister40=" + oldHoldingRegister40 +
+                ", modbusLocator40=" + modbusLocator40 +
+                ", holdingRegister41=" + holdingRegister41 +
+                ", oldHoldingRegister41=" + oldHoldingRegister41 +
+                ", modbusLocator41=" + modbusLocator41 +
+                ", holdingRegister42=" + holdingRegister42 +
+                ", oldHoldingRegister42=" + oldHoldingRegister42 +
+                ", modbusLocator42=" + modbusLocator42 +
+                ", holdingRegister43=" + holdingRegister43 +
+                ", oldHoldingRegister43=" + oldHoldingRegister43 +
+                ", modbusLocator43=" + modbusLocator43 +
+                ", holdingRegister44=" + holdingRegister44 +
+                ", oldHoldingRegister44=" + oldHoldingRegister44 +
+                ", modbusLocator44=" + modbusLocator44 +
+                ", holdingRegister45=" + holdingRegister45 +
+                ", oldHoldingRegister45=" + oldHoldingRegister45 +
+                ", modbusLocator45=" + modbusLocator45 +
+                ", holdingRegister46=" + holdingRegister46 +
+                ", oldHoldingRegister46=" + oldHoldingRegister46 +
+                ", modbusLocator46=" + modbusLocator46 +
+                ", inputRegister0=" + inputRegister0 +
+                ", oldInputRegister0=" + oldInputRegister0 +
+                ", modbusLocator0r=" + modbusLocator0r +
+                ", inputRegister1=" + inputRegister1 +
+                ", oldInputRegister1=" + oldInputRegister1 +
+                ", modbusLocator1r=" + modbusLocator1r +
+                ", inputRegister2=" + inputRegister2 +
+                ", oldInputRegister2=" + oldInputRegister2 +
+                ", modbusLocator2r=" + modbusLocator2r +
+                ", inputRegister3=" + inputRegister3 +
+                ", oldInputRegister3=" + oldInputRegister3 +
+                ", modbusLocator3r=" + modbusLocator3r +
+                ", inputRegister4=" + inputRegister4 +
+                ", oldInputRegister4=" + oldInputRegister4 +
+                ", modbusLocator4r=" + modbusLocator4r +
+                ", inputRegister5=" + inputRegister5 +
+                ", oldInputRegister5=" + oldInputRegister5 +
+                ", modbusLocator5r=" + modbusLocator5r +
+                ", inputRegister6=" + inputRegister6 +
+                ", oldInputRegister6=" + oldInputRegister6 +
+                ", modbusLocator6r=" + modbusLocator6r +
+                ", inputRegister7=" + inputRegister7 +
+                ", oldInputRegister7=" + oldInputRegister7 +
+                ", modbusLocator7r=" + modbusLocator7r +
+                ", inputRegister8=" + inputRegister8 +
+                ", oldInputRegister8=" + oldInputRegister8 +
+                ", modbusLocator8r=" + modbusLocator8r +
+                ", inputRegister9=" + inputRegister9 +
+                ", oldInputRegister9=" + oldInputRegister9 +
+                ", modbusLocator9r=" + modbusLocator9r +
+                ", inputRegister10=" + inputRegister10 +
+                ", oldInputRegister10=" + oldInputRegister10 +
+                ", modbusLocator10r=" + modbusLocator10r +
+                ", inputRegister11=" + inputRegister11 +
+                ", oldInputRegister11=" + oldInputRegister11 +
+                ", modbusLocator11r=" + modbusLocator11r +
+                ", inputRegister12=" + inputRegister12 +
+                ", oldInputRegister12=" + oldInputRegister12 +
+                ", modbusLocator12r=" + modbusLocator12r +
+                ", inputRegister13=" + inputRegister13 +
+                ", oldInputRegister13=" + oldInputRegister13 +
+                ", modbusLocator13r=" + modbusLocator13r +
+                ", inputRegister14=" + inputRegister14 +
+                ", oldInputRegister14=" + oldInputRegister14 +
+                ", modbusLocator14r=" + modbusLocator14r +
+                ", inputRegister15=" + inputRegister15 +
+                ", oldInputRegister15=" + oldInputRegister15 +
+                ", modbusLocator15r=" + modbusLocator15r +
+                ", inputRegister16=" + inputRegister16 +
+                ", oldInputRegister16=" + oldInputRegister16 +
+                ", modbusLocator16r=" + modbusLocator16r +
+                ", inputRegister17=" + inputRegister17 +
+                ", oldInputRegister17=" + oldInputRegister17 +
+                ", modbusLocator17r=" + modbusLocator17r +
+                ", inputRegister18=" + inputRegister18 +
+                ", oldInputRegister18=" + oldInputRegister18 +
+                ", modbusLocator18r=" + modbusLocator18r +
+                ", inputRegister19=" + inputRegister19 +
+                ", oldInputRegister19=" + oldInputRegister19 +
+                ", modbusLocator19r=" + modbusLocator19r +
+                ", inputRegister20=" + inputRegister20 +
+                ", oldInputRegister20=" + oldInputRegister20 +
+                ", modbusLocator20r=" + modbusLocator20r +
+                ", inputRegister21=" + inputRegister21 +
+                ", oldInputRegister21=" + oldInputRegister21 +
+                ", modbusLocator21r=" + modbusLocator21r +
+                ", inputRegister22=" + inputRegister22 +
+                ", oldInputRegister22=" + oldInputRegister22 +
+                ", modbusLocator22r=" + modbusLocator22r +
+                ", inputRegister23=" + inputRegister23 +
+                ", oldInputRegister23=" + oldInputRegister23 +
+                ", modbusLocator23r=" + modbusLocator23r +
+                ", inputRegister24=" + inputRegister24 +
+                ", oldInputRegister24=" + oldInputRegister24 +
+                ", modbusLocator24r=" + modbusLocator24r +
+                ", inputRegister25=" + inputRegister25 +
+                ", oldInputRegister25=" + oldInputRegister25 +
+                ", modbusLocator25r=" + modbusLocator25r +
+                ", inputRegister26=" + inputRegister26 +
+                ", oldInputRegister26=" + oldInputRegister26 +
+                ", modbusLocator26r=" + modbusLocator26r +
+                ", inputRegister27=" + inputRegister27 +
+                ", oldInputRegister27=" + oldInputRegister27 +
+                ", modbusLocator27r=" + modbusLocator27r +
+                ", inputRegister28=" + inputRegister28 +
+                ", oldInputRegister28=" + oldInputRegister28 +
+                ", modbusLocator28r=" + modbusLocator28r +
+                ", inputRegister29=" + inputRegister29 +
+                ", oldInputRegister29=" + oldInputRegister29 +
+                ", modbusLocator29r=" + modbusLocator29r +
+                ", inputRegister30=" + inputRegister30 +
+                ", oldInputRegister30=" + oldInputRegister30 +
+                ", modbusLocator30r=" + modbusLocator30r +
+                ", inputRegister31=" + inputRegister31 +
+                ", oldInputRegister31=" + oldInputRegister31 +
+                ", modbusLocator31r=" + modbusLocator31r +
+                ", inputRegister32=" + inputRegister32 +
+                ", oldInputRegister32=" + oldInputRegister32 +
+                ", modbusLocator32r=" + modbusLocator32r +
+                ", inputRegister33=" + inputRegister33 +
+                ", oldInputRegister33=" + oldInputRegister33 +
+                ", modbusLocator33r=" + modbusLocator33r +
+                ", inputRegister34=" + inputRegister34 +
+                ", oldInputRegister34=" + oldInputRegister34 +
+                ", modbusLocator34r=" + modbusLocator34r +
+                ", inputRegister35=" + inputRegister35 +
+                ", oldInputRegister35=" + oldInputRegister35 +
+                ", modbusLocator35r=" + modbusLocator35r +
+                ", inputRegister36=" + inputRegister36 +
+                ", oldInputRegister36=" + oldInputRegister36 +
+                ", modbusLocator36r=" + modbusLocator36r +
+                ", inputRegister37=" + inputRegister37 +
+                ", oldInputRegister37=" + oldInputRegister37 +
+                ", modbusLocator37r=" + modbusLocator37r +
+                ", inputRegister38=" + inputRegister38 +
+                ", oldInputRegister38=" + oldInputRegister38 +
+                ", modbusLocator38r=" + modbusLocator38r +
+                ", inputRegister39=" + inputRegister39 +
+                ", oldInputRegister39=" + oldInputRegister39 +
+                ", modbusLocator39r=" + modbusLocator39r +
+                ", inputRegister40=" + inputRegister40 +
+                ", oldInputRegister40=" + oldInputRegister40 +
+                ", modbusLocator40r=" + modbusLocator40r +
+                ", inputRegister41=" + inputRegister41 +
+                ", oldInputRegister41=" + oldInputRegister41 +
+                ", modbusLocator41r=" + modbusLocator41r +
+                ", inputRegister42=" + inputRegister42 +
+                ", oldInputRegister42=" + oldInputRegister42 +
+                ", modbusLocator42r=" + modbusLocator42r +
+                ", inputRegister43=" + inputRegister43 +
+                ", oldInputRegister43=" + oldInputRegister43 +
+                ", modbusLocator43r=" + modbusLocator43r +
+                ", inputRegister44=" + inputRegister44 +
+                ", oldInputRegister44=" + oldInputRegister44 +
+                ", modbusLocator44r=" + modbusLocator44r +
+                ", inputRegister45=" + inputRegister45 +
+                ", oldInputRegister45=" + oldInputRegister45 +
+                ", modbusLocator45r=" + modbusLocator45r +
+                ", inputRegister46=" + inputRegister46 +
+                ", oldInputRegister46=" + oldInputRegister46 +
+                ", modbusLocator46r=" + modbusLocator46r +
+                '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

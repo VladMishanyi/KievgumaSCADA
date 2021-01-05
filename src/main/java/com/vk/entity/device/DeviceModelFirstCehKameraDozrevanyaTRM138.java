@@ -399,12 +399,10 @@ public class DeviceModelFirstCehKameraDozrevanyaTRM138 implements DeviceModel {
         return modbusLocator7;
     }
 
-    @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
                 deviceValuesRegister0,

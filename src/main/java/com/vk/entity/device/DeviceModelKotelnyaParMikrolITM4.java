@@ -207,12 +207,10 @@ public class DeviceModelKotelnyaParMikrolITM4 implements DeviceModel{
         return modbusLocator3;
     }
 
-    @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
                 deviceValuesRegister0,

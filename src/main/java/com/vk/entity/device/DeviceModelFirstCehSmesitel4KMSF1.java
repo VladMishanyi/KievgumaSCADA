@@ -63,12 +63,10 @@ public class DeviceModelFirstCehSmesitel4KMSF1 implements DeviceModel{
         return modbusLocator0;
     }
 
-    @Override
     public int getDeviceAddress() {
         return deviceAddress;
     }
 
-    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
                 deviceValuesRegister0,
