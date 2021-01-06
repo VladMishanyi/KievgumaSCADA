@@ -2289,6 +2289,7 @@ public class DeviceModelSecondCehKameraVulcan2MPR51 implements DeviceModel{
         return deviceAddress;
     }
 
+    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(oldInputRegister45,
                 inputRegister45,

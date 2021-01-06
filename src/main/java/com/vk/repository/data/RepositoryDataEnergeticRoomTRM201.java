@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by KIP-PC99 on 11.06.2018.
  */
-public interface EnergeticRoomTRM201RepositoryData  extends RootRepositoryData<TableModelEnergeticRoomTRM202> {
+public interface RepositoryDataEnergeticRoomTRM201 extends RootRepositoryData<TableModelEnergeticRoomTRM202> {
 
 //    List<TableModelEnergeticRoomTRM202> findByDateBetween (LocalDateTime start, LocalDateTime end);
 //

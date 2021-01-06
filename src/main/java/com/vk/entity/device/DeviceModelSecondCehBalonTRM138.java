@@ -4,9 +4,11 @@ import com.serotonin.modbus4j.ModbusLocator;
 import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.code.RegisterRange;
 import com.vk.lib.HysComparator;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+@Component
 public class DeviceModelSecondCehBalonTRM138 implements DeviceModel{
     private final int deviceAddress = 16;//16-24 reserved for this device
     private final float hysteresisFloat = 1.0F;
@@ -410,6 +412,7 @@ public class DeviceModelSecondCehBalonTRM138 implements DeviceModel{
         return modbusLocator7h;
     }
 
+    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(oldInputRegister0,
                 inputRegister0,

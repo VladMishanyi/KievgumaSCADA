@@ -2,26 +2,19 @@ package com.vk.controller;
 
 import com.vk.chain.ChainDatabaseRaspberrySecondDepartmentBalon;
 import com.vk.chain.ChainModbusRaspberrySecondDepartmentBalon;
-import com.vk.entity.device.DeviceModelEnergeticRoomTRM202;
-import com.vk.entity.json.DateFromChart;
 import com.vk.entity.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.entity.table.TableModelEnergeticRoomTRM202;
-import com.vk.service.data.EnergeticRoomTRM201ServiceData;
-import com.vk.tasks.TaskEnergeticRoomTRM201;
+import com.vk.service.global.ServiceEnergeticRoomTRM201;
+import com.vk.tasks.global.TaskEnergeticRoomTRM201;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,7 +25,7 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.vk.service", "com.vk.service.data"})
 public class JsonControllerEnergeticRoomTRM201 {
 
-    private final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData;
+    private final ServiceEnergeticRoomTRM201 serviceEnergeticRoomTRM201;
 
     private ChainModbusRaspberrySecondDepartmentBalon chainModbusRaspberrySecondDepartmentBalon;
 
@@ -41,12 +34,12 @@ public class JsonControllerEnergeticRoomTRM201 {
     private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
 
     @Autowired
-    public JsonControllerEnergeticRoomTRM201(final EnergeticRoomTRM201ServiceData energeticRoomTRM201ServiceData,
+    public JsonControllerEnergeticRoomTRM201(final ServiceEnergeticRoomTRM201 serviceEnergeticRoomTRM201,
                                              ChainModbusRaspberrySecondDepartmentBalon chainModbusRaspberrySecondDepartmentBalon,
                                              ChainDatabaseRaspberrySecondDepartmentBalon chainDatabaseRaspberrySecondDepartmentBalon,
                                              final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201,
                                              final SimpleDateFormat simpleDateFormat){
-        this.energeticRoomTRM201ServiceData = energeticRoomTRM201ServiceData;
+        this.serviceEnergeticRoomTRM201 = serviceEnergeticRoomTRM201;
         this.chainModbusRaspberrySecondDepartmentBalon = chainModbusRaspberrySecondDepartmentBalon;
         this.chainDatabaseRaspberrySecondDepartmentBalon = chainDatabaseRaspberrySecondDepartmentBalon;
         this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;
@@ -57,7 +50,7 @@ public class JsonControllerEnergeticRoomTRM201 {
     public List<TableModelEnergeticRoomTRM202> generateChartEnergeticRoomTRM201(JsonBodyLocalDateTimeFromChart jsonBodyLocalDateTimeFromChart
                                                                                 /*@RequestParam("start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
                                                                                  @RequestParam("end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end*/){
-        return energeticRoomTRM201ServiceData.databaseFindByDateBetween(jsonBodyLocalDateTimeFromChart.getStart(), jsonBodyLocalDateTimeFromChart.getEnd());
+        return serviceEnergeticRoomTRM201.databaseFindByDateBetween(jsonBodyLocalDateTimeFromChart.getStart(), jsonBodyLocalDateTimeFromChart.getEnd());
     }
 
     @Scheduled(fixedRate = 1000*60)

@@ -1,7 +1,7 @@
 package com.vk.chain;
 
 import com.vk.entity.modbus.ModbusBodyQuery;
-import com.vk.tasks.TaskEnergeticRoomTRM201;
+import com.vk.tasks.global.TaskEnergeticRoomTRM201;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,11 +18,11 @@ public class ChainModbusRaspberrySecondDepartmentBalon extends Thread{
 
     public static Queue<ModbusBodyQuery> modbusBodyQueryQueue = new LinkedList<>();
 
-    private final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201;
+    private final TaskEnergeticRoomTRM201 task;
 
     @Autowired
-    public ChainModbusRaspberrySecondDepartmentBalon(final TaskEnergeticRoomTRM201 taskEnergeticRoomTRM201){
-        this.taskEnergeticRoomTRM201 = taskEnergeticRoomTRM201;
+    public ChainModbusRaspberrySecondDepartmentBalon(final TaskEnergeticRoomTRM201 task){
+        this.task = task;
         this.start();
     }
 
@@ -31,13 +31,13 @@ public class ChainModbusRaspberrySecondDepartmentBalon extends Thread{
         while (!this.isInterrupted()){
             try {
 
-                taskEnergeticRoomTRM201.readModbusAndSendMessage();
+                task.readModbusAndSendMessage();
 
                 this.sleep(1000);
             }catch (InterruptedException e){
                 String message = e.getMessage();
-                LOGGER.error("Interrupted ChainModbusRaspberrySecondDepartmentBalon thread --"+message);
-                System.out.println("Interrupted ChainModbusRaspberrySecondDepartmentBalon thread --"+message);
+                LOGGER.error("Interrupted"+this.getClass()+"thread --"+message);
+                System.out.println("Interrupted"+this.getClass()+"thread --"+message);
             }
         }
     }

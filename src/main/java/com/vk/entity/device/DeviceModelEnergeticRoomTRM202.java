@@ -146,6 +146,7 @@ public class DeviceModelEnergeticRoomTRM202 implements DeviceModel{
         return modbusLocator3h;
     }
 
+    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(oldHoldingRegister0,
                 holdingRegister0,

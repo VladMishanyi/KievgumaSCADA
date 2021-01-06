@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface SecondCehBalonTRM138RepositoryData  extends RootRepositoryData<TableModelSecondCehBalonTRM138> {
+public interface RepositoryDataSecondCehBalonTRM138 extends RootRepositoryData<TableModelSecondCehBalonTRM138> {
 
 //    List<TableModelSecondCehBalonTRM138> findByDateBetween (LocalDateTime start, LocalDateTime end);
 

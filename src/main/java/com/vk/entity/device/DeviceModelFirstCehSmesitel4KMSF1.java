@@ -67,6 +67,7 @@ public class DeviceModelFirstCehSmesitel4KMSF1 implements DeviceModel{
         return deviceAddress;
     }
 
+    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(hisDeviceValuesRegisters0,
                 deviceValuesRegister0,

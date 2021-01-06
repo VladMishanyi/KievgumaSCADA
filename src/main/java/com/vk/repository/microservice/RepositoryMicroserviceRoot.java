@@ -9,7 +9,7 @@ import com.vk.entity.table.TableModelEnergeticRoomTRM202;
 
 import java.time.LocalDateTime;
 
-public interface RepositoryRoot<T extends TableModel, J extends JsonBodyListRoot<T>, D extends DeviceModel> {
+public interface RepositoryMicroserviceRoot<T extends TableModel, J extends JsonBodyListRoot<T>, D extends DeviceModel> {
 
 
     J jsonReadTableModelBetweenDate(LocalDateTime start, LocalDateTime end);

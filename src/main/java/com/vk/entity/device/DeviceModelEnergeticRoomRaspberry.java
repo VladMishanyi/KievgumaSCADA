@@ -60,4 +60,9 @@ public class DeviceModelEnergeticRoomRaspberry  implements DeviceModel{
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
+
+    @Override
+    public boolean hysteresis() {
+        return false;
+    }
 }

@@ -18,42 +18,42 @@ import java.time.LocalDateTime;
 
 @Repository
 @ComponentScan(basePackages = {"com.vk.entity.device","com.vk.configuration"})
-public class RepositoryRaspberryEnergeticRoomImpl implements RepositoryRaspberryEnergeticRoom {
+public class RepositoryMicroserviceEnergeticRoomRaspberryImpl implements RepositoryMicroserviceEnergeticRoomRaspberry {
 
-    private final DeviceModelEnergeticRoomRaspberry deviceModelRaspberry;
+    private DeviceModelEnergeticRoomRaspberry deviceModelRaspberry;
 
-    private final RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
-    private DeviceModelEnergeticRoomTRM202 deviceModelEnergeticRoomTRM202;
+    private DeviceModelEnergeticRoomTRM202 deviceModelDevice;
 
     @Autowired
-    public RepositoryRaspberryEnergeticRoomImpl(final DeviceModelEnergeticRoomRaspberry deviceModelRaspberry,
-                                                final RestTemplate restTemplate,
-                                                final DeviceModelEnergeticRoomTRM202 deviceModelEnergeticRoomTRM202) {
+    public RepositoryMicroserviceEnergeticRoomRaspberryImpl(final DeviceModelEnergeticRoomRaspberry deviceModelRaspberry,
+                                                            final RestTemplate restTemplate,
+                                                            final DeviceModelEnergeticRoomTRM202 deviceModelDevice) {
         this.deviceModelRaspberry = deviceModelRaspberry;
         this.restTemplate = restTemplate;
-        this.deviceModelEnergeticRoomTRM202 = deviceModelEnergeticRoomTRM202;
+        this.deviceModelDevice = deviceModelDevice;
     }
 
     @Override
-    public JsonBodyListForTableModelTRM202 jsonReadTableModelTRM202BetweenDate(final LocalDateTime start, final LocalDateTime end) {
+    public JsonBodyListForTableModelTRM202 jsonReadTableModelBetweenDate(final LocalDateTime start, final LocalDateTime end) {
         return restTemplate.postForObject(createUrlAdress()+"/database/range", createHttpEntity(start, end), JsonBodyListForTableModelTRM202.class);
     }
 
     @Override
-    public TableModelEnergeticRoomTRM202 jsonReadTableModelTRM202Last() {
+    public TableModelEnergeticRoomTRM202 jsonReadTableModelLast() {
         return restTemplate.getForObject(createUrlAdress()+"/database/get-last-row", TableModelEnergeticRoomTRM202.class);
     }
 
     @Override
-    public DeviceModelEnergeticRoomTRM202 jsonReadDeviceModelTRM202allRegisters(){
+    public DeviceModelEnergeticRoomTRM202 jsonReadDeviceModelAllRegisters(){
         try {
-            deviceModelEnergeticRoomTRM202 = restTemplate.getForObject(createUrlAdress()+"/modbus/read-all", DeviceModelEnergeticRoomTRM202.class);
+            deviceModelDevice = restTemplate.getForObject(createUrlAdress()+"/modbus/read-all", DeviceModelEnergeticRoomTRM202.class);
         }catch (Exception e){
-            deviceModelEnergeticRoomTRM202.setHoldingRegister0(0F);
-            deviceModelEnergeticRoomTRM202.setHoldingRegister1(0F);
+            deviceModelDevice.setHoldingRegister0(0F);
+            deviceModelDevice.setHoldingRegister1(0F);
         }
-        return deviceModelEnergeticRoomTRM202;
+        return deviceModelDevice;
     }
 
     private HttpHeaders createHttpHeaders(){
