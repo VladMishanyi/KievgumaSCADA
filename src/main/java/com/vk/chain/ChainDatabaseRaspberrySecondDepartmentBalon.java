@@ -17,7 +17,7 @@ public class ChainDatabaseRaspberrySecondDepartmentBalon extends Thread{
     @Autowired
     public ChainDatabaseRaspberrySecondDepartmentBalon(final TaskEnergeticRoomTRM201 task){
         this.task = task;
-        this.start();
+//        this.start();
     }
 
     @Override

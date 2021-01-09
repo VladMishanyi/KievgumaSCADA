@@ -23,7 +23,7 @@ public class ChainModbusRaspberrySecondDepartmentBalon extends Thread{
     @Autowired
     public ChainModbusRaspberrySecondDepartmentBalon(final TaskEnergeticRoomTRM201 task){
         this.task = task;
-        this.start();
+//        this.start();
     }
 
     @Override

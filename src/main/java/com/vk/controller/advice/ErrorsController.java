@@ -4,12 +4,14 @@ import org.apache.log4j.Logger;
 import org.springframework.context.annotation.ComponentScan;
 //import org.springframework.data.mapping.model.IllegalMappingException;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -21,7 +23,7 @@ public class ErrorsController {
 
     private static final Logger LOGGER = Logger.getLogger(ErrorsController.class);
 
-    @ExceptionHandler(NoHandlerFoundException.class)
+    @ExceptionHandler({NoHandlerFoundException.class, EntityNotFoundException.class})
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ModelAndView noHandlerFoundException(
             final NoHandlerFoundException exception,
@@ -57,14 +59,14 @@ public class ErrorsController {
         return handleException(exception, request, HttpStatus.FORBIDDEN);
     }
 
-//    @ExceptionHandler(IllegalMappingException.class)
-//    @ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
-//    public ModelAndView illegalMappingException(
-//            final IllegalMappingException ex,
-//            final HttpServletRequest request
-//    ) {
-//        return handleException(ex, request, HttpStatus.METHOD_NOT_ALLOWED);
-//    }
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+    public ModelAndView illegalMappingException(
+            final HttpRequestMethodNotSupportedException ex,
+            final HttpServletRequest request
+    ) {
+        return handleException(ex, request, HttpStatus.METHOD_NOT_ALLOWED);
+    }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)

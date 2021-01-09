@@ -129,4 +129,9 @@ public class WebController {
     public String getInfo(){
         return "info_page";
     }
+
+    @RequestMapping(value = "/secondcehLineNapal", method = RequestMethod.GET)
+    public String getTaskSecondCehLineNapal(){
+        return "secondCehLineNapal";
+    }
 }

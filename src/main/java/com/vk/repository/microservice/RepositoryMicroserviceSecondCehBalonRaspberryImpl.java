@@ -37,18 +37,18 @@ public class RepositoryMicroserviceSecondCehBalonRaspberryImpl implements Reposi
 
     @Override
     public JsonBodyListForTableModelSecondCehBalonTRM138 jsonReadTableModelBetweenDate(final LocalDateTime start, final LocalDateTime end) {
-        return restTemplate.postForObject(createUrlAdress()+"/database/range", createHttpEntity(start, end), JsonBodyListForTableModelSecondCehBalonTRM138.class);
+        return restTemplate.postForObject(createUrlAdress()+"/database/trm138/range", createHttpEntity(start, end), JsonBodyListForTableModelSecondCehBalonTRM138.class);
     }
 
     @Override
     public TableModelSecondCehBalonTRM138 jsonReadTableModelLast() {
-        return restTemplate.getForObject(createUrlAdress()+"/database/get-last-row", TableModelSecondCehBalonTRM138.class);
+        return restTemplate.getForObject(createUrlAdress()+"/database/trm138/get-last-row", TableModelSecondCehBalonTRM138.class);
     }
 
     @Override
     public DeviceModelSecondCehBalonTRM138 jsonReadDeviceModelAllRegisters(){
         try {
-            deviceModelDevice = restTemplate.getForObject(createUrlAdress()+"/modbus/read-all", DeviceModelSecondCehBalonTRM138.class);
+            deviceModelDevice = restTemplate.getForObject(createUrlAdress()+"/modbus/trm138/read-all", DeviceModelSecondCehBalonTRM138.class);
         }catch (Exception e){
             deviceModelDevice.setInputRegister0(0F);
             deviceModelDevice.setInputRegister1(0F);

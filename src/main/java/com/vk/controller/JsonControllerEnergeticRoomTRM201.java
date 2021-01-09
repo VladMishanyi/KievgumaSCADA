@@ -47,23 +47,21 @@ public class JsonControllerEnergeticRoomTRM201 {
 
     @MessageMapping(value="/generateChart")
     @SendTo("/topic/generateChart")
-    public List<TableModelEnergeticRoomTRM202> generateChartEnergeticRoomTRM201(JsonBodyLocalDateTimeFromChart jsonBodyLocalDateTimeFromChart
-                                                                                /*@RequestParam("start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
-                                                                                 @RequestParam("end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end*/){
+    public List<TableModelEnergeticRoomTRM202> generateChartEnergeticRoomTRM201(JsonBodyLocalDateTimeFromChart jsonBodyLocalDateTimeFromChart){
         return serviceEnergeticRoomTRM201.databaseFindByDateBetween(jsonBodyLocalDateTimeFromChart.getStart(), jsonBodyLocalDateTimeFromChart.getEnd());
     }
 
-    @Scheduled(fixedRate = 1000*60)
-    private void loopModbus(){
-        if (!chainModbusRaspberrySecondDepartmentBalon.isAlive()){
-            chainModbusRaspberrySecondDepartmentBalon = new ChainModbusRaspberrySecondDepartmentBalon(taskEnergeticRoomTRM201);
-        }
-    }
-
-    @Scheduled(fixedRate = 1000*60)
-    private void loopDatabase(){
-        if (!chainDatabaseRaspberrySecondDepartmentBalon.isAlive()){
-            chainDatabaseRaspberrySecondDepartmentBalon = new ChainDatabaseRaspberrySecondDepartmentBalon(taskEnergeticRoomTRM201);
-        }
-    }
+//    @Scheduled(fixedRate = 1000*60)
+//    private void loopModbus(){
+//        if (!chainModbusRaspberrySecondDepartmentBalon.isAlive()){
+//            chainModbusRaspberrySecondDepartmentBalon = new ChainModbusRaspberrySecondDepartmentBalon(taskEnergeticRoomTRM201);
+//        }
+//    }
+//
+//    @Scheduled(fixedRate = 1000*60)
+//    private void loopDatabase(){
+//        if (!chainDatabaseRaspberrySecondDepartmentBalon.isAlive()){
+//            chainDatabaseRaspberrySecondDepartmentBalon = new ChainDatabaseRaspberrySecondDepartmentBalon(taskEnergeticRoomTRM201);
+//        }
+//    }
 }
