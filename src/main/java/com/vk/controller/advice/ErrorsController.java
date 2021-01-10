@@ -10,18 +10,35 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by KIP-PC99 on 26.09.2018.
  */
 @ControllerAdvice
 @ComponentScan(basePackages = {"com.vk.service"})
-public class ErrorsController {
+public class ErrorsController extends AbstractHandlerExceptionResolver  {
 
     private static final Logger LOGGER = Logger.getLogger(ErrorsController.class);
+
+    @Override
+    protected ModelAndView doResolveException(HttpServletRequest request,
+                                              HttpServletResponse response,
+                                              Object handler,
+                                              Exception exception) {
+        if (exception instanceof NoHandlerFoundException) return handleException(exception, request, HttpStatus.NOT_FOUND);
+        if (exception instanceof NullPointerException) return handleException(exception, request, HttpStatus.BAD_REQUEST);
+        if (exception instanceof IllegalArgumentException) return handleException(exception, request, HttpStatus.BAD_REQUEST);
+        if (exception instanceof IllegalAccessException) return handleException(exception, request, HttpStatus.FORBIDDEN);
+        if (exception instanceof HttpRequestMethodNotSupportedException) return handleException(exception, request, HttpStatus.METHOD_NOT_ALLOWED);
+        if (exception instanceof Exception) return handleException(exception, request, HttpStatus.INTERNAL_SERVER_ERROR);
+        return handleException(exception, request, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     @ExceptionHandler({NoHandlerFoundException.class, EntityNotFoundException.class})
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
