@@ -1,15 +1,15 @@
 /**
  * Created by KIP-PC99 on 22.11.2018.
  */
-var currentDateTime = moment().format("YYYY-MM-DDTHH:mm");
-$("#startChart").val(currentDateTime);
-$("#endChart").val(currentDateTime);
-var increaseDecriaseZoom = 0;
-var leftRightPosition = 0;
+let cdt = moment().format("YYYY-MM-DDTHH:mm");
+$("#startChart").val(cdt);
+$("#endChart").val(cdt);
+let increaseDecriaseZoom = 0;
+let leftRightPosition = 0;
 
-var onDraw = false;
+let onDraw = false;
 document.getElementById("id_switch_tred").addEventListener("change", function send() {
-    var checkedValue = document.getElementById("id_switch_tred").checked;
+    let checkedValue = document.getElementById("id_switch_tred").checked;
     if (checkedValue){
         onDraw = true;
     }else {
@@ -23,15 +23,15 @@ $(document).ready(function () {
     clearChart();
 });
 
-var stompClient = null;
+let stompClient = null;
 function connect() {
-    var socket = new SockJS('/guide-websocket');
+    let socket = new SockJS('/guide-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
 
         stompClient.subscribe('/topic/secondCehKameraVulcan1MPR51_table', function(resultTrm){
-            var parsed = JSON.parse(resultTrm.body);
+            let parsed = JSON.parse(resultTrm.body);
             showBody(parsed);
             if (onDraw){
                 drawInRealTime(parsed);
@@ -43,54 +43,54 @@ function connect() {
         });
 
         stompClient.subscribe('/topic/secondCehKameraVulcan1MPR51_device1', function(result){
-            var parsed = JSON.parse(result.body);
-            var register0 = parsed.inputRegister0;
-            var register1 = parsed.inputRegister1;
-            var register2 = parsed.inputRegister2;
-            var register3 = parsed.inputRegister3;
-            var register4 = parsed.inputRegister4;
-            var register5 = parsed.inputRegister5;
-            var register6 = parsed.inputRegister6;
-            var register7 = parsed.inputRegister7;
-            var register8 = parsed.inputRegister8;
-            var register9 = parsed.inputRegister9;
-            var register10 = parsed.inputRegister10;
-            var register11 = parsed.inputRegister11;
-            var register12 = parsed.inputRegister12;
-            var register13 = parsed.inputRegister13;
-            var register14 = parsed.inputRegister14;
-            var register15 = parsed.inputRegister15;
-            var register16 = parsed.inputRegister16;
-            var register17 = parsed.inputRegister17;
-            var register18 = parsed.inputRegister18;
-            var register19 = parsed.inputRegister19;
-            var register20 = parsed.inputRegister20;
-            var register21 = parsed.inputRegister21;
-            var register22 = parsed.inputRegister22;
-            var register23 = parsed.inputRegister23;
-            var register24 = parsed.inputRegister24;
-            var register25 = parsed.inputRegister25;
-            var register26 = parsed.inputRegister26;
-            var register27 = parsed.inputRegister27;
-            var register28 = parsed.inputRegister28;
-            var register29 = parsed.inputRegister29;
-            var register30 = parsed.inputRegister30;
-            var register31 = parsed.inputRegister31;
-            var register32 = parsed.inputRegister32;
-            var register33 = parsed.inputRegister33;
-            var register34 = parsed.inputRegister34;
-            var register35 = parsed.inputRegister35;
-            var register36 = parsed.inputRegister36;
-            var register37 = parsed.inputRegister37;
-            var register38 = parsed.inputRegister38;
-            var register39 = parsed.inputRegister39;
-            var register40 = parsed.inputRegister40;
-            var register41 = parsed.inputRegister41;
-            var register42 = parsed.inputRegister42;
-            var register43 = parsed.inputRegister43;
-            var register44 = parsed.inputRegister44;
-            var register45 = parsed.inputRegister45;
-            var register46 = parsed.inputRegister46;
+            let parsed = JSON.parse(result.body);
+            let register0 = parsed.inputRegister0;
+            let register1 = parsed.inputRegister1;
+            let register2 = parsed.inputRegister2;
+            let register3 = parsed.inputRegister3;
+            let register4 = parsed.inputRegister4;
+            let register5 = parsed.inputRegister5;
+            let register6 = parsed.inputRegister6;
+            let register7 = parsed.inputRegister7;
+            let register8 = parsed.inputRegister8;
+            let register9 = parsed.inputRegister9;
+            let register10 = parsed.inputRegister10;
+            let register11 = parsed.inputRegister11;
+            let register12 = parsed.inputRegister12;
+            let register13 = parsed.inputRegister13;
+            let register14 = parsed.inputRegister14;
+            let register15 = parsed.inputRegister15;
+            let register16 = parsed.inputRegister16;
+            let register17 = parsed.inputRegister17;
+            let register18 = parsed.inputRegister18;
+            let register19 = parsed.inputRegister19;
+            let register20 = parsed.inputRegister20;
+            let register21 = parsed.inputRegister21;
+            let register22 = parsed.inputRegister22;
+            let register23 = parsed.inputRegister23;
+            let register24 = parsed.inputRegister24;
+            let register25 = parsed.inputRegister25;
+            let register26 = parsed.inputRegister26;
+            let register27 = parsed.inputRegister27;
+            let register28 = parsed.inputRegister28;
+            let register29 = parsed.inputRegister29;
+            let register30 = parsed.inputRegister30;
+            let register31 = parsed.inputRegister31;
+            let register32 = parsed.inputRegister32;
+            let register33 = parsed.inputRegister33;
+            let register34 = parsed.inputRegister34;
+            let register35 = parsed.inputRegister35;
+            let register36 = parsed.inputRegister36;
+            let register37 = parsed.inputRegister37;
+            let register38 = parsed.inputRegister38;
+            let register39 = parsed.inputRegister39;
+            let register40 = parsed.inputRegister40;
+            let register41 = parsed.inputRegister41;
+            let register42 = parsed.inputRegister42;
+            let register43 = parsed.inputRegister43;
+            let register44 = parsed.inputRegister44;
+            let register45 = parsed.inputRegister45;
+            let register46 = parsed.inputRegister46;
             document.getElementById("read_steam_pwm").value = register0;
             document.getElementById("read_steam_ki").value = register1;
             document.getElementById("read_steam_kp").value = register2;
@@ -143,279 +143,279 @@ function connect() {
 }
 
 document.getElementById("write_steam_pwm").addEventListener("change", function send() {
-    var some = document.getElementById("write_steam_pwm").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_steam_pwm").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_steam_pwm", {}, data);
 });
 
 document.getElementById("write_steam_ki").addEventListener("change", function send() {
-    var some = document.getElementById("write_steam_ki").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_steam_ki").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_steam_ki", {}, data);
 });
 
 document.getElementById("write_steam_kp").addEventListener("change", function send() {
-    var some = document.getElementById("write_steam_kp").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_steam_kp").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_steam_kp", {}, data);
 });
 
 document.getElementById("write_steam_kd").addEventListener("change", function send() {
-    var some = document.getElementById("write_steam_kd").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_steam_kd").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_steam_kd", {}, data);
 });
 
 document.getElementById("write_electric_pwm").addEventListener("change", function send() {
-    var some = document.getElementById("write_electric_pwm").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_electric_pwm").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_electric_pwm", {}, data);
 });
 
 document.getElementById("write_electric_ki").addEventListener("change", function send() {
-    var some = document.getElementById("write_electric_ki").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_electric_ki").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_electric_ki", {}, data);
 });
 
 document.getElementById("write_electric_kp").addEventListener("change", function send() {
-    var some = document.getElementById("write_electric_kp").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_electric_kp").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_electric_kp", {}, data);
 });
 
 document.getElementById("write_electric_kd").addEventListener("change", function send() {
-    var some = document.getElementById("write_electric_kd").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_electric_kd").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_electric_kd", {}, data);
 });
 
 document.getElementById("write_alarm").addEventListener("change", function send() {
-    var some = document.getElementById("write_alarm").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_alarm").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_alarm", {}, data);
 });
 
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim1").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim1").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim1").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim1", {}, data);
 });
 document.getElementById("write_temp1").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp1").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp1").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp1", {}, data);
 });
 document.getElementById("write_press1").addEventListener("change", function send() {
-    var some = document.getElementById("write_press1").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press1").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press1", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim2").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim2").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim2").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim2", {}, data);
 });
 document.getElementById("write_temp2").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp2").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp2").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp2", {}, data);
 });
 document.getElementById("write_press2").addEventListener("change", function send() {
-    var some = document.getElementById("write_press2").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press2").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press2", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim3").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim3").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim3").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim3", {}, data);
 });
 document.getElementById("write_temp3").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp3").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp3").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp3", {}, data);
 });
 document.getElementById("write_press3").addEventListener("change", function send() {
-    var some = document.getElementById("write_press3").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press3").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press3", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim4").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim4").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim4").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim4", {}, data);
 });
 document.getElementById("write_temp4").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp4").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp4").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp4", {}, data);
 });
 document.getElementById("write_press4").addEventListener("change", function send() {
-    var some = document.getElementById("write_press4").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press4").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press4", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim5").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim5").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim5").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim5", {}, data);
 });
 document.getElementById("write_temp5").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp5").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp5").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp5", {}, data);
 });
 document.getElementById("write_press5").addEventListener("change", function send() {
-    var some = document.getElementById("write_press5").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press5").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press5", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim6").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim6").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim6").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim6", {}, data);
 });
 document.getElementById("write_temp6").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp6").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp6").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp6", {}, data);
 });
 document.getElementById("write_press6").addEventListener("change", function send() {
-    var some = document.getElementById("write_press6").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press6").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press6", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim7").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim7").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim7").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim7", {}, data);
 });
 document.getElementById("write_temp7").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp7").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp7").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp7", {}, data);
 });
 document.getElementById("write_press7").addEventListener("change", function send() {
-    var some = document.getElementById("write_press7").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press7").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press7", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim8").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim8").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim8").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim8", {}, data);
 });
 document.getElementById("write_temp8").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp8").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp8").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp8", {}, data);
 });
 document.getElementById("write_press8").addEventListener("change", function send() {
-    var some = document.getElementById("write_press8").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press8").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press8", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim9").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim9").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim9").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim9", {}, data);
 });
 document.getElementById("write_temp9").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp9").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp9").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp9", {}, data);
 });
 document.getElementById("write_press9").addEventListener("change", function send() {
-    var some = document.getElementById("write_press9").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press9").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press9", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim10").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim10").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim10").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim10", {}, data);
 });
 document.getElementById("write_temp10").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp10").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp10").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp10", {}, data);
 });
 document.getElementById("write_press10").addEventListener("change", function send() {
-    var some = document.getElementById("write_press10").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press10").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press10", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim11").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim11").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim11").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim11", {}, data);
 });
 document.getElementById("write_temp11").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp11").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp11").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp11", {}, data);
 });
 document.getElementById("write_press11").addEventListener("change", function send() {
-    var some = document.getElementById("write_press11").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press11").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press11", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 document.getElementById("write_regim12").addEventListener("change", function send() {
-    var some = document.getElementById("write_regim12").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_regim12").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_regim12", {}, data);
 });
 document.getElementById("write_temp12").addEventListener("change", function send() {
-    var some = document.getElementById("write_temp12").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_temp12").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_temp12", {}, data);
 });
 document.getElementById("write_press12").addEventListener("change", function send() {
-    var some = document.getElementById("write_press12").value;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_press12").value;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_press12", {}, data);
 });
 //--------------------------------------------------------------------------------------------------
 
 document.getElementById("write_program").addEventListener("change", function send() {
-    var some = document.getElementById("write_program").selectedIndex;
-    var data = JSON.stringify({'value' : some});
+    let some = document.getElementById("write_program").selectedIndex;
+    let data = JSON.stringify({'value' : some});
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_program", {}, data);
 });
 
 document.getElementById("write_program_read").addEventListener("click", function send() {
-    // var some = document.getElementById("write_program_read").selectedIndex;
-    var data = JSON.stringify({'value' : 2});//command 2 is a read
+    // let some = document.getElementById("write_program_read").selectedIndex;
+    let data = JSON.stringify({'value' : 2});//command 2 is a read
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_program_read", {}, data);
 });
 
 document.getElementById("write_program_write").addEventListener("click", function send() {
-    // var some = document.getElementById("write_program_write").selectedIndex;
-    var data = JSON.stringify({'value' : 1});//command 1 is a write
+    // let some = document.getElementById("write_program_write").selectedIndex;
+    let data = JSON.stringify({'value' : 1});//command 1 is a write
     stompClient.send("/app/second_ceh_kamera_vulcan1_MPR51/write_program_write", {}, data);
 });
 
@@ -427,9 +427,9 @@ document.getElementById("write_program_write").addEventListener("click", functio
 
 
 
-var vStart = document.getElementById("startChart").value;
-var vEnd = document.getElementById("endChart").value;
-var vTitle = 'Объект/Киевгума/2й Цех/Камера вулканизации1'+' с '+vStart.toString()+' по '+vEnd.toString();
+let vStart = document.getElementById("startChart").value;
+let vEnd = document.getElementById("endChart").value;
+let vTitle = 'Объект/Киевгума/2й Цех/Камера вулканизации1'+' с '+vStart.toString()+' по '+vEnd.toString();
 
 function generateDataForBordersChart() {
     vStart = document.getElementById("startChart").value;
@@ -443,7 +443,7 @@ function generateNewChartTitle(start, end) {
 function sendChartBody() {
     this.generateDataForBordersChart();
     this.generateNewChartTitle(vStart, vEnd);
-    var dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
+    let dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
     stompClient.send("/app/generateChartSecondCehKameraVulcan1MPR51", {}, dataChart);
 }
 
@@ -455,15 +455,15 @@ function disconnect() {
 }
 
 function showBody(body){
-    // var channel1 = body.channel1;
-    var channel2 = body.channel2;
-    // var channel3 = body.channel3;
+    // let channel1 = body.channel1;
+    let channel2 = body.channel2;
+    // let channel3 = body.channel3;
     // $("#secondCehKameraVulcan1MPR51Kanal1").text(channel1);
     $("#secondCehKameraVulcan1MPR51Kanal2").text(channel2);
     // $("#secondCehKameraVulcan1MPR51Kanal3").text(channel3);
 }
 
-var config = {
+let config = {
     type: 'line',
     data: {
         labels: [0],
@@ -717,19 +717,19 @@ var config = {
     }
 }
 
-var globalX = new Array();
-// var globalY1 = new Array();
-var globalY2 = new Array();
-// var globalY3 = new Array();
+let globalX = [];
+// let globalY1 = []];
+let globalY2 = [];
+// let globalY3 = []];
 function genChart(data) {
-    var x = new Array();
-    // var y1 = new Array();
-    var y2 = new Array();
-    // var y3 = new Array();
+    let x = [];
+    // let y1 = []];
+    let y2 = [];
+    // let y3 = []];
     let utcLocalDateTimeOffset = getUtcOffset(data[0]["date"]);
 
 
-    for (var i in data){
+    for (let i in data){
         if (data.hasOwnProperty(i)){
             try {
                 x[i] = moment(data[i]["date"], "YYYY,MM,DD,HH,mm,ss").utcOffset(utcLocalDateTimeOffset);
@@ -763,13 +763,13 @@ function buildChart(x, /*y1,*/ y2/*, y3*/) {
 function clearChart(){
     // $('#myChart').remove(); // this is my <canvas> element
     // $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
-    globalX = new Array();
-    // globalY1 = new Array();
-    globalY2 = new Array();
-    // globalY3 = new Array();
-    config.data.labels = new Array();
+    globalX = [];
+    // globalY1 = []];
+    globalY2 = [];
+    // globalY3 = []];
+    config.data.labels = [];
     config.data.datasets.forEach(function(dataset) {
-        dataset.data = new Array;
+        dataset.data = [];
     });
     window.myLine.update();
 }
@@ -799,11 +799,11 @@ function removeFirstElementFromChart() {
 }
 
 function drawInRealTime(parsed) {
-    var buffer = document.getElementById("bufferChart").value;
+    let buffer = document.getElementById("bufferChart").value;
     let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss");
-    // var y1 = parsed.channel1;
-    var y2 = parsed.channel2;
-    // var y3 = parsed.channel3;
+    // let y1 = parsed.channel1;
+    let y2 = parsed.channel2;
+    // let y3 = parsed.channel3;
     if (config.data.labels.length < buffer){
         addLastElementToChart(x, /*y1,*/ y2/*, y3*/);
     }
@@ -813,15 +813,15 @@ function drawInRealTime(parsed) {
 }
 
 function increaseChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    // var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
-    // var increaseArrayY3 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    // let increaseArrayY1 = []];
+    let increaseArrayY2 = [];
+    // let increaseArrayY3 = []];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         increaseDecriaseZoom = increaseDecriaseZoom + Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -835,15 +835,15 @@ function increaseChart() {
 }
 
 function decreaseChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    // var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
-    // var increaseArrayY3 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    // let increaseArrayY1 = []];
+    let increaseArrayY2 = [];
+    // let increaseArrayY3 = []];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         increaseDecriaseZoom = increaseDecriaseZoom - Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -857,15 +857,15 @@ function decreaseChart() {
 }
 
 function leftChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    // var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
-    // var increaseArrayY3 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    // let increaseArrayY1 = []];
+    let increaseArrayY2 = [];
+    // let increaseArrayY3 = []];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         leftRightPosition = leftRightPosition + Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -879,15 +879,15 @@ function leftChart() {
 }
 
 function rightChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    // var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
-    // var increaseArrayY3 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    // let increaseArrayY1 = []];
+    let increaseArrayY2 = [];
+    // let increaseArrayY3 = []];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         leftRightPosition  = leftRightPosition  - Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         // increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -902,13 +902,13 @@ function rightChart() {
 
 function saveChart() {
     $("#myChart").get(0).toBlob(function(blob) {
-        var currentDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
-        saveAs(blob, currentDateTime+"_chart");
+        let dt = moment().format("YYYY-MM-DD HH:mm:ss");
+        saveAs(blob, dt+"_chart");
     });
 }
 
 window.onload = function() {
-    var ctx = document.getElementById("myChart").getContext("2d");
+    let ctx = document.getElementById("myChart").getContext("2d");
     window.myLine = getNewChart(ctx, config);
 }
 

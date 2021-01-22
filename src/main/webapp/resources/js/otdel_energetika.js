@@ -1,12 +1,12 @@
-var currentDateTime = moment().format("YYYY-MM-DDTHH:mm");
-$("#startChart").val(currentDateTime);
-$("#endChart").val(currentDateTime);
-var increaseDecriaseZoom = 0;
-var leftRightPosition = 0;
+let cdt = moment().format("YYYY-MM-DDTHH:mm");
+$("#startChart").val(cdt);
+$("#endChart").val(cdt);
+let increaseDecriaseZoom = 0;
+let leftRightPosition = 0;
 
-var onDraw = false;
+let onDraw = false;
 document.getElementById("id_switch_tred").addEventListener("change", function send() {
-    var checkedValue = document.getElementById("id_switch_tred").checked;
+    let checkedValue = document.getElementById("id_switch_tred").checked;
     if (checkedValue){
         onDraw = true;
     }else {
@@ -20,14 +20,14 @@ $(document).ready(function () {
     clearChart();
 });
 
-var stompClient = null;
+let stompClient = null;
 function connect() {
-    var socket = new SockJS('/guide-websocket');
+    let socket = new SockJS('/guide-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/trm201', function(resultTrm){
-            var parsed = JSON.parse(resultTrm.body);
+            let parsed = JSON.parse(resultTrm.body);
             showBody(parsed);
             if (onDraw){
                 drawInRealTime(parsed);
@@ -40,9 +40,9 @@ function connect() {
     });
 }
 
-var vStart = document.getElementById("startChart").value;
-var vEnd = document.getElementById("endChart").value;
-var vTitle = 'Объект/Киевгума/Отдел ГЭ/Температура помещения'+' с '+vStart.toString()+' по '+vEnd.toString();
+let vStart = document.getElementById("startChart").value;
+let vEnd = document.getElementById("endChart").value;
+let vTitle = 'Объект/Киевгума/Отдел ГЭ/Температура помещения'+' с '+vStart.toString()+' по '+vEnd.toString();
 
 function generateDataForBordersChart() {
     vStart = document.getElementById("startChart").value;
@@ -56,7 +56,7 @@ function generateNewChartTitle(start, end) {
 function sendChartBody() {
     this.generateDataForBordersChart();
     this.generateNewChartTitle(vStart, vEnd);
-    var dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
+    let dataChart = JSON.stringify({'start' : vStart, 'end' : vEnd});
     stompClient.send("/app/generateChart", {}, dataChart);
 }
 
@@ -68,13 +68,13 @@ function disconnect() {
 }
 
 function showBody(body){
-    var channel0 = body.holdingRegister0;
-    var channel1 = body.holdingRegister1;
+    let channel0 = body.holdingRegister0;
+    let channel1 = body.holdingRegister1;
     $("#realTrmValue").text(channel0);
     $("#realTrmValue2").text(channel1);
 }
 
-var config = {
+let config = {
     type: 'line',
     data: {
         labels: [0],
@@ -302,13 +302,13 @@ var config = {
     }
 }
 
-var globalX = new Array();
-var globalY1 = new Array();
-var globalY2 = new Array();
+let globalX = [];
+let globalY1 = [];
+let globalY2 = [];
 function genChart(data) {
-    var x = new Array();
-    var y1 = new Array();
-    var y2 = new Array();
+    let x = [];
+    let y1 = [];
+    let y2 = [];
     let utcLocalDateTimeOffset = getUtcOffset(data[0]["date"]);
     for (var i in data){
         if (data.hasOwnProperty(i)){
@@ -341,12 +341,12 @@ function buildChart(x, y1, y2) {
 function clearChart(){
     // $('#myChart').remove(); // this is my <canvas> element
     // $('#graph-container').append('<canvas id="myChart" width="400" height="150"><canvas>');
-    globalX = new Array();
-    globalY1 = new Array();
-    globalY2 = new Array();
-    config.data.labels = new Array();
+    globalX = [];
+    globalY1 = [];
+    globalY2 = [];
+    config.data.labels = [];
     config.data.datasets.forEach(function(dataset) {
-        dataset.data = new Array;
+        dataset.data = [];
     });
     window.myLine.update();
 }
@@ -385,14 +385,14 @@ function drawInRealTime(parsed) {
 }
 
 function increaseChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    let increaseArrayY1 = [];
+    let increaseArrayY2 = [];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         increaseDecriaseZoom = increaseDecriaseZoom + Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -402,14 +402,14 @@ function increaseChart() {
 }
 
 function decreaseChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    let increaseArrayY1 = [];
+    let increaseArrayY2 = [];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         increaseDecriaseZoom = increaseDecriaseZoom - Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -419,14 +419,14 @@ function decreaseChart() {
 }
 
 function leftChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    let increaseArrayY1 = [];
+    let increaseArrayY2 = [];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         leftRightPosition = leftRightPosition + Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY1.slice(from,to);
@@ -436,14 +436,14 @@ function leftChart() {
 }
 
 function rightChart() {
-    var increaseZoom = document.getElementById("zoom-chart").value;
-    var increaseArrayX = new Array();
-    var increaseArrayY1 = new Array();
-    var increaseArrayY2 = new Array();
+    let increaseZoom = document.getElementById("zoom-chart").value;
+    let increaseArrayX = [];
+    let increaseArrayY1 = [];
+    let increaseArrayY2 = [];
     if ((0 < increaseDecriaseZoom - leftRightPosition) || (globalX.length > increaseDecriaseZoom - leftRightPosition)){
         leftRightPosition  = leftRightPosition  - Number(increaseZoom);
-        var from = increaseDecriaseZoom - leftRightPosition;
-        var to = globalX.length - increaseDecriaseZoom - leftRightPosition;
+        let from = increaseDecriaseZoom - leftRightPosition;
+        let to = globalX.length - increaseDecriaseZoom - leftRightPosition;
         increaseArrayX = globalX.slice(from,to);
         increaseArrayY1 = globalY1.slice(from,to);
         increaseArrayY2 = globalY2.slice(from,to);
@@ -454,13 +454,13 @@ function rightChart() {
 
 function saveChart() {
     $("#myChart").get(0).toBlob(function(blob) {
-        var currentDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
-        saveAs(blob, currentDateTime+"_chart");
+        let dt = moment().format("YYYY-MM-DD HH:mm:ss");
+        saveAs(blob, dt+"_chart");
     });
 }
 
 window.onload = function() {
-    var ctx = document.getElementById("myChart").getContext("2d");
+    let ctx = document.getElementById("myChart").getContext("2d");
     window.myLine = getNewChart(ctx, config);
 }
 
