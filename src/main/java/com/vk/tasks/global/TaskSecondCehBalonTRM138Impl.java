@@ -52,14 +52,16 @@ public class TaskSecondCehBalonTRM138Impl implements TaskSecondCehBalonTRM138{
     }
 
     private LocalDateTime readStartEndpoinDate(){
-        LocalDateTime localDateTime = LocalDateTime.now().minusYears(1L);
+        LocalDateTime localDateTime = LocalDateTime.now().minusMonths(1L);
         TableModelSecondCehBalonTRM138 tableModel = service.databaseFindLastValueByDate();
         if (Objects.isNull(tableModel)) return localDateTime;
         return tableModel.getDate();
     }
 
     private LocalDateTime readEndEndpoinDate(){
+        LocalDateTime localDateTime = LocalDateTime.now();
         TableModelSecondCehBalonTRM138 tableModel = service.jsonReadTableModelLast();
+        if (Objects.isNull(tableModel)) return localDateTime;
         return tableModel.getDate();
     }
 
