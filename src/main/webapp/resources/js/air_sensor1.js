@@ -96,8 +96,8 @@ let config = {
         datasets: [
             {
                 label: 'SDS_P1',
-                backgroundColor: '#00b3ee',
-                borderColor: '#00b3ee',
+                backgroundColor: '#867e77',
+                borderColor: '#867e77',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -121,8 +121,8 @@ let config = {
             },
             {
                 label: 'SDS_P2',
-                backgroundColor: '#ffff00',
-                borderColor: '#ffff00',
+                backgroundColor: '#d0b69e',
+                borderColor: '#d0b69e',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -146,8 +146,8 @@ let config = {
             },
             {
                 label: 'BME280_temperature',
-                backgroundColor: '#3C510C',
-                borderColor: '#3C510C',
+                backgroundColor: '#e51818',
+                borderColor: '#e51818',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -171,8 +171,8 @@ let config = {
             },
             {
                 label: 'BME280_humidity',
-                backgroundColor: '#9C510C',
-                borderColor: '#9C510C',
+                backgroundColor: '#57e323',
+                borderColor: '#57e323',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -196,8 +196,8 @@ let config = {
             },
             {
                 label: 'BME280_pressure',
-                backgroundColor: '#8C510C',
-                borderColor: '#8C510C',
+                backgroundColor: '#3723e3',
+                borderColor: '#3723e3',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -221,8 +221,8 @@ let config = {
             },
             {
                 label: 'NH3',
-                backgroundColor: '#7C510C',
-                borderColor: '#7C510C',
+                backgroundColor: '#e3bd23',
+                borderColor: '#e3bd23',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -246,8 +246,8 @@ let config = {
             },
             {
                 label: 'CO',
-                backgroundColor: '#6C510C',
-                borderColor: '#6C510C',
+                backgroundColor: '#080808',
+                borderColor: '#080808',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -271,8 +271,8 @@ let config = {
             },
             {
                 label: 'NO2',
-                backgroundColor: '#5C510C',
-                borderColor: '#5C510C',
+                backgroundColor: '#6e2355',
+                borderColor: '#6e2355',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
