@@ -46,11 +46,11 @@
         <table class="table">
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику SDS_P1, Пил 2.5 мкм</span></th>
-                <th><span id="air-sensor1-SDS_P1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> µg/m³</th>
+                <th><span id="air-sensor1-SDS_P1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> мкг/m³</th>
             </tr>
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику SDS_P2, Пил 10 мкм</span></th>
-                <th><span id="air-sensor1-SDS_P2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> µg/m³</th>
+                <th><span id="air-sensor1-SDS_P2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> мкг/m³</th>
             </tr>
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику BME280_temperature, Температура</span></th>
@@ -62,19 +62,19 @@
             </tr>
             <tr>
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику BME280_pressure, Атмосферний тиск</span></th>
-                <th><span id="air-sensor1-BME280_pressure" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> hPa</th>
+                <th><span id="air-sensor1-BME280_pressure" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> мм.рт.ст</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику NH3</span></th>
-                <th><span id="air-sensor1-NH3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> ppm</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику NH3, Аміак</span></th>
+                <th><span id="air-sensor1-NH3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> мкг/m³</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику CO</span></th>
-                <th><span id="air-sensor1-CO" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> ppm</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику CO, Монооксид вуглецю</span></th>
+                <th><span id="air-sensor1-CO" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> мкг/m³</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику NO2</span></th>
-                <th><span id="air-sensor1-NO2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> ppm</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення на датчику NO2, Діоксид азоту</span></th>
+                <th><span id="air-sensor1-NO2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> мкг/m³</th>
             </tr>
         </table>
 
