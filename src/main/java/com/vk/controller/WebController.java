@@ -134,4 +134,9 @@ public class WebController {
     public String getTaskSecondCehLineNapal(){
         return "secondCehLineNapal";
     }
+
+    @RequestMapping(value = "/sensor1", method = RequestMethod.GET)
+    public String getTaskAirSensor1(){
+        return "air_sensor1";
+    }
 }

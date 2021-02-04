@@ -9,6 +9,7 @@ import com.vk.repository.websocket.RepositoryWebsocketEnergeticRoomTRM202;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * Created by KIP-PC99 on 11.06.2018.
  */
-@Repository
+@Service
 @ComponentScan(basePackages = {"com.vk.entity.device","com.vk.repository"})
 public class ServiceEnergeticRoomTRM201Impl implements ServiceEnergeticRoomTRM201 {
 
