@@ -86,9 +86,9 @@ let config = {
         labels: [0],
         datasets: [
             {
-                label: 'Канал1',
-                backgroundColor: '#9C510C',
-                borderColor: '#9C510C',
+                label: 'Давление',
+                backgroundColor: '#461fe1',
+                borderColor: '#461fe1',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -111,9 +111,9 @@ let config = {
                 data: [0]
             },
             {
-                label: 'Канал2',
-                backgroundColor: '#8C510C',
-                borderColor: '#8C510C',
+                label: 'Сушка зона 1',
+                backgroundColor: '#e1d71f',
+                borderColor: '#e1d71f',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -136,9 +136,9 @@ let config = {
                 data: [0]
             },
             {
-                label: 'Канал3',
-                backgroundColor: '#7C510C',
-                borderColor: '#7C510C',
+                label: 'Сушка зона 2',
+                backgroundColor: '#90e716',
+                borderColor: '#90e716',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -161,9 +161,9 @@ let config = {
                 data: [0]
             },
             {
-                label: 'Канал4',
-                backgroundColor: '#6C510C',
-                borderColor: '#6C510C',
+                label: 'Сушка зона 3',
+                backgroundColor: '#40a947',
+                borderColor: '#40a947',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -186,9 +186,9 @@ let config = {
                 data: [0]
             },
             {
-                label: 'Канал5',
-                backgroundColor: '#5C510C',
-                borderColor: '#5C510C',
+                label: 'Вулканизация',
+                backgroundColor: '#FF0000',
+                borderColor: '#FF0000',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,

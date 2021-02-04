@@ -12,6 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,7 +49,7 @@ public class RepositoryMicroserviceSecondCehBalonRaspberryImpl implements Reposi
             jsonBodyListForTableModelSecondCehBalonTRM138 = new JsonBodyListForTableModelSecondCehBalonTRM138();
             LOGGER.error("Can't get last data from database -> "+ e.getClass());
         }
-        System.out.println("jsonReadTableModelBetweenDate() :"+jsonBodyListForTableModelSecondCehBalonTRM138);
+//        System.out.println("jsonReadTableModelBetweenDate() :"+jsonBodyListForTableModelSecondCehBalonTRM138);
         return jsonBodyListForTableModelSecondCehBalonTRM138;
     }
 
@@ -61,7 +63,7 @@ public class RepositoryMicroserviceSecondCehBalonRaspberryImpl implements Reposi
             tableModelSecondCehBalonTRM138.setDate(LocalDateTime.now());
             LOGGER.error("Can't get last row from database -> "+ e.getClass());
         }
-        System.out.println("jsonReadTableModelLast() :"+tableModelSecondCehBalonTRM138);
+//        System.out.println("jsonReadTableModelLast() :"+tableModelSecondCehBalonTRM138);
         return tableModelSecondCehBalonTRM138;
     }
 
@@ -81,7 +83,7 @@ public class RepositoryMicroserviceSecondCehBalonRaspberryImpl implements Reposi
             deviceModelDevice.setInputRegister7(0F);
             LOGGER.error("Can't read all registers from device -> "+ e.getClass());
         }
-        System.out.println("jsonReadDeviceModelAllRegisters() :"+deviceModelDevice);
+//        System.out.println("jsonReadDeviceModelAllRegisters() :"+deviceModelDevice);
         return deviceModelDevice;
     }
 

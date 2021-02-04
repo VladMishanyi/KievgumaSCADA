@@ -45,23 +45,23 @@
 
         <table class="table">
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал1</span></th>
-                <th><span id="second-department-line-fingers-trm138-channel1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение давления</span></th>
+                <th><span id="second-department-line-fingers-trm138-channel1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> бар.</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал2</span></th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры сушка зона 1</span></th>
                 <th><span id="second-department-line-fingers-trm138-channel2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал3</span></th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры сушка зона 2</span></th>
                 <th><span id="second-department-line-fingers-trm138-channel3" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал4</span></th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры сушка зона 3</span></th>
                 <th><span id="second-department-line-fingers-trm138-channel4" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
             <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры канал5</span></th>
+                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Реальное значение температуры вулканизации</span></th>
                 <th><span id="second-department-line-fingers-trm138-channel5" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> град.</th>
             </tr>
         </table>
