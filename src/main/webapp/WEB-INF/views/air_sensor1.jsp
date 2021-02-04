@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
                 <h4 class="modal-title" id="myModalLabel" style="margin-top: 40px; text-align: center">
-                    Отчет сформирован:  <i id="datePart"></i>
+                    Звіт сформовано:  <i id="datePart"></i>
                     <script rel="script" type="text/javascript">
                         var currentDateTime = moment().format("YYYY-MM-DD HH:mm:ss");
                         $("#datePart").text(currentDateTime);
@@ -81,7 +81,7 @@
         <%--        <security:authorize access="isAuthenticated()">--%>
         <table class="table">
             <tr>
-                <th>Информация</th>
+                <th>Інформація</th>
             </tr>
             <tr>
                 <td>
