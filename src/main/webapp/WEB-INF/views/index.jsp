@@ -25,63 +25,63 @@
     <img src="resources/img/kievguma_3d.jpg" alt="kievguma_3d">
     <svg height="1160" width="2000">
         <a id="firstDepartment" class="item" data-toggle="modal" data-target=".img-firstCeh-modal">
-            <polygon points="969,406 1323,512 1064,756 806,654 860,613 776,577 874,507 834,491"/>
+            <polygon points="969,406 1323,512 1064,756 806,654 860,613 776,577 874,507 834,491"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="kotelnya" class="item" data-toggle="modal" data-target=".img-kotelnya-modal">
-            <polygon points="1038,898 1122,935 992,1078 818,991 904,911 990,947"/>
+            <polygon points="1038,898 1122,935 992,1078 818,991 904,911 990,947"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="vodopodgotovka" class="item" href="#">
-            <polygon points="710,878 770,869 780,914 720,924"/>
+            <polygon points="710,878 770,869 780,914 720,924"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="tp" class="item" href="#">
-            <polygon points="688,471 735,488 635,550 589,533"/>
+            <polygon points="688,471 735,488 635,550 589,533"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="skladmain" class="item" href="#">
-            <polygon points="398,367 678,467 577,525 441,397 382,377"/>
+            <polygon points="398,367 678,467 577,525 441,397 382,377"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="sklad" class="item" href="#">
-            <polygon points="720,138 758,145 407,296 371,285"/>
+            <polygon points="720,138 758,145 407,296 371,285"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="office2" class="item" data-toggle="modal" data-target=".img-secondOffice-modal">
-            <polygon points="1077,265 1140,283 920,427 851,404"/>
+            <polygon points="1077,265 1140,283 920,427 851,404"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="thirdceh" class="item" data-toggle="modal" data-target=".img-thirdceh-modal">
-            <polygon points="1153,314 1474,401 1337,535 1338,507 1015,411"/>
+            <polygon points="1153,314 1474,401 1337,535 1338,507 1015,411"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="fourthceh" class="item" href="#">
-            <polygon points="1173,206 1513,285 1509,299 1539,307 1485,359 1087,259"/>
+            <polygon points="1173,206 1513,285 1509,299 1539,307 1485,359 1087,259"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="secondceh" class="item" data-toggle="modal" data-target=".img-secondceh-modal">
-            <polygon points="1250,162 1610,240 1567,279 1529,269 1522,275 1185,198"/>
+            <polygon points="1250,162 1610,240 1567,279 1529,269 1522,275 1185,198"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="mainoffice" class="item" data-toggle="modal" data-target=".img-mainoffice-modal">
-            <polygon points="1037,94 1204,130 1166,150 996,112"/>
+            <polygon points="1037,94 1204,130 1166,150 996,112"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="sevenceh" class="item" data-toggle="modal" data-target=".img-sevenCeh-modal">
-            <polygon points="921,147 1086,185 878,297 742,259 700,281 650,265 757,214 770,217"/>
+            <polygon points="921,147 1086,185 878,297 742,259 700,281 650,265 757,214 770,217"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="motorservice" class="item" href="#">
-            <polygon points="745,266 868,302 833,320 710,283"/>
+            <polygon points="745,266 868,302 833,320 710,283"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="rmc" class="item" href="#">
-            <polygon points="638,268 824,326 759,361 569,299"/>
+            <polygon points="638,268 824,326 759,361 569,299"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
         <a id="pressform" class="item" href="#">
-            <polygon points="561,302 752,364 696,394 505,329"/>
+            <polygon points="561,302 752,364 696,394 505,329"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
     </svg>
