@@ -15,7 +15,7 @@
     <a href="/admin/panel"><span class="glyphicon glyphicon-user"></span>Admin</a>
     <a href="/service-desk"><span class="glyphicon glyphicon-paperclip"></span>Service Desk</a>
     <a href="/contact-desk"><span class="glyphicon glyphicon-book"></span>Contact Desk</a>
-    <a href="/sensor1"><span class="glyphicon glyphicon-book"></span>Sensor1</a>
+<%--    <a href="/sensor1"><span class="glyphicon glyphicon-book"></span>Sensor1</a>--%>
 </div>
 
 <!-- Use any element to open the sidenav -->

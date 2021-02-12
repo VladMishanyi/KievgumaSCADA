@@ -139,4 +139,9 @@ public class WebController {
     public String getTaskAirSensor1(){
         return "air_sensor1";
     }
+
+    @RequestMapping(value = "/silicon-camera-vulcan", method = RequestMethod.GET)
+    public String getTaskSiliconCameraVulcan(){
+        return "siliconCameraVulcan";
+    }
 }

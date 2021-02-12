@@ -294,6 +294,18 @@ CREATE TABLE air_sensor1 (
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8;
+
+/*----------------------------------------------------------------------------------*/
+DROP TABLE IF EXISTS silicone_camera_vulcan_trm251;
+CREATE TABLE silicone_camera_vulcan_trm251 (
+                        id              int UNSIGNED NOT NULL AUTO_INCREMENT,
+                        date            TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        inputRegister0  FLOAT        NOT NULL DEFAULT 0,
+                        inputRegister1  FLOAT        NOT NULL DEFAULT 0,
+                        PRIMARY KEY (id)
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8;
 /*----------------------------------------------------------------------------------*/
 INSERT INTO users (id, date, role, name, login, password, description, locked) VALUES (1, CURRENT_TIMESTAMP, 'SUPERADMIN', 'su', 'superadmin', '186cf774c97b60a1c106ef718d10970a6a06e06bef89553d9ae65d938a886eae', 'new', FALSE);
 INSERT INTO users (id, date, role, name, login, password, description, locked) VALUES (2, CURRENT_TIMESTAMP, 'ADMIN', 'ad', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'new', FALSE);

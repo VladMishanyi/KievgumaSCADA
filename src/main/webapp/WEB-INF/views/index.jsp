@@ -22,6 +22,9 @@
 <body>
 <div id="main">
     <jsp:include page="/WEB-INF/views/navbar.jsp"/>
+    <a id="sensor1-style" class='btn btn-sm btn-success btn--shockwave is-active' href="/sensor1">
+        Сенсор1
+    </a>
     <img src="resources/img/kievguma_3d.jpg" alt="kievguma_3d">
     <svg height="1160" width="2000">
         <a id="firstDepartment" class="item" data-toggle="modal" data-target=".img-firstCeh-modal">
@@ -56,7 +59,7 @@
             <polygon points="1153,314 1474,401 1337,535 1338,507 1015,411"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
-        <a id="fourthceh" class="item" href="#">
+        <a id="fourthceh" class="item" data-toggle="modal" data-target=".img-fourthceh-modal">
             <polygon points="1173,206 1513,285 1509,299 1539,307 1485,359 1087,259"></polygon>
             Sorry, your browser does not support inline SVG.
         </a>
@@ -124,6 +127,16 @@
                         Sorry, your browser does not support inline SVG.
                     </a>
                 </svg>
+        </div>
+    </div>
+    <div class="modal fade img-fourthceh-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
+        <div class="modal-dialog modal-lg" role="document">
+            <img src="resources/img/kievguma_zone_termoplast_crop_1000.jpg">
+            <div style="height: 1000px; width: 712px">
+                <a id="silicon-camera" class='btn btn-sm btn-success btn--jump is-active' href="/silicon-camera-vulcan">
+                    Камера вулкан.
+                </a>
+            </div>
         </div>
     </div>
     <div class="modal fade img-firstCeh-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLable">
