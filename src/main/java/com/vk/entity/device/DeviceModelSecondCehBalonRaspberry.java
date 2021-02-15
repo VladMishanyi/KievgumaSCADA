@@ -10,10 +10,10 @@ import java.util.Objects;
 @PropertySource(value = "classpath:second-ceh-balon-raspberry.properties")
 public class DeviceModelSecondCehBalonRaspberry implements DeviceModel{
 
-    @Value("${raspberry.ip}")
+    @Value("${raspberry-fingers.ip}")
     private String ip;
 
-    @Value("${raspberry.tomcat-port}")
+    @Value("${raspberry-fingers.tomcat-port}")
     private String tomcatPort;
 
     public DeviceModelSecondCehBalonRaspberry() {

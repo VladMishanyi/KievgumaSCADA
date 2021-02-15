@@ -10,10 +10,10 @@ import java.util.Objects;
 @PropertySource(value = "classpath:raspberry-energetic-room.properties")
 public class DeviceModelEnergeticRoomRaspberry  implements DeviceModel{
 
-    @Value("${raspberry.ip}")
+    @Value("${raspberry-energetic.ip}")
     private String ip;
 
-    @Value("${raspberry.tomcat-port}")
+    @Value("${raspberry-energetic.tomcat-port}")
     private String tomcatPort;
 
     public DeviceModelEnergeticRoomRaspberry() {

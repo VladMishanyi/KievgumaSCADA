@@ -10,10 +10,10 @@ import java.util.Objects;
 @PropertySource(value = "classpath:silicon-camera-vulcan-raspberry.properties")
 public class DeviceModelSiliconCameraVulkanRaspberry implements DeviceModel{
 
-    @Value("${raspberry.ip}")
+    @Value("${raspberry-silicon-camera-vulcan.ip}")
     private String ip;
 
-    @Value("${raspberry.tomcat-port}")
+    @Value("${raspberry-silicon-camera-vulcan.tomcat-port}")
     private String tomcatPort;
 
     public DeviceModelSiliconCameraVulkanRaspberry() {

@@ -1,12 +1,8 @@
 package com.vk.repository.microservice;
 
-import com.vk.entity.device.DeviceModelSecondCehBalonRaspberry;
-import com.vk.entity.device.DeviceModelSecondCehBalonTRM138;
 import com.vk.entity.device.DeviceModelSiliconCameraVulkanRaspberry;
 import com.vk.entity.device.DeviceModelSiliconCameraVulkanTRM251;
-import com.vk.entity.json.JsonBodyListForTableModelSecondCehBalonTRM138;
 import com.vk.entity.json.JsonBodyListForTableModelSiliconCameraVulkanTRM251;
-import com.vk.entity.table.TableModelSecondCehBalonTRM138;
 import com.vk.entity.table.TableModelSiliconeCameraVulcanTRM251;
 import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONException;
@@ -40,27 +36,22 @@ public class RepositoryMicroserviceSiliconCameraVulcanRaspberryImpl implements R
 
     @Override
     public JsonBodyListForTableModelSiliconCameraVulkanTRM251 jsonReadTableModelBetweenDate(final LocalDateTime start, final LocalDateTime end) {
-        JsonBodyListForTableModelSiliconCameraVulkanTRM251 jsonBodyListForTableModel = null;
         try {
-            jsonBodyListForTableModel = restTemplate.postForObject(createUrlAdress()+"/database/trm251/range", createHttpEntity(start, end), JsonBodyListForTableModelSiliconCameraVulkanTRM251.class);
+            return restTemplate.postForObject(createUrlAdress()+"/database/trm251/range", createHttpEntity(start, end), JsonBodyListForTableModelSiliconCameraVulkanTRM251.class);
         }catch (Exception e){
-            jsonBodyListForTableModel = new JsonBodyListForTableModelSiliconCameraVulkanTRM251();
-            LOGGER.error("Can't get last data from database -> "+ e.getClass());
+            LOGGER.error("Can't get last data from database -> "+ this.getClass());
         }
-        return jsonBodyListForTableModel;
+        return null;
     }
 
     @Override
     public TableModelSiliconeCameraVulcanTRM251 jsonReadTableModelLast() {
-        TableModelSiliconeCameraVulcanTRM251 tableModel = null;
         try {
-            tableModel = restTemplate.getForObject(createUrlAdress()+"/database/trm251/get-last-row", TableModelSiliconeCameraVulcanTRM251.class);
+            return restTemplate.getForObject(createUrlAdress()+"/database/trm251/get-last-row", TableModelSiliconeCameraVulcanTRM251.class);
         }catch (Exception e){
-            tableModel = new TableModelSiliconeCameraVulcanTRM251();
-            tableModel.setDate(LocalDateTime.now());
-            LOGGER.error("Can't get last row from database -> "+ e.getClass());
+            LOGGER.error("Can't get last row from database -> "+ this.getClass());
         }
-        return tableModel;
+        return null;
     }
 
     @Override
@@ -71,7 +62,7 @@ public class RepositoryMicroserviceSiliconCameraVulcanRaspberryImpl implements R
         }catch (Exception e){
             deviceModelDevice.setInputRegister0(0F);
             deviceModelDevice.setInputRegister1(0F);
-            LOGGER.error("Can't read all registers from device -> "+ e.getClass());
+            LOGGER.error("Can't read all registers from device -> "+ this.getClass());
         }
         return deviceModelDevice;
     }
