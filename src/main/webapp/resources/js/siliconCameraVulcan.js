@@ -74,7 +74,6 @@ function showBody(body){
     let channel1 = body.inputRegister0;
     let channel2 = body.inputRegister1;
     $("#silicon-camera-vulcan-trm251-channel1").text(channel1);
-    $("#silicon-camera-vulcan-trm251-channel2").text(channel2);
 }
 
 let config = {
@@ -86,31 +85,6 @@ let config = {
                 label: 'Температура',
                 backgroundColor: '#00CC00',
                 borderColor: '#00CC00',
-                borderWidth: 5,
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderCapStyle: 'butt',
-                borderJoinStyle: 'miter',
-                fill: false,
-                lineTension: 0.1,
-                pointBackgroundColor: '#000000',
-                pointBorderColor: '#FF0000',
-                pointBorderWidth: 0,
-                pointRadius: 0,
-                pointHitRadius: 10,
-                pointHoverBackgroundColor: '#000000',
-                pointHoverBorderColor: '#FF0000',
-                pointHoverBorderWidth: 2,
-                pointHoverRadius: 5,
-                showLine: true,
-                spanGaps: false,
-                steppedLine: false,
-                data: [0]
-            },
-            {
-                label: 'Канал2',
-                backgroundColor: '#ffff00',
-                borderColor: '#ffff00',
                 borderWidth: 5,
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -338,7 +312,7 @@ function genChart(data) {
 function buildChart(x, y1, y2) {
     config.data.labels = x;
     config.data.datasets[0].data = y1;
-    config.data.datasets[1].data = y2;
+    // config.data.datasets[1].data = y2;
     window.myLine.update();
 }
 
@@ -361,7 +335,7 @@ function addLastElementToChart(X1, Y1, Y2) {
     globalY2.push(Y2);
     config.data.labels.push(X1);
     config.data.datasets[0].data.push(Y1);
-    config.data.datasets[1].data.push(Y2);
+    // config.data.datasets[1].data.push(Y2);
     window.myLine.update();
 }
 

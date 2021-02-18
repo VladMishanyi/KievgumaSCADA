@@ -48,10 +48,6 @@
                 <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення темперетури</span></th>
                 <th><span id="silicon-camera-vulcan-trm251-channel1" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> °C</th>
             </tr>
-            <tr>
-                <th><span style="color: black; font-family: sans-serif; font-size: 24px;">Поточне значення канал 2</span></th>
-                <th><span id="silicon-camera-vulcan-trm251-channel2" style="color: red; font-family: sans-serif; font-size: 24px;"> </span> бар.</th>
-            </tr>
         </table>
 
 <%--        <security:authorize access="isAuthenticated()">--%>
