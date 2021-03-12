@@ -40,10 +40,12 @@ public class TaskSiliconCameraVulcanTRM251Impl implements TaskSiliconCameraVulca
         OffsetDateTime dateTimeCurrent = startOffsetLocalDateTime();
         OffsetDateTime dateTimeEnd = endOffsetLocalDateTime();
         OffsetDateTime current = dateTimeCurrent;
-        while (current.isBefore(dateTimeEnd)) {
-            OffsetDateTime next = current.plusHours(1);
-            service.databaseAddAllTableDevice(readTableModelBetweenDate(current.toLocalDateTime(), next.toLocalDateTime()));
-            current = next;
+        if (Objects.nonNull(dateTimeCurrent) && Objects.nonNull(dateTimeEnd)){
+            while (current.isBefore(dateTimeEnd)) {
+                OffsetDateTime next = current.plusHours(1);
+                service.databaseAddAllTableDevice(readTableModelBetweenDate(current.toLocalDateTime(), next.toLocalDateTime()));
+                current = next;
+            }
         }
     }
 
@@ -56,7 +58,8 @@ public class TaskSiliconCameraVulcanTRM251Impl implements TaskSiliconCameraVulca
 
     private LocalDateTime readEndEndpoinDate(){
         TableModelSiliconeCameraVulcanTRM251 tableModel = service.jsonReadTableModelLast();
-        return tableModel.getDate();
+        if (Objects.nonNull(tableModel)) return tableModel.getDate();
+        return null;
     }
 
     private List<TableModelSiliconeCameraVulcanTRM251> readTableModelBetweenDate(final LocalDateTime readStartEndpoinDate, final LocalDateTime readEndEndpoinDate){
@@ -65,7 +68,8 @@ public class TaskSiliconCameraVulcanTRM251Impl implements TaskSiliconCameraVulca
     }
 
     private OffsetDateTime localDateTomeToOffset(final LocalDateTime localDateTime){
-        return OffsetDateTime.of(localDateTime, OffsetDateTime.now().getOffset());
+        if (Objects.nonNull(localDateTime)) return OffsetDateTime.of(localDateTime, OffsetDateTime.now().getOffset());
+        return null;
     }
 
     private OffsetDateTime startOffsetLocalDateTime(){

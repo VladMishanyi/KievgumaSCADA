@@ -247,4 +247,11 @@ input:checked + .slider:before {
     z-index: 1;
     position: absolute;
 }
+
+#sensor2-style {
+    margin-left: 982px;
+    margin-top: 134px;
+    z-index: 1;
+    position: absolute;
+}
 /*-----------------------------------------------------shockwave button for the air sensor1*/
