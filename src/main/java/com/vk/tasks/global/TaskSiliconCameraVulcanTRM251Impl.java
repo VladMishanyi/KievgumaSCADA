@@ -42,7 +42,7 @@ public class TaskSiliconCameraVulcanTRM251Impl implements TaskSiliconCameraVulca
         OffsetDateTime current = dateTimeCurrent;
         if (Objects.nonNull(dateTimeCurrent) && Objects.nonNull(dateTimeEnd)){
             while (current.isBefore(dateTimeEnd)) {
-                OffsetDateTime next = current.plusHours(1);
+                OffsetDateTime next = current.plusHours(3);
                 service.databaseAddAllTableDevice(readTableModelBetweenDate(current.toLocalDateTime(), next.toLocalDateTime()));
                 current = next;
             }

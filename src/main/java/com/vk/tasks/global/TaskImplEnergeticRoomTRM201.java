@@ -44,7 +44,7 @@ public class TaskImplEnergeticRoomTRM201 implements TaskEnergeticRoomTRM201{
         OffsetDateTime dateTimeEnd = endOffsetLocalDateTime();
         OffsetDateTime current = dateTimeCurrent;
         while (current.isBefore(dateTimeEnd)) {
-            OffsetDateTime next = current.plusHours(1);
+            OffsetDateTime next = current.plusHours(3);
             service.databaseAddAllTableDevice(readTableModelBetweenDate(current.toLocalDateTime(), next.toLocalDateTime()));
             current = next;
         }

@@ -1,5 +1,9 @@
 package com.vk.entity.table;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.apache.log4j.Logger;
 
 import javax.persistence.*;
@@ -8,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.vk.lib.ObjectValidator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Created by User on 2018-02-27.
@@ -25,6 +30,9 @@ public abstract class TableModel implements Serializable, Cloneable{
     private long id;
 
 //    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "date", columnDefinition = "TIMESTAMP")
     private LocalDateTime date;
 
