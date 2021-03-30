@@ -31,6 +31,9 @@
     <a id="sensor3-style" class='btn btn-sm btn-success btn--shockwave is-active' href="/sensor3">
         Сенсор3
     </a>
+    <a id="sensor4-style" class='btn btn-sm btn-success btn--shockwave is-active' href="/sensor4">
+        Сенсор4
+    </a>
     <img src="resources/img/kievguma_3d.jpg" alt="kievguma_3d">
     <svg height="1160" width="2000">
         <a id="firstDepartment" class="item" data-toggle="modal" data-target=".img-firstCeh-modal">

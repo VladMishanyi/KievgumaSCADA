@@ -154,4 +154,9 @@ public class WebController {
     public String getTaskAirSensor3(){
         return "air_sensor3";
     }
+
+    @RequestMapping(value = "/sensor4", method = RequestMethod.GET)
+    public String getTaskAirSensor4(){
+        return "air_sensor4";
+    }
 }
